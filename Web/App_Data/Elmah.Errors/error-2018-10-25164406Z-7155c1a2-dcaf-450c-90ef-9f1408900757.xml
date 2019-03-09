@@ -1,0 +1,293 @@
+﻿<error errorId="7155c1a2-dcaf-450c-90ef-9f1408900757" application="/LM/W3SVC/2/ROOT" host="DESKTOP-RP7B1TI" type="System.NullReferenceException" message="Referencia a objeto no establecida como instancia de un objeto." source="Web" detail="System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.&#xD;&#xA;   en Web.Areas.Asistencia.Controllers.Api.ConfiguracionController.Save(Configuracion item) en D:\Cedro\Fuente\19102018_1\Web\Areas\Asistencia\Controllers\Api\ConfiguracionController.cs:línea 184&#xD;&#xA;   en lambda_method(Closure , Object , Object[] )&#xD;&#xA;   en System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.&lt;&gt;c__DisplayClassc.&lt;GetExecutor&gt;b__6(Object instance, Object[] methodParameters)&#xD;&#xA;   en System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)&#xD;&#xA;   en System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)&#xD;&#xA;--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---&#xD;&#xA;   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;&#xA;   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;&#xA;   en System.Web.Http.Controllers.ApiControllerActionInvoker.&lt;InvokeActionAsyncCore&gt;d__0.MoveNext()&#xD;&#xA;--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---&#xD;&#xA;   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;&#xA;   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;&#xA;   en System.Web.Http.Controllers.ActionFilterResult.&lt;ExecuteAsync&gt;d__2.MoveNext()&#xD;&#xA;--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---&#xD;&#xA;   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;&#xA;   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;&#xA;   en System.Web.Http.Controllers.ExceptionFilterResult.&lt;ExecuteAsync&gt;d__0.MoveNext()" user="cvaldivia" time="2018-10-25T16:44:06.4606572Z">
+  <serverVariables>
+    <item name="ALL_HTTP">
+      <value string="HTTP_CONNECTION:keep-alive&#xD;&#xA;HTTP_CONTENT_LENGTH:591&#xD;&#xA;HTTP_CONTENT_TYPE:application/x-www-form-urlencoded; charset=UTF-8&#xD;&#xA;HTTP_ACCEPT:application/json, text/javascript, */*; q=0.01&#xD;&#xA;HTTP_ACCEPT_ENCODING:gzip, deflate, br&#xD;&#xA;HTTP_ACCEPT_LANGUAGE:es-419,es;q=0.9&#xD;&#xA;HTTP_COOKIE:ASP.NET_SessionId=igktcswi4kxibsabtpw1qxxl; .ASPXAUTH=ED1B1A25BBCE31376F5C55DC11FB82036ABCC3FEF34A657F1447465F7544F6252F87ECD651763FA0447FF82D051C1E3626F5DD2EDC6C085B707B2A0A03406E154E7A2FA0ECE9E6369DA09F0F55800814E5C4B38A64EE5B55D9BB4A71D18A4E342E3D4AD6940630AB79BC1AA51753997361316E63E64B4A46BE1238124A6CF1CF84637DC353CC9D2442BA9941459B24367B2F900C5BC7F0A04298928FE562CE5D9584272D5FD6892EF9A2E5FA725F9DD92D1436B14EC0A387D6FDC7BF7D03EDBDC576EC17712835F3D4BAD32A1ED6AEFBD7391AAF999AF2A3E11AB7FC4E6592D05C20E9A590EB16CCCE46A576E8F03DDB8F7B7A6B892D32080974059AD76189F6&#xD;&#xA;HTTP_HOST:localhost:1371&#xD;&#xA;HTTP_REFERER:http://localhost:1371/Asistencia/Configuracion/Edit?id=307&#xD;&#xA;HTTP_USER_AGENT:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36&#xD;&#xA;HTTP_ORIGIN:http://localhost:1371&#xD;&#xA;HTTP_X_REQUESTED_WITH:XMLHttpRequest&#xD;&#xA;" />
+    </item>
+    <item name="ALL_RAW">
+      <value string="Connection: keep-alive&#xD;&#xA;Content-Length: 591&#xD;&#xA;Content-Type: application/x-www-form-urlencoded; charset=UTF-8&#xD;&#xA;Accept: application/json, text/javascript, */*; q=0.01&#xD;&#xA;Accept-Encoding: gzip, deflate, br&#xD;&#xA;Accept-Language: es-419,es;q=0.9&#xD;&#xA;Cookie: ASP.NET_SessionId=igktcswi4kxibsabtpw1qxxl; .ASPXAUTH=ED1B1A25BBCE31376F5C55DC11FB82036ABCC3FEF34A657F1447465F7544F6252F87ECD651763FA0447FF82D051C1E3626F5DD2EDC6C085B707B2A0A03406E154E7A2FA0ECE9E6369DA09F0F55800814E5C4B38A64EE5B55D9BB4A71D18A4E342E3D4AD6940630AB79BC1AA51753997361316E63E64B4A46BE1238124A6CF1CF84637DC353CC9D2442BA9941459B24367B2F900C5BC7F0A04298928FE562CE5D9584272D5FD6892EF9A2E5FA725F9DD92D1436B14EC0A387D6FDC7BF7D03EDBDC576EC17712835F3D4BAD32A1ED6AEFBD7391AAF999AF2A3E11AB7FC4E6592D05C20E9A590EB16CCCE46A576E8F03DDB8F7B7A6B892D32080974059AD76189F6&#xD;&#xA;Host: localhost:1371&#xD;&#xA;Referer: http://localhost:1371/Asistencia/Configuracion/Edit?id=307&#xD;&#xA;User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36&#xD;&#xA;Origin: http://localhost:1371&#xD;&#xA;X-Requested-With: XMLHttpRequest&#xD;&#xA;" />
+    </item>
+    <item name="APPL_MD_PATH">
+      <value string="/LM/W3SVC/2/ROOT" />
+    </item>
+    <item name="APPL_PHYSICAL_PATH">
+      <value string="D:\Cedro\Fuente\19102018_1\Web\" />
+    </item>
+    <item name="AUTH_TYPE">
+      <value string="Forms" />
+    </item>
+    <item name="AUTH_USER">
+      <value string="cvaldivia" />
+    </item>
+    <item name="AUTH_PASSWORD">
+      <value string="*****" />
+    </item>
+    <item name="LOGON_USER">
+      <value string="cvaldivia" />
+    </item>
+    <item name="REMOTE_USER">
+      <value string="cvaldivia" />
+    </item>
+    <item name="CERT_COOKIE">
+      <value string="" />
+    </item>
+    <item name="CERT_FLAGS">
+      <value string="" />
+    </item>
+    <item name="CERT_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SERIALNUMBER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CERT_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CONTENT_LENGTH">
+      <value string="591" />
+    </item>
+    <item name="CONTENT_TYPE">
+      <value string="application/x-www-form-urlencoded; charset=UTF-8" />
+    </item>
+    <item name="GATEWAY_INTERFACE">
+      <value string="CGI/1.1" />
+    </item>
+    <item name="HTTPS">
+      <value string="off" />
+    </item>
+    <item name="HTTPS_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="INSTANCE_ID">
+      <value string="2" />
+    </item>
+    <item name="INSTANCE_META_PATH">
+      <value string="/LM/W3SVC/2" />
+    </item>
+    <item name="LOCAL_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="PATH_INFO">
+      <value string="/api/Asistencia/Configuracion/Save" />
+    </item>
+    <item name="PATH_TRANSLATED">
+      <value string="D:\Cedro\Fuente\19102018_1\Web\api\Asistencia\Configuracion\Save" />
+    </item>
+    <item name="QUERY_STRING">
+      <value string="" />
+    </item>
+    <item name="REMOTE_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_HOST">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_PORT">
+      <value string="25006" />
+    </item>
+    <item name="REQUEST_METHOD">
+      <value string="POST" />
+    </item>
+    <item name="SCRIPT_NAME">
+      <value string="/api/Asistencia/Configuracion/Save" />
+    </item>
+    <item name="SERVER_NAME">
+      <value string="localhost" />
+    </item>
+    <item name="SERVER_PORT">
+      <value string="1371" />
+    </item>
+    <item name="SERVER_PORT_SECURE">
+      <value string="0" />
+    </item>
+    <item name="SERVER_PROTOCOL">
+      <value string="HTTP/1.1" />
+    </item>
+    <item name="SERVER_SOFTWARE">
+      <value string="Microsoft-IIS/10.0" />
+    </item>
+    <item name="URL">
+      <value string="/api/Asistencia/Configuracion/Save" />
+    </item>
+    <item name="HTTP_CONNECTION">
+      <value string="keep-alive" />
+    </item>
+    <item name="HTTP_CONTENT_LENGTH">
+      <value string="591" />
+    </item>
+    <item name="HTTP_CONTENT_TYPE">
+      <value string="application/x-www-form-urlencoded; charset=UTF-8" />
+    </item>
+    <item name="HTTP_ACCEPT">
+      <value string="application/json, text/javascript, */*; q=0.01" />
+    </item>
+    <item name="HTTP_ACCEPT_ENCODING">
+      <value string="gzip, deflate, br" />
+    </item>
+    <item name="HTTP_ACCEPT_LANGUAGE">
+      <value string="es-419,es;q=0.9" />
+    </item>
+    <item name="HTTP_COOKIE">
+      <value string="ASP.NET_SessionId=igktcswi4kxibsabtpw1qxxl; .ASPXAUTH=ED1B1A25BBCE31376F5C55DC11FB82036ABCC3FEF34A657F1447465F7544F6252F87ECD651763FA0447FF82D051C1E3626F5DD2EDC6C085B707B2A0A03406E154E7A2FA0ECE9E6369DA09F0F55800814E5C4B38A64EE5B55D9BB4A71D18A4E342E3D4AD6940630AB79BC1AA51753997361316E63E64B4A46BE1238124A6CF1CF84637DC353CC9D2442BA9941459B24367B2F900C5BC7F0A04298928FE562CE5D9584272D5FD6892EF9A2E5FA725F9DD92D1436B14EC0A387D6FDC7BF7D03EDBDC576EC17712835F3D4BAD32A1ED6AEFBD7391AAF999AF2A3E11AB7FC4E6592D05C20E9A590EB16CCCE46A576E8F03DDB8F7B7A6B892D32080974059AD76189F6" />
+    </item>
+    <item name="HTTP_HOST">
+      <value string="localhost:1371" />
+    </item>
+    <item name="HTTP_REFERER">
+      <value string="http://localhost:1371/Asistencia/Configuracion/Edit?id=307" />
+    </item>
+    <item name="HTTP_USER_AGENT">
+      <value string="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36" />
+    </item>
+    <item name="HTTP_ORIGIN">
+      <value string="http://localhost:1371" />
+    </item>
+    <item name="HTTP_X_REQUESTED_WITH">
+      <value string="XMLHttpRequest" />
+    </item>
+  </serverVariables>
+  <form>
+    <item name="id">
+      <value string="307" />
+    </item>
+    <item name="fechainicio">
+      <value string="2018-08-13T05:00:00.000Z" />
+    </item>
+    <item name="fechafin">
+      <value string="2018-09-28T05:00:00.000Z" />
+    </item>
+    <item name="nombre">
+      <value string="EPIERPVAG18G02/previsto" />
+    </item>
+    <item name="ejeintervencionid">
+      <value string="3" />
+    </item>
+    <item name="telecentroid">
+      <value string="212" />
+    </item>
+    <item name="programaid">
+      <value string="1" />
+    </item>
+    <item name="nivelid">
+      <value string="4" />
+    </item>
+    <item name="capacitadorid">
+      <value string="155" />
+    </item>
+    <item name="tipoid">
+      <value string="1" />
+    </item>
+    <item name="cerrado">
+      <value string="true" />
+    </item>
+    <item name="fechacierre">
+      <value string="" />
+    </item>
+    <item name="hombres">
+      <value string="" />
+    </item>
+    <item name="mujeres">
+      <value string="" />
+    </item>
+    <item name="productor">
+      <value string="" />
+    </item>
+    <item name="noproductor">
+      <value string="" />
+    </item>
+    <item name="rango1">
+      <value string="" />
+    </item>
+    <item name="rango2">
+      <value string="" />
+    </item>
+    <item name="rango3">
+      <value string="" />
+    </item>
+    <item name="rango4">
+      <value string="" />
+    </item>
+    <item name="rango1b">
+      <value string="" />
+    </item>
+    <item name="rango2b">
+      <value string="" />
+    </item>
+    <item name="rango3b">
+      <value string="" />
+    </item>
+    <item name="rango4b">
+      <value string="" />
+    </item>
+    <item name="aprobados">
+      <value string="" />
+    </item>
+    <item name="desaprobados">
+      <value string="" />
+    </item>
+    <item name="retirados">
+      <value string="" />
+    </item>
+    <item name="horas">
+      <value string="" />
+    </item>
+    <item name="localidad">
+      <value string="" />
+    </item>
+    <item name="aud_anulado">
+      <value string="false" />
+    </item>
+    <item name="aud_fechareg">
+      <value string="20181022010225" />
+    </item>
+    <item name="aud_usuarioreg">
+      <value string="lmozombite" />
+    </item>
+    <item name="aud_ipreg">
+      <value string="10.26.0.1" />
+    </item>
+    <item name="aud_fechamod">
+      <value string="20181025114350" />
+    </item>
+    <item name="aud_usuariomod">
+      <value string="cvaldivia" />
+    </item>
+    <item name="aud_ipmod">
+      <value string="::1" />
+    </item>
+    <item name="organizacion">
+      <value string="4" />
+    </item>
+    <item name="organizacionotro">
+      <value string="" />
+    </item>
+  </form>
+  <cookies>
+    <item name="ASP.NET_SessionId">
+      <value string="igktcswi4kxibsabtpw1qxxl" />
+    </item>
+    <item name=".ASPXAUTH">
+      <value string="ED1B1A25BBCE31376F5C55DC11FB82036ABCC3FEF34A657F1447465F7544F6252F87ECD651763FA0447FF82D051C1E3626F5DD2EDC6C085B707B2A0A03406E154E7A2FA0ECE9E6369DA09F0F55800814E5C4B38A64EE5B55D9BB4A71D18A4E342E3D4AD6940630AB79BC1AA51753997361316E63E64B4A46BE1238124A6CF1CF84637DC353CC9D2442BA9941459B24367B2F900C5BC7F0A04298928FE562CE5D9584272D5FD6892EF9A2E5FA725F9DD92D1436B14EC0A387D6FDC7BF7D03EDBDC576EC17712835F3D4BAD32A1ED6AEFBD7391AAF999AF2A3E11AB7FC4E6592D05C20E9A590EB16CCCE46A576E8F03DDB8F7B7A6B892D32080974059AD76189F6" />
+    </item>
+  </cookies>
+</error>

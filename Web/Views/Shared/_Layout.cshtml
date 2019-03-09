@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+    <link rel="icon" href="~/favicon.ico" />
+    <link href="~/Content/jquery-ui/jquery-ui.min.css" rel="stylesheet" />
+    @Styles.Render("~/Content/css","~/Content/datatable/css", "~/Content/jqwidgets/styles/jqx")
+    @RenderSection("styles", false)
+    @Scripts.Render("~/bundles/jquery","~/bundles/datatable","~/bundles/jqueryval", "~/bundles/knockout", "~/bundles/jqwidgets", "~/bundles/globalization")
+    <script src="~/Scripts/jquery-ui/jquery-ui.min.js"></script>
+    <script src="~/Scripts/jquery-ui/i18n/jquery.ui.datepicker-es.min.js"></script>
+    <script src="~/Scripts/jquery.numeric.js"></script>
+    <script src="~/Scripts/jquery.mousewheel.min.js"></script>
+    <script src="~/Scripts/jquery.timeentry.min.js"></script>
+    <script src="~/Scripts/knockout.bindingHandlers.js"></script>
+    <script src="~/Scripts/entities.js?@(Web.MvcApplication.QS)"></script>
+    <script src="~/Scripts/util.js?version=v1"></script>
+    @RenderSection("scripts", false)
+</head>
+<body>
+    <div id="loading"></div>
+    @RenderBody()
+</body>
+</html>

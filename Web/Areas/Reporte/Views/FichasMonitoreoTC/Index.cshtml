@@ -1,0 +1,209 @@
+﻿@section scripts
+{
+    <script type="text/javascript">
+        $(function () {
+
+            var Model = function ()
+            {
+                var self = this;
+
+                self.fechainicio= ko.observable(DateIni()),
+                self.fechafin= ko.observable(DateNow())
+
+                self.listTipodocumento = getJson('@Url.Content("~/api/General/Tipodocumento")');
+                self.listEjeIntervencion = getJson('@Url.Content("~/api/General/EjeIntervencion02")');
+                self.listResultado = getJson('@Url.Content("~/api/Planificacion/ResultadoTC/List")');
+                self.listSector = getJson('@Url.Content("~/api/General/Sector")');
+                self.listTipoDifusion = getJson('@Url.Content("~/api/General/TipoDifusion")');
+                self.listNivel = getJson('@Url.Content("~/api/General/Nivel")');
+
+                self.listLocalidad = ko.observableArray([]);
+                self.listActividad = ko.observableArray();
+
+                self.nivelid = ko.observable();
+                self.difusionid = ko.observable();
+                self.idTipodocumento = ko.observable();
+                self.idSector = ko.observable();
+                self.idResultado = ko.observable();
+                self.idActividad = ko.observable();
+                self.idEjeIntervencion = ko.observable();
+                self.idLocalidad = ko.observable();
+
+                self.idResultado.subscribe(function (id) {
+                    self.idActividad(undefined);
+                    self.listActividad(undefined);
+                    if (id) self.listActividad(getJson('@Url.Content("~/api/Planificacion/PlanOperativoTC/FindByResultado")', { id: id }));
+                });
+
+                self.idEjeIntervencion.subscribe(function (id) {
+                    self.idLocalidad(undefined);
+                    self.listLocalidad(undefined);
+                    if (id) {
+                        var l = getJson('@Url.Content("~/Api/General/localidad")', { eje: id });
+                        //l.push({ id: 0, nombre: 'Otros' });
+                        self.listLocalidad(l)
+                    }
+                });
+            };
+
+            ko.applyBindings(new Model());
+        });
+
+        function report(id, fechainicio, fechafin, resultadoid, actividadid, sectorid, ejeid, localid, tipoid)
+        {
+            if ($("#frmBuscar").refreshValidator().valid()) {
+                var fechainicio = formatDate_YYYYMMDD(fechainicio);
+                var fechafin = formatDate_YYYYMMDD(fechafin);
+
+                if (typeof resultadoid === 'undefined')
+                    resultadoid = '0';
+
+                if (typeof actividadid === 'undefined')
+                    actividadid = '0';
+
+                if (typeof sectorid === 'undefined')
+                    sectorid = '0';
+
+                if (typeof ejeid === 'undefined')
+                    ejeid = '0';
+
+                if (typeof localid === 'undefined')
+                    localid = '0';
+
+                if (typeof tipoid === 'undefined')
+                    tipoid = '0';
+
+                var cadena = "../Reports/MonitoreoTC.aspx?reporte=" + id + "&fechainicio=" + fechainicio + "&fechafin=" + fechafin +
+                             "&resultadoid=" + resultadoid + "&actividadid=" + actividadid + 
+                             "&sectorid=" + sectorid + "&ejeid=" + ejeid + "&localid=" + localid +
+                             "&tipoid=" + tipoid;
+                if (id==101)
+                    ShowPopupArchivo(cadena, 1300, 640);
+
+                if (id == 102)
+                    ShowPopupArchivo(cadena, 1120, 640);
+
+                if (id == 122)
+                    ShowPopupArchivo(cadena, 1180, 640);
+
+                if (id == 130)
+                    ShowPopupArchivo(cadena, 1300, 640);
+            }
+        }
+    </script>
+}
+
+<div class="toolbar">
+    <button type="button" class="refresh" title="Refrescar" onclick="document.location.reload()"></button>
+</div>
+
+<fieldset>
+    <legend></legend>    
+    <form id="frmBuscar">
+    <table style="width: 100%">
+        <colgroup>
+            <col style="width: 100px" />
+            <col />
+        </colgroup>
+        <tr>
+            <td>Desde</td>
+            <td>
+                <table style="width:40%">
+                    <tr>
+                        <td>
+                            @Html.koDate("$root.fechainicio",width:100,required:true)
+                        </td>
+                        <td></td>
+                        <td>Hasta
+                        </td>
+                        <td>
+                            @Html.koDate("$root.fechafin",width:100,required:true, min: "$root.fechainicio")
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>Resultado
+            </td>
+            <td>
+                <select style="width:100%" data-bind="value: idResultado,
+                        options: $root.listResultado, optionsText: 'nombre', optionsValue: 'id', optionsCaption: '[SELECCIONAR]'" , 
+                    data-val="false" data-val-required="false" />
+            </td>
+        </tr>
+        <tr>
+            <td>Actividad
+            </td>
+            <td>
+                <select style="width:100%" data-bind="value: idActividad, enable: (listActividad() && listActividad().length),
+                        options: $root.listActividad, optionsText: 'nombre', optionsValue: 'id', optionsCaption: '[SELECCIONAR]'"
+                    data-val="false" data-val-required="false" />
+            </td>
+        </tr>
+        <tr>
+            <td>Sector</td>
+            <td>
+                <table style="width:60%">
+                    <tr>                        
+                        <td>@Html.koSelectNoRequired("idSector", "$root.listSector")</td>
+
+                        <td>Eje de Intervención</td>
+                        <td>@Html.koSelectNoRequired("idEjeIntervencion", "$root.listEjeIntervencion")</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    <table class="grid">
+        <colgroup>
+            <col style="width: 50px" />
+            <col />
+            <col style="width: 200px" />
+            <col style="width: 28px" />
+        </colgroup>
+        <thead>
+            <tr>
+                <th>Nª
+                </th>
+                <th>Reporte
+                </th>
+                <th>Filtro
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td colspan="2">Listado de avance del registro de actividades</td>
+                <td style="text-align: center">
+                    <button type="button" class="btn report" title="Reporte" data-bind="click: function () { report(101, $root.fechainicio, $root.fechafin, idResultado(), idActividad(), idSector(), idEjeIntervencion(), idLocalidad(), 0) }"></button>
+                </td>
+            </tr>   
+            <tr>
+                <td>2</td>
+                <td colspan="2">Resumen de avance del registro de actividades</td>
+                <td style="text-align: center">
+                    <button type="button" class="btn report" title="Reporte" data-bind="click: function () { report(130, $root.fechainicio, $root.fechafin, idResultado(), idActividad(), idSector(), idEjeIntervencion(), idLocalidad(), 0) }"></button>
+                </td>
+            </tr>   
+            <tr>
+                <td>3</td>
+                <td colspan="2">Contrapartida</td>
+                <td style="text-align: center">
+                    <button type="button" class="btn report" title="Reporte" data-bind="click: function () { report(102, $root.fechainicio, $root.fechafin, idResultado(), idActividad(), idSector(), idEjeIntervencion(), idLocalidad(), 0) }"></button>
+                </td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td colspan="2">Ficha 6 - Registro de participantes</td>
+                <td style="text-align: center">
+                    <button type="button" class="btn report" title="Reporte" data-bind="click: function () { report(122, $root.fechainicio, $root.fechafin, idResultado(), idActividad(), idSector(), idEjeIntervencion(), idLocalidad(), 0) }"></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    </form>
+</fieldset>

@@ -1,0 +1,263 @@
+﻿<error errorId="86302906-03b4-47eb-ba3e-2697214f0e2a" application="/LM/W3SVC/3/ROOT" host="DESKTOP-RP7B1TI" type="System.ArgumentException" message="El valor de parámetro '100.00' está fuera del intervalo." source="System.Data" detail="System.Data.Entity.Infrastructure.DbUpdateException: An error occurred while updating the entries. See the inner exception for details. ---&gt; System.Data.Entity.Core.UpdateException: An error occurred while updating the entries. See the inner exception for details. ---&gt; System.ArgumentException: El valor de parámetro '100.00' está fuera del intervalo.&#xD;&#xA;   en System.Data.SqlClient.TdsParser.TdsExecuteRPC(SqlCommand cmd, _SqlRPC[] rpcArray, Int32 timeout, Boolean inSchema, SqlNotificationRequest notificationRequest, TdsParserStateObject stateObj, Boolean isCommandProc, Boolean sync, TaskCompletionSource`1 completion, Int32 startRpc, Int32 startParam)&#xD;&#xA;   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task&amp; task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)&#xD;&#xA;   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task&amp; task, Boolean&amp; usedCache, Boolean asyncWrite, Boolean inRetry)&#xD;&#xA;   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)&#xD;&#xA;   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)&#xD;&#xA;   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)&#xD;&#xA;   en System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)&#xD;&#xA;   en System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.&lt;Reader&gt;b__c(DbCommand t, DbCommandInterceptionContext`1 c)&#xD;&#xA;   en System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext,TResult](TTarget target, Func`3 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)&#xD;&#xA;   en System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.Reader(DbCommand command, DbCommandInterceptionContext interceptionContext)&#xD;&#xA;   en System.Data.Entity.Internal.InterceptableDbCommand.ExecuteDbDataReader(CommandBehavior behavior)&#xD;&#xA;   en System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)&#xD;&#xA;   en System.Data.Entity.Core.Mapping.Update.Internal.DynamicUpdateCommand.Execute(Dictionary`2 identifierValues, List`1 generatedValues)&#xD;&#xA;   en System.Data.Entity.Core.Mapping.Update.Internal.UpdateTranslator.Update()&#xD;&#xA;   --- Fin del seguimiento de la pila de la excepción interna ---&#xD;&#xA;   en System.Data.Entity.Core.Mapping.Update.Internal.UpdateTranslator.Update()&#xD;&#xA;   en System.Data.Entity.Core.EntityClient.Internal.EntityAdapter.&lt;Update&gt;b__2(UpdateTranslator ut)&#xD;&#xA;   en System.Data.Entity.Core.EntityClient.Internal.EntityAdapter.Update[T](T noChangesResult, Func`2 updateFunction)&#xD;&#xA;   en System.Data.Entity.Core.EntityClient.Internal.EntityAdapter.Update()&#xD;&#xA;   en System.Data.Entity.Core.Objects.ObjectContext.&lt;SaveChangesToStore&gt;b__35()&#xD;&#xA;   en System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)&#xD;&#xA;   en System.Data.Entity.Core.Objects.ObjectContext.SaveChangesToStore(SaveOptions options, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction)&#xD;&#xA;   en System.Data.Entity.Core.Objects.ObjectContext.&lt;&gt;c__DisplayClass2a.&lt;SaveChangesInternal&gt;b__27()&#xD;&#xA;   en System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)&#xD;&#xA;   en System.Data.Entity.Core.Objects.ObjectContext.SaveChangesInternal(SaveOptions options, Boolean executeInExistingTransaction)&#xD;&#xA;   en System.Data.Entity.Core.Objects.ObjectContext.SaveChanges(SaveOptions options)&#xD;&#xA;   en System.Data.Entity.Internal.InternalContext.SaveChanges()&#xD;&#xA;   --- Fin del seguimiento de la pila de la excepción interna ---&#xD;&#xA;   en System.Data.Entity.Internal.InternalContext.SaveChanges()&#xD;&#xA;   en System.Data.Entity.Internal.LazyInternalContext.SaveChanges()&#xD;&#xA;   en System.Data.Entity.DbContext.SaveChanges()&#xD;&#xA;   en Web.Areas.Asistencia.Controllers.Api.InscripcionController.Update(InscripcionFinal item) en D:\Cedro\Fuente\21082018_2\SMEC\Web\Areas\Asistencia\Controllers\Api\InscripcionController.cs:línea 177&#xD;&#xA;   en lambda_method(Closure , Object , Object[] )&#xD;&#xA;   en System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.&lt;&gt;c__DisplayClassc.&lt;GetExecutor&gt;b__6(Object instance, Object[] methodParameters)&#xD;&#xA;   en System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)&#xD;&#xA;   en System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)&#xD;&#xA;--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---&#xD;&#xA;   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;&#xA;   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;&#xA;   en System.Web.Http.Controllers.ApiControllerActionInvoker.&lt;InvokeActionAsyncCore&gt;d__0.MoveNext()&#xD;&#xA;--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---&#xD;&#xA;   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;&#xA;   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;&#xA;   en System.Web.Http.Controllers.ActionFilterResult.&lt;ExecuteAsync&gt;d__2.MoveNext()&#xD;&#xA;--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---&#xD;&#xA;   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;&#xA;   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;&#xA;   en System.Web.Http.Controllers.ExceptionFilterResult.&lt;ExecuteAsync&gt;d__0.MoveNext()" user="cvaldivia" time="2018-08-22T20:06:39.2667897Z">
+  <serverVariables>
+    <item name="ALL_HTTP">
+      <value string="HTTP_CONNECTION:keep-alive&#xD;&#xA;HTTP_CONTENT_LENGTH:352&#xD;&#xA;HTTP_CONTENT_TYPE:application/x-www-form-urlencoded; charset=UTF-8&#xD;&#xA;HTTP_ACCEPT:application/json, text/javascript, */*; q=0.01&#xD;&#xA;HTTP_ACCEPT_ENCODING:gzip, deflate&#xD;&#xA;HTTP_ACCEPT_LANGUAGE:es-ES,es;q=0.8,en-US;q=0.5,en;q=0.3&#xD;&#xA;HTTP_COOKIE:.ASPXAUTH=4C47A2D050C5989BDCCBAE99E14FA527D8F490C4D70FCEE9D581B594562F000C6B3196BD19EB843981243AA6E318C9DE63FAC768D441947BF83A2496F4C606FCD97D8ED36856172B134439ECF6FE9D23786F74293A602D666316A68FCD9829C956948721DE928E1C73C61BF7729F2D8755CCEB2BF492A3755ECF59E7F59C5961F4939DDC590D54F40198BB69B95BD16034FA6424481FA5BC9F2C7C3960E94F35CDE60276F1D7611FE15E331DB00F10780E018A29C65D858AEB924FE94EF57013DE2E252365076006C67E832B66BD2B0DB7D5FFC209C3BC3E37AA84E47C78E892CF873922207920A0FA1C74E5F0423CD684FD396D42B64F851D9949F85437CF0D; ASP.NET_SessionId=xcsdk035ykcykkbwl0tmq4vc&#xD;&#xA;HTTP_HOST:localhost:1371&#xD;&#xA;HTTP_REFERER:http://localhost:1371/Asistencia/Inscripcion/Edit?id=10&amp;parentid=14&amp;programaid=1&amp;moduloid=4&#xD;&#xA;HTTP_USER_AGENT:Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0&#xD;&#xA;HTTP_X_REQUESTED_WITH:XMLHttpRequest&#xD;&#xA;" />
+    </item>
+    <item name="ALL_RAW">
+      <value string="Connection: keep-alive&#xD;&#xA;Content-Length: 352&#xD;&#xA;Content-Type: application/x-www-form-urlencoded; charset=UTF-8&#xD;&#xA;Accept: application/json, text/javascript, */*; q=0.01&#xD;&#xA;Accept-Encoding: gzip, deflate&#xD;&#xA;Accept-Language: es-ES,es;q=0.8,en-US;q=0.5,en;q=0.3&#xD;&#xA;Cookie: .ASPXAUTH=4C47A2D050C5989BDCCBAE99E14FA527D8F490C4D70FCEE9D581B594562F000C6B3196BD19EB843981243AA6E318C9DE63FAC768D441947BF83A2496F4C606FCD97D8ED36856172B134439ECF6FE9D23786F74293A602D666316A68FCD9829C956948721DE928E1C73C61BF7729F2D8755CCEB2BF492A3755ECF59E7F59C5961F4939DDC590D54F40198BB69B95BD16034FA6424481FA5BC9F2C7C3960E94F35CDE60276F1D7611FE15E331DB00F10780E018A29C65D858AEB924FE94EF57013DE2E252365076006C67E832B66BD2B0DB7D5FFC209C3BC3E37AA84E47C78E892CF873922207920A0FA1C74E5F0423CD684FD396D42B64F851D9949F85437CF0D; ASP.NET_SessionId=xcsdk035ykcykkbwl0tmq4vc&#xD;&#xA;Host: localhost:1371&#xD;&#xA;Referer: http://localhost:1371/Asistencia/Inscripcion/Edit?id=10&amp;parentid=14&amp;programaid=1&amp;moduloid=4&#xD;&#xA;User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0&#xD;&#xA;X-Requested-With: XMLHttpRequest&#xD;&#xA;" />
+    </item>
+    <item name="APPL_MD_PATH">
+      <value string="/LM/W3SVC/3/ROOT" />
+    </item>
+    <item name="APPL_PHYSICAL_PATH">
+      <value string="D:\Cedro\Fuente\21082018_2\SMEC\Web\" />
+    </item>
+    <item name="AUTH_TYPE">
+      <value string="Forms" />
+    </item>
+    <item name="AUTH_USER">
+      <value string="cvaldivia" />
+    </item>
+    <item name="AUTH_PASSWORD">
+      <value string="*****" />
+    </item>
+    <item name="LOGON_USER">
+      <value string="cvaldivia" />
+    </item>
+    <item name="REMOTE_USER">
+      <value string="cvaldivia" />
+    </item>
+    <item name="CERT_COOKIE">
+      <value string="" />
+    </item>
+    <item name="CERT_FLAGS">
+      <value string="" />
+    </item>
+    <item name="CERT_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SERIALNUMBER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CERT_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CONTENT_LENGTH">
+      <value string="352" />
+    </item>
+    <item name="CONTENT_TYPE">
+      <value string="application/x-www-form-urlencoded; charset=UTF-8" />
+    </item>
+    <item name="GATEWAY_INTERFACE">
+      <value string="CGI/1.1" />
+    </item>
+    <item name="HTTPS">
+      <value string="off" />
+    </item>
+    <item name="HTTPS_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="INSTANCE_ID">
+      <value string="3" />
+    </item>
+    <item name="INSTANCE_META_PATH">
+      <value string="/LM/W3SVC/3" />
+    </item>
+    <item name="LOCAL_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="PATH_INFO">
+      <value string="/api/Asistencia/Inscripcion/Update" />
+    </item>
+    <item name="PATH_TRANSLATED">
+      <value string="D:\Cedro\Fuente\21082018_2\SMEC\Web\api\Asistencia\Inscripcion\Update" />
+    </item>
+    <item name="QUERY_STRING">
+      <value string="" />
+    </item>
+    <item name="REMOTE_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_HOST">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_PORT">
+      <value string="18638" />
+    </item>
+    <item name="REQUEST_METHOD">
+      <value string="POST" />
+    </item>
+    <item name="SCRIPT_NAME">
+      <value string="/api/Asistencia/Inscripcion/Update" />
+    </item>
+    <item name="SERVER_NAME">
+      <value string="localhost" />
+    </item>
+    <item name="SERVER_PORT">
+      <value string="1371" />
+    </item>
+    <item name="SERVER_PORT_SECURE">
+      <value string="0" />
+    </item>
+    <item name="SERVER_PROTOCOL">
+      <value string="HTTP/1.1" />
+    </item>
+    <item name="SERVER_SOFTWARE">
+      <value string="Microsoft-IIS/10.0" />
+    </item>
+    <item name="URL">
+      <value string="/api/Asistencia/Inscripcion/Update" />
+    </item>
+    <item name="HTTP_CONNECTION">
+      <value string="keep-alive" />
+    </item>
+    <item name="HTTP_CONTENT_LENGTH">
+      <value string="352" />
+    </item>
+    <item name="HTTP_CONTENT_TYPE">
+      <value string="application/x-www-form-urlencoded; charset=UTF-8" />
+    </item>
+    <item name="HTTP_ACCEPT">
+      <value string="application/json, text/javascript, */*; q=0.01" />
+    </item>
+    <item name="HTTP_ACCEPT_ENCODING">
+      <value string="gzip, deflate" />
+    </item>
+    <item name="HTTP_ACCEPT_LANGUAGE">
+      <value string="es-ES,es;q=0.8,en-US;q=0.5,en;q=0.3" />
+    </item>
+    <item name="HTTP_COOKIE">
+      <value string=".ASPXAUTH=4C47A2D050C5989BDCCBAE99E14FA527D8F490C4D70FCEE9D581B594562F000C6B3196BD19EB843981243AA6E318C9DE63FAC768D441947BF83A2496F4C606FCD97D8ED36856172B134439ECF6FE9D23786F74293A602D666316A68FCD9829C956948721DE928E1C73C61BF7729F2D8755CCEB2BF492A3755ECF59E7F59C5961F4939DDC590D54F40198BB69B95BD16034FA6424481FA5BC9F2C7C3960E94F35CDE60276F1D7611FE15E331DB00F10780E018A29C65D858AEB924FE94EF57013DE2E252365076006C67E832B66BD2B0DB7D5FFC209C3BC3E37AA84E47C78E892CF873922207920A0FA1C74E5F0423CD684FD396D42B64F851D9949F85437CF0D; ASP.NET_SessionId=xcsdk035ykcykkbwl0tmq4vc" />
+    </item>
+    <item name="HTTP_HOST">
+      <value string="localhost:1371" />
+    </item>
+    <item name="HTTP_REFERER">
+      <value string="http://localhost:1371/Asistencia/Inscripcion/Edit?id=10&amp;parentid=14&amp;programaid=1&amp;moduloid=4" />
+    </item>
+    <item name="HTTP_USER_AGENT">
+      <value string="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0" />
+    </item>
+    <item name="HTTP_X_REQUESTED_WITH">
+      <value string="XMLHttpRequest" />
+    </item>
+  </serverVariables>
+  <form>
+    <item name="Configuracion">
+      <value string="" />
+    </item>
+    <item name="Persona">
+      <value string="" />
+    </item>
+    <item name="id">
+      <value string="10" />
+    </item>
+    <item name="configuracionid">
+      <value string="14" />
+    </item>
+    <item name="personaid">
+      <value string="2" />
+    </item>
+    <item name="horainicio">
+      <value string="" />
+    </item>
+    <item name="horafin">
+      <value string="" />
+    </item>
+    <item name="usoid">
+      <value string="" />
+    </item>
+    <item name="usootro">
+      <value string="" />
+    </item>
+    <item name="condicionid">
+      <value string="1" />
+    </item>
+    <item name="notafinal">
+      <value string="100" />
+    </item>
+    <item name="calificacion">
+      <value string="" />
+    </item>
+    <item name="lineapre_1">
+      <value string="" />
+    </item>
+    <item name="lineapost_1">
+      <value string="" />
+    </item>
+    <item name="lineapre_2">
+      <value string="" />
+    </item>
+    <item name="lineapost_2">
+      <value string="" />
+    </item>
+    <item name="lineapre_3">
+      <value string="" />
+    </item>
+    <item name="lineapost_3">
+      <value string="" />
+    </item>
+    <item name="lineapre_4">
+      <value string="" />
+    </item>
+    <item name="lineapost_4">
+      <value string="" />
+    </item>
+    <item name="lineapre_5">
+      <value string="" />
+    </item>
+    <item name="lineapost_5">
+      <value string="" />
+    </item>
+    <item name="lineapre_6">
+      <value string="" />
+    </item>
+    <item name="lineapost_6">
+      <value string="" />
+    </item>
+    <item name="lineapre_7">
+      <value string="" />
+    </item>
+    <item name="lineapost_7">
+      <value string="" />
+    </item>
+    <item name="lineapre_8">
+      <value string="" />
+    </item>
+    <item name="lineapost_8">
+      <value string="" />
+    </item>
+    <item name="observacion">
+      <value string="" />
+    </item>
+  </form>
+  <cookies>
+    <item name=".ASPXAUTH">
+      <value string="4C47A2D050C5989BDCCBAE99E14FA527D8F490C4D70FCEE9D581B594562F000C6B3196BD19EB843981243AA6E318C9DE63FAC768D441947BF83A2496F4C606FCD97D8ED36856172B134439ECF6FE9D23786F74293A602D666316A68FCD9829C956948721DE928E1C73C61BF7729F2D8755CCEB2BF492A3755ECF59E7F59C5961F4939DDC590D54F40198BB69B95BD16034FA6424481FA5BC9F2C7C3960E94F35CDE60276F1D7611FE15E331DB00F10780E018A29C65D858AEB924FE94EF57013DE2E252365076006C67E832B66BD2B0DB7D5FFC209C3BC3E37AA84E47C78E892CF873922207920A0FA1C74E5F0423CD684FD396D42B64F851D9949F85437CF0D" />
+    </item>
+    <item name="ASP.NET_SessionId">
+      <value string="xcsdk035ykcykkbwl0tmq4vc" />
+    </item>
+  </cookies>
+</error>

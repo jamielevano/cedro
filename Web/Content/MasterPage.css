@@ -1,0 +1,66 @@
+﻿/*body { width: 100%; padding: 0; margin: 0; font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif; }*/
+
+/*div#menu { background: #1797C0; }*/
+/*div#menu { background-image: url(../Images/Empresa/fondo_18.jpg); }
+div#menu li.right { list-style: none; float: right!important; padding: 4px 8px; }
+div#menu li.right a { color: #fff; text-decoration: none; }
+div#menu li.right a.password { background-image: url(../Images/password.png); width: 16px; height: 16px; display: inline-block; vertical-align: top; cursor: pointer; }*/
+
+
+/*div#content { margin-top: 1px; border: 0; }
+div#content .jqx-tabs-content .jqx-tabs-content-element { padding: 0; margin: 0; }
+div#content iframe { width: 100%; height: 100%; border: 0; background-color: #ffffff; }*/
+
+/*div#foot { padding: 5px 0; width: 100%; height: 50px; background: #1797C0; font-size: 10px; line-height: 16px; font-weight: bold; color: #ffffff; }*/
+/*div#foot { padding: 5px 0; width: 100%; height: 50px; background-image: url(../Images/Empresa/fondo_11.jpg); font-size: 10px; line-height: 16px; font-weight: bold; color: #ffffff; }
+div#foot img { height: 50px; float: left; margin: 0 5px; }*/
+
+/*#content .jqx-tabs-content { background: url(../images/fondo2.png) no-repeat center center; }*/
+
+*{
+    font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif !important;
+    font-size: 12px !important;
+    text-transform: uppercase;
+}
+
+body { width: 100%; padding: 0; margin: 0; font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif; }
+
+/*div#menu { background: #1797C0; }*/
+div#menu { background-image: url(../Images/Empresa/fondo_18.jpg); }
+div#menu li.right { list-style: none; float: right!important; padding: 4px 8px; }
+div#menu li.right a { color: #fff; text-decoration: none; }
+div#menu li.right a.password { background-image: url(../Images/password.png); width: 16px; height: 16px; display: inline-block; vertical-align: top; cursor: pointer; }
+
+
+div#content { margin-top: 1px; border: 0; }
+div#content .jqx-tabs-content .jqx-tabs-content-element { padding: 0; margin: 0; }
+div#content iframe { width: 100%; height: 100%; border: 0; background-color: #ffffff; }
+
+/*div#foot { padding: 5px 0; width: 100%; height: 50px; background: #1797C0; font-size: 10px; line-height: 16px; font-weight: bold; color: #ffffff; }*/
+div#foot { padding: 5px 0; width: 100%; height: 50px; background-image: url(../Images/Empresa/fondo_11.jpg); font-size: 10px; line-height: 16px; font-weight: bold; color: #ffffff; }
+div#foot img { height: 50px; float: left; margin: 0 5px; }
+
+/*#content .jqx-tabs-content { background: url(../images/fondo2.png) no-repeat center center; }*/
+#content .jqx-tabs-content { background: url(../images/Empresa/fondo_estadistica_crece.png) no-repeat fixed center center; }
+
+/*#content .jqx-tabs-content {  
+                              width: 100%;
+                              height: 400px;
+                              /*background:no-repeat fixed center center;*/
+                              background-image: url(../images/Empresa/logos-alianza-CRECE.png),
+                                  url(../images/Empresa/fondo_estadistica_7.png) ;
+                                  /*linear-gradient(to right, rgba(30, 75, 115, 1), rgba(255, 255, 255, 0));*/
+                              background-repeat: no-repeat,
+                                  no-repeat;
+                                  /*no-repeat;*/
+                              /*background-position: 730px 10px,300px 250px;*/
+                               background-position: 1100px 250px,250px 200px;                               
+                                bottom  center;
+                                  /*right;*/
+                              /*background-size:350px,1500px;*/
+                               background-size:380px,auto;
+                                /*background-size:auto,auto;*/
+                              border-radius: 50%,0%;
+}*/
+
+

@@ -1,0 +1,104 @@
+﻿@section scripts
+{
+    <script type="text/javascript">
+        $(function () {
+            var data, id = queryString('id');
+            var permiso = getJson('@Url.Content("~/api/Sistema/Permiso/Find")', { id: 4 });
+
+            if (id)
+                data = getJson('@Url.Content("~/api/Planificacion/Proyecto/Find")', { id: id });
+            else
+                data = getJson('@Url.Content("~/api/Planificacion/Proyecto/Find")');
+            
+
+            var Model = function (data) {
+                var self = this;
+
+                data = data || {
+                    id: 0,
+                    codigo: null,
+                    nombre: null
+                };
+
+                self.data = ko.mapping.fromJS(data);
+                
+                self.Save = function (form)
+                {
+                    if ($(form).refreshValidator().valid())
+                    {
+                        postJson('@Url.Content("~/api/Planificacion/Proyecto/Save")', JSON.parse(ko.mapping.toJSON(self.data)),
+                        function () {
+                            
+                            document.location.href = '@Url.Content("~/Planificacion/Proyecto")';
+                        },
+                        function () {
+                            alert('Error');
+                        });
+                    }
+                };
+
+                if (id) {
+                    self.grabar = permiso.modificar;
+                    self.agregar = permiso.modificar;
+                    self.eliminar = permiso.modificar;
+                }
+                else {
+                    self.grabar = permiso.agregar;
+                    self.agregar = permiso.agregar;
+                    self.eliminar = permiso.agregar;
+                }
+                
+            };
+
+            ko.applyBindings(new Model(data));
+
+            if ((id && !permiso.modificar) || (!id && !permiso.agregar)) {
+                $('input[type=text],textarea').prop("readonly", true);
+            }
+
+            $("#codigo").focus();
+        })
+    </script>
+}
+
+<form data-bind="submit: Save" style="width: 100%; float: left;">
+
+    <div class="toolbar">
+        <a class="back" title="Volver" href="@Url.Action("Index")"></a>
+        <button data-bind="enable: $root.grabar" type="button" class="save" title="Grabar" onclick="$(this).closest('form').submit()"></button>
+        <button type="button" class="refresh" title="Refrescar" onclick="document.location.reload()"></button>
+    </div>
+
+
+    <fieldset>
+        <legend>Proyecto</legend>
+        <table style="width: 100%">
+            <colgroup>
+                <col style="width: 150px" />
+                <col style="width: 150px" />
+                <col />
+            </colgroup>
+            <tr>
+                <td>Código</td>
+                <td>
+                    <input id="codigo" name="codigo" type="text" data-bind="value: data.codigo" style="width: 100%" data-val="true" data-val-required="" />
+                </td>
+                <td></td>
+            </tr>
+        </table>
+
+        <table style="width: 100%">
+            <colgroup>
+                <col style="width: 150px" />
+            </colgroup>
+            <tr>
+                <td>Nombre</td>
+                <td>
+                    <input name="nombre" type="text" data-bind="value: data.nombre" style="width: 100%" data-val="true" data-val-required="" />
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+</form>
+
+@*<pre class="json" data-bind="text: JSON.stringify(ko.mapping.toJS(data) , null, '  ')"></pre>*@

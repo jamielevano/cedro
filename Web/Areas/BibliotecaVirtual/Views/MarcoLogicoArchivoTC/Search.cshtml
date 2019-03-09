@@ -1,0 +1,115 @@
+﻿@section scripts
+{
+    <script type="text/javascript">
+        $(function () 
+        {
+
+            var Model = function () 
+            {
+                var self = this;
+                
+                self.data = 
+                {
+                    id: ko.observable(null),
+                    encuestaid: ko.observable(null),
+                    fechainicio: ko.observable(null),
+                    fechafin: ko.observable(null),
+                    usuario: ko.observable('@User.Identity.Name')
+                };
+
+                self.listTipoEncuesta = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(ViewBag.ListTipoEncuesta));
+                self.listUsuario = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(ViewBag.ListUsuario));
+                self.list = ko.observableArray();
+
+                self.Search = function (form) 
+                {
+                    self.list(undefined);
+                    postJson('@Url.Content("~/Api/Evaluacion/Encuesta/Search")', ko.mapping.toJS(self.data), function(data)
+                    {
+                        self.list(data);
+                    })
+                }
+            }
+
+            ko.applyBindings(new Model());
+        });
+
+        EncuestaArchivo = function (id)
+        {
+            ShowPopupArchivo('@Url.Action("EncuestaArchivo","MarcoLogicoArchivoTC",new { area = "BibliotecaVirtual" })?biblioteca=1&id=' + id , 1100, 500);
+            return false;
+        }
+    </script>
+}
+
+<div class="toolbar">
+    <button type="button" class="refresh" title="Refrescar" onclick="document.location.reload()"></button>
+</div>
+
+<fieldset>
+    <legend>Buscar encuesta</legend>
+    <form data-bind="submit: Search">
+        <table style="width:100%;">
+            <tr>
+                <td>Código
+                </td>
+                <td>
+                    @Html.koTextNoRequired("data.id")@Web.Auth.GetTicketData()
+                </td>
+                <td></td>
+                <td>Tipo
+                </td>
+                <td>
+                    <select data-bind="value: data.encuestaid, options: listTipoEncuesta, optionsText: 'nombre', optionsValue: 'id', optionsCaption: '[SELECCIONAR]', uniqueName: true"></select>
+                </td>
+                <td></td>
+                <td>Usuario
+                </td>
+                <td>
+                    <select data-bind="value: data.usuario, options: listUsuario, optionsCaption: '[Todos]', uniqueName: true, enable: @Web.Auth.GetTicketData().Admin.ToString().ToLower()"></select>
+                </td>
+            </tr>
+            <tr>
+                <td>Desde
+                </td>
+                <td>
+                    @Html.koDate("data.fechainicio")
+                </td>
+                <td></td>
+                <td>Hasta
+                </td>
+                <td>
+                    @Html.koDate("data.fechafin")
+                </td>
+                <td></td>
+                <td>
+                    <button type="submit">Buscar</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</fieldset>
+
+<table class="grid" style="width: 95%">
+    <thead>
+        <tr>
+            <th style="width: 50px">Código</th>
+            <th style="width: auto">Tipo de Encuesta</th>
+            <th style="width: 120px">Fecha</th>
+            <th style="width: 150px">Usuario</th>
+            <th style="width: 80px">Archivo</th>
+        </tr>
+    </thead>
+    <tbody data-bind="foreach: list">
+        <tr>
+            <td data-bind="text: id" style="text-align: right"></td>
+            <td data-bind="text: encuesta"></td>
+            <td data-bind="text: formatDate(fecha)" style="text-align: center"></td>
+            <td data-bind="text: aud_usuarioreg"></td>
+            <td style="text-align: center">
+                <button type="button" title="Encuesta" data-bind="attr: { class: 'btn folder' + ((archivos == true) ? '_open' : '') },click: function(){EncuestaArchivo(id)}"></button>                
+            </td>
+        </tr>
+    </tbody>
+</table>
+

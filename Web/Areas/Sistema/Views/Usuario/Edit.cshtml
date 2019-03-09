@@ -1,0 +1,131 @@
+﻿@section scripts
+{
+    <script type="text/javascript">
+        $(function () {
+            var data, id = queryString('id');
+
+            if (id)
+                data = getJson('@Url.Content("~/api/Sistema/Usuario/Find")', { id: id });
+            else
+                data = getJson('@Url.Content("~/api/Sistema/Usuario/Find")');
+
+
+            var Model = function (data) {
+                var self = this;
+
+                data = data || {
+                    id: 0,
+                    login: null,
+                    cargo: null,
+                    telecentro: null,
+                    clave: null,
+                    nombre: null,
+                    admin: null,
+                    coordinador: null,
+                    rolid:null,
+                    Rol: [],
+                };
+
+                self.listTelecentros = getJson('@Url.Content("~/api/General/EjeIntervencion02")');
+
+                
+
+                self.data = ko.mapping.fromJS(data);
+                
+                self.Save = function (form)
+                {
+                    if ($(form).refreshValidator().valid())
+                    {
+                        postJson('@Url.Content("~/api/Sistema/Usuario/Save")', JSON.parse(ko.mapping.toJSON(self.data)),
+                        function () {
+                            
+                            document.location.href = '@Url.Action("Index")';
+                        },
+                        function () {
+                            alert('Error');
+                        });
+                    }
+                };
+
+                self.listRol = getJson('@Url.Content("~/api/Sistema/Rol/List")');
+                
+            };
+
+            ko.applyBindings(new Model(data));
+        })
+    </script>
+}
+
+<form data-bind="submit: Save" style="width: 100%; float: left;">
+
+    <div class="toolbar">
+        <a class="back" title="Volver" href="@Url.Action("Index")"></a>
+        <button type="button" class="save" title="Grabar" onclick="$(this).closest('form').submit()"></button>
+        <button type="button" class="refresh" title="Refrescar" onclick="document.location.reload()"></button>
+    </div>
+
+
+    <fieldset>
+        <legend>USUARIO</legend>
+        <table style="width: 100%">
+            <colgroup>
+                <col style="width: 100px" />
+                <col />
+            </colgroup>
+            <tr>
+                <td>LOGIN</td>
+                <td>
+                    <input type="hidden" name="id" data-bind="value: data.id" />
+                    <input name="login" type="text" data-bind="value: data.login" data-val="true" data-val-required="" maxlength="15"/>
+                </td>
+            </tr>
+            <tr>
+                <td>CLAVE</td>
+                <td>
+                    <input name="clave" type="text" data-bind="value: data.clave" data-val="true" data-val-required="" maxlength="15" />
+                </td>
+            </tr>
+            <tr>
+                <td>NOMBRE</td>
+                <td>
+                    <input name="nombre" type="text" data-bind="value: data.nombre" data-val="true" data-val-required="" maxlength="50" />
+                </td>
+            </tr>
+            <tr>
+                <td>CARGO</td>
+                <td>
+                    <input name="clave" type="text" data-bind="value: data.cargo" data-val="true" data-val-required="" maxlength="50" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    EJE DE INTERVENCION
+                </td>
+                <td>
+                    @Html.koSelect("data.telecentro", "$root.listTelecentros")
+                </td>
+            </tr>
+            <tr>
+                <td>ADMIN</td>
+                <td>
+                    <input name="admin" type="checkbox" data-bind="checked: data.admin"/>
+                </td>
+            </tr>
+            <tr>
+                <td>ROL</td>
+                <td>
+                    <select data-bind="value: data.rolid, options: $root.listRol, optionsText: 'nombre', optionsValue: 'id', optionsCaption: '[SELECCIONAR]', attr: { name: 'data.rolid' }" data-val="true" data-val-required="" />
+                </td>
+            </tr>
+            <tr>
+                <td>COORDINADOR</td>
+                <td>
+                    <input name="coordinador" type="checkbox" data-bind="checked: data.coordinador" />
+                </td>
+            </tr>
+        </table>
+
+    </fieldset>
+</form>
+
+@*<pre class="json" data-bind="text: JSON.stringify(ko.mapping.toJS(data) , null, '  ')"></pre>*@

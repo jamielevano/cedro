@@ -1,0 +1,246 @@
+﻿@section scripts
+{
+    <script type="text/javascript">
+        $(function ()
+        {
+            var data, proyecto, id = queryString('id'), proyectoid = queryString('proyectoid');
+
+            proyecto = getJson('@Url.Content("~/api/Planificacion/Proyecto/Find")', { id: proyectoid });
+            var permiso = getJson('@Url.Content("~/api/Sistema/Permiso/Find")', { id: 67 });
+
+            if (id)
+                data = getJson('@Url.Content("~/api/Planificacion/PlanOperativo/Find")', { id: id });
+
+            var Model = function (data, proyecto) {
+                var self = this;
+
+                data = data || {
+                    id: 0,
+                    codigo: null,
+                    resultadoid: null,
+                    actividad: null,
+                    presupuesto: 0,
+                    periodoinicio: null,
+                    periodofin: null,
+                    codigo: null,
+                    supuesto: null,
+                    PlanOperativoMeta: []
+                };
+
+                self.data = ko.mapping.fromJS(data);
+                self.proyecto = proyecto;
+
+                self.years = ko.computed(function () 
+                {
+                    if (self.data.periodoinicio() && self.data.periodofin())
+                        return ko.utils.range(self.data.periodoinicio().getFullYear(), self.data.periodofin().getFullYear());
+                    else
+                        return 0;
+                });
+
+                var updateAvanceAnual = function () {
+                    var l = self.years().length;
+                    var planes = self.data.PlanOperativoMeta();
+                    for (var i = 0; i < planes.length; i++) {
+                        var avance = planes[i].PlanOperativoMetaAnual;
+
+                        while (avance().length < l) {
+                            avance.push({ cantidad: ko.observable(0) })
+                        }
+                        avance.splice(l)
+                    }
+                };
+
+                updateAvanceAnual();
+                self.data.periodoinicio.subscribe(updateAvanceAnual);
+                self.data.periodofin.subscribe(updateAvanceAnual);
+
+                self.addPlanOperativoMeta = function () {
+                    self.data.PlanOperativoMeta.push(ko.mapping.fromJS({
+                        id: 0,
+                        poid: null,
+                        codigo: null,
+                        meta: null,
+                        cantidad: 0,
+                        indicador: null,
+                        unidadid: null,
+                        fuente: null,
+                        archivos: null,
+                        PlanOperativoMetaAnual: []                        
+                    }));
+
+                    updateAvanceAnual();
+                };
+
+                self.removePlanOperativoMeta = function (item) {
+                    self.data.PlanOperativoMeta.remove(item);
+                };
+
+
+                self.Save = function (form) {
+
+                    if ($(form).refreshValidator().valid()) {
+
+                        postJson('@Url.Content("~/api/Planificacion/PlanOperativo/Save")', JSON.parse(ko.mapping.toJSON(self.data)),
+                        function () {
+                            document.location.href = '@Url.Action("Index", "PlanOperativo")?id=' + proyectoid;
+                        },
+                        function () {
+                            alert('Error');
+                        });
+                    }
+                };
+
+                self.proyectoid = proyectoid;
+                self.habilitado = !proyecto.habilitarplanoperativo;
+                self.listUnidadMedida = getJson('@Url.Content("~/api/General/UnidadMedida")');
+                self.listResultado = getJson('@Url.Content("~/api/Planificacion/Resultado/Find")', { id: proyectoid });
+                self.permiso = permiso;
+            };
+
+            ko.applyBindings(new Model(data, proyecto));
+
+            $('input[type=text],textarea').prop("readonly", !permiso.modificar);
+        });
+        
+
+        ShowPopup = function (item) {
+            ShowPopupArchivo('@Url.Action("MetaArchivo", "PlanOperativoArchivo", new { area="BibliotecaVirtual" })?biblioteca=0&id=' + item.id(), 1100, 500)
+            return false;
+        }
+    </script>
+}
+
+<form data-bind="submit: Save" style="width: 100%; float: left;">
+    <div class="toolbar">
+        <a class="back" title="Volver" data-bind="attr: { href: '@Url.Action("Index", "PlanOperativo")?id=' + $root.proyectoid}"></a>
+        <button type="button" class="save" title="Grabar" data-bind="enable: $root.habilitado" onclick="$(this).closest('form').submit()"></button>
+        <button type="button" class="refresh" title="Refrescar" onclick="document.location.reload()"></button>
+    </div>
+    <fieldset>
+        <legend></legend>
+        <table style="width: 100%">
+            <colgroup>
+                <col style="width: 100px" />
+                <col />
+            </colgroup>
+            <tr>
+                <td>Resultado
+                </td>
+                <td>
+                    <select style="width: 100%" data-bind="value: data.resultadoid, options: $root.listResultado, optionsText: 'nombre', optionsValue: 'id', optionsCaption: '[SELECCIONAR]', attr: { name: 'data.resultadoid' }" data-val="true" data-val-required="" />
+                </td>
+            </tr>
+        </table>
+
+        <table style="width: 100%">
+            <colgroup>
+                <col style="width: 100px" />
+                <col style="width: 400px" />
+                <col style="width: 20px" />
+                <col style="width: 100px" />
+                <col />
+            </colgroup>
+            <tr>
+                <td>Código
+                </td>
+                <td colspan="4">
+                    <input name="codigo" type="text" data-bind="value: data.codigo" style="width: 80px" data-val="true" data-val-required="" maxlength="10" />
+                </td>
+            </tr>
+            <tr>
+                <td>Actividad</td>
+                <td>
+                    <textarea name="actividad" data-bind="value: data.actividad" data-val="true" data-val-required=""></textarea>
+                </td>
+                <td></td>
+                <td>Supuesto</td>
+                <td>
+                    <textarea name="supuesto" data-bind="value: data.supuesto"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>Periódo</td>
+                <td>
+                    <table>
+                        <colgroup>
+                            <col style="width: 40px" />
+                            <col style="width: 100px" />
+                            <col style="width: 20px" />
+                            <col style="width: 40px" />
+                            <col style="width: 100px" />
+                        </colgroup>
+                        <tr>
+                            <td>Inicio</td>
+                            <td>@Html.koDate("data.periodoinicio", min: "proyecto.MarcoLogico[0].periodoinicio", max: "proyecto.MarcoLogico[0].periodofin",width:100)</td>
+                            <td></td>
+                            <td>Fin</td>
+                            <td>@Html.koDate("data.periodofin", min:"data.periodoinicio", max: "proyecto.MarcoLogico[0].periodofin",width:100)</td>
+                        </tr>
+                    </table>
+                </td>
+                <td></td>
+                <td>Presupuesto</td>
+                <td>
+                    @Html.koNumeric("data.presupuesto", width: 60)
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+
+
+    <fieldset>
+        <legend>Meta</legend>
+        <table class="grid">
+            <thead>
+                <tr>
+                    <th rowspan="2" style="width: 40px">Cod</th>
+                    <th rowspan="2">Nombre</th>
+                    <th rowspan="2" style="width: 40px">Und</th>
+                    <th data-bind="attr: { colspan: $root.years().length + 1 }">Meta</th>
+                    <th rowspan="2">Indicador</th>
+                    <th rowspan="2">Fuente</th>
+                    <th rowspan="2" style="width: 48px">
+                        <button type="button" class="btn add" data-bind="enable: $root.habilitado, click: addPlanOperativoMeta"></button>
+                    </th>
+                </tr>
+                <tr>
+                    <!-- ko foreach: $root.years -->
+                    <th data-bind="text: $data" style="width: 50px"></th>
+                    <!-- /ko -->
+                    <th style="width: 50px">Total</th>
+                </tr>
+            </thead>
+            <tbody data-bind='foreach: data.PlanOperativoMeta'>
+                <tr>
+                    <td>
+                        <input type="text" data-bind="value: codigo, uniqueName: true" data-val="true" data-val-required="" maxlength="10"/>
+                    </td>
+                    <td>
+                        <input type="text" data-bind="value: meta, attr: { name: 'PlanOperativoMeta[' + $index() + '].meta' }" data-val="true" data-val-required="" />
+                    </td>
+                    <td>
+                        <select data-bind="value: unidadid, options: $root.listUnidadMedida, optionsText: 'nombre', optionsValue: 'id', attr: { name: 'PlanOperativoMeta[' + $index() + '].unidadid' }" data-val="true" data-val-required="" />
+                    </td>
+                    <!-- ko foreach: PlanOperativoMetaAnual -->
+                    <td>
+                        @Html.koNumeric("cantidad", @decimal: false, width: 50)
+                    </td>
+                    <!-- /ko -->
+                    <td data-bind="text: PlanOperativoMetaAnual().map(function(o){return +o.cantidad()}).sum()" style="text-align: right"></td>
+                    <td>
+                        <input type="text" data-bind="value: indicador, attr: { name: 'PlanOperativoMeta[' + $index() + '].indicador' }" data-val="true" data-val-required="" />
+                    </td>
+                    <td>
+                        <input type="text" data-bind="value: fuente, attr: { name: 'PlanOperativoMeta[' + $index() + '].fuente' }" data-val="true" data-val-required="" />
+                    </td>
+                    <td style="text-align: center">
+                        <button class="btn folder" type="button" title="Archivos" data-bind="attr: { class: 'btn folder' + ((archivos() == true) ? '_open' : '') },click: function(){ ShowPopup($data)}, visible: id() != 0"></button>
+                        <button type="button" class="btn del" data-bind="enable: $root.habilitado, click: $root.removePlanOperativoMeta"></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </fieldset>
+</form>
+@*<pre class="json" data-bind="text: JSON.stringify(ko.mapping.toJS(data) , null, '  ')"></pre>*@

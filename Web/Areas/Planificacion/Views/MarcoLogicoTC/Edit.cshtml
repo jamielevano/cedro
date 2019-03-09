@@ -1,0 +1,377 @@
+﻿@section scripts
+{
+    <script type="text/javascript">
+        $(function () {
+            var id = queryString('id') || 0;
+            var permiso = getJson('@Url.Content("~/api/Sistema/Permiso/Find")', { id: 2 });
+            var data = getJson('@Url.Content("~/api/Planificacion/MarcoLogicoTC/Find")', { id: id });
+
+            var Model = function (data) {
+                var self = this;
+
+                data = data || {
+                    id: 0,
+                    fin: null,
+                    nombre: null,
+                    periodoinicio: null,
+                    periodofin: null,
+                    codigo: null,
+                    proposito: null,
+                    supuesto: null,
+                    PropositoMetasTC: [],
+                    ResultadoTC: [],
+                };
+
+                //self.listPrograma = getJson('@Url.Content("~/api/General/Programa")');
+                self.data = ko.mapping.fromJS(data);
+
+                self.addPropositoMetasTC = function ()
+                {
+                    self.data.PropositoMetasTC.push(ko.mapping.fromJS({
+                        id: 0,
+                        codigo: null,
+                        nombre: null,
+                        unidadid: null,
+                        indicador: null,
+                        cantidad: null,
+                        fuente: null,
+                        archivos:null
+                    }));
+
+                    $("#tblDetalle tr:last").find('input[type=text]').filter(':first').focus();
+                };
+
+                self.removePropositoMetasTC = function (item) {
+                    self.data.PropositoMetasTC.remove(item);
+                };
+
+                self.addResultadoTC = function () {
+                    self.data.ResultadoTC.push(ko.mapping.fromJS({
+                        id: 0,
+                        eliminable: true,
+                        codigo: null,
+                        nombre: null,
+                        supuesto: null,
+                        ResultadoMetasTC: []
+                    }));
+
+                    $(".divDetalle:last").find('input[type=text]').filter(':first').focus();
+                };
+
+                self.removeResultadoTC = function (item) {
+                    self.data.ResultadoTC.remove(item);
+                }
+
+                self.addResultadoMetasTC = function (parent) {
+                    parent.ResultadoMetasTC.push(ko.mapping.fromJS({
+                        id: 0,
+                        codigo: null,
+                        nombre: null,
+                        unidadid: null,
+                        indicador: null,
+                        cantidad: null,
+                        fuente: null,
+                        archivos:null
+                    }));
+                };
+
+                self.removeResultadoMetasTC = function (parent, item) {
+                    parent.ResultadoMetasTC.remove(item)
+                };
+
+
+                self.Save = function (form) {
+                    if ($(form).refreshValidator().valid()) {
+                        postJson('@Url.Content("~/api/Planificacion/MarcoLogicoTC/Save")', JSON.parse(ko.mapping.toJSON(self.data)),
+                        function () {
+                            document.location.reload();
+                        },
+                        function () {
+                            alert('Error');
+                        });
+                    }
+                };
+
+                self.listUnidadMedida = getJson('@Url.Content("~/api/General/UnidadMedida")');
+                self.permiso = permiso;
+
+                //if (!permiso.modificar) {
+                //    $('input[type=text],textarea').prop("readonly", true);
+                //    $('select').prop("disabled", true);                }
+
+                //console.log(permiso);
+            };
+
+            ko.applyBindings(new Model(data));
+            $('.tabs').jqxTabs({ theme: 'ui-le-frog.css', keyboardNavigation: false });
+
+            if (!permiso.modificar) {
+                $('input[type=text],textarea').prop("readonly", true);
+            }
+        });
+
+        ShowPopupResultadoArchivo = function (item) {
+            ShowPopupArchivo('@Url.Action("ResultadoArchivo", "MarcoLogicoArchivoTC", new { area = "BibliotecaVirtual" })?biblioteca=0&id=' + item.id(), 1100, 500);
+            return false;
+        }
+        
+        ShowPopupPropositoArchivo = function (item) {
+            ShowPopupArchivo('@Url.Action("PropositoArchivo","MarcoLogicoArchivoTC",new { area = "BibliotecaVirtual" })?biblioteca=0&id=' + item.id(), 1100, 500);
+            return false;
+        }
+    </script>
+}
+
+
+<form data-bind="submit: Save" style="width: 100%; float: left;">   
+
+    <div class="toolbar">
+        <button data-bind="enable: $root.permiso.agregar || $root.permiso.modificar || $root.permiso.eliminar" type="button" class="save" title="Grabar"  onclick="$(this).closest('form').submit()"></button>
+        <button type="button" class="refresh" title="Refrescar" onclick="document.location.reload()"></button>
+    </div>
+
+    <fieldset>
+        <legend></legend>
+        <table style="width: 100%">
+            <colgroup>
+                <col style="width: 100px" />
+            </colgroup>
+            <tr>
+                <td>PERIODO</td>
+                <td>
+                    <table>
+                        <colgroup>
+                            <col style="width: 40px" />
+                            <col style="width: 120px" />
+                            <col style="width: 20px" />
+                            <col style="width: 40px" />
+                            <col style="width: 120px" />
+                            <col style="width: 20px" />
+                            <col style="width: 40px" />
+                            <col style="width: 100%" />
+                        </colgroup>
+                        <tr>
+                            <td>INICIO</td>
+                            <td>@Html.koDate("data.periodoinicio",width:100, enable:"$root.permiso.modificar")</td>
+                            <td></td>
+                            <td>FIN</td>
+                            <td>@Html.koDate("data.periodofin",width:100, min: "data.periodoinicio", enable:"$root.permiso.modificar")</td>
+                            <td></td>
+                            <td style="display:none">NOMBRE</td>
+                            <td style="display:none"><input name="nombre" type="text" data-bind="value: data.nombre" style="width: 100%"/></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td style="display:none">Fin</td>
+                <td style="display:none">
+                    <input name="fin" type="text" data-bind="enable:$root.permiso.modificar, value: data.fin" style="width: 100%"/>
+                </td>
+            </tr>            
+        </table>
+
+    </fieldset>
+    
+    <div class="tabs">
+        <ul>
+            <li style="margin-left: 30px;">
+                <div style="margin-left: 4px; vertical-align: middle; text-align: center; float: left;">PROPOSITO</div>
+            </li>
+            <li>
+                <div style="margin-left: 4px; vertical-align: middle; text-align: center; float: left;">RESULTADO</div>
+            </li>
+        </ul>
+        <div style="overflow: hidden; padding: 10px;">
+            <table style="width: 100%">
+                <colgroup>
+                    <col style="width: 100px" />
+                    <col />
+                    <col style="width: 20px" />
+                    <col style="width: 100px" />
+                    <col />
+                </colgroup>
+                <tr>
+                    <td>CODIGO
+                    </td>
+                    <td colspan="4">
+                        <input name="codigo" type="text" data-bind="enable: $root.permiso.modificar, value: data.codigo" style="width: 100px" data-val="true" data-val-required="true" maxlength="10"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>DESCRIPCION</td>
+                    <td>
+                        <textarea name="proposito" data-bind="enable: $root.permiso.modificar, value: data.proposito" data-val="true" data-val-required="" ></textarea>
+                    </td>
+                    <td></td>
+                    <td>SUPUESTO</td>
+                    <td>
+                        <textarea name="supuesto" data-bind="enable: $root.permiso.modificar, value: data.supuesto" data-val="true" data-val-required="" ></textarea>
+                    </td>
+                </tr>
+            </table>
+            <table id="tblDetalle" class="grid">
+                <colgroup>
+                    <col style="width: 40px" />
+                    <col />
+                    <col style="width: 60px" />
+                    <col style="width: 40px" />
+                    <col />
+                    <col style="width: 150px"/>
+                    <col style="width: 28px" />
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>COD
+                        </th>
+                        <th>META
+                        </th>
+                        <th>CANT
+                        </th>
+                        <th>UND
+                        </th>
+                        <th>INDICADOR
+                        </th>
+                        <th>FUENTE
+                        </th>
+                        <th style="width: 48px;">
+                            <button type="button" class="btn add" data-bind="click: addPropositoMetasTC, enable: $root.permiso.agregar" />
+                        </th>
+                    </tr>
+                </thead>
+                <tbody data-bind='foreach: data.PropositoMetasTC'>
+                    <tr>
+                        <td >
+                            <input type="hidden" data-bind="value: id, attr: { name: 'PropositoMetasTC[' + $index() + '].id' }" />
+                            <input type="text" data-bind="enable: (id() == 0) ? true : $root.permiso.modificar, value: codigo, attr: { name: 'PropositoMetasTC[' + $index() + '].codigo' }" data-val="true" data-val-required="true" maxlength="10"/>
+                        </td>
+                        <td>
+                            <textarea data-bind="enable: (id() == 0) ? true : $root.permiso.modificar, value: nombre, attr: { name: 'PropositoMetasTC[' + $index() + '].nombre' }" data-val="true" data-val-required="" ></textarea>
+                        </td>
+                        <td>
+                            @Html.koNumeric("cantidad", @decimal: false, width: 60,enable:" (id() == 0) ? true :$root.permiso.modificar")
+                        </td>
+                        <td>
+                            <select data-bind="enable: (id() == 0) ? true : $root.permiso.modificar, value: unidadid, options: $root.listUnidadMedida, optionsText: 'nombre', optionsValue: 'id', attr: { name: 'PropositoMetasTC[' + $index() + '].unidadid' }" data-val="true" data-val-required="" />
+                        </td>
+                        <td>
+                            <textarea data-bind="enable: (id() == 0) ? true : $root.permiso.modificar, value: indicador, attr: { name: 'PropositoMetasTC[' + $index() + '].indicador' }" data-val="true" data-val-required="" ></textarea>
+                        </td>
+                        <td>
+                            <textarea data-bind="enable: (id() == 0) ? true : $root.permiso.modificar, value: fuente, attr: { name: 'PropositoMetasTC[' + $index() + '].fuente' }" data-val="true" data-val-required="" ></textarea>
+                        </td>
+                        <td style="text-align: center">
+                            <button type="button" title="Archivos" data-bind="attr: { class: 'btn folder' + ((archivos() == true) ? '_open' : '') }, click: function () { ShowPopupPropositoArchivo($data) }, visible: id() != 0" />
+                            <button type="button" class="btn del" data-bind="enable: (id() == 0) ? true : $root.permiso.eliminar, click: $root.removePropositoMetasTC"></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div style="overflow: hidden; padding: 10px;">
+            <div style="text-align: right;">
+                <button type="button" data-bind="click: addResultadoTC, enable: $root.permiso.agregar"><a class="btn add"></a> Agregar Resultado</button>
+            </div>
+            <!-- ko foreach: data.ResultadoTC -->
+            <div class = "divDetalle" style="border: 1px solid #AAA; padding: 5px; margin: 5px 0">
+
+                <table style="width: 100%">
+                    <colgroup>
+                        <col style="width: 100px" />
+                        <col />
+                        <col style="width: 20px" />
+                        <col style="width: 100px" />
+                        <col />
+                    </colgroup>
+                    <tr>
+                        <td>CODIGO
+                        </td>
+                        <td colspan="4">
+                            <input type="hidden" data-bind="value: id, attr: { name: 'ResultadoTC[' + $index() + '].id' }" />
+                            <input type="text" style="width: 100px;" data-bind="enable: (id() == 0) ? true : $root.permiso.modificar, value: codigo, attr: { name: 'ResultadoTC[' + $index() + '].codigo' }" data-val="true" data-val-required="true" maxlength="10" />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>DESCRIPCION</td>
+                        <td>
+                            <textarea data-bind="enable: (id() == 0) ? true : $root.permiso.modificar, value: nombre, attr: { name: 'ResultadoTC[' + $index() + '].nombre' }" data-val="true" data-val-required="" ></textarea>
+                        </td>
+                        <td></td>
+                        <td>SUPUESTO</td>
+                        <td>
+                            <textarea data-bind="enable: (id() == 0) ? true : $root.permiso.modificar, value: supuesto, attr: { name: 'ResultadoTC[' + $index() + '].supuesto' }" data-val="true" data-val-required="" ></textarea>
+                        </td>
+                    </tr>
+
+                </table>
+
+                <table class="grid">
+                    <colgroup>
+                        <col style="width: 40px" />
+                        <col />
+                        <col style="width: 60px" />
+                        <col style="width: 40px" />
+                        <col />
+                        <col style="width: 150px"/>
+                        <col style="width: 28px" />
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th>COD
+                            </th>
+                            <th>META
+                            </th>
+                            <th>CANT
+                            </th>
+                            <th>UNI
+                            </th>
+                            <th>INDICADOR
+                            </th>
+                            <th>FUENTE
+                            </th>
+                            <th style="width: 48px;">
+                                <button class="btn add" type="button" data-bind="click: $root.addResultadoMetasTC, enable: $root.permiso.agregar"></button>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody data-bind='foreach: ResultadoMetasTC'>
+                        <tr>
+                            <td>
+                                <input type="hidden" data-bind="value: id, attr: { name: 'ResultadoTC[' + $parentContext.$index() + '].ResultadoMetasTC[' + $index() + '].id' }" />
+                                <input type="text" data-bind="enable: (id() == 0) ? true : $root.permiso.modificar, value: codigo, attr: { name: 'ResultadoTC[' + $parentContext.$index() + '].ResultadoMetasTC[' + $index() + '].codigo' }" data-val="true" data-val-required="true" maxlength="10" />
+                            </td>
+                            <td>
+                                <textarea data-bind="enable: (id() == 0) ? true : $root.permiso.modificar, value: nombre, attr: { name: 'ResultadoTC[' + $parentContext.$index() + '].ResultadoMetasTC[' + $index() + '].nombre' }" data-val="true" data-val-required="" ></textarea>
+                            </td>
+                            <td>
+                                @Html.koNumeric("cantidad", @decimal: false, width: 60,enable:" (id() == 0) ? true :$root.permiso.modificar")
+                            </td>
+                            <td>
+                                <select data-bind="enable: (id() == 0) ? true : $root.permiso.modificar, value: unidadid, options: $root.listUnidadMedida, optionsText: 'nombre', optionsValue: 'id', attr: { name: 'ResultadoTC[' + $parentContext.$index() + '].ResultadoMetasTC[' + $index() + '].unidadid' }" data-val="true" data-val-required="" />
+                            </td>
+                            <td>
+                                <textarea data-bind="enable: (id() == 0) ? true : $root.permiso.modificar, value: indicador, attr: { name: 'ResultadoTC[' + $parentContext.$index() + '].ResultadoMetasTC[' + $index() + '].indicador' }" data-val="true" data-val-required="" ></textarea>
+                            </td>
+                            <td>
+                                <textarea data-bind="enable: (id() == 0) ? true : $root.permiso.modificar, value: fuente, attr: { name: 'ResultadoTC[' + $parentContext.$index() + '].ResultadoMetasTC[' + $index() + '].fuente' }" data-val="true" data-val-required="" ></textarea>
+                            </td>
+                            <td style="text-align: center">
+                                <button class="btn folder" type="button" title="Archivos" data-bind="attr: { class: 'btn folder' + ((archivos() == true) ? '_open' : '') }, click: function () { ShowPopupResultadoArchivo($data) }, visible: id() != 0"></button>
+                                <button class="btn del" type="button" title="Eliminar" data-bind="enable: (id() == 0) ? true : $root.permiso.eliminar, click: $root.removeResultadoMetasTC.bind($data, $parent)"></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div style="text-align: right;">
+                    <button type="button" data-bind="click: $root.removeResultadoTC, enable: (id()==0)?true: ($root.permiso.eliminar && eliminable)"><a class="btn del"></a> Quitar Resultado</button>
+                </div>
+
+            </div>
+            <!-- /ko -->
+        </div>
+    </div>
+</form>
+@*<pre class="json" data-bind="text: JSON.stringify(ko.mapping.toJS(data) , null, '  ')"></pre>*@

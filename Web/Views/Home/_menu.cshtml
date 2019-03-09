@@ -1,0 +1,44 @@
+﻿@model List<Repositorio.ModuloResponse>
+@{ Layout = null; }
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SIMEL</title>
+    <link rel="icon" href="~/favicon.ico" />
+    <style>
+        body > ul > li { display: inline-block; vertical-align: top; padding: 0 10px; font-family: Verdana,Arial,sans-serif; font-size: 13px; }
+        body > ul > li + li { border-left: 1px dotted gray; }
+        li { list-style: none; }
+        a { color: black; }
+    </style>
+</head>
+<body>
+    <ul>
+        @foreach (var mod in Model)
+        {
+            <li>
+                @*@mod.descripcion
+                <ul>
+                    @foreach (var sub in mod.SubModuloResponse)
+                    {
+                        <li>*@
+                            @mod.descripcion
+                            <ul>
+                                @foreach (var pag in mod.PaginaResponse)
+                                {
+                                    <li>
+                                        <a href="@(Url.Content("~/" + pag.url))" target="_blank">
+                                            @pag.descripcion
+                                        </a>
+                                    </li>		 
+                                }
+                            </ul>
+                        </li>
+                    }
+                @*</ul>
+            </li>
+        }*@
+    </ul>
+</body>
+</html>

@@ -1,0 +1,72 @@
+﻿@section scripts
+{
+    <script type="text/javascript">
+        $(function () {
+            var data = getJson('@Url.Content("~/api/Planificacion/PlanOperativoTC/List")');
+            
+            var Model = function (data) {
+                var self = this;
+
+                self.data = ko.mapping.fromJS(data);
+                
+            };
+
+            ko.applyBindings(new Model(data));
+        })
+    </script>
+}
+
+
+<div class="toolbar">
+    <button type="button" class="refresh" title="Refrescar" onclick="document.location.reload()"></button>
+</div>
+
+<fieldset>
+    <legend></legend>
+
+    <table class="grid">
+        <colgroup>
+            <col style="width: 40px" />
+            <col />
+            <col style="width: 40px" />
+            <col />
+            <col style="width: 120px" />
+            <col style="width: 100px" />
+            <col style="width: 100px" />
+            <col style="width: 28px" />
+        </colgroup>
+        <thead>
+            <tr>
+                <th>Cod</th>
+                <th>Resultado</th>
+                <th>Cod</th>
+                <th>Actividad</th>
+                <th>Presupuesto (S/.)</th>
+                <th>Fec Inicio</th>
+                <th>Fec fin</th>
+                <th>
+                </th>
+            </tr>
+        </thead>
+        <tbody data-bind="foreach: $root.data">
+            <!-- ko foreach: PlanOperativoTC -->
+            <tr>
+                <!-- ko with: $parent -->
+                <td data-bind="text: codigo, visible: $parentContext.$index() == 0, attr: { rowspan: PlanOperativoTC().length }"></td>
+                <td data-bind="text: nombre, visible: $parentContext.$index() == 0, attr: { rowspan: PlanOperativoTC().length }"></td>                
+                <!-- /ko -->
+                <td style="text-align: center" data-bind="text: codigo"></td>
+                <td data-bind="text: actividad "></td>
+                <td data-bind="text: formatNumber(presupuesto)" style="text-align: right"></td>
+                <td data-bind="text: formatDate(periodoinicio)" style="text-align: center"></td>
+                <td data-bind="text: formatDate(periodofin)" style="text-align: center"></td>
+                <td style="text-align: center">
+                    <a class="btn edit" title="Modificar" data-bind="attr: { href: '@Url.Action("Edit")?id=' + $data.id()}"></a>
+                </td>
+            </tr>
+            <!-- /ko -->
+        </tbody>
+    </table>
+
+</fieldset>
+@*<pre class="json" data-bind="text: JSON.stringify(ko.mapping.toJS(data) , null, '  ')"></pre>*@

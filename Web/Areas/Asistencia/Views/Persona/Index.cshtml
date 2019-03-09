@@ -1,0 +1,213 @@
+﻿
+@section scripts
+{
+    <script type="text/javascript">
+        $(function () {
+            $('#loading').show();
+            
+            var permiso = getJson('@Url.Content("~/api/Sistema/Permiso/Find")', { id: 2108 });
+
+            var Model = function (data)
+            {
+                var self = this;
+
+                self.data = {
+                    //telecentroid: ko.observable('@ViewBag.telecentroid'),
+                    dni: ko.observable('@ViewBag.dni'),
+                    apellidopaterno: ko.observable('@ViewBag.apellidopaterno'),
+                    apellidomaterno: ko.observable('@ViewBag.apellidomaterno'),
+                    nombre: ko.observable('@ViewBag.nombre'),
+                    codigo: ko.observable('@ViewBag.codigo')
+                };
+
+                self.listTelecentros = getJson('@Url.Content("~/api/General/Telecentros")');
+                self.list = ko.observableArray();
+
+                self.foto = function (item) {
+
+                    var cadena = "Foto/Index?id=" + item.id;
+                    ShowPopupArchivo(cadena, 800, 580);
+                    //document.location.href = '@Url.Action("Index","Foto")?id=' + item.id;
+                }
+
+                self.Search = function (form) {
+
+                    self.list(undefined);
+
+                    var consulta = JSON.parse(ko.mapping.toJSON(self.data));
+
+                    console.log(consulta);
+
+                    postJson('@Url.Content("~/api/Asistencia/Persona/SearchSimple")',
+                            consulta,
+                            function (data) {
+                            self.list(data);
+                        })
+                }
+
+                self.delete = function (item) {
+                    if (confirm('¿Esta seguro de eliminar el registro?'))
+                    {
+                        postJson('@Url.Content("~/api/Asistencia/Persona/Delete")', { id: item.id },
+                        function () {
+                            
+                            document.location.reload();
+                        },
+                        function () {
+                            alert('Error');
+                        });
+                    }
+                };
+
+                self.new = function (item)
+                {
+                    document.location.href = '@Url.Action("Edit")';
+                };
+
+                self.modificar = function (item)
+                {
+                    document.location.href = '@Url.Action("Edit")?id=' + item.id;
+                };
+
+                self.permiso = permiso;
+            };
+
+            
+            ko.applyBindings(new Model());
+
+            $('#loading').hide();
+            //$("#fbusqueda").submit();
+
+        });
+
+        function report(id) {
+            var cadena = "../Reports/Asistencia.aspx?reporte=5&id=" + id + "&tipo=0";
+            ShowPopupArchivo(cadena, 900, 640);
+        }
+
+        function reportConFoto(id) {
+            var cadena = "../Reports/Asistencia.aspx?reporte=5&id=" + id + "&tipo=1";
+            ShowPopupArchivo(cadena, 900, 640);
+        }
+    </script>
+}
+
+
+<div class="toolbar">
+    <button type="button" data-bind="click: $root.new, enable: $root.permiso.agregar" class="new" title="Nuevo"></button>
+    <button type="button" class="refresh" title="Refrescar" onclick="document.location.reload()"></button>
+</div>
+
+<table style="width:99%; margin: 10px auto;">
+    <tr>
+        <td>
+            <fieldset>
+                <legend>BUSCAR</legend>
+                <form id="fbusqueda" data-bind="submit: Search">
+                    <table>
+                        <tr>
+                            <td>APELLIDO PATERNO
+                            </td>
+                            <td>
+                                @Html.koTextNoRequired("data.apellidopaterno")
+                            </td>
+                            <td></td>
+                            <td>
+                                APELLIDO MATERNO
+                            </td>
+                            <td>
+                                @Html.koTextNoRequired("data.apellidomaterno")
+                            </td>
+                            <td></td>
+                            <td>
+                                NOMBRE
+                            </td>
+                            <td>
+                                @Html.koTextNoRequired("data.nombre")
+                            </td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>DNI
+                            </td>
+                            <td>
+                                @Html.koTextNoRequired("data.dni")
+                            </td>
+                            <td></td>
+                            <td>
+                                LOCALIDAD
+                            </td>
+                            <td>
+                                @Html.koSelect("data.telecentroid", "$root.listTelecentros",requerido:false)
+                            </td>
+                            <td></td>
+                            <td>CODIGO</td>
+                            <td>
+                                @Html.koTextNoRequired("data.codigo")
+                            </td>
+                            <td>
+                                <button type="submit" style="cursor:pointer;">Buscar</button>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </fieldset>
+        </td>
+    </tr>
+</table>
+
+<table class="grid" style="width: 99%">
+    <colgroup>
+        <col style="width: 40px" />
+        @*<col style="width: 100px" />*@
+        <col style="width: 220px" />
+        <col style="width: 220px" />
+        <col style="width: 220px" />
+        <col style="width: 80px" />
+        <col />
+        <col style="width: 40px" />
+        <col style="width: 72px" />
+        <col style="width: 24px" />
+        <col style="width: 24px" />
+    </colgroup>
+    <thead>
+        <tr>
+            <th>N°</th>
+            @*<th>Codigo</th>*@
+            <th>APELLIDO PATERNO</th>
+            <th>APELLIDO MATERNO</th>
+            <th>NOMBRE</th>
+            <th>DNI</th>
+            <th>LOCALIDAD</th>
+            <th>MB</th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody data-bind="foreach: list">
+        <tr>
+            <td style="text-align: center" data-bind="text: $index() + 1">
+                <input type="hidden" data-bind="value: id, attr: { name: '[' + $index() + '].id' }" />
+            </td>
+            @*<td data-bind="text: codigo"></td>*@
+            <td data-bind="text: apellidopaterno"></td>
+            <td data-bind="text: apellidomaterno"></td>
+            <td data-bind="text: nombre"></td>
+            <td style="text-align: center" data-bind="text: dni"></td>
+            <td data-bind="text: telecentro"></td>
+            <td data-bind="text: fotomb"></td>
+            <td style="text-align: center">
+                <button type="button" class="btn camara" title="Agregar foto" data-bind="click: $root.foto, enable: $root.permiso.modificar" />
+                <button type="button" class="btn edit" title="Modificar" data-bind="click: $root.modificar, enable: $root.permiso.modificar" />
+                <button type="button" class="btn del" title="Eliminar" data-bind="click: $root.delete, enable: $root.permiso.eliminar && eliminable" />
+            </td>
+            <td style="text-align: center">
+                <button type="button" class="btn report" title="Ficha" data-bind="click: function () { report(id) }"></button>
+            </td>
+            <td style="text-align: center">
+                <button type="button" class="btn report" title="Ficha con foto" data-bind="visible:fotohash,click: function () { reportConFoto(id) }"></button>
+            </td>
+        </tr>
+    </tbody>
+</table>

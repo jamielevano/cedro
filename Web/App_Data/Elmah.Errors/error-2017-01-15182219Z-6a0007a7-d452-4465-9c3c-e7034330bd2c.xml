@@ -1,0 +1,215 @@
+﻿<error errorId="6a0007a7-d452-4465-9c3c-e7034330bd2c" application="/" host="DESARROLLO_NET" type="Microsoft.Reporting.WebForms.MissingReportSourceException" message="The source of the report definition has not been specified" source="Microsoft.ReportViewer.WebForms" detail="System.Web.HttpUnhandledException (0x80004005): Exception of type 'System.Web.HttpUnhandledException' was thrown. ---&gt; Microsoft.Reporting.WebForms.MissingReportSourceException: The source of the report definition has not been specified&#xD;&#xA;   at Microsoft.Reporting.WebForms.LocalReport.EnsureExecutionSession()&#xD;&#xA;   at Microsoft.Reporting.WebForms.LocalReport.SetParameters(IEnumerable`1 parameters)&#xD;&#xA;   at Microsoft.Reporting.WebForms.Report.SetParameters(ReportParameter parameter)&#xD;&#xA;   at Web.Reports.Asistencia.ViewReport(String File, DataTable dt) in c:\Proyectos\Cedro\Pase 4\Fuentes\SMEC\Web\Reports\Asistencia.aspx.cs:line 525&#xD;&#xA;   at Web.Reports.Asistencia.LoadDatos() in c:\Proyectos\Cedro\Pase 4\Fuentes\SMEC\Web\Reports\Asistencia.aspx.cs:line 515&#xD;&#xA;   at Web.Reports.Asistencia.InitializeComponent() in c:\Proyectos\Cedro\Pase 4\Fuentes\SMEC\Web\Reports\Asistencia.aspx.cs:line 32&#xD;&#xA;   at Web.Reports.Asistencia.OnInit(EventArgs e) in c:\Proyectos\Cedro\Pase 4\Fuentes\SMEC\Web\Reports\Asistencia.aspx.cs:line 23&#xD;&#xA;   at System.Web.UI.Control.InitRecursive(Control namingContainer)&#xD;&#xA;   at System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)&#xD;&#xA;   at System.Web.UI.Page.HandleError(Exception e)&#xD;&#xA;   at System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)&#xD;&#xA;   at System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)&#xD;&#xA;   at System.Web.UI.Page.ProcessRequest()&#xD;&#xA;   at System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)&#xD;&#xA;   at System.Web.UI.Page.ProcessRequest(HttpContext context)&#xD;&#xA;   at ASP.reports_asistencia_aspx.ProcessRequest(HttpContext context) in c:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\vs\e2ce3df2\705170e9\App_Web_epigsl34.1.cs:line 0&#xD;&#xA;   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()&#xD;&#xA;   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean&amp; completedSynchronously)" user="lpariatanta" time="2017-01-15T18:22:19.4273491Z" statusCode="500" webHostHtmlMessage="&lt;!DOCTYPE html&gt;&#xD;&#xA;&lt;html&gt;&#xD;&#xA;    &lt;head&gt;&#xD;&#xA;        &lt;title&gt;The source of the report definition has not been specified&lt;/title&gt;&#xD;&#xA;        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width&quot; /&gt;&#xD;&#xA;        &lt;style&gt;&#xD;&#xA;         body {font-family:&quot;Verdana&quot;;font-weight:normal;font-size: .7em;color:black;} &#xD;&#xA;         p {font-family:&quot;Verdana&quot;;font-weight:normal;color:black;margin-top: -5px}&#xD;&#xA;         b {font-family:&quot;Verdana&quot;;font-weight:bold;color:black;margin-top: -5px}&#xD;&#xA;         H1 { font-family:&quot;Verdana&quot;;font-weight:normal;font-size:18pt;color:red }&#xD;&#xA;         H2 { font-family:&quot;Verdana&quot;;font-weight:normal;font-size:14pt;color:maroon }&#xD;&#xA;         pre {font-family:&quot;Consolas&quot;,&quot;Lucida Console&quot;,Monospace;font-size:11pt;margin:0;padding:0.5em;line-height:14pt}&#xD;&#xA;         .marker {font-weight: bold; color: black;text-decoration: none;}&#xD;&#xA;         .version {color: gray;}&#xD;&#xA;         .error {margin-bottom: 10px;}&#xD;&#xA;         .expandable { text-decoration:underline; font-weight:bold; color:navy; cursor:hand; }&#xD;&#xA;         @media screen and (max-width: 639px) {&#xD;&#xA;          pre { width: 440px; overflow: auto; white-space: pre-wrap; word-wrap: break-word; }&#xD;&#xA;         }&#xD;&#xA;         @media screen and (max-width: 479px) {&#xD;&#xA;          pre { width: 280px; }&#xD;&#xA;         }&#xD;&#xA;        &lt;/style&gt;&#xD;&#xA;    &lt;/head&gt;&#xD;&#xA;&#xD;&#xA;    &lt;body bgcolor=&quot;white&quot;&gt;&#xD;&#xA;&#xD;&#xA;            &lt;span&gt;&lt;H1&gt;Server Error in '/' Application.&lt;hr width=100% size=1 color=silver&gt;&lt;/H1&gt;&#xD;&#xA;&#xD;&#xA;            &lt;h2&gt; &lt;i&gt;The source of the report definition has not been specified&lt;/i&gt; &lt;/h2&gt;&lt;/span&gt;&#xD;&#xA;&#xD;&#xA;            &lt;font face=&quot;Arial, Helvetica, Geneva, SunSans-Regular, sans-serif &quot;&gt;&#xD;&#xA;&#xD;&#xA;            &lt;b&gt; Description: &lt;/b&gt;An unhandled exception occurred during the execution of the current web request. Please review the stack trace for more information about the error and where it originated in the code.&#xD;&#xA;&#xD;&#xA;            &lt;br&gt;&lt;br&gt;&#xD;&#xA;&#xD;&#xA;            &lt;b&gt; Exception Details: &lt;/b&gt;Microsoft.Reporting.WebForms.MissingReportSourceException: The source of the report definition has not been specified&lt;br&gt;&lt;br&gt;&#xD;&#xA;&#xD;&#xA;            &lt;b&gt;Source Error:&lt;/b&gt; &lt;br&gt;&lt;br&gt;&#xD;&#xA;&#xD;&#xA;            &lt;table width=100% bgcolor=&quot;#ffffcc&quot;&gt;&#xD;&#xA;               &lt;tr&gt;&#xD;&#xA;                  &lt;td&gt;&#xD;&#xA;                      &lt;code&gt;&lt;pre&gt;&#xD;&#xA;&#xD;&#xA;Line 523:                                        new SqlParameter(&amp;quot;@fechafin&amp;quot;, fechafin) ,&#xD;&#xA;Line 524:                                        new SqlParameter(&amp;quot;@ejeid&amp;quot;, ejeid),&#xD;&#xA;&lt;font color=red&gt;Line 525:                                        new SqlParameter(&amp;quot;@telecentroid&amp;quot;, telecentroid)});&#xD;&#xA;&lt;/font&gt;Line 526:                        break;&#xD;&#xA;Line 527:                }&lt;/pre&gt;&lt;/code&gt;&#xD;&#xA;&#xD;&#xA;                  &lt;/td&gt;&#xD;&#xA;               &lt;/tr&gt;&#xD;&#xA;            &lt;/table&gt;&#xD;&#xA;&#xD;&#xA;            &lt;br&gt;&#xD;&#xA;&#xD;&#xA;            &lt;b&gt; Source File: &lt;/b&gt; c:\Proyectos\Cedro\Pase 4\Fuentes\SMEC\Web\Reports\Asistencia.aspx.cs&lt;b&gt; &amp;nbsp;&amp;nbsp; Line: &lt;/b&gt; 525&#xD;&#xA;            &lt;br&gt;&lt;br&gt;&#xD;&#xA;&#xD;&#xA;            &lt;b&gt;Stack Trace:&lt;/b&gt; &lt;br&gt;&lt;br&gt;&#xD;&#xA;&#xD;&#xA;            &lt;table width=100% bgcolor=&quot;#ffffcc&quot;&gt;&#xD;&#xA;               &lt;tr&gt;&#xD;&#xA;                  &lt;td&gt;&#xD;&#xA;                      &lt;code&gt;&lt;pre&gt;&#xD;&#xA;&#xD;&#xA;[MissingReportSourceException: The source of the report definition has not been specified]&#xD;&#xA;   Microsoft.Reporting.WebForms.LocalReport.EnsureExecutionSession() +207&#xD;&#xA;   Microsoft.Reporting.WebForms.LocalReport.SetParameters(IEnumerable`1 parameters) +58&#xD;&#xA;   Microsoft.Reporting.WebForms.Report.SetParameters(ReportParameter parameter) +48&#xD;&#xA;   Web.Reports.Asistencia.ViewReport(String File, DataTable dt) in c:\Proyectos\Cedro\Pase 4\Fuentes\SMEC\Web\Reports\Asistencia.aspx.cs:525&#xD;&#xA;   Web.Reports.Asistencia.LoadDatos() in c:\Proyectos\Cedro\Pase 4\Fuentes\SMEC\Web\Reports\Asistencia.aspx.cs:515&#xD;&#xA;   Web.Reports.Asistencia.InitializeComponent() in c:\Proyectos\Cedro\Pase 4\Fuentes\SMEC\Web\Reports\Asistencia.aspx.cs:32&#xD;&#xA;   Web.Reports.Asistencia.OnInit(EventArgs e) in c:\Proyectos\Cedro\Pase 4\Fuentes\SMEC\Web\Reports\Asistencia.aspx.cs:23&#xD;&#xA;   System.Web.UI.Control.InitRecursive(Control namingContainer) +139&#xD;&#xA;   System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint) +1580&#xD;&#xA;&lt;/pre&gt;&lt;/code&gt;&#xD;&#xA;&#xD;&#xA;                  &lt;/td&gt;&#xD;&#xA;               &lt;/tr&gt;&#xD;&#xA;            &lt;/table&gt;&#xD;&#xA;&#xD;&#xA;            &lt;br&gt;&#xD;&#xA;&#xD;&#xA;    &lt;/body&gt;&#xD;&#xA;&lt;/html&gt;&#xD;&#xA;">
+  <serverVariables>
+    <item name="ALL_HTTP">
+      <value string="HTTP_CONNECTION:keep-alive&#xD;&#xA;HTTP_ACCEPT:text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8&#xD;&#xA;HTTP_ACCEPT_ENCODING:gzip, deflate, sdch, br&#xD;&#xA;HTTP_ACCEPT_LANGUAGE:es-ES,es;q=0.8&#xD;&#xA;HTTP_COOKIE:/Reserved.ReportViewerWebControl.axd%3FOpType%3DSessionKeepAlive%26ControlID%3D706dfbb3a4224e40a058d25a1c797026%26Mode%3Dtrue_SKA=1; /Reserved.ReportViewerWebControl.axd%3FOpType%3DSessionKeepAlive%26ControlID%3D460e03ea542840b3a9ff787c45b6b56e%26Mode%3Dtrue_SKA=1; /Reserved.ReportViewerWebControl.axd%3FOpType%3DSessionKeepAlive%26ControlID%3Dc5f36e20776e406597f44f8ff605da2b%26Mode%3Dtrue_SKA=1; /Reserved.ReportViewerWebControl.axd%3FOpType%3DSessionKeepAlive%26ControlID%3D297ec6ac832d4a169eaa468819330169%26Mode%3Dtrue_SKA=1; CookiesLogin=admin; .ASPXAUTH=489DB096DF58C7094D8D004C65CE0699AB69AE9EAE0BE8885C86663A995F18EAE866DE0140C0DC064C39C93B8A2D660A1AED0EB2A3997F95DA27B93D59F9AD7C2D7246D436C5EF3A4AF48325B0D7A50BC5802A6A538EA080A85043570CE74ADFAD18BB0349999F18195706ACACAFBB97A65993BDE14DB720F8D3811526EF8C7E27422E50FF21C0AC1E8D12999F8EBFC0A61756691D11D51E158E63EAAAA010027E2AF1848EC1EEC8BACFB4F580D51EF9E9C8CDE50D9FF90C757EEEC41D9F273133AA5F1265305B9D3CF3CA6C3FAB9525B99BF55DF4EF397ACE8644DF62AD1883825FBD5A960976D342B590907170219E5F074D7FCABD78B01B6CE345C4DB00C0; ASP.NET_SessionId=scrwfsno51dgxyydixixu3qv&#xD;&#xA;HTTP_HOST:localhost:1371&#xD;&#xA;HTTP_REFERER:http://localhost:1371/Asistencia/ReporteIFM&#xD;&#xA;HTTP_USER_AGENT:Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36&#xD;&#xA;HTTP_UPGRADE_INSECURE_REQUESTS:1&#xD;&#xA;" />
+    </item>
+    <item name="ALL_RAW">
+      <value string="Connection: keep-alive&#xD;&#xA;Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8&#xD;&#xA;Accept-Encoding: gzip, deflate, sdch, br&#xD;&#xA;Accept-Language: es-ES,es;q=0.8&#xD;&#xA;Cookie: /Reserved.ReportViewerWebControl.axd%3FOpType%3DSessionKeepAlive%26ControlID%3D706dfbb3a4224e40a058d25a1c797026%26Mode%3Dtrue_SKA=1; /Reserved.ReportViewerWebControl.axd%3FOpType%3DSessionKeepAlive%26ControlID%3D460e03ea542840b3a9ff787c45b6b56e%26Mode%3Dtrue_SKA=1; /Reserved.ReportViewerWebControl.axd%3FOpType%3DSessionKeepAlive%26ControlID%3Dc5f36e20776e406597f44f8ff605da2b%26Mode%3Dtrue_SKA=1; /Reserved.ReportViewerWebControl.axd%3FOpType%3DSessionKeepAlive%26ControlID%3D297ec6ac832d4a169eaa468819330169%26Mode%3Dtrue_SKA=1; CookiesLogin=admin; .ASPXAUTH=489DB096DF58C7094D8D004C65CE0699AB69AE9EAE0BE8885C86663A995F18EAE866DE0140C0DC064C39C93B8A2D660A1AED0EB2A3997F95DA27B93D59F9AD7C2D7246D436C5EF3A4AF48325B0D7A50BC5802A6A538EA080A85043570CE74ADFAD18BB0349999F18195706ACACAFBB97A65993BDE14DB720F8D3811526EF8C7E27422E50FF21C0AC1E8D12999F8EBFC0A61756691D11D51E158E63EAAAA010027E2AF1848EC1EEC8BACFB4F580D51EF9E9C8CDE50D9FF90C757EEEC41D9F273133AA5F1265305B9D3CF3CA6C3FAB9525B99BF55DF4EF397ACE8644DF62AD1883825FBD5A960976D342B590907170219E5F074D7FCABD78B01B6CE345C4DB00C0; ASP.NET_SessionId=scrwfsno51dgxyydixixu3qv&#xD;&#xA;Host: localhost:1371&#xD;&#xA;Referer: http://localhost:1371/Asistencia/ReporteIFM&#xD;&#xA;User-Agent: Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36&#xD;&#xA;Upgrade-Insecure-Requests: 1&#xD;&#xA;" />
+    </item>
+    <item name="APPL_MD_PATH">
+      <value string="" />
+    </item>
+    <item name="APPL_PHYSICAL_PATH">
+      <value string="C:\Proyectos\Cedro\Pase 4\Fuentes\SMEC\Web\" />
+    </item>
+    <item name="AUTH_TYPE">
+      <value string="Forms" />
+    </item>
+    <item name="AUTH_USER">
+      <value string="lpariatanta" />
+    </item>
+    <item name="AUTH_PASSWORD">
+      <value string="*****" />
+    </item>
+    <item name="LOGON_USER">
+      <value string="DESARROLLO_NET\Administrator" />
+    </item>
+    <item name="REMOTE_USER">
+      <value string="lpariatanta" />
+    </item>
+    <item name="CERT_COOKIE">
+      <value string="" />
+    </item>
+    <item name="CERT_FLAGS">
+      <value string="" />
+    </item>
+    <item name="CERT_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SERIALNUMBER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CERT_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CONTENT_LENGTH">
+      <value string="0" />
+    </item>
+    <item name="CONTENT_TYPE">
+      <value string="" />
+    </item>
+    <item name="GATEWAY_INTERFACE">
+      <value string="" />
+    </item>
+    <item name="HTTPS">
+      <value string="" />
+    </item>
+    <item name="HTTPS_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="INSTANCE_ID">
+      <value string="" />
+    </item>
+    <item name="INSTANCE_META_PATH">
+      <value string="" />
+    </item>
+    <item name="LOCAL_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="PATH_INFO">
+      <value string="/Reports/Asistencia.aspx" />
+    </item>
+    <item name="PATH_TRANSLATED">
+      <value string="C:\Proyectos\Cedro\Pase 4\Fuentes\SMEC\Web\Reports\Asistencia.aspx" />
+    </item>
+    <item name="QUERY_STRING">
+      <value string="reporte=503&amp;fechainicio=2012-01-01&amp;fechafin=2017-01-15&amp;periodoid=1&amp;programaid=4&amp;nivelid=0&amp;ejeid=0&amp;telecentroid=0&amp;tipoid=0&amp;formatoid=0" />
+    </item>
+    <item name="REMOTE_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_HOST">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_PORT">
+      <value string="" />
+    </item>
+    <item name="REQUEST_METHOD">
+      <value string="GET" />
+    </item>
+    <item name="SCRIPT_NAME">
+      <value string="/Reports/Asistencia.aspx" />
+    </item>
+    <item name="SERVER_NAME">
+      <value string="localhost" />
+    </item>
+    <item name="SERVER_PORT">
+      <value string="1371" />
+    </item>
+    <item name="SERVER_PORT_SECURE">
+      <value string="0" />
+    </item>
+    <item name="SERVER_PROTOCOL">
+      <value string="HTTP/1.1" />
+    </item>
+    <item name="SERVER_SOFTWARE">
+      <value string="" />
+    </item>
+    <item name="URL">
+      <value string="/Reports/Asistencia.aspx" />
+    </item>
+    <item name="HTTP_CONNECTION">
+      <value string="keep-alive" />
+    </item>
+    <item name="HTTP_ACCEPT">
+      <value string="text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8" />
+    </item>
+    <item name="HTTP_ACCEPT_ENCODING">
+      <value string="gzip, deflate, sdch, br" />
+    </item>
+    <item name="HTTP_ACCEPT_LANGUAGE">
+      <value string="es-ES,es;q=0.8" />
+    </item>
+    <item name="HTTP_COOKIE">
+      <value string="/Reserved.ReportViewerWebControl.axd%3FOpType%3DSessionKeepAlive%26ControlID%3D706dfbb3a4224e40a058d25a1c797026%26Mode%3Dtrue_SKA=1; /Reserved.ReportViewerWebControl.axd%3FOpType%3DSessionKeepAlive%26ControlID%3D460e03ea542840b3a9ff787c45b6b56e%26Mode%3Dtrue_SKA=1; /Reserved.ReportViewerWebControl.axd%3FOpType%3DSessionKeepAlive%26ControlID%3Dc5f36e20776e406597f44f8ff605da2b%26Mode%3Dtrue_SKA=1; /Reserved.ReportViewerWebControl.axd%3FOpType%3DSessionKeepAlive%26ControlID%3D297ec6ac832d4a169eaa468819330169%26Mode%3Dtrue_SKA=1; CookiesLogin=admin; .ASPXAUTH=489DB096DF58C7094D8D004C65CE0699AB69AE9EAE0BE8885C86663A995F18EAE866DE0140C0DC064C39C93B8A2D660A1AED0EB2A3997F95DA27B93D59F9AD7C2D7246D436C5EF3A4AF48325B0D7A50BC5802A6A538EA080A85043570CE74ADFAD18BB0349999F18195706ACACAFBB97A65993BDE14DB720F8D3811526EF8C7E27422E50FF21C0AC1E8D12999F8EBFC0A61756691D11D51E158E63EAAAA010027E2AF1848EC1EEC8BACFB4F580D51EF9E9C8CDE50D9FF90C757EEEC41D9F273133AA5F1265305B9D3CF3CA6C3FAB9525B99BF55DF4EF397ACE8644DF62AD1883825FBD5A960976D342B590907170219E5F074D7FCABD78B01B6CE345C4DB00C0; ASP.NET_SessionId=scrwfsno51dgxyydixixu3qv" />
+    </item>
+    <item name="HTTP_HOST">
+      <value string="localhost:1371" />
+    </item>
+    <item name="HTTP_REFERER">
+      <value string="http://localhost:1371/Asistencia/ReporteIFM" />
+    </item>
+    <item name="HTTP_USER_AGENT">
+      <value string="Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36" />
+    </item>
+    <item name="HTTP_UPGRADE_INSECURE_REQUESTS">
+      <value string="1" />
+    </item>
+  </serverVariables>
+  <queryString>
+    <item name="reporte">
+      <value string="503" />
+    </item>
+    <item name="fechainicio">
+      <value string="2012-01-01" />
+    </item>
+    <item name="fechafin">
+      <value string="2017-01-15" />
+    </item>
+    <item name="periodoid">
+      <value string="1" />
+    </item>
+    <item name="programaid">
+      <value string="4" />
+    </item>
+    <item name="nivelid">
+      <value string="0" />
+    </item>
+    <item name="ejeid">
+      <value string="0" />
+    </item>
+    <item name="telecentroid">
+      <value string="0" />
+    </item>
+    <item name="tipoid">
+      <value string="0" />
+    </item>
+    <item name="formatoid">
+      <value string="0" />
+    </item>
+  </queryString>
+  <cookies>
+    <item name="/Reserved.ReportViewerWebControl.axd%3FOpType%3DSessionKeepAlive%26ControlID%3D706dfbb3a4224e40a058d25a1c797026%26Mode%3Dtrue_SKA">
+      <value string="1" />
+    </item>
+    <item name="/Reserved.ReportViewerWebControl.axd%3FOpType%3DSessionKeepAlive%26ControlID%3D460e03ea542840b3a9ff787c45b6b56e%26Mode%3Dtrue_SKA">
+      <value string="1" />
+    </item>
+    <item name="/Reserved.ReportViewerWebControl.axd%3FOpType%3DSessionKeepAlive%26ControlID%3Dc5f36e20776e406597f44f8ff605da2b%26Mode%3Dtrue_SKA">
+      <value string="1" />
+    </item>
+    <item name="/Reserved.ReportViewerWebControl.axd%3FOpType%3DSessionKeepAlive%26ControlID%3D297ec6ac832d4a169eaa468819330169%26Mode%3Dtrue_SKA">
+      <value string="1" />
+    </item>
+    <item name="CookiesLogin">
+      <value string="admin" />
+    </item>
+    <item name=".ASPXAUTH">
+      <value string="489DB096DF58C7094D8D004C65CE0699AB69AE9EAE0BE8885C86663A995F18EAE866DE0140C0DC064C39C93B8A2D660A1AED0EB2A3997F95DA27B93D59F9AD7C2D7246D436C5EF3A4AF48325B0D7A50BC5802A6A538EA080A85043570CE74ADFAD18BB0349999F18195706ACACAFBB97A65993BDE14DB720F8D3811526EF8C7E27422E50FF21C0AC1E8D12999F8EBFC0A61756691D11D51E158E63EAAAA010027E2AF1848EC1EEC8BACFB4F580D51EF9E9C8CDE50D9FF90C757EEEC41D9F273133AA5F1265305B9D3CF3CA6C3FAB9525B99BF55DF4EF397ACE8644DF62AD1883825FBD5A960976D342B590907170219E5F074D7FCABD78B01B6CE345C4DB00C0" />
+    </item>
+    <item name="ASP.NET_SessionId">
+      <value string="scrwfsno51dgxyydixixu3qv" />
+    </item>
+  </cookies>
+</error>

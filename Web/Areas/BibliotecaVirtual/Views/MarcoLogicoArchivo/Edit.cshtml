@@ -1,0 +1,281 @@
+﻿@section scripts
+{
+    <script type="text/javascript">
+        $(function () {
+            var data, id = queryString('id');
+
+            var data = getJson('@Url.Content("~/api/Planificacion/MarcoLogico/Find")', { id: id });
+            
+            var Model = function (data) {
+                var self = this;
+
+                data = data || {
+                    id: 0,
+                    fin: null,
+                    habilitado: true,
+                    proyectoid: 0,
+                    periodoinicio: null,
+                    periodofin: null,
+                    codigo: null,
+                    proposito: null,
+                    supuesto: null,
+                    PropositoMetas: [],
+                    Resultado: [],
+                };
+                data.proyectoid = id;
+
+                self.data = ko.mapping.fromJS(data);
+
+                self.listUnidadMedida = getJson('@Url.Content("~/api/General/UnidadMedida")');
+            };
+
+            ko.applyBindings(new Model(data));
+            $('.tabs').jqxTabs({ theme: 'darkblue' });
+
+            $('input[type=text],textarea,input[type=checkbox]').prop("readonly", true);
+            $('select').prop("disabled", true);
+        });
+
+        ShowPopupResultadoArchivo = function (item) {
+            ShowPopupArchivo('@Url.Action("ResultadoArchivo", "MarcoLogicoArchivo", new { area = "BibliotecaVirtual" })?biblioteca=1&id=' + item.id(), 1100, 500);
+            return false;
+        }
+
+
+        ShowPopupPropositoArchivo = function (item) {
+            ShowPopupArchivo('@Url.Action("PropositoArchivo","MarcoLogicoArchivo",new { area = "BibliotecaVirtual" })?biblioteca=1&id=' + item.id(), 1100, 500);
+            return false;
+        }
+    </script>
+}
+
+<form style="width: 100%; float: left;">
+    
+    <div class="toolbar">
+        <a class="back" title="Volver" href="@Url.Action("Index","ProyectoArchivo")"></a>
+        <button type="button" class="refresh" title="Refrescar" onclick="document.location.reload()"></button>
+    </div>
+
+    <span name="proyectoid" data-bind="value: data.proyectoid"/>
+    <fieldset>
+        <legend></legend>
+        <table style="width: 100%">
+            <colgroup>
+                <col style="width: 100px" />
+            </colgroup>
+            <tr>
+                <td>Periódo</td>
+                <td>
+                    <table>
+                        <colgroup>
+                            <col style="width: 40px" />
+                            <col style="width: 120px" />
+                            <col style="width: 20px" />
+                            <col style="width: 40px" />
+                            <col style="width: 120px" />
+                        </colgroup>
+                        <tr>
+                            <td>Inicio</td>
+                            <td>@Html.koDate("data.periodoinicio", disable:"true",width:100)</td>
+                            <td></td>
+                            <td>Fin</td>
+                            <td>@Html.koDate("data.periodofin", disable:"true",width:100)</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>Ingresar fin</td>
+                <td>
+                    <input name="fin" type="text" data-bind="value: data.fin" style="width: 100%"/>
+                </td>
+            </tr>            
+        </table>
+    </fieldset>
+
+    <div class='tabs'>
+        <ul>
+            <li style="margin-left: 30px;">
+                <div style="margin-left: 4px; vertical-align: middle; text-align: center; float: left;">Propósito</div>
+            </li>
+            <li>
+                <div style="margin-left: 4px; vertical-align: middle; text-align: center; float: left;">Resultado</div>
+            </li>
+        </ul>
+        <div style="overflow: hidden; padding: 10px;">
+            <table style="width: 100%">
+                <colgroup>
+                    <col style="width: 100px" />
+                </colgroup>
+                <tr>
+                    <td>Código
+                    </td>
+                    <td>
+                        <input name="codigo" type="text" data-bind="value: data.codigo" style="width: 100px" data-val="true" data-val-required="" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Descripción
+                    </td>
+                    <td>
+                        <input name="proposito" type="text" data-bind="value: data.proposito" style="width: 100%" data-val="true" data-val-required="" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Supuesto</td>
+                    <td>
+                        <textarea name="supuesto" data-bind="value: data.supuesto" data-val="true"   data-val-required=""></textarea>
+                    </td>
+                </tr>
+            </table>
+
+            <table class="grid">
+                <colgroup>
+                    <col style="width: 40px" />
+                    <col />
+                    <col style="width: 60px" />
+                    <col style="width: 40px" />
+                    <col />
+                    <col />
+                    <col style="width: 28px" />
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>Cod
+                        </th>
+                        <th>Meta
+                        </th>
+                        <th>Cant
+                        </th>
+                        <th>Und
+                        </th>
+                        <th>Indicadorcesar
+                        </th>
+                        <th>Fuente
+                        </th>
+                        <th style="width: 28px">
+                        </th>
+                    </tr>
+                </thead>
+                <tbody data-bind='foreach: data.PropositoMetas'>
+                    <tr>
+                        <td>
+                            <input type="hidden" data-bind="value: id, attr: { name: 'PropositoMetas[' + $index() + '].id' }" />
+                            <input type="text" data-bind="value: codigo, attr: { name: 'PropositoMetas[' + $index() + '].codigo' }" data-val="true" data-val-required="" />
+                        </td>
+                        <td>
+                            <input type="text" data-bind="    value: nombre, attr: { name: 'PropositoMetas[' + $index() + '].nombre' }" data-val="true" data-val-required="" />
+                        </td>
+                        <td>
+                            @Html.koNumeric("cantidad", @decimal: false, width: 60,disable:"true")
+                        </td>
+                        <td>
+                            <select data-bind="value: unidadid, options: $root.listUnidadMedida, optionsText: 'nombre', optionsValue: 'id', attr: { name: 'PropositoMetas[' + $index() + '].unidadid' }"  data-val="true" data-val-required=""/>
+                        </td>
+                        <td>
+                            <input type="text" data-bind="value: indicador, attr: { name: 'PropositoMetas[' + $index() + '].indicador' }" data-val="true" data-val-required=""  />
+                        </td>
+                        <td>
+                            <input type="text" data-bind="value: fuente, attr: { name: 'PropositoMetas[' + $index() + '].fuente' }" data-val="true" data-val-required=""  />
+                        </td>
+                        <td style="text-align: center">
+                            <button type="button" title="Archivos" data-bind="attr: { class: 'btn folder' + ((archivos() == true) ? '_open' : '') }, click: function () { ShowPopupPropositoArchivo($data) }"></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+        <div style="overflow: hidden; padding: 10px;">
+            <!-- ko foreach: data.Resultado -->
+            <div style="border: 1px solid #AAA; padding: 5px; margin: 5px 0">
+                <table style="width: 100%">
+                    <colgroup>
+                        <col style="width: 100px" />
+                        <col />
+                        <col style="width: 20px" />
+                        <col style="width: 100px" />
+                        <col />
+                    </colgroup>
+                    <tr>
+                        <td>Código
+                        </td>
+                        <td colspan="4">
+                            <input type="hidden" data-bind="value: id, attr: { name: 'Resultado[' + $index() + '].id' }" />
+                            <input type="text" style="width: 100px;" data-bind="value: codigo, attr: { name: 'Resultado[' + $index() + '].codigo' }" data-val="true" data-val-required="" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Descripción</td>
+                        <td>
+                            <textarea data-bind="value: nombre, attr: { name: 'Resultado[' + $index() + '].nombre' }" data-val="true" data-val-required="" ></textarea>
+                        </td>
+                        <td></td>
+                        <td>Supuesto</td>
+                        <td>
+                            <textarea data-bind="value: supuesto, attr: { name: 'Resultado[' + $index() + '].supuesto' }" data-val="true" data-val-required="" ></textarea>
+                        </td>
+                    </tr>
+                </table>
+
+                <table class="grid">
+                    <colgroup>
+                        <col style="width: 40px" />
+                        <col />
+                        <col style="width: 60px" />
+                        <col style="width: 40px" />
+                        <col />
+                        <col />
+                        <col style="width: 28px" />
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th>Cod
+                            </th>
+                            <th>Meta
+                            </th>
+                            <th>Cantidad
+                            </th>
+                            <th>Unidad
+                            </th>
+                            <th>Indicador
+                            </th>
+                            <th>Fuente
+                            </th>
+                            <th style="width: 28px;">
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody data-bind='foreach: ResultadoMetas'>
+                        <tr>
+                            <td>
+                                <input type="hidden" data-bind="value: id, attr: { name: 'Resultado[' + $parentContext.$index() + '].ResultadoMetas[' + $index() + '].id' }" />
+                                <input type="text" data-bind="value: codigo, attr: { name: 'Resultado[' + $parentContext.$index() + '].ResultadoMetas[' + $index() + '].codigo' }" data-val="true" data-val-required="" />
+                            </td>
+                            <td>
+                                <textarea data-bind="value: nombre, attr: { name: 'Resultado[' + $parentContext.$index() + '].ResultadoMetas[' + $index() + '].nombre' }" data-val="true" data-val-required="" ></textarea>
+                            </td>
+                            <td>
+                                @Html.koNumeric("cantidad", @decimal: false, width: 60, disable:"true")
+                            </td>
+                            <td>
+                                <select data-bind="value: unidadid, options: $root.listUnidadMedida, optionsText: 'nombre', optionsValue: 'id', attr: { name: 'Resultado[' + $parentContext.$index() + '].ResultadoMetas[' + $index() + '].unidadid' }" data-val="true" data-val-required=""/>
+                            </td>
+                            <td>
+                                <input type="text" data-bind="value: indicador, attr: { name: 'Resultado[' + $parentContext.$index() + '].ResultadoMetas[' + $index() + '].indicador' }"  data-val="true" data-val-required=""/>
+                            </td>
+                            <td>
+                                <input type="text" data-bind="value: fuente, attr: { name: 'Resultado[' + $parentContext.$index() + '].ResultadoMetas[' + $index() + '].fuente' }"  data-val="true" data-val-required=""/>
+                            </td>
+                            <td style="text-align: center">
+                                <button type="button" title="Archivos" data-bind="attr: { class: 'btn folder' + ((archivos() == true) ? '_open' : '') }, click: function () { ShowPopupResultadoArchivo($data) }"></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- /ko -->
+        </div>
+    </div>
+</form>

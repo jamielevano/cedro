@@ -1,0 +1,185 @@
+﻿<error errorId="b27fd97d-0854-4ec5-9ab8-0b63d56b441b" application="/LM/W3SVC/2/ROOT" host="DESKTOP-RP7B1TI" type="Microsoft.Reporting.WebForms.AspNetSessionExpiredException" message="La sesión ASP.NET ha expirado o no se pudo encontrar." source="Microsoft.ReportViewer.WebForms" detail="Microsoft.Reporting.WebForms.AspNetSessionExpiredException: La sesión ASP.NET ha expirado o no se pudo encontrar.&#xD;&#xA;   en Microsoft.Reporting.WebForms.ViewerDataOperation..ctor()&#xD;&#xA;   en Microsoft.Reporting.WebForms.HttpHandler.GetHandler(String operationType)&#xD;&#xA;   en Microsoft.Reporting.WebForms.HttpHandler.ProcessRequest(HttpContext context)&#xD;&#xA;   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()&#xD;&#xA;   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)&#xD;&#xA;   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean&amp; completedSynchronously)" user="cvaldivia" time="2018-09-17T20:18:57.3442932Z">
+  <serverVariables>
+    <item name="ALL_HTTP">
+      <value string="HTTP_CONNECTION:keep-alive&#xD;&#xA;HTTP_CONTENT_LENGTH:0&#xD;&#xA;HTTP_CONTENT_TYPE:application/x-www-form-urlencoded; charset=utf-8&#xD;&#xA;HTTP_ACCEPT:*/*&#xD;&#xA;HTTP_ACCEPT_ENCODING:gzip, deflate&#xD;&#xA;HTTP_ACCEPT_LANGUAGE:es-ES,es;q=0.8,en-US;q=0.5,en;q=0.3&#xD;&#xA;HTTP_COOKIE:.ASPXAUTH=D0A9DB5D6EBC7CDE5944CA56B26E685630A83787A6B7E28CD9544E3DF9A263331F780D8D8562B4FFF53953C0EDDBCD789D6319FB889957F8170730BB1E9DA2A90FEF3CB61C24549CCC41C89BB9489458763C860024ACEB71E93983C01976385D8E0D426831932026E54626BAF39D6AE167AB222BA03CD8928BB3B2845E27588B5327B8B95ECB5A3E2A709FB47F8435F5856318C6F9704AE5C0BBE4D240F8B9D4562F3EB69A61D75765E8CC21BDFE8D8D1691C35CF996BFC78ADE414814B72E567684415FAD9D108DEAE505E63DFA26F86AC74B84248148D2FD17E18A4F7F1C5B50ECDC90571182199546D81D65D7B44237A4DFBBBD2760746C3158E1C19B4077; ASP.NET_SessionId=vzp13vl1wwq5pm2iur33rqof&#xD;&#xA;HTTP_HOST:localhost:1371&#xD;&#xA;HTTP_REFERER:http://localhost:1371/Reports/Asistencia.aspx?reporte=7&amp;fechainicio=2018-01-01&amp;fechafin=2018-09-17&amp;ejeid=0&amp;telecentroid=0&#xD;&#xA;HTTP_USER_AGENT:Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:62.0) Gecko/20100101 Firefox/62.0&#xD;&#xA;HTTP_X_REQUESTED_WITH:XMLHttpRequest&#xD;&#xA;" />
+    </item>
+    <item name="ALL_RAW">
+      <value string="Connection: keep-alive&#xD;&#xA;Content-Length: 0&#xD;&#xA;Content-Type: application/x-www-form-urlencoded; charset=utf-8&#xD;&#xA;Accept: */*&#xD;&#xA;Accept-Encoding: gzip, deflate&#xD;&#xA;Accept-Language: es-ES,es;q=0.8,en-US;q=0.5,en;q=0.3&#xD;&#xA;Cookie: .ASPXAUTH=D0A9DB5D6EBC7CDE5944CA56B26E685630A83787A6B7E28CD9544E3DF9A263331F780D8D8562B4FFF53953C0EDDBCD789D6319FB889957F8170730BB1E9DA2A90FEF3CB61C24549CCC41C89BB9489458763C860024ACEB71E93983C01976385D8E0D426831932026E54626BAF39D6AE167AB222BA03CD8928BB3B2845E27588B5327B8B95ECB5A3E2A709FB47F8435F5856318C6F9704AE5C0BBE4D240F8B9D4562F3EB69A61D75765E8CC21BDFE8D8D1691C35CF996BFC78ADE414814B72E567684415FAD9D108DEAE505E63DFA26F86AC74B84248148D2FD17E18A4F7F1C5B50ECDC90571182199546D81D65D7B44237A4DFBBBD2760746C3158E1C19B4077; ASP.NET_SessionId=vzp13vl1wwq5pm2iur33rqof&#xD;&#xA;Host: localhost:1371&#xD;&#xA;Referer: http://localhost:1371/Reports/Asistencia.aspx?reporte=7&amp;fechainicio=2018-01-01&amp;fechafin=2018-09-17&amp;ejeid=0&amp;telecentroid=0&#xD;&#xA;User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:62.0) Gecko/20100101 Firefox/62.0&#xD;&#xA;X-Requested-With: XMLHttpRequest&#xD;&#xA;" />
+    </item>
+    <item name="APPL_MD_PATH">
+      <value string="/LM/W3SVC/2/ROOT" />
+    </item>
+    <item name="APPL_PHYSICAL_PATH">
+      <value string="D:\Cedro\Fuente\17092018_2\Web\" />
+    </item>
+    <item name="AUTH_TYPE">
+      <value string="Forms" />
+    </item>
+    <item name="AUTH_USER">
+      <value string="cvaldivia" />
+    </item>
+    <item name="AUTH_PASSWORD">
+      <value string="*****" />
+    </item>
+    <item name="LOGON_USER">
+      <value string="cvaldivia" />
+    </item>
+    <item name="REMOTE_USER">
+      <value string="cvaldivia" />
+    </item>
+    <item name="CERT_COOKIE">
+      <value string="" />
+    </item>
+    <item name="CERT_FLAGS">
+      <value string="" />
+    </item>
+    <item name="CERT_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SERIALNUMBER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CERT_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CONTENT_LENGTH">
+      <value string="0" />
+    </item>
+    <item name="CONTENT_TYPE">
+      <value string="application/x-www-form-urlencoded; charset=utf-8" />
+    </item>
+    <item name="GATEWAY_INTERFACE">
+      <value string="CGI/1.1" />
+    </item>
+    <item name="HTTPS">
+      <value string="off" />
+    </item>
+    <item name="HTTPS_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="INSTANCE_ID">
+      <value string="2" />
+    </item>
+    <item name="INSTANCE_META_PATH">
+      <value string="/LM/W3SVC/2" />
+    </item>
+    <item name="LOCAL_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="PATH_INFO">
+      <value string="/Reserved.ReportViewerWebControl.axd" />
+    </item>
+    <item name="PATH_TRANSLATED">
+      <value string="D:\Cedro\Fuente\17092018_2\Web\Reserved.ReportViewerWebControl.axd" />
+    </item>
+    <item name="QUERY_STRING">
+      <value string="OpType=SessionKeepAlive&amp;ControlID=176ce037c505478191f432b5b2d33e41&amp;Mode=true" />
+    </item>
+    <item name="REMOTE_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_HOST">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_PORT">
+      <value string="18120" />
+    </item>
+    <item name="REQUEST_METHOD">
+      <value string="POST" />
+    </item>
+    <item name="SCRIPT_NAME">
+      <value string="/Reserved.ReportViewerWebControl.axd" />
+    </item>
+    <item name="SERVER_NAME">
+      <value string="localhost" />
+    </item>
+    <item name="SERVER_PORT">
+      <value string="1371" />
+    </item>
+    <item name="SERVER_PORT_SECURE">
+      <value string="0" />
+    </item>
+    <item name="SERVER_PROTOCOL">
+      <value string="HTTP/1.1" />
+    </item>
+    <item name="SERVER_SOFTWARE">
+      <value string="Microsoft-IIS/10.0" />
+    </item>
+    <item name="URL">
+      <value string="/Reserved.ReportViewerWebControl.axd" />
+    </item>
+    <item name="HTTP_CONNECTION">
+      <value string="keep-alive" />
+    </item>
+    <item name="HTTP_CONTENT_LENGTH">
+      <value string="0" />
+    </item>
+    <item name="HTTP_CONTENT_TYPE">
+      <value string="application/x-www-form-urlencoded; charset=utf-8" />
+    </item>
+    <item name="HTTP_ACCEPT">
+      <value string="*/*" />
+    </item>
+    <item name="HTTP_ACCEPT_ENCODING">
+      <value string="gzip, deflate" />
+    </item>
+    <item name="HTTP_ACCEPT_LANGUAGE">
+      <value string="es-ES,es;q=0.8,en-US;q=0.5,en;q=0.3" />
+    </item>
+    <item name="HTTP_COOKIE">
+      <value string=".ASPXAUTH=D0A9DB5D6EBC7CDE5944CA56B26E685630A83787A6B7E28CD9544E3DF9A263331F780D8D8562B4FFF53953C0EDDBCD789D6319FB889957F8170730BB1E9DA2A90FEF3CB61C24549CCC41C89BB9489458763C860024ACEB71E93983C01976385D8E0D426831932026E54626BAF39D6AE167AB222BA03CD8928BB3B2845E27588B5327B8B95ECB5A3E2A709FB47F8435F5856318C6F9704AE5C0BBE4D240F8B9D4562F3EB69A61D75765E8CC21BDFE8D8D1691C35CF996BFC78ADE414814B72E567684415FAD9D108DEAE505E63DFA26F86AC74B84248148D2FD17E18A4F7F1C5B50ECDC90571182199546D81D65D7B44237A4DFBBBD2760746C3158E1C19B4077; ASP.NET_SessionId=vzp13vl1wwq5pm2iur33rqof" />
+    </item>
+    <item name="HTTP_HOST">
+      <value string="localhost:1371" />
+    </item>
+    <item name="HTTP_REFERER">
+      <value string="http://localhost:1371/Reports/Asistencia.aspx?reporte=7&amp;fechainicio=2018-01-01&amp;fechafin=2018-09-17&amp;ejeid=0&amp;telecentroid=0" />
+    </item>
+    <item name="HTTP_USER_AGENT">
+      <value string="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:62.0) Gecko/20100101 Firefox/62.0" />
+    </item>
+    <item name="HTTP_X_REQUESTED_WITH">
+      <value string="XMLHttpRequest" />
+    </item>
+  </serverVariables>
+  <queryString>
+    <item name="OpType">
+      <value string="SessionKeepAlive" />
+    </item>
+    <item name="ControlID">
+      <value string="176ce037c505478191f432b5b2d33e41" />
+    </item>
+    <item name="Mode">
+      <value string="true" />
+    </item>
+  </queryString>
+  <cookies>
+    <item name=".ASPXAUTH">
+      <value string="D0A9DB5D6EBC7CDE5944CA56B26E685630A83787A6B7E28CD9544E3DF9A263331F780D8D8562B4FFF53953C0EDDBCD789D6319FB889957F8170730BB1E9DA2A90FEF3CB61C24549CCC41C89BB9489458763C860024ACEB71E93983C01976385D8E0D426831932026E54626BAF39D6AE167AB222BA03CD8928BB3B2845E27588B5327B8B95ECB5A3E2A709FB47F8435F5856318C6F9704AE5C0BBE4D240F8B9D4562F3EB69A61D75765E8CC21BDFE8D8D1691C35CF996BFC78ADE414814B72E567684415FAD9D108DEAE505E63DFA26F86AC74B84248148D2FD17E18A4F7F1C5B50ECDC90571182199546D81D65D7B44237A4DFBBBD2760746C3158E1C19B4077" />
+    </item>
+    <item name="ASP.NET_SessionId">
+      <value string="vzp13vl1wwq5pm2iur33rqof" />
+    </item>
+  </cookies>
+</error>

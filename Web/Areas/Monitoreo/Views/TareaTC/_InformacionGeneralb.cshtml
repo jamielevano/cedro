@@ -1,0 +1,147 @@
+﻿<table style="width: 100%;">
+    <colgroup>
+        <col style="width:30%"/>
+        <col />
+    </colgroup>
+    <tr>
+        <td>
+        </td>
+        <td style="text-align:right">
+            <button type="button"  data-bind="click: function(){FichaArchivo(0)}"><a class="btn folder"></a> Agregar Archivo</button>
+        </td>
+    </tr>
+</table>
+
+<div style="width: 50%; float:left;">
+        <table>
+            <colgroup>
+                <col style="width:20%"/>
+                <col style="width:30%"/>
+                <col style="width:20%"/>
+                <col style="width:30%"/>
+            </colgroup>
+            <tr>
+                <td>Eje de Intervención</td>
+                <td>@Html.koSelect("ejeintervencionid", "$root.listEjeIntervencion")</td>
+                <td>Telecentro</td>
+                <td>@Html.koSelect("telecentroid", "$root.listTelecentros", "($root.listTelecentros() && !$root.bloqueo)")</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td>Region</td>
+                <td>@Html.koSelect("regionid", "$root.listRegion")</td>
+            </tr>
+            <tr>
+                <td>Sector</td>
+                <td>@Html.koSelect("sectorid", "$root.listSector")</td>
+                <td colspan="2"></td>
+            </tr>
+            <tr>
+                <td>Fecha inicio</td>
+                <td>@Html.koDate("fechainicio")</td>
+                <td>Fecha Fin</td>
+                <td>@Html.koDate("fechafin", min: "fechainicio")</td>
+            </tr>
+            <tr>
+                <td>Fecha de llenado</td>
+                <td>@Html.koDate("fechareporte", min: "fechainicio")</td>
+                <td colspan="2"></td>
+            </tr>
+            <tr>
+                <td>Promotor responsable</td>
+                <td>@Html.koSelect("promotorid", "$root.listUsuario")</td>
+                <td colspan="2"></td>
+            </tr>
+            <tr>
+                <td>
+                    Masculino
+                </td>
+                <td>
+                    <input type="text" readonly="readonly" style="text-align: right;width:40px" data-bind="value: participanteshombres" />
+                </td>
+                <td>
+                    Femenino
+                </td>
+                <td>
+                    <input type="text" readonly="readonly" style="text-align: right;width:40px" data-bind="value: participantesmujeres" />
+                </td>
+            </tr>
+             <tr>
+                <td>Observación</td>
+                <td colspan="3"><textarea name="descripcion" data-bind="value: descripcion" rows="4" data-val="true" data-val-required=""></textarea></td>
+            </tr>
+        </table>
+</div>
+    
+<div style="width: 50%; float:right;">
+        <table>
+            <colgroup>
+                <col style="width:25%"/>
+                <col style="width:15%"/>
+                <col style="width:15%"/>
+                <col style="width:15%"/>
+                <col style="width:15%"/>
+                <col style="width:15%"/>
+            </colgroup>
+            <tr>
+                <td>
+                    POBLACIÓN PARTICIPANTE <br />
+                    @Html.koCheck("discapacitados") Discapacitados
+                </td>
+                <td colspan="5">
+                    @Html.koCheck("poblacion01") Amas de casa<br />
+                    @Html.koCheck("poblacion02") Jóvenes<br />
+                    @Html.koCheck("poblacion03") Productoras<br /> 
+                    @Html.koCheck("poblacion04") Funcionarias de Gob. Locales<br />
+                    @Html.koCheck("poblacion05") Lideresas/Dirigentes comunales<br />
+                    @Html.koCheck("poblacion06") Profesoras<br />
+                    @Html.koCheck("poblacion07") Administradoras de negocios<br />
+                    @Html.koCheck("poblacion08") Mujeres emprendedoras<br />
+                    @Html.koCheck("poblacion09") Microempresarias<br />
+                    @Html.koCheck("poblacion10") Mujeres facilitadoras<br />
+                    @Html.koCheck("poblacion11") Hombres<br />
+                    @Html.koCheck("poblacion12") Periodistas/comunicadores<br />
+                    @Html.koCheck("poblacion13") Líderes de opinión<br />
+                    @Html.koCheck("poblacion14") Población en general<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Otros @Html.koTextNoRequired("poblacionotro",maxlength:200)<br />
+                    @Html.koChkVal("poblacion01() || poblacion02() || poblacion03() || poblacion04() || poblacion05() || poblacion06() || poblacion07() || poblacion08() || poblacion09() || poblacion10() || poblacion11() || poblacion12() || poblacion13() || poblacion14() || poblacionotro()")
+                </td>
+            </tr>
+            <tr>
+                <td>RESUMEN CAPACITACIÓN</td> 
+                <td>Culminados</td>
+                <td>
+                    <input type="text" readonly="readonly" style="text-align: right;width:40px" data-bind="value: evaluacion" />
+                </td>
+                <td>No culminados</td>
+                <td>
+                    <input type="text" readonly="readonly" style="text-align: right;width:40px" data-bind="value:desaprobados" />
+                </td>
+                <td></td>
+            </tr> 
+           <tr>
+                <td></td>
+                <td colspan="4">RANGO DE EDAD</td>
+                <td>TOTAL PARTICIPANTES</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>5-11</td>
+                <td>12-17</td>
+                <td>18-30</td>
+                <td>31 a más</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>N° DE PARTICIPANTES/ BENEFICIARIOS</td>
+                <td>@Html.koNumeric("rangoedad1", @decimal: false,maxlength:3,width:40)</td>
+                <td>@Html.koNumeric("rangoedad2", @decimal: false,maxlength:3,width:40)</td>
+                <td>@Html.koNumeric("rangoedad3", @decimal: false,maxlength:3,width:40)</td>
+                <td>@Html.koNumeric("rangoedad4", @decimal: false,maxlength:3,width:40)</td>
+                <td>
+                    <input type="text" readonly="readonly" title="Participantes total" style="text-align: right;width:40px" data-bind="value: +rangoedad1() + +rangoedad2() + +rangoedad3() + +rangoedad4()" />
+                </td>
+            </tr>
+        </table>
+</div>    

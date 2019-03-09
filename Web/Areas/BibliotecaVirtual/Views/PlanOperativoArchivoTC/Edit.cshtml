@@ -1,0 +1,239 @@
+﻿@section scripts
+{
+    <script type="text/javascript">
+        $(function () {
+            var data, proyecto, id = queryString('id');
+            
+
+            if (id) {
+                data = getJson('@Url.Content("~/api/Planificacion/PlanOperativoTC/Find")', { id: id });
+            }
+
+            var Model = function (data) {
+                var self = this;
+
+                data = data || {
+                    id: 0,
+                    resultadoid: null,
+                    actividad: null,
+                    presupuesto: 0,
+                    periodoinicio: null,
+                    periodofin: null,
+                    codigo: null,
+                    supuesto: null,
+                    fuente: null,                    
+                    PlanOperativoTareaTC: []
+                };
+
+                self.data = ko.mapping.fromJS(data);
+
+               
+                self.listUnidadMedida = getJson('@Url.Content("~/api/General/UnidadMedida")');
+                self.listResultado = getJson('@Url.Content("~/api/Planificacion/ResultadoTC/List")');
+            };
+
+            ko.applyBindings(x = new Model(data));
+           
+            $('input[type=text],textarea').prop("readonly", true);
+            $('input[type=checkbox]').prop("disabled", true);
+            $('select').prop("disabled", true);
+        });
+
+        ShowPopup = function (item) {
+            ShowPopupArchivo('@Url.Action("TareaArchivo","PlanOperativoArchivoTC","BibliotecaVirtual")?biblioteca=1&id=' + item.id(), 1100, 500)
+            return false;
+        }
+    </script>
+}
+
+
+<form  style="width: 100%; float: left;">
+    <div class="toolbar">
+        <a class="back" title="Volver" href="@Url.Action("Index")"></a>
+        <button type="button" class="refresh" title="Refrescar" onclick="document.location.reload()"></button>
+    </div>
+
+    <fieldset>
+        <legend></legend>
+        <table style="width: 100%">
+            <colgroup>
+                <col style="width: 100px" />
+                <col />
+            </colgroup>
+            <tr>
+                <td>Resultado
+                </td>
+                <td>
+                    <select style="width: 100%" data-bind="value: data.resultadoid, options: $root.listResultado, optionsText: 'nombre', optionsValue: 'id', optionsCaption: '[SELECCIONAR]', attr: { name: 'data.resultadoid' }" data-val="true" data-val-required="" />
+                </td>
+            </tr>
+        </table>
+
+        <table style="width: 100%">
+            <colgroup>
+                <col style="width: 100px" />
+                <col style="width: 400px" />
+                <col style="width: 20px" />
+                <col style="width: 100px" />
+                <col />
+            </colgroup>
+            <tr>
+                <td>Código
+                </td>
+                <td colspan="4">
+                    <input name="codigo" type="text" data-bind="value: data.codigo" style="width: 80px" data-val="true" data-val-required="" />
+                </td>
+            </tr>
+            <tr>
+                <td>Actividad</td>
+                <td>
+                    <textarea name="actividad" data-bind="value: data.actividad" data-val="true" data-val-required=""></textarea>
+                </td>
+                <td></td>
+                <td>Supuesto</td>
+                <td>
+                    <textarea name="supuesto" data-bind="value: data.supuesto" data-val="true" data-val-required=""></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>Periódo</td>
+                <td>
+                    <table>
+                        <colgroup>
+                            <col style="width: 40px" />
+                            <col style="width: 100px" />
+                            <col style="width: 20px" />
+                            <col style="width: 40px" />
+                            <col style="width: 100px" />
+                        </colgroup>
+                        <tr>
+                            <td>Inicio</td>
+                            <td>@Html.koDate("data.periodoinicio",disable:"true",width:100)</td>
+                            <td></td>
+                            <td>Fin</td>
+                            <td>@Html.koDate("data.periodofin",disable:"true",width:100)</td>
+                        </tr>
+                    </table>
+                </td>
+                <td></td>
+                <td>Presupuesto S/.</td>
+                <td style="text-align:left" data-bind="text: data.presupuesto"></td>
+            </tr>
+        </table>
+    </fieldset>
+
+
+    <table class="grid">
+        <thead>
+             <tr>
+                <th colspan="6"></th>
+                <th colspan="18">Fichas</th>
+                <th ></th>
+            </tr>
+            <tr>
+                <th style="width: 40px">Cod</th>
+                <th style="width: 400px">Tarea</th>
+                <th style="width: 40px">Und</th>
+                <th style="width: 40px">Cant</th>
+                <th >Indicador</th>
+                <th >Fuente</th>
+                <th style="width: 10px">1</th>
+                <th style="width: 10px">2</th>
+                <th style="width: 10px">3</th>
+                <th style="width: 10px">4</th>
+                <th style="width: 10px">5A</th>
+                <th style="width: 10px">5B</th>
+                <th style="width: 10px">5C</th>
+                <th style="width: 10px">5D</th>
+                <th style="width: 10px">6</th>
+                <th style="width: 10px">7A</th>
+                <th style="width: 10px">7B</th>
+                <th style="width: 10px">7C</th>
+                <th style="width: 10px">7D</th>
+                <th style="width: 10px">8</th>
+                <th style="width: 10px">9</th>
+                <th style="width: 10px">10</th>
+                <th style="width: 10px">11</th>
+                <th style="width: 10px">12</th>
+                <th style="width: 28px"></th>
+            </tr>
+        </thead>
+        <tbody data-bind='foreach: data.PlanOperativoTareaTC'>
+            <tr>
+                <td>
+                    <input type="text" data-bind="value: codigo, uniqueName: true" data-val="true" data-val-required="" /></td>
+                <td>
+                    <textarea data-bind="value: tarea, attr: { name: 'PlanOperativoTareaTC[' + $index() + '].tarea' }" data-val="true" data-val-required="" ></textarea>
+                </td>
+                <td>
+                    <select data-bind="value: unidadid, options: $root.listUnidadMedida, optionsText: 'nombre', optionsValue: 'id', uniqueName: true" data-val="true" data-val-required="" />
+                </td>
+                <td style="text-align:right" data-bind="text: cantidad"></td>
+                <td>
+                    <textarea data-bind="value: indicador, attr: { name: 'PlanOperativoTareaTC[' + $index() + '].indicador' }" data-val="true" data-val-required="" ></textarea>
+                </td>
+                <td>
+                    <textarea data-bind="value: fuente, attr: { name: 'PlanOperativoTareaTC[' + $index() + '].fuente' }" data-val="true" data-val-required="" ></textarea>
+                </td>
+                <td style="text-align: center">
+                    <input type="checkbox" data-bind="checked: ficha1, attr: {name: 'checkBoxficha1' + id}" />
+                </td>
+                <td style="text-align: center">
+                    <input type="checkbox" data-bind="checked: ficha2, attr: {name: 'checkBoxficha2' + id}" />
+                </td>
+                <td style="text-align: center">
+                    <input type="checkbox" data-bind="checked: ficha3, attr: {name: 'checkBoxficha3' + id}" />
+                </td>
+                <td style="text-align: center">
+                    <input type="checkbox" data-bind="checked: ficha4, attr: {name: 'checkBoxficha4' + id}" />
+                </td>
+                <td style="text-align: center">
+                    <input type="checkbox" data-bind="checked: ficha5a, attr: {name: 'checkBoxficha5a' + id}" />
+                </td>
+                <td style="text-align: center">
+                    <input type="checkbox" data-bind="checked: ficha5b, attr: {name: 'checkBoxficha5b' + id}" />
+                </td>
+                <td style="text-align: center">
+                    <input type="checkbox" data-bind="checked: ficha5c, attr: {name: 'checkBoxficha5c' + id}" />
+                </td>
+                <td style="text-align: center">
+                    <input type="checkbox" data-bind="checked: ficha5d, attr: {name: 'checkBoxficha5d' + id}" />
+                </td>
+                <td style="text-align: center">
+                    <input type="checkbox" data-bind="checked: ficha6, attr: {name: 'checkBoxficha6' + id}" />
+                </td>
+                <td style="text-align: center">
+                    <input type="checkbox" data-bind="checked: ficha7a, attr: {name: 'checkBoxficha7a' + id}" />
+                </td>
+                <td style="text-align: center">
+                    <input type="checkbox" data-bind="checked: ficha7b, attr: {name: 'checkBoxficha7b' + id}" />
+                </td>
+                <td style="text-align: center">
+                    <input type="checkbox" data-bind="checked: ficha7c, attr: {name: 'checkBoxficha7c' + id}" />
+                </td>
+                <td style="text-align: center">
+                    <input type="checkbox" data-bind="checked: ficha7d, attr: {name: 'checkBoxficha7d' + id}" />
+                </td>
+                <td style="text-align: center">
+                    <input type="checkbox" data-bind="checked: ficha8, attr: {name: 'checkBoxficha8' + id}" />
+                </td>
+                <td style="text-align: center">
+                    <input type="checkbox" data-bind="checked: ficha9, attr: {name: 'checkBoxficha9' + id}" />
+                </td>
+                <td style="text-align: center">
+                    <input type="checkbox" data-bind="checked: ficha10, attr: {name: 'checkBoxficha10' + id}" />
+                </td>
+                <td style="text-align: center">
+                    <input type="checkbox" data-bind="checked: ficha11, attr: {name: 'checkBoxficha11' + id}" />
+                </td>
+                <td style="text-align: center">
+                    <input type="checkbox" data-bind="checked: ficha12, attr: {name: 'checkBoxficha12' + id}" />
+                </td>
+                <td style="text-align: center">
+                    <button type="button" title="Archivos" data-bind="attr: { class: 'btn folder' + ((archivos() == true) ? '_open' : '') }, click: function () { ShowPopup($data) }"></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+   
+</form>

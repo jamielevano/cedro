@@ -1,0 +1,114 @@
+﻿<br />
+<fieldset class="ficha">
+    <legend>Locales – Otros Gastos</legend>
+
+    <table style="margin-left: 20px; margin-top: 7px;">
+        <tr>
+            <td>Lugar</td>
+            <td colspan="3">
+                @Html.koTextNoRequired("lugar", maxlength:100)
+            </td>
+                
+        </tr>
+        <tr>
+            <td>Número de Horas</td>
+            <td>@Html.koNumeric("lugarnumerohoras", maxlength:5, required:false)</td>
+            <td>Costo Por Hora</td>
+            <td>@Html.koNumeric("lugarcostohora", maxlength:5, required:false)</td>
+        </tr>
+        <tr>
+            <td>Costo Total Alimentación</td>
+            <td>@Html.koNumeric("costototalalimentacion", maxlength:5)</td>
+            <td>Costo Total Movilidad</td>
+            <td>@Html.koNumeric("costototalmovilidad", maxlength:5)</td>
+        </tr>
+        <tr>
+            <td>Total</td>
+            <td>
+                <input type="text" readonly="readonly" tabindex="-1" style="text-align: right" data-bind="value: +lugarnumerohoras() * +lugarcostohora() + +costototalalimentacion() + +costototalmovilidad()" /></td>
+        </tr>
+    </table>
+</fieldset>
+<fieldset class="ficha">
+    <legend>Difusión en Medios</legend>
+    <table class="grid" style="width: auto; margin: 10px;">
+        <thead>
+            <tr>
+                <th style="text-align: center;">Medio de Difusión</th>
+                <th style="text-align: center; width: 100px;">Radio</th>
+                <th style="text-align: center; width: 100px;">Televisión</th>
+                <th style="text-align: center; width: 100px;">Prensa</th>
+            </tr>
+        </thead>
+        <tr>
+            <td>Número emisiones/Publicaciones</td>
+            <td>@Html.koNumeric("difusionemisionesradio", @decimal: false, required: false, maxlength:5)</td>
+            <td>@Html.koNumeric("difusionemisionestv", @decimal: false, required: false, maxlength:5)</td>
+            <td>@Html.koNumeric("difusionemisionesprensa", @decimal: false, required: false, maxlength:5)</td>
+        </tr>
+        <tr>
+            <td>Cantidad de Segundos</td>
+            <td>@Html.koNumeric("difusionsegundosradio", @decimal: false, required: false, maxlength:5)</td>
+            <td>@Html.koNumeric("difusionsegundostv", @decimal: false, required: false, maxlength:5)</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>CostoxSegundo/Publicación S/.</td>
+            <td>@Html.koNumeric("difusioncostoradio", required: false, maxlength:5)</td>
+            <td>@Html.koNumeric("difusioncostotv", required: false, maxlength:5)</td>
+            <td>@Html.koNumeric("difusionsegundosprensa", required: false, maxlength:5)</td>
+        </tr>
+        <tr>
+            <td>Total S/.</td>
+            <td style="text-align: right;" data-bind="text: +difusionemisionesradio() * +difusionsegundosradio() * +difusioncostoradio()"></td>
+            <td style="text-align: right;" data-bind="text: +difusionemisionestv() * +difusionsegundostv() * +difusioncostotv()"></td>
+            <td style="text-align: right;" data-bind="text: +difusionemisionesprensa() * +difusionsegundosprensa()"></td>
+        </tr>
+    </table>
+    <table>
+        <tr>
+            <td>Costo Total Por Difusión de Medios</td>
+            <td>
+                <input type="text" readonly="readonly" tabindex="-1" style="text-align: right" data-bind="value: (+difusionemisionesradio() * +difusionsegundosradio() * +difusioncostoradio()) +
+                                                                                                    (+difusionemisionestv() * +difusionsegundostv() * +difusioncostotv()) +
+                                                                                                    (+difusionemisionesprensa() * +difusionsegundosprensa())" /></td>
+        </tr>
+    </table>
+</fieldset>
+<fieldset class="ficha">
+    <legend>Voluntariado</legend>
+    <table style="margin-left: 20px; margin-top: 7px;">
+        <tr>
+            <td>Número de Voluntarios</td>
+            <td>@Html.koNumeric("voluntariosnumero", @decimal: false, required: false, maxlength:5)</td>
+            <td>Número de Horas</td>
+            <td>@Html.koNumeric("voluntarioshoras", required: false, maxlength:5)</td>
+        </tr>
+        <tr>
+            <td>Costo Por Hora</td>
+            <td>@Html.koNumeric("voluntarioscostohora", required: false, maxlength:5)</td>
+            <td>Total</td>
+            <td>
+                <input type="text" readonly="readonly" tabindex="-1" style="text-align: right" data-bind="value: +voluntariosnumero() * +voluntarioshoras() * +voluntarioscostohora()" /></td>
+        </tr>
+    </table>
+</fieldset>
+<fieldset class="ficha">
+    <legend>Consultores</legend>
+    <table style="margin-left: 20px; margin-top: 7px;">
+        <tr>
+            <td>Número de Consultores</td>
+            <td>@Html.koNumeric("consultoresnumero", @decimal: false, required: false, maxlength:5)</td>
+            <td>Número de Horas</td>
+            <td>@Html.koNumeric("consultoreshoras", required: false, maxlength:5)</td>
+        </tr>
+        <tr>
+            <td>Costo Por Hora</td>
+            <td>@Html.koNumeric("consultorescostohora", required: false, maxlength:5)</td>
+            <td>Costo Total</td>
+            <td>
+                <input type="text" readonly="readonly" tabindex="-1" style="text-align: right" data-bind="value: +consultoresnumero() * +consultoreshoras() * +consultorescostohora()" /></td>
+        </tr>
+    </table>
+
+</fieldset>

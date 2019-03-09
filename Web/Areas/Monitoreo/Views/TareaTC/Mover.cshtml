@@ -1,0 +1,138 @@
+﻿@section scripts
+{
+    <script type="text/javascript">
+        var vista;
+
+        $(function () {
+            $('#loading').show();
+
+            var data, id = queryString('id'), tarea = queryString('tarea');
+            
+            data = getJson('@Url.Content("~/api/Monitoreo/TareaTC/FindAvance")', { id: id })
+
+            console.log(data);
+            
+            function Model(data)
+            {
+                var self = this;
+
+                self.listActividad = getJson('@Url.Content("~/api/Planificacion/PlanOperativoTC/FindAll")');
+                self.listTarea = ko.observableArray();
+
+                
+                self.id=id;
+                self.data = ko.mapping.fromJS(data.avance);
+                self.tarea = data.tarea;
+
+                
+                self.idActividad = ko.observable();
+                self.idTarea = ko.observable();
+
+                self.idActividad.subscribe(function (id) {
+                    self.idTarea(undefined);
+                    self.listTarea(undefined);
+                    if (id) self.listTarea(getJson('@Url.Content("~/api/Planificacion/POTareaTC/FindByActividad")', { id: id }));
+                });
+                
+                self.Back = function ()
+                {
+                    if (confirm("Esta seguro de volver a la página anterior")) {
+
+                        if (id != 0)
+                            document.location.href = '@Url.Action("Search")';
+                        else
+                            document.location.href = '@Url.Action("Index")';
+                    }
+                }
+
+                
+
+
+                self.Save = function (form) {
+                    if ($(form).refreshValidator().valid()) {
+                        postJson('@Url.Content("~/api/Monitoreo/TareaTC/MoveSave")',
+                            { idTarea: self.idTarea, id:self.id },
+                        function (data) {
+                            alert('Se grabo con exito!');
+                            self.Back();
+                        },
+                        function () {
+                            alert('Error');
+                        });
+                    }
+                };
+
+                
+                
+            }
+
+            ko.applyBindings(new Model(data));
+            $('#loading').hide();
+        });
+
+    </script>
+}
+
+<form data-bind="submit: Save" style="width: 100%; float: left;">
+    <div class="toolbar">
+        <a class="back" title="Volver" data-bind="click: $root.Back"></a>
+        <button type="button" class="save" title="Grabar" onclick="$(this).closest('form').submit()"></button>
+        <button type="button" class="refresh" title="Refrescar" onclick="document.location.reload()"></button>
+    </div>
+
+    <fieldset>
+        <legend></legend>
+
+        <table style="width: 100%;">
+            <colgroup>
+                <col style="width: 100px;" />
+                <col />
+            </colgroup>
+            @*<tr>
+                <td>Resultado</td>
+                <td data-bind="text: $root.tarea.resultado"></td>
+            </tr>*@
+            <tr>
+                <td>Actividad</td>
+                <td data-bind="text: $root.tarea.actividad"></td>
+            </tr>
+            <tr>
+                <td>Tarea</td>
+                <td data-bind="text: $root.tarea.tarea"></td>
+            </tr>
+            <tr>            
+                <td>Codigo de Reporte</td>
+                <td>
+                    <input type="text" name="id" data-bind="value: id" readonly="true" />
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+    <fieldset>
+        <legend>Mover a:</legend>
+
+        <table style="width: 100%;">
+            <colgroup>
+                <col style="width: 100px;" />
+                <col />
+            </colgroup>
+            <tr>
+                <td>Actividad
+                </td>
+                <td>
+                    <select style="width:100%" data-bind="value: idActividad, options: $root.listActividad, optionsText: 'nombre', optionsValue: 'id', optionsCaption: '[SELECCIONAR]'"
+                        data-val="true" data-val-required="" />
+                </td>
+            </tr>
+            <tr>
+                <td>Tarea
+                </td>
+                <td>
+                    <select style="width:100%" 
+                        data-bind="value: idTarea, enable: (listTarea() && listTarea().length), options: $root.listTarea, optionsText: 'nombre', optionsValue: 'id', optionsCaption: '[SELECCIONAR]'"
+                        data-val="true" data-val-required="" />
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+</form>

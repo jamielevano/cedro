@@ -1,0 +1,159 @@
+﻿@section scripts
+{
+    <script type="text/javascript">
+        $(function (){
+
+            var Model = function () {
+                var self = this;
+
+                self.data = {
+                    telecentro: ko.observable(null),
+                    rol: ko.observable(null),
+                    login:ko.observable(null),
+                    cargo:ko.observable(null)
+                };
+
+                self.listTelecentros = getJson('@Url.Content("~/api/General/EjeIntervencion02")');
+                self.listRol = getJson('@Url.Content("~/api/Sistema/Rol/List")');
+                self.list = ko.observableArray();
+
+                self.Search = function (form) {
+                    self.list(undefined);
+                    postJson('@Url.Content("~/api/Sistema/Usuario/List")', JSON.parse(ko.mapping.toJSON(self.data)), function(data){
+                        self.list(data);
+                    })
+                }
+
+                self.delete = function (item)
+                {
+                    if (confirm('¿Esta seguro de eliminar el registro?'))
+                    {
+                        postJson('@Url.Content("~/api/Sistema/Usuario/Delete")', { id: item.id },
+                            function () {
+                                
+                                document.location.reload();
+
+                            },
+                        function () {
+                            alert('Error');
+                        });
+                    }
+                };
+            };
+
+            ko.applyBindings(new Model());
+
+            $(':checkbox[readonly=readonly]').click(function () {
+                return false;
+            });
+        })
+    </script>
+}
+
+
+<div class="toolbar">
+    <a class="new" title="Nuevo" data-bind="attr: { href: '@Url.Action("Edit")'}"></a>
+    <button type="button" class="refresh" title="Refrescar" onclick="document.location.reload()"></button>
+</div>
+
+<table style="width:95%; margin: 10px auto;">
+    <tr>
+        <td>
+            <fieldset>
+                <legend>BUSCAR AVANCE</legend>
+                <form data-bind="submit: Search">
+                    <table>
+                        <tr>
+                            <td>
+                                EJE DE INTERVENCION
+                            </td>
+                            <td>
+                                @Html.koSelect("data.telecentro", "$root.listTelecentros")
+                            </td>
+                            <td></td>
+                            <td>
+                                ROL
+                            </td>
+                            <td>
+                                @Html.koSelect("data.rol", "$root.listRol")
+                            </td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                CARGO
+                            </td>
+                            <td>
+                                <input type="text" data-bind="value: data.cargo, uniqueName: true" style="width: 200px" />
+                            </td>
+                            <td></td>
+                            <td>LOGIN</td>
+                            <td>
+                                <input type="text" data-bind="value: data.login, uniqueName: true" style="width: 100px" />
+                            </td>
+                            <td>
+                                <button type="submit" style="cursor:pointer;">Buscar</button>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </fieldset>
+        </td>
+    </tr>
+</table>
+
+<table class="grid" style="width: 95%">
+    <colgroup>
+        <col style="width: 50px" />
+        <col />
+        <col style="width: 150px" />
+        <col style="width: 200px" />
+        <col style="width: 200px" />
+        <col style="width: 150px" />
+        <col style="width: 150px" />
+        <col style="width: 50px" />
+        <col style="width: 48px" />
+    </colgroup>
+    <thead>
+        <tr>
+            <th>Nª</th>
+            <th>LOGIN</th>
+            <th>CLAVE</th>
+            <th>NOMBRE</th>
+            <th>CARGO</th>
+            <th>EJE DE INTERVENCION</th>
+            <th>ADMIN</th>
+            <th>ROL</th>
+            <th>COORDINADOR</th>
+            <th>
+                @*<a href='@Url.Content("/Planificacion/Usuario/Edit")'>+</a>*@
+            </th>
+        </tr>
+    </thead>
+    <tbody data-bind='foreach: list'>
+        <tr>
+            <td data-bind="text: $index() + 1 "></td>
+
+            <td data-bind="text: login "></td>
+
+            <td data-bind="text: clave "></td>
+            <td data-bind="text: nombre "></td>
+            <td data-bind="text: cargo "></td>
+            <td data-bind="text: telecentro "></td>
+
+            <td style="text-align:center">
+                <input name="admin" readonly="readonly" type="checkbox" data-bind="checked: admin"/>
+            </td>
+            <td data-bind="text: rol "></td>
+
+            <td style="text-align:center">
+                <input name="coordinador" readonly="readonly" type="checkbox" data-bind="checked: coordinador" />
+            </td>
+
+            <td style="text-align: center">
+                <a class="btn edit" title="Modificar" data-bind="attr: { href: '@Url.Action("Edit")?id=' + id}"></a>
+                <button type="button" class="btn del" title="Eliminar" data-bind="click: $root.delete" />
+            </td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,141 @@
+﻿@section scripts
+{
+    <script type="text/javascript">
+        $(function ()
+        {
+            var data, id = queryString('id');
+
+            if(id)
+                data = getJson('@Url.Content("~/api/Sistema/Maestro/Find")', {id:id});
+            
+            var Model = function (data)
+            {
+                var self = this;
+
+                data = data || {
+                    id: 0,
+                    nombre:null,
+                    ListaDetalle: []
+                };
+
+                self.data = ko.mapping.fromJS(data);
+
+
+                self.addListaDetalle  = function () {
+                    self.data.ListaDetalle .push(ko.mapping.fromJS({
+                        id: 0,
+                        codigo: null,
+                        listaid: null,
+                        nombre: null,
+                        headid:null,
+                        relacionid:null,
+                        activo: null                        
+                    }));
+                };
+
+                self.removeListaDetalle  = function (item) {
+                    self.data.ListaDetalle .remove(item);
+                };
+                
+
+                self.Save = function (form)
+                {   
+                    if ($(form).refreshValidator().valid()) {
+                        var data = JSON.parse(ko.mapping.toJSON(self.data));
+                        data.ListaDetalle = data.ListaDetalle.map(function(o){o.activo = +o.activo; return o;});
+                        postJson('@Url.Content("~/api/Sistema/Maestro/Save")', data,
+                        function () {    
+                            document.location.href = '@Url.Content("~/Sistema/Maestro")';
+                        },
+                        function () {
+                            alert('Error');
+                        });
+                    }
+                };
+
+            };
+
+            ko.applyBindings(new Model(data));
+        })
+    </script>
+}
+
+<form data-bind="submit: Save" style="width: 100%; float: left;">   
+    <div class="toolbar">
+        <a class="back" title="Volver" data-bind="attr: { href: '@Url.Action("Index")'}"></a>
+        <button type="button" class="save" title="Grabar" onclick="$(this).closest('form').submit()"></button>
+        <button type="button" class="refresh" title="Refrescar" onclick="document.location.reload()"></button>
+    </div>
+    <fieldset>
+        <legend></legend>
+        
+        <table>
+            <tr>
+                <td style="width: 500px">
+                    NOMBRE
+                </td>
+                <td>
+                    <input name="nombre" type="text" data-bind="value: data.nombre" style="width: 200px" data-val="true" data-val-required="" />
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+
+        
+    <fieldset>
+        <legend>DETALLE</legend>
+        <table class="grid">
+            <colgroup>
+                <col style="width: 100px" />
+                <col  />
+
+
+                <col style="width: 150px" />
+                <col style="width: 150px" />
+
+                <col style="width: 50px" />
+                <col style="width: 28px" />
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>CODIGO</th>
+                    <th>NOMBRE</th>
+
+                    <th>CODIGO DE LISTA</th>
+                    <th>CODIGO DE DETALLE</th>
+
+                    <th>ACTIVO</th>
+                    <th>
+                        <button type="button" class="btn add" data-bind="click: addListaDetalle "></button>
+                    </th>
+                </tr>
+            </thead>
+            <tbody data-bind='foreach: data.ListaDetalle '>
+                <tr>
+                    <td>
+                        @Html.koNumeric("codigo", @decimal: false, width: 60)
+                    </td>
+                    <td>
+                        <input type="text" data-bind="value: nombre, attr: { name: 'ListaDetalle [' + $index() + '].nombre' }" data-val="true" data-val-required="" />
+                    </td>
+
+                    <td>
+                        @Html.koNumeric("headid", @decimal: false, width: 60,required:false)
+                    </td>
+                    <td>
+                        @Html.koNumeric("relacionid", @decimal: false, width: 60,required:false)
+                    </td>
+
+
+                    <td>
+                        <input type="checkbox" data-bind="checked: activo , attr: { name: 'ListaDetalle [' + $index() + '].activo' }"/>
+                    </td>
+                    <td style="text-align: center">
+                        <button type="button" class="btn del" data-bind="click: $root.removeListaDetalle "></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </fieldset>
+</form>
+@*<pre class="json" data-bind="text: JSON.stringify(ko.mapping.toJS(data) , null, '  ')"></pre>*@

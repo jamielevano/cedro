@@ -1,0 +1,185 @@
+﻿<error errorId="308146e4-db42-46d2-9aa8-fd9db988f282" application="/LM/W3SVC/3/ROOT" host="LAPTOP-P8VHKLCN" type="System.NullReferenceException" message="Referencia a objeto no establecida como instancia de un objeto." source="Web" detail="System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.&#xD;&#xA;   en Web.Areas.Planificacion.Controllers.Api.PlanOperativoTareaMetaTCController.Save(PlanOperativoTareaTC item) en C:\Users\DIEGO\Desktop\CEDRO\SMEC_PRODUCCION\SMEC\Web\Areas\Planificacion\Controllers\Api\PlanOperativoTareaMetaTCController.cs:línea 62&#xD;&#xA;   en lambda_method(Closure , Object , Object[] )&#xD;&#xA;   en System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.&lt;&gt;c__DisplayClassc.&lt;GetExecutor&gt;b__6(Object instance, Object[] methodParameters)&#xD;&#xA;   en System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)&#xD;&#xA;   en System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)&#xD;&#xA;--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---&#xD;&#xA;   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;&#xA;   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;&#xA;   en System.Web.Http.Controllers.ApiControllerActionInvoker.&lt;InvokeActionAsyncCore&gt;d__0.MoveNext()&#xD;&#xA;--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---&#xD;&#xA;   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;&#xA;   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;&#xA;   en System.Web.Http.Controllers.ActionFilterResult.&lt;ExecuteAsync&gt;d__2.MoveNext()&#xD;&#xA;--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---&#xD;&#xA;   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;&#xA;   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;&#xA;   en System.Web.Http.Controllers.ExceptionFilterResult.&lt;ExecuteAsync&gt;d__0.MoveNext()" user="cvaldivia" time="2018-08-01T01:26:05.3090961Z">
+  <serverVariables>
+    <item name="ALL_HTTP">
+      <value string="HTTP_CONNECTION:keep-alive&#xD;&#xA;HTTP_CONTENT_LENGTH:31&#xD;&#xA;HTTP_CONTENT_TYPE:application/x-www-form-urlencoded; charset=UTF-8&#xD;&#xA;HTTP_ACCEPT:application/json, text/javascript, */*; q=0.01&#xD;&#xA;HTTP_ACCEPT_ENCODING:gzip, deflate, br&#xD;&#xA;HTTP_ACCEPT_LANGUAGE:es-ES,es;q=0.9,en;q=0.8&#xD;&#xA;HTTP_COOKIE:.ASPXAUTH=15F3D65755AD3BF007D5B10C1D055C8C96284A8CE2F25AF1D6DD4B7DC214F67731345B61282BA61CE3FDDDCB8AB06C4DBDC2D9CCA5CAF27CE806B958AF96D3739E554DC3BA17861BBB6059B1B9DC76F3403B8E3103E9FD9D8816EE3194D750A580FB82B22E3A6F64AD612C3F27380138CF74C17B269C4AD55293453F48117A842691816852700E5B24DCCCFDBD7B900DC1288CDD5B5F1115D605F25459667C7E5D2AD8D8728AB19BC870DBE036FC952FC6F75819F68E5D1A0EDEE542BD6AB1D7EBFC2A5813D85A9DCB8D5973BDA1F77DFBC32F5DE69811717D278227498174729BCDF383A2C659F2FDBA997FD29756D6A66B23ED850FFDEEB32D047E4019241E&#xD;&#xA;HTTP_HOST:localhost:1371&#xD;&#xA;HTTP_REFERER:http://localhost:1371/Planificacion/PlanOperativoTareaMetaTC?id=0&#xD;&#xA;HTTP_USER_AGENT:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36&#xD;&#xA;HTTP_ORIGIN:http://localhost:1371&#xD;&#xA;HTTP_X_REQUESTED_WITH:XMLHttpRequest&#xD;&#xA;" />
+    </item>
+    <item name="ALL_RAW">
+      <value string="Connection: keep-alive&#xD;&#xA;Content-Length: 31&#xD;&#xA;Content-Type: application/x-www-form-urlencoded; charset=UTF-8&#xD;&#xA;Accept: application/json, text/javascript, */*; q=0.01&#xD;&#xA;Accept-Encoding: gzip, deflate, br&#xD;&#xA;Accept-Language: es-ES,es;q=0.9,en;q=0.8&#xD;&#xA;Cookie: .ASPXAUTH=15F3D65755AD3BF007D5B10C1D055C8C96284A8CE2F25AF1D6DD4B7DC214F67731345B61282BA61CE3FDDDCB8AB06C4DBDC2D9CCA5CAF27CE806B958AF96D3739E554DC3BA17861BBB6059B1B9DC76F3403B8E3103E9FD9D8816EE3194D750A580FB82B22E3A6F64AD612C3F27380138CF74C17B269C4AD55293453F48117A842691816852700E5B24DCCCFDBD7B900DC1288CDD5B5F1115D605F25459667C7E5D2AD8D8728AB19BC870DBE036FC952FC6F75819F68E5D1A0EDEE542BD6AB1D7EBFC2A5813D85A9DCB8D5973BDA1F77DFBC32F5DE69811717D278227498174729BCDF383A2C659F2FDBA997FD29756D6A66B23ED850FFDEEB32D047E4019241E&#xD;&#xA;Host: localhost:1371&#xD;&#xA;Referer: http://localhost:1371/Planificacion/PlanOperativoTareaMetaTC?id=0&#xD;&#xA;User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36&#xD;&#xA;Origin: http://localhost:1371&#xD;&#xA;X-Requested-With: XMLHttpRequest&#xD;&#xA;" />
+    </item>
+    <item name="APPL_MD_PATH">
+      <value string="/LM/W3SVC/3/ROOT" />
+    </item>
+    <item name="APPL_PHYSICAL_PATH">
+      <value string="C:\Users\Diego\Desktop\CEDRO\SMEC_PRODUCCION\SMEC\Web\" />
+    </item>
+    <item name="AUTH_TYPE">
+      <value string="Forms" />
+    </item>
+    <item name="AUTH_USER">
+      <value string="cvaldivia" />
+    </item>
+    <item name="AUTH_PASSWORD">
+      <value string="*****" />
+    </item>
+    <item name="LOGON_USER">
+      <value string="cvaldivia" />
+    </item>
+    <item name="REMOTE_USER">
+      <value string="cvaldivia" />
+    </item>
+    <item name="CERT_COOKIE">
+      <value string="" />
+    </item>
+    <item name="CERT_FLAGS">
+      <value string="" />
+    </item>
+    <item name="CERT_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SERIALNUMBER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CERT_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CONTENT_LENGTH">
+      <value string="31" />
+    </item>
+    <item name="CONTENT_TYPE">
+      <value string="application/x-www-form-urlencoded; charset=UTF-8" />
+    </item>
+    <item name="GATEWAY_INTERFACE">
+      <value string="CGI/1.1" />
+    </item>
+    <item name="HTTPS">
+      <value string="off" />
+    </item>
+    <item name="HTTPS_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="INSTANCE_ID">
+      <value string="3" />
+    </item>
+    <item name="INSTANCE_META_PATH">
+      <value string="/LM/W3SVC/3" />
+    </item>
+    <item name="LOCAL_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="PATH_INFO">
+      <value string="/api/Planificacion/PlanOperativoTareaMetaTC/Save" />
+    </item>
+    <item name="PATH_TRANSLATED">
+      <value string="C:\Users\Diego\Desktop\CEDRO\SMEC_PRODUCCION\SMEC\Web\api\Planificacion\PlanOperativoTareaMetaTC\Save" />
+    </item>
+    <item name="QUERY_STRING">
+      <value string="" />
+    </item>
+    <item name="REMOTE_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_HOST">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_PORT">
+      <value string="62214" />
+    </item>
+    <item name="REQUEST_METHOD">
+      <value string="POST" />
+    </item>
+    <item name="SCRIPT_NAME">
+      <value string="/api/Planificacion/PlanOperativoTareaMetaTC/Save" />
+    </item>
+    <item name="SERVER_NAME">
+      <value string="localhost" />
+    </item>
+    <item name="SERVER_PORT">
+      <value string="1371" />
+    </item>
+    <item name="SERVER_PORT_SECURE">
+      <value string="0" />
+    </item>
+    <item name="SERVER_PROTOCOL">
+      <value string="HTTP/1.1" />
+    </item>
+    <item name="SERVER_SOFTWARE">
+      <value string="Microsoft-IIS/10.0" />
+    </item>
+    <item name="URL">
+      <value string="/api/Planificacion/PlanOperativoTareaMetaTC/Save" />
+    </item>
+    <item name="HTTP_CONNECTION">
+      <value string="keep-alive" />
+    </item>
+    <item name="HTTP_CONTENT_LENGTH">
+      <value string="31" />
+    </item>
+    <item name="HTTP_CONTENT_TYPE">
+      <value string="application/x-www-form-urlencoded; charset=UTF-8" />
+    </item>
+    <item name="HTTP_ACCEPT">
+      <value string="application/json, text/javascript, */*; q=0.01" />
+    </item>
+    <item name="HTTP_ACCEPT_ENCODING">
+      <value string="gzip, deflate, br" />
+    </item>
+    <item name="HTTP_ACCEPT_LANGUAGE">
+      <value string="es-ES,es;q=0.9,en;q=0.8" />
+    </item>
+    <item name="HTTP_COOKIE">
+      <value string=".ASPXAUTH=15F3D65755AD3BF007D5B10C1D055C8C96284A8CE2F25AF1D6DD4B7DC214F67731345B61282BA61CE3FDDDCB8AB06C4DBDC2D9CCA5CAF27CE806B958AF96D3739E554DC3BA17861BBB6059B1B9DC76F3403B8E3103E9FD9D8816EE3194D750A580FB82B22E3A6F64AD612C3F27380138CF74C17B269C4AD55293453F48117A842691816852700E5B24DCCCFDBD7B900DC1288CDD5B5F1115D605F25459667C7E5D2AD8D8728AB19BC870DBE036FC952FC6F75819F68E5D1A0EDEE542BD6AB1D7EBFC2A5813D85A9DCB8D5973BDA1F77DFBC32F5DE69811717D278227498174729BCDF383A2C659F2FDBA997FD29756D6A66B23ED850FFDEEB32D047E4019241E" />
+    </item>
+    <item name="HTTP_HOST">
+      <value string="localhost:1371" />
+    </item>
+    <item name="HTTP_REFERER">
+      <value string="http://localhost:1371/Planificacion/PlanOperativoTareaMetaTC?id=0" />
+    </item>
+    <item name="HTTP_USER_AGENT">
+      <value string="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36" />
+    </item>
+    <item name="HTTP_ORIGIN">
+      <value string="http://localhost:1371" />
+    </item>
+    <item name="HTTP_X_REQUESTED_WITH">
+      <value string="XMLHttpRequest" />
+    </item>
+  </serverVariables>
+  <form>
+    <item name="id">
+      <value string="0" />
+    </item>
+    <item name="periodoinicio">
+      <value string="" />
+    </item>
+    <item name="periodofin">
+      <value string="" />
+    </item>
+  </form>
+  <cookies>
+    <item name=".ASPXAUTH">
+      <value string="15F3D65755AD3BF007D5B10C1D055C8C96284A8CE2F25AF1D6DD4B7DC214F67731345B61282BA61CE3FDDDCB8AB06C4DBDC2D9CCA5CAF27CE806B958AF96D3739E554DC3BA17861BBB6059B1B9DC76F3403B8E3103E9FD9D8816EE3194D750A580FB82B22E3A6F64AD612C3F27380138CF74C17B269C4AD55293453F48117A842691816852700E5B24DCCCFDBD7B900DC1288CDD5B5F1115D605F25459667C7E5D2AD8D8728AB19BC870DBE036FC952FC6F75819F68E5D1A0EDEE542BD6AB1D7EBFC2A5813D85A9DCB8D5973BDA1F77DFBC32F5DE69811717D278227498174729BCDF383A2C659F2FDBA997FD29756D6A66B23ED850FFDEEB32D047E4019241E" />
+    </item>
+  </cookies>
+</error>

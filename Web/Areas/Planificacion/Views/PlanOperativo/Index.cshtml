@@ -1,0 +1,100 @@
+﻿@section scripts
+{
+    <script type="text/javascript">
+        $(function ()
+        {
+            var data, proyecto , id = queryString('id');
+
+            data = getJson('@Url.Content("~/api/Planificacion/PlanOperativo/List")', { id: id });
+            proyecto = getJson('@Url.Content("~/api/Planificacion/Proyecto/Find")', { id: id });
+            var permiso = getJson('@Url.Content("~/api/Sistema/Permiso/Find")', { id: 67 });
+
+            var Model = function (data) {
+                var self = this;
+
+                self.delete = function (item) {
+                    if (confirm('¿Esta seguro de eliminar el registro?'))
+                    {
+                        postJson('@Url.Content("~/api/Planificacion/PlanOperativo/Delete")', { id: item.id() },
+                        function () {                            
+                            document.location.reload();
+                        },
+                        function () {
+                            alert('Error');
+                        });
+                    }
+                };
+
+                self.new = function (item)
+                {
+                    document.location.href = '@Url.Action("Edit")?proyectoid=' + id;
+                };
+
+                self.proyectoid = id;
+                self.habilitado = !proyecto.habilitarplanoperativo;
+                self.data = ko.mapping.fromJS(data);
+                self.permiso = permiso;
+            };
+
+
+            ko.applyBindings(new Model(data));
+        })
+    </script>
+}
+
+
+<div class="toolbar">
+    <a class="back" title="Volver"  data-bind="attr: { href: '@Url.Action("Index","Proyecto")'}"></a>
+    <button type="button" data-bind="click: $root.new, enable: $root.habilitado" class="new" title="Nuevo"></button>
+    <button type="button" class="refresh" title="Refrescar" onclick="document.location.reload()"></button>
+</div>
+
+<fieldset>
+    <legend></legend>
+
+    <table class="grid">
+        <colgroup>
+            <col style="width: 40px" />
+            <col />
+            <col style="width: 40px" />
+            <col />
+            <col style="width: 120px" />
+            <col style="width: 100px" />
+            <col style="width: 100px" />
+            <col style="width: 48px" />
+        </colgroup>
+        <thead>
+            <tr>
+                <th>Cod</th>
+                <th>Resultado</th>
+                <th>Cod</th>
+                <th>Actividad</th>
+                <th>Presupuesto (S/.)</th>
+                <th>Fec Inicio</th>
+                <th>Fec fin</th>
+                <th>
+                    @*<a href='@Url.Content("/Planificacion/PlanOperativo/Edit")'>+</a>*@
+                </th>
+            </tr>
+        </thead>
+        <tbody data-bind="foreach: $root.data">
+            <!-- ko foreach: PlanOperativo -->
+            <tr>
+                <!-- ko with: $parent -->
+                <td data-bind="text: $parentContext.$parentContext.$index() + 1, visible: $parentContext.$index() == 0, attr: { rowspan: PlanOperativo().length }" style="text-align: center"></td>
+                <td data-bind="text: nombre, visible: $parentContext.$index() == 0, attr: { rowspan: PlanOperativo().length }"></td>                
+                <!-- /ko -->
+                <td style="text-align: center" data-bind="text: ($parentContext.$index() + 1) + '.' + ($index() + 1) "></td>
+                <td data-bind="text: actividad "></td>
+                <td data-bind="text: formatNumber(presupuesto)" style="text-align: right"></td>
+                <td data-bind="text: formatDate(periodoinicio)" style="text-align: center"></td>
+                <td data-bind="text: formatDate(periodofin)" style="text-align: center"></td>
+                <td style="text-align: center">
+                    <a class="btn edit" title="Modificar" data-bind="attr: { href: '@Url.Action("Edit")?id=' + $data.id() + '&proyectoid=' + $root.proyectoid  }"></a>
+                    <button type="button" class="btn del" title="Eliminar" data-bind="click: $root.delete, enable: $root.habilitado && eliminable()" />
+                </td>
+            </tr>
+            <!-- /ko -->
+        </tbody>
+    </table>
+</fieldset>

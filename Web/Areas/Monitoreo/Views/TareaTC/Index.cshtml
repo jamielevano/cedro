@@ -1,0 +1,93 @@
+﻿@section scripts
+{
+    <script type="text/javascript">
+        $(function () {
+            var id = queryString('id') || 0;
+            var marcoid = queryString('id') || 0;
+            var permiso = getJson('@Url.Content("~/api/Sistema/Permiso/Find")', { id: 2126 });
+
+           
+            var Model = function ()
+            {
+                var self = this;
+                self.listActividad = getJson('@Url.Content("~/api/Planificacion/PlanOperativoTC/FindAll")', { id: id });
+                self.listTarea = ko.observableArray();
+                self.listAvances = ko.observableArray();
+
+                self.idActividad = ko.observable();
+                self.idTarea = ko.observable();
+                self.id = ko.observable();
+                
+                self.idActividad.subscribe(function (id) {
+                    self.id(id);
+                    self.idTarea(undefined);
+                    self.listTarea(undefined);
+                    if (id) self.listTarea(getJson('@Url.Content("~/api/Planificacion/POTareaTC/FindByActividad")', { id: id }));
+                });
+
+                self.delete = function (item) {
+                    if (confirm('¿Esta seguro de eliminar el registro?')) {
+                        postJson('@Url.Content("~/api/Monitoreo/TareaTC/Delete")', { id: item.id() },
+                        function () {
+
+                            document.location.reload();
+                        },
+                        function () {
+                            alert('Error');
+                        });
+                    }
+                };
+
+                self.permiso = permiso;
+                self.marcoid = marcoid;
+
+
+                var listMeses
+            };
+
+            ko.applyBindings(new Model());
+        })
+    </script>
+}
+
+<div class="toolbar">
+    <a class="new" title="Nuevo" data-bind="visible: idTarea() && $root.permiso.agregar , attr: { href: '@Url.Action("Edit")?marcoid=' + $root.marcoid + '&tarea=' + idTarea()}"></a>
+    <a class="search" title="Search" data-bind="attr: { href: '@Url.Action("Search")?marcoid=' + $root.marcoid + '&tarea=' + idTarea()}"></a>        
+    <button type="button" class="refresh" title="Refrescar" onclick="document.location.reload()"></button>
+</div>
+
+<fieldset>
+    <legend></legend>
+    <table style="width: 100%">
+        <colgroup>
+            <col style="width: 100px" />
+            <col />
+        </colgroup>
+        @*<tr>
+            <td>Resultado
+            </td>
+            <td>
+                <select style="width:100%" data-bind="value: idResultado,
+    options: $root.listResultado, optionsText: 'nombre', optionsValue: 'id', optionsCaption: '[SELECCIONAR]'"
+                    data-val="true" data-val-required="" />
+            </td>
+        </tr>*@
+        <tr>
+            <td>ACTIVIDAD
+            </td>
+            <td>
+                <select style="width:100%" data-bind="value: idActividad, options: $root.listActividad, optionsText: 'nombre', optionsValue: 'id', optionsCaption: '[SELECCIONAR]'"
+                    data-val="true" data-val-required="" />
+            </td>
+        </tr>
+        <tr>
+            <td>TAREA
+            </td>
+            <td>
+                <select style="width:100%" data-bind="value: idTarea, enable: (listTarea() && listTarea().length),
+    options: $root.listTarea, optionsText: 'nombre', optionsValue: 'id', optionsCaption: '[SELECCIONAR]'"
+                    data-val="true" data-val-required="" />
+            </td>
+        </tr>
+    </table>
+</fieldset>

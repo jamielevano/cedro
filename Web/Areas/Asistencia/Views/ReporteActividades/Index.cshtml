@@ -1,0 +1,156 @@
+﻿@section scripts
+{
+    <script type="text/javascript">
+        $(function () {
+            var id = 3;
+            $('#loading').show();
+
+            var Model = function ()
+            {
+                var self = this;
+
+                self.fechainicio = ko.observable(DateIni())
+                self.fechafin = ko.observable(DateNow())
+
+                self.listActividad = getJson('@Url.Content("~/api/Planificacion/PlanOperativoTC/FindAll")', { id: id });
+                self.listEjeIntervencion = getJson('@Url.Content("~/api/General/EjeIntervencion02")');
+                self.listTelecentros = ko.observableArray([]);
+
+                self.idActividad = ko.observable('@ViewBag.actividadid')
+                self.idEjeIntervencion= ko.observable('@ViewBag.ejeid')
+                self.idTelecentro= ko.observable('@ViewBag.telecentroid')
+
+
+                /////////////////////////////////////////////////////////////////
+
+                var updateTelecentros = function (id) {
+                    //self.idTelecentro(undefined);
+
+                    self.idTelecentro(self.idTelecentro() || undefined);
+
+                    self.listTelecentros(undefined);
+                    if (id) {
+                        self.listTelecentros(getJson('@Url.Content("~/Api/General/Eje_Telecentros")', { eje: id }))
+                    }
+                };
+
+                self.idEjeIntervencion.subscribe(updateTelecentros);
+                if (self.idEjeIntervencion()) {
+                    var telecentroid = self.idTelecentro();
+                    updateTelecentros(self.idEjeIntervencion());
+                    self.idTelecentro(telecentroid);
+                }
+
+                /////////////////////////////////////////////////////////////////
+
+            };
+
+            ko.applyBindings(new Model());
+            $('#loading').hide();
+        });
+
+
+
+        function report(id, fechainicio, fechafin, actividadid, ejeid, telecentroid) {
+
+            if ($("#frmBuscar").refreshValidator().valid()) {
+
+                var fechainicio = formatDate_YYYYMMDD(fechainicio);
+                var fechafin = formatDate_YYYYMMDD(fechafin);
+ 
+                if (typeof ejeid === 'undefined' || ejeid == '0') {
+                    ejeid = '0';
+                    telecentroid = '0';
+                }
+
+
+                if (typeof telecentroid === 'undefined')
+                    telecentroid = '0';
+
+                var cadena = "../Reports/Asistencia.aspx?reporte=" + id + "&fechainicio=" + fechainicio + "&fechafin=" + fechafin +
+                                "&actividadid=" + actividadid + "&ejeid=" + ejeid + "&telecentroid=" + telecentroid;
+
+                ShowPopupArchivo(cadena, 1140, 600);
+            }
+        }
+
+
+
+    </script>
+}
+
+<div class="toolbar">
+    <a class="search" title="Search" data-bind="click: function () { report(13, $root.fechainicio, $root.fechafin, idActividad(), idEjeIntervencion(), idTelecentro() ) }"></a>
+    <button type="button" class="refresh" title="Refrescar" onclick="document.location.reload()"></button>
+</div>
+
+<fieldset>
+    <legend></legend>
+    <form id="frmBuscar">
+
+        <table style="width: 60%">
+            <colgroup>
+                <col style="width: 160px" />
+                <col />
+            </colgroup>
+            <tr>
+                <td>Actividad</td>
+                <td><select style="width:100%" data-bind="value: idActividad, options: $root.listActividad, optionsText: 'nombre', optionsValue: 'id', optionsCaption: '[Selecionar]'"
+                    data-val="true" data-val-required="" /></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Desde</td>
+                <td>
+                    @Html.koDate("$root.fechainicio", width: 100, required: true)
+                </td>
+                <td></td>
+                <td>Hasta</td>
+                <td>
+                    @Html.koDate("$root.fechafin", width: 100, required: true, min: "$root.fechainicio")
+                </td>
+            </tr>
+            <tr>
+                <td>Eje de Intervencion</td>
+                <td>@Html.koSelect("idEjeIntervencion", "$root.listEjeIntervencion", false)</td>
+                <td></td>
+                <td>Localidad</td>
+                <td>@Html.koSelect("idTelecentro", "$root.listTelecentros", "$root.listTelecentros()", false)</td>
+                <td></td>
+            </tr>
+        </table>
+        
+        @*<table class="grid">
+            <colgroup>
+                <col style="width: 50px" />
+                <col />
+                <col style="width: 28px" />
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>Nª</th>
+                    <th>Reporte</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="padding-left:5px">1</td>
+                    <td>Base de Datos Unica</td>
+                    <td style="text-align: center">
+                        <button type="button" class="btn report" title="Reporte" data-bind="click: function () { report(6, $root.fechainicio, $root.fechafin, idEjeIntervencion(), idTelecentro() ) }"></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding-left:5px">2</td>
+                    <td>Listado de participantes sin Capacitacion</td>
+                    <td style="text-align: center">
+                        <button type="button" class="btn report" title="Reporte" data-bind="click: function () { report(7, $root.fechainicio, $root.fechafin, idEjeIntervencion(), idTelecentro() ) }"></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>*@
+    </form>
+</fieldset>

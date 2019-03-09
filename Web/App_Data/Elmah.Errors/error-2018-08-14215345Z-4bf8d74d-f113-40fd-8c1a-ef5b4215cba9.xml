@@ -1,0 +1,197 @@
+﻿<error errorId="4bf8d74d-f113-40fd-8c1a-ef5b4215cba9" application="/LM/W3SVC/3/ROOT" host="DESKTOP-RP7B1TI" type="Microsoft.ReportingServices.ReportProcessing.ReportPublishingException" message="El objeto 'Tablix2' de tipo tablix tiene un número incorrecto de TablixRows. El número de TablixRows debe ser igual al número de TablixMembers internos (TablixMembers sin ningún submiembro) en el TablixRowHierarchy." source="Microsoft.ReportViewer.Common" detail="System.Web.HttpUnhandledException (0x80004005): Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'. ---&gt; Microsoft.Reporting.WebForms.LocalProcessingException: Se ha producido un error durante el procesamiento local de informes. ---&gt; Microsoft.Reporting.DefinitionInvalidException: La definición del informe 'D:\Cedro\CEDRO_FINAL\SMEC_PRODUCCION\SMEC\Web\Reports\Asistencia\Persona.rdlc' no es válida. ---&gt; Microsoft.ReportingServices.ReportProcessing.ReportPublishingException: El objeto 'Tablix2' de tipo tablix tiene un número incorrecto de TablixRows. El número de TablixRows debe ser igual al número de TablixMembers internos (TablixMembers sin ningún submiembro) en el TablixRowHierarchy.&#xD;&#xA;   en Microsoft.ReportingServices.ReportPublishing.ReportPublishing.InternalCreateIntermediateFormat(Stream definitionStream, RdlUpgradeState upgradeState, String&amp; description, String&amp; language, ParameterInfoCollection&amp; parameters, DataSourceInfoCollection&amp; dataSources, DataSetInfoCollection&amp; sharedDataSetReferences, UserLocationFlags&amp; userReferenceLocation, ArrayList&amp; dataSetsName, Boolean&amp; hasExternalImages, Boolean&amp; hasHyperlinks, Byte[]&amp; dataSetsHash)&#xD;&#xA;   en Microsoft.ReportingServices.ReportPublishing.ReportPublishing.CreateIntermediateFormat(Byte[] definition, String&amp; description, String&amp; language, ParameterInfoCollection&amp; parameters, DataSourceInfoCollection&amp; dataSources, DataSetInfoCollection&amp; sharedDataSetReferences, UserLocationFlags&amp; userReferenceLocation, ArrayList&amp; dataSetsName, Boolean&amp; hasExternalImages, Boolean&amp; hasHyperlinks, Byte[]&amp; dataSetsHash)&#xD;&#xA;   en Microsoft.ReportingServices.ReportProcessing.ReportProcessing.CompileOdpReport(PublishingContext reportPublishingContext, IDataProtection dataProtection, PublishingErrorContext errorContext, String&amp; reportDescription, String&amp; reportLanguage, ParameterInfoCollection&amp; parameters, DataSourceInfoCollection&amp; dataSources, DataSetInfoCollection&amp; sharedDataSetReferences, UserLocationFlags&amp; userReferenceLocation, ArrayList&amp; dataSetsName, Boolean&amp; hasExternalImages, Boolean&amp; hasHyperlinks, Byte[]&amp; dataSetsHash)&#xD;&#xA;   en Microsoft.ReportingServices.ReportProcessing.ReportProcessing.CreateIntermediateFormat(PublishingContext reportPublishingContext, IDataProtection dataProtection)&#xD;&#xA;   en Microsoft.Reporting.ReportCompiler.CompileReport(ICatalogItemContext context, Byte[] reportDefinition, Boolean generateExpressionHostWithRefusedPermissions, ControlSnapshot&amp; snapshot)&#xD;&#xA;   --- Fin del seguimiento de la pila de la excepción interna ---&#xD;&#xA;   en Microsoft.Reporting.ReportCompiler.CompileReport(ICatalogItemContext context, Byte[] reportDefinition, Boolean generateExpressionHostWithRefusedPermissions, ControlSnapshot&amp; snapshot)&#xD;&#xA;   en Microsoft.Reporting.LocalService.GetCompiledReport(PreviewItemContext itemContext, Boolean rebuild, ControlSnapshot&amp; snapshot)&#xD;&#xA;   en Microsoft.Reporting.LocalService.CompileReport()&#xD;&#xA;   en Microsoft.Reporting.LocalService.Microsoft.Reporting.ILocalProcessingHost.CompileReport()&#xD;&#xA;   en Microsoft.Reporting.WebForms.LocalReport.EnsureExecutionSession()&#xD;&#xA;   --- Fin del seguimiento de la pila de la excepción interna ---&#xD;&#xA;   en Microsoft.Reporting.WebForms.LocalReport.EnsureExecutionSession()&#xD;&#xA;   en Microsoft.Reporting.WebForms.LocalReport.SetParameters(IEnumerable`1 parameters)&#xD;&#xA;   en Microsoft.Reporting.WebForms.Report.SetParameters(ReportParameter parameter)&#xD;&#xA;   en Web.Reports.Asistencia.ViewReport(String File, DataTable dt) en D:\Cedro\CEDRO_FINAL\SMEC_PRODUCCION\SMEC\Web\Reports\Asistencia.aspx.cs:línea 547&#xD;&#xA;   en Web.Reports.Asistencia.LoadDatos() en D:\Cedro\CEDRO_FINAL\SMEC_PRODUCCION\SMEC\Web\Reports\Asistencia.aspx.cs:línea 537&#xD;&#xA;   en Web.Reports.Asistencia.InitializeComponent() en D:\Cedro\CEDRO_FINAL\SMEC_PRODUCCION\SMEC\Web\Reports\Asistencia.aspx.cs:línea 32&#xD;&#xA;   en Web.Reports.Asistencia.OnInit(EventArgs e) en D:\Cedro\CEDRO_FINAL\SMEC_PRODUCCION\SMEC\Web\Reports\Asistencia.aspx.cs:línea 23&#xD;&#xA;   en System.Web.UI.Control.InitRecursive(Control namingContainer)&#xD;&#xA;   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)&#xD;&#xA;   en System.Web.UI.Page.HandleError(Exception e)&#xD;&#xA;   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)&#xD;&#xA;   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)&#xD;&#xA;   en System.Web.UI.Page.ProcessRequest()&#xD;&#xA;   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)&#xD;&#xA;   en System.Web.UI.Page.ProcessRequest(HttpContext context)&#xD;&#xA;   en ASP.reports_asistencia_aspx.ProcessRequest(HttpContext context) en c:\Users\hp\AppData\Local\Temp\Temporary ASP.NET Files\vs\722e5b37\140d315\App_Web_iii12432.2.cs:línea 0&#xD;&#xA;   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()&#xD;&#xA;   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)&#xD;&#xA;   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean&amp; completedSynchronously)" user="cvaldivia" time="2018-08-14T21:53:45.4341069Z" statusCode="500" webHostHtmlMessage="&lt;!DOCTYPE html&gt;&#xD;&#xA;&lt;html&gt;&#xD;&#xA;    &lt;head&gt;&#xD;&#xA;        &lt;title&gt;El objeto 'Tablix2' de tipo tablix tiene un n&amp;#250;mero incorrecto de TablixRows. El n&amp;#250;mero de TablixRows debe ser igual al n&amp;#250;mero de TablixMembers internos (TablixMembers sin ning&amp;#250;n submiembro) en el TablixRowHierarchy.&lt;/title&gt;&#xD;&#xA;        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width&quot; /&gt;&#xD;&#xA;        &lt;style&gt;&#xD;&#xA;         body {font-family:&quot;Verdana&quot;;font-weight:normal;font-size: .7em;color:black;} &#xD;&#xA;         p {font-family:&quot;Verdana&quot;;font-weight:normal;color:black;margin-top: -5px}&#xD;&#xA;         b {font-family:&quot;Verdana&quot;;font-weight:bold;color:black;margin-top: -5px}&#xD;&#xA;         H1 { font-family:&quot;Verdana&quot;;font-weight:normal;font-size:18pt;color:red }&#xD;&#xA;         H2 { font-family:&quot;Verdana&quot;;font-weight:normal;font-size:14pt;color:maroon }&#xD;&#xA;         pre {font-family:&quot;Consolas&quot;,&quot;Lucida Console&quot;,Monospace;font-size:11pt;margin:0;padding:0.5em;line-height:14pt}&#xD;&#xA;         .marker {font-weight: bold; color: black;text-decoration: none;}&#xD;&#xA;         .version {color: gray;}&#xD;&#xA;         .error {margin-bottom: 10px;}&#xD;&#xA;         .expandable { text-decoration:underline; font-weight:bold; color:navy; cursor:hand; }&#xD;&#xA;         @media screen and (max-width: 639px) {&#xD;&#xA;          pre { width: 440px; overflow: auto; white-space: pre-wrap; word-wrap: break-word; }&#xD;&#xA;         }&#xD;&#xA;         @media screen and (max-width: 479px) {&#xD;&#xA;          pre { width: 280px; }&#xD;&#xA;         }&#xD;&#xA;        &lt;/style&gt;&#xD;&#xA;    &lt;/head&gt;&#xD;&#xA;&#xD;&#xA;    &lt;body bgcolor=&quot;white&quot;&gt;&#xD;&#xA;&#xD;&#xA;            &lt;span&gt;&lt;H1&gt;Error de servidor en la aplicación '/'.&lt;hr width=100% size=1 color=silver&gt;&lt;/H1&gt;&#xD;&#xA;&#xD;&#xA;            &lt;h2&gt; &lt;i&gt;El objeto 'Tablix2' de tipo tablix tiene un n&amp;#250;mero incorrecto de TablixRows. El n&amp;#250;mero de TablixRows debe ser igual al n&amp;#250;mero de TablixMembers internos (TablixMembers sin ning&amp;#250;n submiembro) en el TablixRowHierarchy.&lt;/i&gt; &lt;/h2&gt;&lt;/span&gt;&#xD;&#xA;&#xD;&#xA;            &lt;font face=&quot;Arial, Helvetica, Geneva, SunSans-Regular, sans-serif &quot;&gt;&#xD;&#xA;&#xD;&#xA;            &lt;b&gt; Descripción: &lt;/b&gt;Excepción no controlada al ejecutar la solicitud Web actual. Revise el seguimiento de la pila para obtener más información acerca del error y dónde se originó en el código.&#xD;&#xA;&#xD;&#xA;            &lt;br&gt;&lt;br&gt;&#xD;&#xA;&#xD;&#xA;            &lt;b&gt; Detalles de la excepción: &lt;/b&gt;Microsoft.ReportingServices.ReportProcessing.ReportPublishingException: El objeto 'Tablix2' de tipo tablix tiene un n&amp;#250;mero incorrecto de TablixRows. El n&amp;#250;mero de TablixRows debe ser igual al n&amp;#250;mero de TablixMembers internos (TablixMembers sin ning&amp;#250;n submiembro) en el TablixRowHierarchy.&lt;br&gt;&lt;br&gt;&#xD;&#xA;&#xD;&#xA;            &lt;b&gt;Error de código fuente:&lt;/b&gt; &lt;br&gt;&lt;br&gt;&#xD;&#xA;&#xD;&#xA;            &lt;table width=100% bgcolor=&quot;#ffffcc&quot;&gt;&#xD;&#xA;               &lt;tr&gt;&#xD;&#xA;                  &lt;td&gt;&#xD;&#xA;                      &lt;code&gt;&lt;pre&gt;&#xD;&#xA;&#xD;&#xA;Línea 545:            rptViewer.LocalReport.ReportPath = File;&#xD;&#xA;Línea 546:            ReportParameter par = new ReportParameter(&amp;quot;Usuario&amp;quot;, HttpContext.Current.User.Identity.Name);&#xD;&#xA;&lt;font color=red&gt;Línea 547:            rptViewer.LocalReport.SetParameters(par);&#xD;&#xA;&lt;/font&gt;Línea 548:&#xD;&#xA;Línea 549:            rptViewer.LocalReport.DisplayName = Util.GetReportName(File);&lt;/pre&gt;&lt;/code&gt;&#xD;&#xA;&#xD;&#xA;                  &lt;/td&gt;&#xD;&#xA;               &lt;/tr&gt;&#xD;&#xA;            &lt;/table&gt;&#xD;&#xA;&#xD;&#xA;            &lt;br&gt;&#xD;&#xA;&#xD;&#xA;            &lt;b&gt; Archivo de origen: &lt;/b&gt; D:\Cedro\CEDRO_FINAL\SMEC_PRODUCCION\SMEC\Web\Reports\Asistencia.aspx.cs&lt;b&gt; &amp;nbsp;&amp;nbsp; Línea: &lt;/b&gt; 547&#xD;&#xA;            &lt;br&gt;&lt;br&gt;&#xD;&#xA;&#xD;&#xA;            &lt;b&gt;Seguimiento de la pila:&lt;/b&gt; &lt;br&gt;&lt;br&gt;&#xD;&#xA;&#xD;&#xA;            &lt;table width=100% bgcolor=&quot;#ffffcc&quot;&gt;&#xD;&#xA;               &lt;tr&gt;&#xD;&#xA;                  &lt;td&gt;&#xD;&#xA;                      &lt;code&gt;&lt;pre&gt;&#xD;&#xA;&#xD;&#xA;[ReportPublishingException: El objeto &amp;#39;Tablix2&amp;#39; de tipo tablix tiene un n&amp;#250;mero incorrecto de TablixRows. El n&amp;#250;mero de TablixRows debe ser igual al n&amp;#250;mero de TablixMembers internos (TablixMembers sin ning&amp;#250;n submiembro) en el TablixRowHierarchy.]&#xD;&#xA;   Microsoft.ReportingServices.ReportPublishing.ReportPublishing.InternalCreateIntermediateFormat(Stream definitionStream, RdlUpgradeState upgradeState, String&amp;amp; description, String&amp;amp; language, ParameterInfoCollection&amp;amp; parameters, DataSourceInfoCollection&amp;amp; dataSources, DataSetInfoCollection&amp;amp; sharedDataSetReferences, UserLocationFlags&amp;amp; userReferenceLocation, ArrayList&amp;amp; dataSetsName, Boolean&amp;amp; hasExternalImages, Boolean&amp;amp; hasHyperlinks, Byte[]&amp;amp; dataSetsHash) +260&#xD;&#xA;   Microsoft.ReportingServices.ReportPublishing.ReportPublishing.CreateIntermediateFormat(Byte[] definition, String&amp;amp; description, String&amp;amp; language, ParameterInfoCollection&amp;amp; parameters, DataSourceInfoCollection&amp;amp; dataSources, DataSetInfoCollection&amp;amp; sharedDataSetReferences, UserLocationFlags&amp;amp; userReferenceLocation, ArrayList&amp;amp; dataSetsName, Boolean&amp;amp; hasExternalImages, Boolean&amp;amp; hasHyperlinks, Byte[]&amp;amp; dataSetsHash) +104&#xD;&#xA;   Microsoft.ReportingServices.ReportProcessing.ReportProcessing.CompileOdpReport(PublishingContext reportPublishingContext, IDataProtection dataProtection, PublishingErrorContext errorContext, String&amp;amp; reportDescription, String&amp;amp; reportLanguage, ParameterInfoCollection&amp;amp; parameters, DataSourceInfoCollection&amp;amp; dataSources, DataSetInfoCollection&amp;amp; sharedDataSetReferences, UserLocationFlags&amp;amp; userReferenceLocation, ArrayList&amp;amp; dataSetsName, Boolean&amp;amp; hasExternalImages, Boolean&amp;amp; hasHyperlinks, Byte[]&amp;amp; dataSetsHash) +110&#xD;&#xA;   Microsoft.ReportingServices.ReportProcessing.ReportProcessing.CreateIntermediateFormat(PublishingContext reportPublishingContext, IDataProtection dataProtection) +935&#xD;&#xA;   Microsoft.Reporting.ReportCompiler.CompileReport(ICatalogItemContext context, Byte[] reportDefinition, Boolean generateExpressionHostWithRefusedPermissions, ControlSnapshot&amp;amp; snapshot) +219&#xD;&#xA;&#xD;&#xA;[DefinitionInvalidException: La definici&amp;#243;n del informe &amp;#39;D:\Cedro\CEDRO_FINAL\SMEC_PRODUCCION\SMEC\Web\Reports\Asistencia\Persona.rdlc&amp;#39; no es v&amp;#225;lida.]&#xD;&#xA;   Microsoft.Reporting.ReportCompiler.CompileReport(ICatalogItemContext context, Byte[] reportDefinition, Boolean generateExpressionHostWithRefusedPermissions, ControlSnapshot&amp;amp; snapshot) +285&#xD;&#xA;   Microsoft.Reporting.LocalService.GetCompiledReport(PreviewItemContext itemContext, Boolean rebuild, ControlSnapshot&amp;amp; snapshot) +228&#xD;&#xA;   Microsoft.Reporting.LocalService.CompileReport() +29&#xD;&#xA;   Microsoft.Reporting.LocalService.Microsoft.Reporting.ILocalProcessingHost.CompileReport() +5&#xD;&#xA;   Microsoft.Reporting.WebForms.LocalReport.EnsureExecutionSession() +61&#xD;&#xA;&#xD;&#xA;[LocalProcessingException: Se ha producido un error durante el procesamiento local de informes.]&#xD;&#xA;   Microsoft.Reporting.WebForms.LocalReport.EnsureExecutionSession() +150&#xD;&#xA;   Microsoft.Reporting.WebForms.LocalReport.SetParameters(IEnumerable`1 parameters) +58&#xD;&#xA;   Microsoft.Reporting.WebForms.Report.SetParameters(ReportParameter parameter) +48&#xD;&#xA;   Web.Reports.Asistencia.ViewReport(String File, DataTable dt) in D:\Cedro\CEDRO_FINAL\SMEC_PRODUCCION\SMEC\Web\Reports\Asistencia.aspx.cs:547&#xD;&#xA;   Web.Reports.Asistencia.LoadDatos() in D:\Cedro\CEDRO_FINAL\SMEC_PRODUCCION\SMEC\Web\Reports\Asistencia.aspx.cs:537&#xD;&#xA;   Web.Reports.Asistencia.InitializeComponent() in D:\Cedro\CEDRO_FINAL\SMEC_PRODUCCION\SMEC\Web\Reports\Asistencia.aspx.cs:32&#xD;&#xA;   Web.Reports.Asistencia.OnInit(EventArgs e) in D:\Cedro\CEDRO_FINAL\SMEC_PRODUCCION\SMEC\Web\Reports\Asistencia.aspx.cs:23&#xD;&#xA;   System.Web.UI.Control.InitRecursive(Control namingContainer) +139&#xD;&#xA;   System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint) +408&#xD;&#xA;&lt;/pre&gt;&lt;/code&gt;&#xD;&#xA;&#xD;&#xA;                  &lt;/td&gt;&#xD;&#xA;               &lt;/tr&gt;&#xD;&#xA;            &lt;/table&gt;&#xD;&#xA;&#xD;&#xA;            &lt;br&gt;&#xD;&#xA;&#xD;&#xA;    &lt;/body&gt;&#xD;&#xA;&lt;/html&gt;&#xD;&#xA;">
+  <serverVariables>
+    <item name="ALL_HTTP">
+      <value string="HTTP_CONNECTION:keep-alive&#xD;&#xA;HTTP_ACCEPT:text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8&#xD;&#xA;HTTP_ACCEPT_ENCODING:gzip, deflate&#xD;&#xA;HTTP_ACCEPT_LANGUAGE:es-ES,es;q=0.8,en-US;q=0.5,en;q=0.3&#xD;&#xA;HTTP_COOKIE:/Reserved.ReportViewerWebControl.axd%3FOpType%3DSessionKeepAlive%26ControlID%3D5d4179f5e78644788b27b4709ea6ea9b%26Mode%3Dtrue_SKA=1; /Reserved.ReportViewerWebControl.axd%3FOpType%3DSessionKeepAlive%26ControlID%3D4a05f9a068f941a29682358ccb31af44%26Mode%3Dtrue_SKA=1; /Reserved.ReportViewerWebControl.axd%3FOpType%3DSessionKeepAlive%26ControlID%3Daa81d37b38214eda9fb129619b96f363%26Mode%3Dtrue_SKA=1; /Reserved.ReportViewerWebControl.axd%3FOpType%3DSessionKeepAlive%26ControlID%3Dd667d729775349ddbfc9ab1874afc6dd%26Mode%3Dtrue_SKA=1; /Reserved.ReportViewerWebControl.axd%3FOpType%3DSessionKeepAlive%26ControlID%3Def6cb809e56946998db9a818aea15f0f%26Mode%3Dtrue_SKA=1; /Reserved.ReportViewerWebControl.axd%3FOpType%3DSessionKeepAlive%26ControlID%3Da427fd373cd64bd3b575fc760997f7eb%26Mode%3Dtrue_SKA=1; ASP.NET_SessionId=gi34wsv5yltkyeqbp3miwqe3; .ASPXAUTH=C7E25E47B1453BFEDB38D8F9851C593FC4057E86D91CDA9617187F42D00D8E503BA19E6F8E2D75B3219740FC827171F730A14ABC8BC79312926CF377008490BE647D23F298D5E0EA4C30B4CFCBA445C2251C0A8E829A51C61322385F9E798AC8CCF86F6678ECF1C73C250C6ABB6A4F7F1D83EF3D49498E328C27D290E13696BE2E1C37BCB666956B6A7C3772B03D31C028DEC4DB4B8DF8B2C73B89B64D79845E03135154E262F6B6CED8B9DDB0AFAA087B82BC3D2D7F3CCE3D3C6DEEB43FE8019699A6E90A75AAB59FA1F645AF36967850F79150F0B5D6FDA69CEACAED18F228BB85635FB9FF529CF273D78044257D66B79D3A8E3C189A18D4178F40269FEDE9&#xD;&#xA;HTTP_HOST:localhost:1371&#xD;&#xA;HTTP_REFERER:http://localhost:1371/Asistencia/Persona&#xD;&#xA;HTTP_USER_AGENT:Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0&#xD;&#xA;HTTP_UPGRADE_INSECURE_REQUESTS:1&#xD;&#xA;" />
+    </item>
+    <item name="ALL_RAW">
+      <value string="Connection: keep-alive&#xD;&#xA;Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8&#xD;&#xA;Accept-Encoding: gzip, deflate&#xD;&#xA;Accept-Language: es-ES,es;q=0.8,en-US;q=0.5,en;q=0.3&#xD;&#xA;Cookie: /Reserved.ReportViewerWebControl.axd%3FOpType%3DSessionKeepAlive%26ControlID%3D5d4179f5e78644788b27b4709ea6ea9b%26Mode%3Dtrue_SKA=1; /Reserved.ReportViewerWebControl.axd%3FOpType%3DSessionKeepAlive%26ControlID%3D4a05f9a068f941a29682358ccb31af44%26Mode%3Dtrue_SKA=1; /Reserved.ReportViewerWebControl.axd%3FOpType%3DSessionKeepAlive%26ControlID%3Daa81d37b38214eda9fb129619b96f363%26Mode%3Dtrue_SKA=1; /Reserved.ReportViewerWebControl.axd%3FOpType%3DSessionKeepAlive%26ControlID%3Dd667d729775349ddbfc9ab1874afc6dd%26Mode%3Dtrue_SKA=1; /Reserved.ReportViewerWebControl.axd%3FOpType%3DSessionKeepAlive%26ControlID%3Def6cb809e56946998db9a818aea15f0f%26Mode%3Dtrue_SKA=1; /Reserved.ReportViewerWebControl.axd%3FOpType%3DSessionKeepAlive%26ControlID%3Da427fd373cd64bd3b575fc760997f7eb%26Mode%3Dtrue_SKA=1; ASP.NET_SessionId=gi34wsv5yltkyeqbp3miwqe3; .ASPXAUTH=C7E25E47B1453BFEDB38D8F9851C593FC4057E86D91CDA9617187F42D00D8E503BA19E6F8E2D75B3219740FC827171F730A14ABC8BC79312926CF377008490BE647D23F298D5E0EA4C30B4CFCBA445C2251C0A8E829A51C61322385F9E798AC8CCF86F6678ECF1C73C250C6ABB6A4F7F1D83EF3D49498E328C27D290E13696BE2E1C37BCB666956B6A7C3772B03D31C028DEC4DB4B8DF8B2C73B89B64D79845E03135154E262F6B6CED8B9DDB0AFAA087B82BC3D2D7F3CCE3D3C6DEEB43FE8019699A6E90A75AAB59FA1F645AF36967850F79150F0B5D6FDA69CEACAED18F228BB85635FB9FF529CF273D78044257D66B79D3A8E3C189A18D4178F40269FEDE9&#xD;&#xA;Host: localhost:1371&#xD;&#xA;Referer: http://localhost:1371/Asistencia/Persona&#xD;&#xA;User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0&#xD;&#xA;Upgrade-Insecure-Requests: 1&#xD;&#xA;" />
+    </item>
+    <item name="APPL_MD_PATH">
+      <value string="/LM/W3SVC/3/ROOT" />
+    </item>
+    <item name="APPL_PHYSICAL_PATH">
+      <value string="D:\Cedro\CEDRO_FINAL\SMEC_PRODUCCION\SMEC\Web\" />
+    </item>
+    <item name="AUTH_TYPE">
+      <value string="Forms" />
+    </item>
+    <item name="AUTH_USER">
+      <value string="cvaldivia" />
+    </item>
+    <item name="AUTH_PASSWORD">
+      <value string="*****" />
+    </item>
+    <item name="LOGON_USER">
+      <value string="cvaldivia" />
+    </item>
+    <item name="REMOTE_USER">
+      <value string="cvaldivia" />
+    </item>
+    <item name="CERT_COOKIE">
+      <value string="" />
+    </item>
+    <item name="CERT_FLAGS">
+      <value string="" />
+    </item>
+    <item name="CERT_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SERIALNUMBER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CERT_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CONTENT_LENGTH">
+      <value string="0" />
+    </item>
+    <item name="CONTENT_TYPE">
+      <value string="" />
+    </item>
+    <item name="GATEWAY_INTERFACE">
+      <value string="CGI/1.1" />
+    </item>
+    <item name="HTTPS">
+      <value string="off" />
+    </item>
+    <item name="HTTPS_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="INSTANCE_ID">
+      <value string="3" />
+    </item>
+    <item name="INSTANCE_META_PATH">
+      <value string="/LM/W3SVC/3" />
+    </item>
+    <item name="LOCAL_ADDR">
+      <value string="127.0.0.1" />
+    </item>
+    <item name="PATH_INFO">
+      <value string="/Reports/Asistencia.aspx" />
+    </item>
+    <item name="PATH_TRANSLATED">
+      <value string="D:\Cedro\CEDRO_FINAL\SMEC_PRODUCCION\SMEC\Web\Reports\Asistencia.aspx" />
+    </item>
+    <item name="QUERY_STRING">
+      <value string="reporte=5&amp;id=2&amp;tipo=0" />
+    </item>
+    <item name="REMOTE_ADDR">
+      <value string="127.0.0.1" />
+    </item>
+    <item name="REMOTE_HOST">
+      <value string="127.0.0.1" />
+    </item>
+    <item name="REMOTE_PORT">
+      <value string="62094" />
+    </item>
+    <item name="REQUEST_METHOD">
+      <value string="GET" />
+    </item>
+    <item name="SCRIPT_NAME">
+      <value string="/Reports/Asistencia.aspx" />
+    </item>
+    <item name="SERVER_NAME">
+      <value string="localhost" />
+    </item>
+    <item name="SERVER_PORT">
+      <value string="1371" />
+    </item>
+    <item name="SERVER_PORT_SECURE">
+      <value string="0" />
+    </item>
+    <item name="SERVER_PROTOCOL">
+      <value string="HTTP/1.1" />
+    </item>
+    <item name="SERVER_SOFTWARE">
+      <value string="Microsoft-IIS/10.0" />
+    </item>
+    <item name="URL">
+      <value string="/Reports/Asistencia.aspx" />
+    </item>
+    <item name="HTTP_CONNECTION">
+      <value string="keep-alive" />
+    </item>
+    <item name="HTTP_ACCEPT">
+      <value string="text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8" />
+    </item>
+    <item name="HTTP_ACCEPT_ENCODING">
+      <value string="gzip, deflate" />
+    </item>
+    <item name="HTTP_ACCEPT_LANGUAGE">
+      <value string="es-ES,es;q=0.8,en-US;q=0.5,en;q=0.3" />
+    </item>
+    <item name="HTTP_COOKIE">
+      <value string="/Reserved.ReportViewerWebControl.axd%3FOpType%3DSessionKeepAlive%26ControlID%3D5d4179f5e78644788b27b4709ea6ea9b%26Mode%3Dtrue_SKA=1; /Reserved.ReportViewerWebControl.axd%3FOpType%3DSessionKeepAlive%26ControlID%3D4a05f9a068f941a29682358ccb31af44%26Mode%3Dtrue_SKA=1; /Reserved.ReportViewerWebControl.axd%3FOpType%3DSessionKeepAlive%26ControlID%3Daa81d37b38214eda9fb129619b96f363%26Mode%3Dtrue_SKA=1; /Reserved.ReportViewerWebControl.axd%3FOpType%3DSessionKeepAlive%26ControlID%3Dd667d729775349ddbfc9ab1874afc6dd%26Mode%3Dtrue_SKA=1; /Reserved.ReportViewerWebControl.axd%3FOpType%3DSessionKeepAlive%26ControlID%3Def6cb809e56946998db9a818aea15f0f%26Mode%3Dtrue_SKA=1; /Reserved.ReportViewerWebControl.axd%3FOpType%3DSessionKeepAlive%26ControlID%3Da427fd373cd64bd3b575fc760997f7eb%26Mode%3Dtrue_SKA=1; ASP.NET_SessionId=gi34wsv5yltkyeqbp3miwqe3; .ASPXAUTH=C7E25E47B1453BFEDB38D8F9851C593FC4057E86D91CDA9617187F42D00D8E503BA19E6F8E2D75B3219740FC827171F730A14ABC8BC79312926CF377008490BE647D23F298D5E0EA4C30B4CFCBA445C2251C0A8E829A51C61322385F9E798AC8CCF86F6678ECF1C73C250C6ABB6A4F7F1D83EF3D49498E328C27D290E13696BE2E1C37BCB666956B6A7C3772B03D31C028DEC4DB4B8DF8B2C73B89B64D79845E03135154E262F6B6CED8B9DDB0AFAA087B82BC3D2D7F3CCE3D3C6DEEB43FE8019699A6E90A75AAB59FA1F645AF36967850F79150F0B5D6FDA69CEACAED18F228BB85635FB9FF529CF273D78044257D66B79D3A8E3C189A18D4178F40269FEDE9" />
+    </item>
+    <item name="HTTP_HOST">
+      <value string="localhost:1371" />
+    </item>
+    <item name="HTTP_REFERER">
+      <value string="http://localhost:1371/Asistencia/Persona" />
+    </item>
+    <item name="HTTP_USER_AGENT">
+      <value string="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0" />
+    </item>
+    <item name="HTTP_UPGRADE_INSECURE_REQUESTS">
+      <value string="1" />
+    </item>
+  </serverVariables>
+  <queryString>
+    <item name="reporte">
+      <value string="5" />
+    </item>
+    <item name="id">
+      <value string="2" />
+    </item>
+    <item name="tipo">
+      <value string="0" />
+    </item>
+  </queryString>
+  <cookies>
+    <item name="/Reserved.ReportViewerWebControl.axd%3FOpType%3DSessionKeepAlive%26ControlID%3D5d4179f5e78644788b27b4709ea6ea9b%26Mode%3Dtrue_SKA">
+      <value string="1" />
+    </item>
+    <item name="/Reserved.ReportViewerWebControl.axd%3FOpType%3DSessionKeepAlive%26ControlID%3D4a05f9a068f941a29682358ccb31af44%26Mode%3Dtrue_SKA">
+      <value string="1" />
+    </item>
+    <item name="/Reserved.ReportViewerWebControl.axd%3FOpType%3DSessionKeepAlive%26ControlID%3Daa81d37b38214eda9fb129619b96f363%26Mode%3Dtrue_SKA">
+      <value string="1" />
+    </item>
+    <item name="/Reserved.ReportViewerWebControl.axd%3FOpType%3DSessionKeepAlive%26ControlID%3Dd667d729775349ddbfc9ab1874afc6dd%26Mode%3Dtrue_SKA">
+      <value string="1" />
+    </item>
+    <item name="/Reserved.ReportViewerWebControl.axd%3FOpType%3DSessionKeepAlive%26ControlID%3Def6cb809e56946998db9a818aea15f0f%26Mode%3Dtrue_SKA">
+      <value string="1" />
+    </item>
+    <item name="/Reserved.ReportViewerWebControl.axd%3FOpType%3DSessionKeepAlive%26ControlID%3Da427fd373cd64bd3b575fc760997f7eb%26Mode%3Dtrue_SKA">
+      <value string="1" />
+    </item>
+    <item name="ASP.NET_SessionId">
+      <value string="gi34wsv5yltkyeqbp3miwqe3" />
+    </item>
+    <item name=".ASPXAUTH">
+      <value string="C7E25E47B1453BFEDB38D8F9851C593FC4057E86D91CDA9617187F42D00D8E503BA19E6F8E2D75B3219740FC827171F730A14ABC8BC79312926CF377008490BE647D23F298D5E0EA4C30B4CFCBA445C2251C0A8E829A51C61322385F9E798AC8CCF86F6678ECF1C73C250C6ABB6A4F7F1D83EF3D49498E328C27D290E13696BE2E1C37BCB666956B6A7C3772B03D31C028DEC4DB4B8DF8B2C73B89B64D79845E03135154E262F6B6CED8B9DDB0AFAA087B82BC3D2D7F3CCE3D3C6DEEB43FE8019699A6E90A75AAB59FA1F645AF36967850F79150F0B5D6FDA69CEACAED18F228BB85635FB9FF529CF273D78044257D66B79D3A8E3C189A18D4178F40269FEDE9" />
+    </item>
+  </cookies>
+</error>

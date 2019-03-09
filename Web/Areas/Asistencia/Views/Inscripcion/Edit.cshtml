@@ -1,0 +1,629 @@
+﻿@section scripts
+{
+    <script type="text/javascript">
+        $(function () {
+            var data, id = queryString('id'), parentid = queryString('parentid'), programaid = queryString('programaid') , moduloid = queryString('moduloid');
+
+            if (id)
+                data = getJson('@Url.Content("~/api/Asistencia/Inscripcion/Find")', { id: id });
+
+            var Model = function (data) {
+                var self = this;
+
+                data = data || {
+                    id: null,
+                    condicionid: null,
+                    notafinal: 0,
+                    lineapre_1: 0,
+                    lineapost_1: 0,
+                    lineapre_2: 0,
+                    lineapost_2: 0,
+                    lineapre_3: 0,
+                    lineapost_3: 0,
+                    lineapre_4: 0,
+                    lineapost_4: 0,
+                    lineapre_5: 0,
+                    lineapost_5: 0,
+                    lineapre_6: 0,
+                    lineapost_6: 0,
+                    lineapre_7: 0,
+                    lineapost_7: 0,
+                    lineapre_8: 0,
+                    lineapost_8: 0,
+                    observacion:null
+                };
+
+                self.listCondicionFinal = getJson('@Url.Content("~/api/General/CondicionFinal")',{programa:programaid});
+                self.programaid=programaid;
+                self.moduloid=moduloid;
+
+                self.list1_CuentoAbuelo = [
+                    { id: 1, nombre: '1. La muerte del chamán' },
+                    { id: 2, nombre: '2. La historia del Chullachaqui' },
+                    { id: 3, nombre: '3. El niño Manuel y la mariposa' },
+                    { id: 4, nombre: '4. Cuidar a la naturaleza como enseña el abuelo Juan' }
+                ];
+
+                self.list2_CuentoAbuelo = [
+                    { id: 1, nombre: '1. Proteger el medio ambiente' },
+                    { id: 2, nombre: '2. Recoger hierbas' },
+                    { id: 3, nombre: '3. Conversar con las personas' },
+                    { id: 4, nombre: '4. Hacer conjuros' }
+                ];
+
+                self.list3_CuentoAbuelo = [
+                    { id: 1, nombre: '1. Para poder volar' },
+                    { id: 2, nombre: '2. Para caminar por el bosque con las personas' },
+                    { id: 3, nombre: '3. Para proteger el medio ambiente' }
+                ];
+
+                self.list4_CuentoAbuelo = [
+                    { id: 1, nombre: '1. Cuidar a los animales y plantas que nos rodean' },
+                    { id: 2, nombre: '2. Proteger a los niños' },
+                    { id: 3, nombre: '3. La importancia de la salud' }
+                ];
+
+
+                self.listSiNo = [
+                    { id: 1, nombre: '1. Si' },
+                    { id: 2, nombre: '2. No' }
+                ];
+
+                self.listSiNoDeuda = [
+                    { id: 1, nombre: '1. Si' },
+                    { id: 2, nombre: '2. No' },
+                    { id: 3, nombre: '3. No tengo deuda' }
+                ];
+
+                self.listPrestamo = [
+                    { id: 1, nombre: '1. Propio' },
+                    { id: 2, nombre: '2. Prestado' }
+                ];
+                
+                self.data = ko.mapping.fromJS(data);
+
+                self.Save = function (form) {
+                    if ($(form).refreshValidator().valid()) {
+                
+                        if(self.data.condicionid())
+                        {
+                            if(self.data.condicionid()==1 && self.data.notafinal()<70){
+
+                                alert('La condición debe ser DESAPROBÓ!');
+                                return;
+                            }
+
+                            if(self.data.condicionid()==2 && self.data.notafinal()>=70){
+
+                                alert('La condición debe ser APROBÓ');
+                                return;
+                            }
+
+                        }
+
+                        postJson('@Url.Content("~/api/Asistencia/Inscripcion/Update")', JSON.parse(ko.mapping.toJSON(self.data)),
+                        function () {
+
+                            document.location.href = '@Url.Action("Index")?parentid=' + parentid + '&programaid=' + programaid + '&moduloid=' + moduloid;
+                        },
+                        function () {
+                            alert('Error');
+                        });
+                    }
+                };
+
+                self.parentid = parentid;
+            };
+
+            ko.applyBindings(new Model(data));
+        })
+    </script>
+}
+
+<form data-bind="submit: Save" style="width: 100%; float: left;">
+
+    <div class="toolbar">
+        <a class="back" title="Volver"  data-bind="attr: { href: '@Url.Action("Index")?parentid=' + $root.parentid + '&programaid=' + $root.programaid + '&moduloid=' + $root.moduloid}"></a>
+        <button type="button" class="save" title="Grabar" onclick="$(this).closest('form').submit()"></button>
+        <button type="button" class="refresh" title="Refrescar" onclick="document.location.reload()"></button>
+    </div>
+
+
+    <fieldset>
+        <legend>Participante</legend>
+        <table style="width: 70%; float:left;">
+            <colgroup>
+                <col style="width:20%"/>
+                <col style="width:25%"/>
+                <col style="width:10%"/>
+                <col style="width:20%"/>
+                <col style="width:25%"/>
+            </colgroup>
+            <tr>
+                <td>CONDICION</td>
+                @*<td>@Html.koSelect("data.condicionid", "$root.listCondicionFinal")</td>*@
+                <td>@Html.koSelect("data.condicionid", "$root.listCondicionFinal")</td>
+                <td>
+                    <input type="hidden" data-bind="value: data.sesionid, uniqueName: true"/>
+                </td>
+                <td>OBSERVACION</td>
+                <td>@Html.koTextAreaNoRequired("data.observacion",maxlength:300, tooltip:"Registrar el detalle del resultado")</td>
+            </tr>
+            <!-- ko 'if': $root.programaid==1 -->
+            <tr>
+                <td>NOTA FINAL</td>
+                @*<td>@Html.koNumeric("data.notafinal", @decimal: true, max: 20, min: 0, required: true, width: 40)*@
+                <td>@Html.koNumeric("data.notafinal", @decimal: true, max: 100, min: 0, required: true, width: 40)
+            </td>
+                <td>
+                </td>
+                <td></td>
+            </tr>
+            <!-- /ko -->
+
+
+
+            <!-- ko 'if': $root.programaid==2 -->
+                <!-- ko 'if': $root.moduloid==16 -->
+                <tr><td colspan="5"><hr></td></tr>
+                <tr>
+                    <td colspan="5">B1.-Porcentaje de entrevistados que guardaron algo de dinero el mes pasado para ahorrar</td>
+                </tr>
+                <tr>
+                    <td colspan="5">¿El mes pasado usted guardó algo de dinero para ahorrar?</td>
+                </tr>
+                <tr>
+                    <td>Línea base</td>
+                    <td>@Html.koSelect("data.lineapre_1", "$root.listSiNo",requerido:false)</td>
+                    <td>
+                    
+                    </td>
+                    <td>Línea Final</td>
+                    <td>@Html.koSelect("data.lineapost_1", "$root.listSiNo",requerido:false)</td>
+                </tr>
+                <tr><td colspan="5"><hr></td></tr>
+                <tr>
+                    <td colspan="5">B2A.-Porcentaje de entrevistados que tienen una meta de ahorro</td>
+                </tr>
+                <tr>
+                    <td colspan="5">¿Tiene usted una meta de ahorro?</td>
+                </tr>
+                <tr>
+                    <td>Línea base</td>
+                    <td>@Html.koSelect("data.lineapre_2", "$root.listSiNo",requerido:false)</td>
+                    <td>
+                    
+                    </td>
+                    <td>Línea Final</td>
+                    <td>@Html.koSelect("data.lineapost_2", "$root.listSiNo",requerido:false)</td>
+                </tr>
+
+                <tr><td colspan="5"><hr></td></tr>
+                <tr>
+                    <td colspan="5">B2B.-Promedio de meta de ahorro</td>
+                </tr>
+                <tr>
+                    <td colspan="5">Si contestó "sí" a B2A : De ser así ¿Cuál es su meta de ahorro?</td>
+                </tr>
+                <tr>
+                    <td>Línea base</td>
+                    <td>@Html.koNumeric("data.lineapre_3",maxlength:6,required:false)</td>
+                    <td>
+                    
+                    </td>
+                    <td>Línea Final</td>
+                    <td>@Html.koNumeric("data.lineapost_3", maxlength:6,required:false)</td>
+                </tr>
+                <tr><td colspan="5"><hr></td></tr>
+                <tr>
+                    <td colspan="5">B3A.-Porcentaje de entrevistados que hicieron algo el mes pasado para aumentar sus ahorros</td>
+                </tr>
+                <tr>
+                    <td colspan="5">¿Ha hecho usted algo en el último mes para aumentar sus ahorros?</td>
+                </tr>
+                <tr>
+                    <td>Línea base</td>
+                    <td>@Html.koSelect("data.lineapre_4", "$root.listSiNo",requerido:false)</td>
+                    <td>
+                    
+                    </td>
+                    <td>Línea Final</td>
+                    <td>@Html.koSelect("data.lineapost_4", "$root.listSiNo",requerido:false)</td>
+                </tr>
+
+                <tr><td colspan="5"><hr></td></tr>
+                <tr>
+                    <td colspan="5">B3B.-Porcentaje de personas que están tomando medidas efectivas para aumentar sus ahorros</td>
+                </tr>
+                <tr>
+                    <td colspan="5">Si contestó “sí” a la B3A : De ser así ¿Qué ha hecho usted para aumentar sus ahorros?</td>
+                </tr>
+                <tr>
+                    <td>Línea base</td>
+                    <td>@Html.koTextNoRequired("data.lineapre_5",maxlength:50)</td>
+                    <td>
+                    
+                    </td>
+                    <td>Línea Final</td>
+                    <td>@Html.koTextNoRequired("data.lineapost_5", maxlength:50)</td>
+                </tr>
+                <tr><td colspan="5"><hr></td></tr>
+
+                <tr>
+                    <td colspan="5">B4.-Porcentaje de entrevistados que saben que se recomienda mantener un fondo para emergencias con un monto equivalente a tres veces el ingreso mensual</td>
+                </tr>
+                <tr>
+                    <td colspan="5">En su opinión: ¿Una persona debería mantener un fondo para emergencias equivalente a 3 veces su ingreso mensual?</td>
+                </tr>
+               <tr>
+                    <td>Línea base</td>
+                    <td>@Html.koSelect("data.lineapre_6", "$root.listSiNo",requerido:false)</td>
+                    <td>
+                    
+                    </td>
+                    <td>Línea Final</td>
+                    <td>@Html.koSelect("data.lineapost_6", "$root.listSiNo",requerido:false)</td>
+                </tr>
+                <tr><td colspan="5"><hr></td></tr>
+                <tr>
+                    <td colspan="5">B5.-Porcentaje de entrevistados que tienen un fondo para emergencias</td>
+                </tr>
+                <tr>
+                    <td colspan="5">¿Usted tiene un fondo para emergencias?</td>
+                </tr>
+               <tr>
+                    <td>Línea base</td>
+                    <td>@Html.koSelect("data.lineapre_7", "$root.listSiNo",requerido:false)</td>
+                    <td>
+                    
+                    </td>
+                    <td>Línea Final</td>
+                    <td>@Html.koSelect("data.lineapost_7", "$root.listSiNo",requerido:false)</td>
+                </tr>
+
+                <tr><td colspan="5"><hr></td></tr>
+                <tr>
+                    <td colspan="5">B6.-Porcentaje de entrevistados que están satisfechas con su nivel actual de ahorros</td>
+                </tr>
+                <tr>
+                    <td colspan="5">¿Usted está satisfecho con su nivel actual de ahorros?</td>
+                </tr>
+               <tr>
+                    <td>Línea base</td>
+                    <td>@Html.koSelect("data.lineapre_8", "$root.listSiNo",requerido:false)</td>
+                    <td>
+                    
+                    </td>
+                    <td>Línea Final</td>
+                    <td>@Html.koSelect("data.lineapost_8", "$root.listSiNo",requerido:false)</td>
+                </tr>
+
+                <tr><td colspan="5"><hr></td></tr>
+                <!-- /ko -->
+
+                <!-- ko 'if': $root.moduloid==17 -->
+                <tr><td colspan="5"><hr></td></tr>
+                <tr>
+                    <td colspan="5">C1.-Porcentaje de entrevistados que identifican componentes de un presupuesto mensual</td>
+                </tr>
+                <tr>
+                    <td colspan="5">Para elaborar un presupuesto mensual debemos anotar ingresos, gastos y ahorros, ¿es verdadero o falso?</td>
+                </tr>
+                <tr>
+                    <td>Línea base</td>
+                    <td>@Html.koSelect("data.lineapre_1", "$root.listSiNo",requerido:false)</td>
+                    <td>
+                    
+                    </td>
+                    <td>Línea Final</td>
+                    <td>@Html.koSelect("data.lineapost_1", "$root.listSiNo",requerido:false)</td>
+                </tr>
+                <tr><td colspan="5"><hr></td></tr>
+                <tr>
+                    <td colspan="5">C2.-Porcentaje de entrevistados que tienen un registro para anotar ingresos, gastos y ahorros</td>
+                </tr>
+                <tr>
+                    <td colspan="5">¿Lleva un registro para anotar sus ingresos, gastos, y ahorros?</td>
+                </tr>
+                <tr>
+                    <td>Línea base</td>
+                    <td>@Html.koSelect("data.lineapre_2", "$root.listSiNo",requerido:false)</td>
+                    <td>
+                    
+                    </td>
+                    <td>Línea Final</td>
+                    <td>@Html.koSelect("data.lineapost_2", "$root.listSiNo",requerido:false)</td>
+                </tr>
+
+                <tr><td colspan="5"><hr></td></tr>
+                <tr>
+                    <td colspan="5">C3.-Porcentaje de entrevistados que tiene dinero ahorrado para tiempos difíciles</td>
+                </tr>
+                <tr>
+                    <td colspan="5">¿Tiene dinero ahorrado, guardado para los tiempos difíciles?</td>
+                </tr>
+                <tr>
+                     <td>Línea base</td>
+                    <td>@Html.koSelect("data.lineapre_3", "$root.listSiNo",requerido:false)</td>
+                    <td>
+                    
+                    </td>
+                    <td>Línea Final</td>
+                    <td>@Html.koSelect("data.lineapost_3", "$root.listSiNo",requerido:false)</td>
+                </tr>
+                <tr><td colspan="5"><hr></td></tr>
+                <tr>
+                    <td colspan="5">C4.-Porcentaje de entrevistados que ha intentado al menos una forma de presupuestar dinero en los últimos 3 mseses</td>
+                </tr>
+                <tr>
+                    <td colspan="5">¿Ha intentado por lo menos una forma de presupuestar su dinero durante los últimos 3 meses?</td>
+                </tr>
+                <tr>
+                    <td>Línea base</td>
+                    <td>@Html.koSelect("data.lineapre_4", "$root.listSiNo",requerido:false)</td>
+                    <td>
+                    
+                    </td>
+                    <td>Línea Final</td>
+                    <td>@Html.koSelect("data.lineapost_4", "$root.listSiNo",requerido:false)</td>
+                </tr>
+
+                <tr><td colspan="5"><hr></td></tr>
+                <tr>
+                    <td colspan="5">C5.-Porcentaje de entrevistados que confía en su habilidad para presupuestar bien el dinero</td>
+                </tr>
+                <tr>
+                    <td colspan="5">¿Confía en su habilidad para presupuestar bien el dinero?</td>
+                </tr>
+                <tr>
+                    <td>Línea base</td>
+                    <td>@Html.koSelect("data.lineapre_5", "$root.listSiNo",requerido:false)</td>
+                    <td>
+                    
+                    </td>
+                    <td>Línea Final</td>
+                    <td>@Html.koSelect("data.lineapost_5", "$root.listSiNo",requerido:false)</td>
+                </tr>
+                <tr><td colspan="5"><hr></td></tr>
+
+                <tr>
+                    <td colspan="5">C6.-Porcentaje de entrevistados que ha aprendido nuevas formas para gestionar mejor su presupuesto</td>
+                </tr>
+                <tr>
+                    <td colspan="5">¿Ha aprendido nuevas ideas que le ayudarán a gestionar mejor su presupuesto, que no conocía antes de venir a las sesiones educativas?</td>
+                </tr>
+               <tr>
+                    <td>Línea base</td>
+                    <td>@Html.koSelect("data.lineapre_6", "$root.listSiNo",requerido:false)</td>
+                    <td>
+                    
+                    </td>
+                    <td>Línea Final</td>
+                    <td>@Html.koSelect("data.lineapost_6", "$root.listSiNo",requerido:false)</td>
+                </tr>
+                <tr><td colspan="5"><hr></td></tr>
+                <!-- /ko -->
+
+                <!-- ko 'if': $root.moduloid==18 -->
+                <tr><td colspan="5"><hr></td></tr>
+                <tr>
+                    <td colspan="5">D1.-Porcentaje de entrevistados que reconocen que deben destinar a pagar deudas como máximo 1/3 de su presupuesto mensual</td>
+                </tr>
+                <tr>
+                    <td colspan="5">La cantidad máxima del ingreso mensual que una persona debe destinar al pago de su deuda es un tercio. ¿Verdadero o falso?</td>
+                </tr>
+                <tr>
+                    <td>Línea base</td>
+                    <td>@Html.koSelect("data.lineapre_1", "$root.listSiNo",requerido:false)</td>
+                    <td>
+                    
+                    </td>
+                    <td>Línea Final</td>
+                    <td>@Html.koSelect("data.lineapost_1", "$root.listSiNo",requerido:false)</td>
+                </tr>
+                <tr><td colspan="5"><hr></td></tr>
+                <tr>
+                    <td colspan="5">D2.-Porcentaje de entrevistados que afirman haber hecho todos sus pagos de deuda el mes previo</td>
+                </tr>
+                <tr>
+                    <td colspan="5">¿Hizo todos sus pagos de deuda del mes pasado?</td>
+                </tr>
+                <tr>
+                    <td>Línea base</td>
+                    <td>@Html.koSelect("data.lineapre_2", "$root.listSiNoDeuda",requerido:false)</td>
+                    <td>
+                    
+                    </td>
+                    <td>Línea Final</td>
+                    <td>@Html.koSelect("data.lineapost_2", "$root.listSiNoDeuda",requerido:false)</td>
+                </tr>
+
+                <tr><td colspan="5"><hr></td></tr>
+                <tr>
+                    <td colspan="5">D3.-Porcentaje de entrevistados que están preocupados por no poder pagar sus deudas</td>
+                </tr>
+                <tr>
+                    <td colspan="5">¿Está preocupado/a actualmente porque no puede pagar sus deudas?</td>
+                </tr>
+                <tr>
+                     <td>Línea base</td>
+                    <td>@Html.koSelect("data.lineapre_3", "$root.listSiNo",requerido:false)</td>
+                    <td>
+                    
+                    </td>
+                    <td>Línea Final</td>
+                    <td>@Html.koSelect("data.lineapost_3", "$root.listSiNo",requerido:false)</td>
+                </tr>
+                <tr><td colspan="5"><hr></td></tr>
+                <tr>
+                    <td colspan="5">D4.-Porcentaje de entrevistados que ha intentado al menos una forma de controlar sus deudas en los últimos 3 meses</td>
+                </tr>
+                <tr>
+                    <td colspan="5">¿En los últimos 3 meses, ha probado por lo menos una forma nueva de controlar sus deudas?</td>
+                </tr>
+                <tr>
+                    <td>Línea base</td>
+                    <td>@Html.koSelect("data.lineapre_4", "$root.listSiNo",requerido:false)</td>
+                    <td>
+                    
+                    </td>
+                    <td>Línea Final</td>
+                    <td>@Html.koSelect("data.lineapost_4", "$root.listSiNo",requerido:false)</td>
+                </tr>
+
+                <tr><td colspan="5"><hr></td></tr>
+                <tr>
+                    <td colspan="5">D5.-Porcentaje de entrevistados que ha aprendido nuevas ideas para manejar sus deudas como resultado de las sesiones educativas</td>
+                </tr>
+                <tr>
+                    <td colspan="5">¿Ha aprendido nuevas ideas para manejar sus deudas que no sabía antes de participar en las sesiones educativas?</td>
+                </tr>
+                <tr>
+                    <td>Línea base</td>
+                    <td>@Html.koSelect("data.lineapre_5", "$root.listSiNo",requerido:false)</td>
+                    <td>
+                    
+                    </td>
+                    <td>Línea Final</td>
+                    <td>@Html.koSelect("data.lineapost_5", "$root.listSiNo",requerido:false)</td>
+                </tr>
+                <tr><td colspan="5"><hr></td></tr>
+
+                <tr>
+                    <td colspan="5">D6.-Porcentaje de entrevistados que ha compartido ideas con otras personas sobre como manejar sus deudas durante las sesiones educativas</td>
+                </tr>
+                <tr>
+                    <td colspan="5">Durante las sesiones educativas: ¿Ha compartido ideas con otras personas sobre cómo manejar sus deudas?</td>
+                </tr>
+               <tr>
+                    <td>Línea base</td>
+                    <td>@Html.koSelect("data.lineapre_6", "$root.listSiNo",requerido:false)</td>
+                    <td>
+                    
+                    </td>
+                    <td>Línea Final</td>
+                    <td>@Html.koSelect("data.lineapost_6", "$root.listSiNo",requerido:false)</td>
+                </tr>
+                <tr><td colspan="5"><hr></td></tr>
+                <!-- /ko -->
+                
+
+
+
+                <!-- ko 'if': $root.moduloid==19 -->
+                <tr><td colspan="5"><hr></td></tr>
+                <tr>
+                    <td colspan="5">E1.-Porcentaje de entrevistados que reconocen la posibilidad de transacciones bancarias sin atención personal.</td>
+                </tr>
+                <tr>
+                    <td colspan="5">¿Para retirar dinero de su cuenta en el banco, es necesario que le atiendan en ventanilla?</td>
+                </tr>
+                <tr>
+                    <td>Línea base</td>
+                    <td>@Html.koSelect("data.lineapre_1", "$root.listSiNo",requerido:false)</td>
+                    <td>
+                    
+                    </td>
+                    <td>Línea Final</td>
+                    <td>@Html.koSelect("data.lineapost_1", "$root.listSiNo",requerido:false)</td>
+                </tr>
+                <tr><td colspan="5"><hr></td></tr>
+                <tr>
+                    <td colspan="5">E2.-Porcentaje de entrevistados que reconocen la posibilidad de transacciones sin acudir al banco.</td>
+                </tr>
+                <tr>
+                    <td colspan="5">¿Es necesario entrar en el banco para realizar una transacción?</td>
+                </tr>
+                <tr>
+                    <td>Línea base</td>
+                    <td>@Html.koSelect("data.lineapre_2", "$root.listSiNo",requerido:false)</td>
+                    <td>
+                    
+                    </td>
+                    <td>Línea Final</td>
+                    <td>@Html.koSelect("data.lineapost_2", "$root.listSiNo",requerido:false)</td>
+                </tr>
+
+                <tr><td colspan="5"><hr></td></tr>
+                <tr>
+                    <td colspan="5">E3.-Porcentaje de entrevistados que reconoce la existencia de regulaciones bancarias.</td>
+                </tr>
+                <tr>
+                    <td colspan="5">¿Todas las fuentes financieras son reguladas?</td>
+                </tr>
+                <tr>
+                     <td>Línea base</td>
+                    <td>@Html.koSelect("data.lineapre_3", "$root.listSiNo",requerido:false)</td>
+                    <td>
+                    
+                    </td>
+                    <td>Línea Final</td>
+                    <td>@Html.koSelect("data.lineapost_3", "$root.listSiNo",requerido:false)</td>
+                </tr>
+                <tr><td colspan="5"><hr></td></tr>
+                <tr>
+                    <td colspan="5">E4.-Porcentaje de entrevistados que muestran comodidad con empleo de tarjeta de débito.</td>
+                </tr>
+                <tr>
+                    <td colspan="5">¿La idea de utilizar una tarjeta de débito le incomoda?</td>
+                </tr>
+                <tr>
+                    <td>Línea base</td>
+                    <td>@Html.koSelect("data.lineapre_4", "$root.listSiNo",requerido:false)</td>
+                    <td>
+                    
+                    </td>
+                    <td>Línea Final</td>
+                    <td>@Html.koSelect("data.lineapost_4", "$root.listSiNo",requerido:false)</td>
+                </tr>
+
+                <tr><td colspan="5"><hr></td></tr>
+                <tr>
+                    <td colspan="5">E5.-Porcentaje de entrevistados que reconocen que al emplear tarjeta de débito usan dinero propio. </td>
+                </tr>
+                <tr>
+                    <td colspan="5">¿Cuándo usa la tarjeta de débito, es dinero propio, o dinero prestado?</td>
+                </tr>
+                <tr>
+                    <td>Línea base</td>
+                    <td>@Html.koSelect("data.lineapre_5", "$root.listPrestamo",requerido:false)</td>
+                    <td>
+                    
+                    </td>
+                    <td>Línea Final</td>
+                    <td>@Html.koSelect("data.lineapost_5", "$root.listPrestamo",requerido:false)</td>
+                </tr>
+                <!-- /ko -->
+            <!-- /ko -->
+
+
+
+            <!-- ko 'if': $root.programaid==3 -->
+                <!-- ko 'if': $root.moduloid==41 -->
+                <tr><td colspan="5"><hr></td></tr>
+                <tr>
+                    <td colspan="4">1.-¿Cual es el tema prinicipal del cuento?</td>
+                    <td colspan="1">@Html.koSelect("data.lineapre_1", "$root.list1_CuentoAbuelo",requerido:false)</td>
+                </tr>
+                <tr>   
+                    <td colspan="4">2.-¿Cuál era la misión de vida del abuelo Juan?</td>
+                    <td colspan="1">@Html.koSelect("data.lineapre_2", "$root.list2_CuentoAbuelo",requerido:false)</td>
+                </tr>
+                <tr>
+                    <td colspan="4">3.-¿Por qué Manuel quería ser chamán?</td>
+                    <td colspan="1">@Html.koSelect("data.lineapre_3", "$root.list3_CuentoAbuelo",requerido:false)</td>
+                </tr>
+                <tr>
+                    <td colspan="4">4.-¿Cuál es el mensaje de las canciones del cuento?</td>
+                    <td colspan="1">@Html.koSelect("data.lineapre_4", "$root.list4_CuentoAbuelo",requerido:false)</td>
+                </tr>
+               
+                <tr><td colspan="5"><hr></td></tr>
+                <!-- /ko -->
+            <!-- /ko -->
+        </table>
+
+    </fieldset>
+</form>
+
+@*<pre class="json" data-bind="text: JSON.stringify(ko.mapping.toJS(data) , null, '  ')"></pre>*@

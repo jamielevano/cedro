@@ -1,0 +1,151 @@
+﻿@section scripts
+{
+    <script type="text/javascript">
+        $(function () {
+
+            
+            var Model = function () 
+            {
+                var self = this;
+                self.data = 
+                    {
+                    id: ko.observable(null),
+                    ficha: ko.observable(null),
+                    fechainicio: ko.observable(null),
+                    fechafin: ko.observable(null),
+                    usuario: ko.observable('@User.Identity.Name')
+                };
+
+                self.listFicha = getJson('@Url.Content("~/api/Planificacion/PlanOperativoTC/ListFichas")');
+                self.listUsuario = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(ViewBag.ListUsuario));
+                self.list = ko.observableArray();
+
+                self.Search = function (form) 
+                {
+                    self.list(undefined);
+                    postJson('@Url.Content("~/Api/Monitoreo/TareaTC/Search")',JSON.parse(ko.mapping.toJSON(self.data)), function(data)
+                    {
+                        self.list(data);
+                    })
+                }
+            }
+
+            ko.applyBindings(new Model());
+        });
+
+        FichaArchivo = function (ficha,id)
+        {
+            ShowPopupArchivo('@Url.Action("FichaArchivo","PlanOperativoArchivoTC",new { area = "BibliotecaVirtual" })?biblioteca=1&id=' + id + '&ficha=' + ficha, 1100, 500);
+            return false;
+        }
+    </script>
+}
+
+<div class="toolbar">
+    <a class="back" href="@Url.Action("Index")"></a>
+    <button type="button" class="refresh" title="Refrescar" onclick="document.location.reload()"></button>
+</div>
+
+<table style="width:95%; margin: 10px auto;">
+    <tr>
+        <td>
+            <fieldset>
+                <legend>Buscar avance</legend>
+                <form data-bind="submit: Search">
+                    <table>
+                        <tr>
+                            <td>
+                                Código
+                            </td>
+                            <td>
+                                @Html.koTextNoRequired("data.id")
+                            </td>
+                            <td></td>
+                            <td>
+                                Desde
+                            </td>
+                            <td>
+                                @Html.koDate("data.fechainicio",width:100)
+                            </td>
+                            <td></td>
+                            <td>Usuario
+                            </td>
+                            <td>
+                                <select data-bind="value: data.usuario, options: listUsuario, optionsCaption: '[Todos]', uniqueName: true, enable: @Web.Auth.GetTicketData().Admin.ToString().ToLower()"></select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Ficha
+                            </td>
+                            <td>
+                                @*<select data-bind="value: data.ficha, options: listFicha, optionsCaption: '[SELECCIONAR]', uniqueName: true"></select>*@
+                                <select data-bind="value: data.ficha, options: $root.listFicha, optionsText: 'nombre', optionsValue: 'id', optionsCaption: '[SELECCIONAR]', uniqueName: true" />
+                            </td>
+                            <td></td>
+                            <td>
+                                Hasta
+                            </td>
+                            <td>
+                                @Html.koDate("data.fechafin", min:"data.fechainicio",width:100)
+                            </td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <button type="submit">Buscar</button>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </fieldset>
+        </td>
+    </tr>
+</table>
+
+
+<table class="grid" style="width: 95%">
+    <thead>
+        <tr>
+            <th style="width: 60px">Código</th>
+            <th style="width: auto">Tarea</th>
+            <th style="width: 120px">Fecha de Inicio</th>
+            <th style="width: 120px">Fecha de Fin</th>
+            <th style="width: 100px">Usuario</th>
+            <th style="width: 300px;">Ficha</th>
+        </tr>
+    </thead>
+    <tbody data-bind="foreach: list">
+        <tr>
+            <td data-bind="text: id" style="text-align: center"></td>
+            <td data-bind="text: tarea"></td>
+            <td data-bind="text: formatDate(fechainicio)" style="text-align: center"></td>
+            <td data-bind="text: formatDate(fechafin)" style="text-align: center"></td>
+            <td data-bind="text: aud_usuarioreg"></td>
+            <td style="text-align: center">
+                <button type="button" title="Ficha General" data-bind="attr: { class: 'btn folder' + ((archivosficha0 == true) ? '_open' : '') },click: function(){FichaArchivo(0,id)}"></button>
+                <button type="button" title="Ficha 1"       data-bind="attr: { class: 'btn folder' + ((archivosficha1 == true) ? '_open' : '') },visible:ficha1,click: function(){FichaArchivo(1,id)}"></button>
+                <button type="button" title="Ficha 2"       data-bind="attr: { class: 'btn folder' + ((archivosficha2 == true) ? '_open' : '') },visible:ficha2,click: function(){FichaArchivo(2,id)}"></button>
+                <button type="button" title="Ficha 3"       data-bind="attr: { class: 'btn folder' + ((archivosficha3 == true) ? '_open' : '') },visible:ficha3,click: function(){FichaArchivo(3,id)}"></button>
+                <button type="button" title="Ficha 4"       data-bind="attr: { class: 'btn folder' + ((archivosficha4 == true) ? '_open' : '') },visible:ficha4,click: function(){FichaArchivo(4,id)}"></button>
+                <button type="button" title="Ficha 5A"      data-bind="attr: { class: 'btn folder' + ((archivosficha5a == true) ? '_open' : '') },visible:ficha5a,click: function(){FichaArchivo(51,id)}"></button>
+                <button type="button" title="Ficha 5B"      data-bind="attr: { class: 'btn folder' + ((archivosficha5b == true) ? '_open' : '') },visible:ficha5b,click: function(){FichaArchivo(52,id)}"></button>
+                <button type="button" title="Ficha 5C"      data-bind="attr: { class: 'btn folder' + ((archivosficha5c == true) ? '_open' : '') },visible:ficha5c,click: function(){FichaArchivo(53,id)}"></button>
+                <button type="button" title="Ficha 5D"      data-bind="attr: { class: 'btn folder' + ((archivosficha5d == true) ? '_open' : '') },visible:ficha5d,click: function(){FichaArchivo(54,id)}"></button>
+
+                <button type="button" title="Ficha 6"       data-bind="attr: { class: 'btn folder' + ((archivosficha6 == true) ? '_open' : '') },visible:ficha6,click: function(){FichaArchivo(6,id)}"></button>
+            
+                <button type="button" title="Ficha 7A"      data-bind="attr: { class: 'btn folder' + ((archivosficha7a == true) ? '_open' : '') },visible:ficha7a,click: function(){FichaArchivo(71,id)}"></button>
+                <button type="button" title="Ficha 7B"      data-bind="attr: { class: 'btn folder' + ((archivosficha7b == true) ? '_open' : '') },visible:ficha7b,click: function(){FichaArchivo(72,id)}"></button>
+                <button type="button" title="Ficha 7C"      data-bind="attr: { class: 'btn folder' + ((archivosficha7c == true) ? '_open' : '') },visible:ficha7c,click: function(){FichaArchivo(73,id)}"></button>
+                <button type="button" title="Ficha 7D"      data-bind="attr: { class: 'btn folder' + ((archivosficha7d == true) ? '_open' : '') },visible:ficha7d,click: function(){FichaArchivo(74,id)}"></button>
+
+                <button type="button" title="Ficha 8"       data-bind="attr: { class: 'btn folder' + ((archivosficha8 == true) ? '_open' : '') },visible:ficha8,click: function(){FichaArchivo(8,id)}"></button>
+                <button type="button" title="Ficha 9"       data-bind="attr: { class: 'btn folder' + ((archivosficha9 == true) ? '_open' : '') },visible:ficha9,click: function(){FichaArchivo(9,id)}"></button>
+                <button type="button" title="Ficha 10"      data-bind="attr: { class: 'btn folder' + ((archivosficha10 == true) ? '_open' : '') },visible:ficha10,click: function(){FichaArchivo(10,id)}"></button>
+                <button type="button" title="Ficha 11"      data-bind="attr: { class: 'btn folder' + ((archivosficha11 == true) ? '_open' : '') },visible:ficha11,click: function(){FichaArchivo(11,id)}"></button>
+                <button type="button" title="Ficha 12"      data-bind="attr: { class: 'btn folder' + ((archivosficha12 == true) ? '_open' : '') },visible:ficha12,click: function(){FichaArchivo(12,id)}"></button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+

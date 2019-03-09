@@ -1,0 +1,99 @@
+﻿@section scripts
+{
+    <script type="text/javascript">
+        $(function () {
+            var Model = function () {
+                var self = this;
+
+                self.data = ko.observableArray([]);
+
+                self.params = {
+                    codigo: ko.observable(),
+                    nombre: ko.observable(),
+                    desde: ko.observable(),
+                    hasta: ko.observable()
+                };
+
+                self.Buscar = function(){
+                    self.data(getJson('@Url.Content("~/api/Planificacion/Proyecto/Search")', JSON.parse(ko.mapping.toJSON(self.params))));
+                }
+            };
+
+            ko.applyBindings(new Model());
+        })
+    </script>
+}
+
+
+<div class="toolbar">
+    <button type="button" class="refresh" title="Refrescar" onclick="document.location.reload()"></button>
+</div>
+
+<fieldset>
+    <legend></legend>
+
+    <form data-bind="submit: Buscar">
+        <table>
+            <colgroup>
+                <col style="width: 100px;" />
+                <col />
+                <col style="width: 100px;" />
+                <col />
+            </colgroup>
+            <tbody>
+                <tr>
+                    <td>Código</td>
+                    <td>@Html.koTextNoRequired("params.codigo")</td>
+                    <td>Nombre</td>
+                    <td>
+                        <input type="text" data-bind="value: params.nombre, uniqueName: true" style="width: 300px" /></td>
+                </tr>
+                <tr>
+                    <td>Desde</td>
+                    <td>@Html.koDate("params.desde", required: false)</td>
+                    <td>Hasta</td>
+                    <td>@Html.koDate("params.hasta", required: false, min: "params.desde")</td>
+                </tr>
+                <tr>
+                    <td colspan="4" style="text-align: right">
+                        <button type="submit">Buscar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+
+    <table class="grid">
+        <colgroup>
+            <col style="width: 50px" />
+            <col style="width: 150px" />
+            <col />
+            <col style="width: 100px" />
+            <col style="width: 100px" />
+            <col style="width: 100px" />
+        </colgroup>
+        <thead>
+            <tr>
+                <th>N°</th>
+                <th>Código</th>
+                <th>Nombre</th>
+                <th>Fecha Inicio</th>
+                <th>Fecha Fin</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody data-bind='foreach: data'>
+            <tr>
+                <td data-bind="text: $index() + 1" style="text-align: center"></td>
+                <td data-bind="text: codigo "></td>
+                <td data-bind="text: nombre "></td>
+                <td data-bind="text: formatDate(periodoinicio)" style="text-align: center"></td>
+                <td data-bind="text: formatDate(periodofin)" style="text-align: center"></td>
+                <td style="text-align: center">
+                    <a class="btn folder" title="Marco Logico" data-bind="attr: { href: '@Url.Action("Edit", "MarcoLogicoArchivo")?id=' + $data.id}"></a>
+                    <a class="btn folder" title="Plan Operativo"  data-bind="enable:planoperativo, attr: { href: '@Url.Action("Index", "PlanOperativoArchivo")?id=' + $data.id}"></a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</fieldset>

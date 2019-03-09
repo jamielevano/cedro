@@ -1,0 +1,210 @@
+﻿@section scripts
+{
+    <script type="text/javascript">
+        $(function () {
+
+            $('#loading').show();
+
+            var data, id = queryString('id');
+
+            if (id) {
+                data = getJson('@Url.Content("~/api/Planificacion/PlanOperativo/FindByProyecto")', { id: id });
+            }
+
+            var Model = function (data) {
+                var self = this;
+
+                data = data || {
+                    id: 0,
+                    codigo: null,
+                    nombre: null,
+                    PlanOperativo: [],
+                };
+
+                self.data = ko.mapping.fromJS(data);
+
+            };
+
+            ko.applyBindings(new Model(data));
+
+            $('select').prop("disabled", true);
+            $('input').prop("disabled", true);
+
+            $('#loading').hide();
+        });
+
+        AvanceActividadArchivo = function (item) {
+            ShowPopupArchivo('@Url.Action("AvanceActividadArchivo","PlanOperativoArchivo",new { area = "BibliotecaVirtual" })?biblioteca=1&id=' + item.id(), 1100, 500);
+            return false;
+        }
+
+    </script>
+}
+
+<form style="width: 100%; float: left;">
+
+    <div class="toolbar">  
+        <a class="back" title="Volver" href="@Url.Action("Avance","PlanOperativoArchivo")"></a>
+        <button type="button" class="refresh" title="Refrescar" onclick="document.location.reload()"></button>
+    </div>
+
+    <fieldset>
+        <legend>Datos del Proyecto</legend>
+
+        <table style="width: 100%">
+            <colgroup>
+                <col style="width: 100px" />
+            </colgroup>
+            <tr>
+                <td>Código
+                </td>
+                <td data-bind="text: data.codigo">
+            </tr>
+            <tr>
+                <td>Nombre</td>
+                <td data-bind="text: data.nombre">
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+
+
+    <!-- ko foreach: data.PlanOperativo -->
+    <table class="grid">
+        <colgroup>
+            <col style="width: 200px" />
+            <col />
+        </colgroup>
+        <thead>
+            <tr>
+                <th>Actividad
+                </th>
+                <th style="text-align:left" data-bind="text: actividaddescripcion"> 
+                </th>
+            </tr>
+        </thead>
+    </table>
+
+    <div style="border: 1px solid #AAA; padding: 5px; margin: 5px 0">
+        <table style="width: 100%">
+            <colgroup>
+                <col style="width: 300px" />
+                <col />            
+            </colgroup>
+            <tr>
+                <td>Periódo</td>
+                <td>
+                    <table>
+                        <colgroup>
+                            <col style="width: 40px" />
+                            <col style="width: 100px"/>
+                            <col style="width: 20px" />
+                            <col style="width: 40px" />
+                            <col style="width: 100px"/>                
+                        </colgroup>
+                        <tr>    
+                            <td>Del</td>
+                            <td data-bind="text: formatDate(periodoinicio)" style="text-align: center"></td>
+                            <td></td>
+                            <td>Al</td>
+                            <td data-bind="text: formatDate(periodofin)" style="text-align: center"></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>Presupuesto planificado</td>
+                <td data-bind="text: formatNumber(presupuesto)" style="text-align: left"></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <!-- ko foreach: PlanOperativoMeta --> 
+                    <hr />
+                    <table style="width: 100%">
+                        <colgroup>
+                            <col style="width: 250px" />
+                            <col style="width: 150px" />
+                            <col />            
+                        </colgroup>                        
+                        <tr>
+                            <td>Meta</td>
+                            <td colspan="2" data-bind="text: metadescripcion">
+                            </td>                            
+                        </tr>
+                        <tr>
+                            <td>Unidad de medida</td>
+                            <td data-bind="text: unidadmedida" style="text-align: right"></td>
+                            <td rowspan="5">
+                                <table class="grid" style="width:auto">
+                                    <colgroup>
+                                        <col style="width: 100px" />
+                                        <col style="width: 100px" />
+                                        <col style="width: 80px" />
+                                        <col style="width: 80px" />
+                                        <col style="width: 300px" />
+                                        <col style="width: 60px" />
+                                    </colgroup>
+                                    <thead>
+                                        <tr>
+                                            <th>Fecha Inicio
+                                            </th>
+                                            <th>Fecha Fin
+                                            </th>
+                                            <th>Avance presupuestal
+                                            </th>
+                                            <th>Avance de meta
+                                            </th>
+                                            <th>Observación
+                                            </th>
+                                            <th>Archivo
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody data-bind='foreach: AvancePO'>
+                                        <tr>
+                                            <td>@Html.koDate("fechainicio",width:100,disable:"true")</td>
+                                            <td>@Html.koDate("fechafin",width:100,disable:"true")</td>
+                                            <td>
+                                                @Html.koNumeric("monto")
+                                            </td>
+
+                                            <td>
+                                                @Html.koNumeric("cantidad")
+                                            </td>
+                                            <td>
+                                                @Html.koTextNoRequired("observacion")
+                                            </td>
+                                            <td style="text-align:center">
+                                                <button type="button"  data-bind="attr: { class: 'btn folder' + ((archivos() == true) ? '_open' : '') }, visible: (id() != 0), click: function () { AvanceActividadArchivo($data) }"></button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Presupuesto acumulado ejecutado</td>
+                            <td data-bind="text: formatNumber(montoejecutado)" style="text-align: right"></td>
+                        </tr>
+                        <tr>
+                            <td>Meta planificada</td>
+                            <td data-bind="text: formatNumber(cantidad)" style="text-align: right"></td>
+                        </tr>
+                        <tr>
+                            <td>Meta acumulada ejecutada</td>
+                            <td data-bind="text: formatNumber(metaejecutada)" style="text-align: right"></td>
+                        </tr>
+                         <tr>
+                            <td>Avance total de la meta</td>
+                            <td data-bind="text: ((cantidad() == 0) ? '0' : formatNumber((metaejecutada() * 100) / cantidad()).toString()) + '%'" style="text-align: right"></td>
+                        </tr>
+                    </table>
+                    <!-- /ko -->
+                </td>
+            </tr>            
+        </table>
+    </div>
+
+    <!-- /ko -->
+
+</form>

@@ -1,0 +1,73 @@
+﻿
+@{ Layout = null; }
+@model string
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <link rel="icon" href="~/favicon.ico" />
+    <link href="~/Content/front.css" rel="stylesheet" />
+    <script type="text/javascript">if (top.location != location) top.location.href = document.location.href;</script>
+    <script src="~/Scripts/jquery-2.1.4.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+</head>
+<body>
+    <div id="header" class="section">
+        @*<div  class="section">
+            <picture>
+                <source srcset="../Images/Empresa/fondo_24.jpg" media="(min-width:10px)" />
+                <img src="../Images/Empresa/fondo_24.jpg" alt="fondo"/>
+            </picture>*@
+            @*<table style="margin: 100px auto;">*@
+            <table style="margin: 10.706% auto;">
+                @*<table style="display:compact; position:center;margin: 100px auto;">*@
+                @*<tr>
+                                <td text-align center;">
+                                    <div id="signin_menu" style="display: block; position:center;">
+                                        <img src="~/Images/Empresa/logo.jpg" width="450" height="107" />
+                                        <img src="~/Images/Empresa/logo.jpg" width="70" />
+                                        <img src="~/Images/Empresa/usaid.jpg" width="350" height="80" />
+                                    </div>
+                </td>
+                            </tr>*@
+                @*<tr>
+                    <td text-align center;">
+                        <img src="~/Images/Empresa/usaid.jpg" width="350" height="80" />
+                    </td>
+                </tr>*@
+                <tr>
+                    @*<td text-align: center;">
+                        <img src="~/Images/Empresa/logos.jpg" width="570" height="107"/>
+                    </td>*@
+                    @*<td >
+                        <div id="signin_menu" style="display: block;">
+                            <img src="~/Images/Empresa/logo.jpg" width="450" height="107" />
+                            <img src="~/Images/Empresa/logo.jpg" width="70" />
+                            <img src="~/Images/Empresa/usaid.jpg" width="350" height="80" />
+                        </div>
+                    </td>*@
+                    <td style="width: 450px; text-align: center; vertical-align:central">
+                        <div id="signin_menu" style="display: block; position: relative;">
+                            @*<div id="signin_menu" style="display: block; position:inherit;">*@
+
+                            <form method="post">
+                                <img src="~/Images/Empresa/logos-alianza-CRECE.png" width="210" />
+                                @*<img src="~/Images/Empresa/usaid.jpg" width="350" height="80" />*@
+                                <label for="user">Usuario&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                                <input type="text" name="user" maxlength="15" style="width: 200px" data-val="" data-val-required="" />
+                                <label for="password">Contraseña</label>
+                                <input type="password" name="password" maxlength="15" style="width: 200px" data-val="" data-val-required="" />
+                                <br />
+                                <input type="submit" name="signin_submit" value="Acceder" id="signin_submit">
+                                <br />
+                                @Model
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+</body>
+</html>

@@ -1,0 +1,388 @@
+﻿@section scripts
+{
+    <script type="text/javascript">
+
+        var disable = false;
+
+        $(function () {
+
+            var data, id = queryString('id');
+            var permiso = getJson('@Url.Content("~/api/Sistema/Permiso/Find")', { id: 67 });
+
+            if (id) {
+                data = getJson('@Url.Content("~/api/Planificacion/MarcoLogico/Find")', { id: id });
+                proyecto = getJson('@Url.Content("~/api/Planificacion/Proyecto/Find")', { id: id });
+
+                disable = (proyecto.habilitarmarcologico == null) ? false : proyecto.habilitarmarcologico;
+                    
+            }
+            var Model = function (data) {
+                var self = this;
+
+                data = data || {
+                    id: 0,
+                    fin: null,
+                    habilitado: true,
+                    proyectoid: id,
+                    periodoinicio: null,
+                    periodofin: null,
+                    codigo: null,
+                    proposito: null,
+                    supuesto: null,
+                    PropositoMetas: [],
+                    Resultado: [],
+                };
+
+                self.data = ko.mapping.fromJS(data);
+
+                self.habilitado = self.data.habilitado;
+
+                self.addPropositoMetas = function () {
+                    self.data.PropositoMetas.push(ko.mapping.fromJS({
+                        id: 0,
+                        codigo: null,
+                        nombre: null,
+                        unidadid: null,
+                        indicador: null,
+                        cantidad: null,
+                        fuente: null,
+                        archivos: null
+                    }));
+
+                    $("#tblDetalle tr:last").find('input[type=text]').filter(':first').focus();
+                };
+                self.removePropositoMetas = function (item) {
+                    self.data.PropositoMetas.remove(item);
+                };
+
+                self.addResultado = function () {
+                    self.data.Resultado.push(ko.mapping.fromJS({
+                        id: 0,
+                        codigo: null,
+                        nombre: null,
+                        supuesto: null,
+                        eliminable: true,
+                        ResultadoMetas: []
+                    }));
+
+                    $(".divDetalle:last").find('input[type=text]').filter(':first').focus();
+                };
+
+                self.removeResultado = function (item) {
+                    self.data.Resultado.remove(item);
+                }
+
+                self.addResultadoMetas = function (parent) {
+                    parent.ResultadoMetas.push(ko.mapping.fromJS({
+                        id: 0,
+                        codigo: null,
+                        nombre: null,
+                        unidadid: null,
+                        indicador: null,
+                        cantidad: null,
+                        fuente: null,
+                        archivos: null
+                    }));
+                };
+
+                self.removeResultadoMetas = function (parent, item) {
+                    parent.ResultadoMetas.remove(item)
+                };
+
+                self.Save = function (form) {
+                    if ($(form).refreshValidator().valid()) {
+                        postJson('@Url.Content("~/api/Planificacion/MarcoLogico/Save")', JSON.parse(ko.mapping.toJSON(self.data)),
+                        function () {
+                            if (confirm('Se guardaron los cambios.\n¿Desea regresar al listado?'))
+                                document.location.href = '@Url.Action("Index","Proyecto")';
+                            else {
+                                document.location.reload();
+                            }
+                        },
+                        function () {
+                            alert('Error');
+                        });
+                    }
+                };
+
+                //if (id) {
+                //    self.grabar = permiso.modificar;
+                //    self.agregar = permiso.modificar;
+                //    self.eliminar = permiso.modificar;
+                //}
+                //else {
+                //    self.grabar = permiso.agregar;
+                //    self.agregar = permiso.agregar;
+                //    self.eliminar = permiso.agregar;
+                //}
+
+                self.listUnidadMedida = getJson('@Url.Content("~/api/General/UnidadMedida")');
+            };
+
+            ko.applyBindings(x=new Model(data));
+            $('.tabs').jqxTabs({ theme: 'darkblue', keyboardNavigation: false });
+
+            if (disable || (id && !permiso.modificar) || (!id && !permiso.agregar)) {
+                $('input[type=text],textarea').prop("readonly", true);
+                $('select').prop("disabled", true);
+            }
+        });
+
+        ShowPopupResultadoArchivo = function (item) {
+            if (!disable)
+                ShowPopupArchivo('@Url.Action("ResultadoArchivo", "MarcoLogicoArchivo", new { area = "BibliotecaVirtual" })?biblioteca=0&id=' + item.id(), 1100, 500);
+            return false;
+        };
+
+
+        ShowPopupPropositoArchivo = function (item) {
+            if (!disable)
+                ShowPopupArchivo('@Url.Action("PropositoArchivo","MarcoLogicoArchivo",new { area = "BibliotecaVirtual" })?biblioteca=0&id=' + item.id(), 1100, 500);
+            return false;
+        };
+    </script>
+}
+
+<form data-bind="submit: Save" style="width: 100%; float: left;">
+    
+    <div class="toolbar">
+        <a class="back" title="Volver" href="@Url.Action("Index","Proyecto")"></a>
+        <button type="button" class="save" title="Grabar" data-bind="enable: $root.habilitado" onclick="$(this).closest('form').submit()"></button>
+        <button type="button" class="refresh" title="Refrescar" onclick="document.location.reload()"></button>
+    </div>
+
+    <span name="proyectoid" data-bind="value: data.proyectoid"/>
+    <fieldset>
+        <legend></legend>
+        <table style="width: 100%">
+            <colgroup>
+                <col style="width: 100px" />
+            </colgroup>
+            <tr>
+                <td>Periódo</td>
+                <td>
+                    <table>
+                        <colgroup>
+                            <col style="width: 40px" />
+                            <col style="width: 120px" />
+                            <col style="width: 20px" />
+                            <col style="width: 40px" />
+                            <col style="width: 120px" />
+                        </colgroup>
+                        <tr>
+                            <td>Inicio</td>
+                            <td>@Html.koDate("data.periodoinicio",width:100)</td>
+                            <td></td>
+                            <td>Fin</td>
+                            <td>@Html.koDate("data.periodofin", min: "data.periodoinicio",width:100)</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>Ingresar fin</td>
+                <td>
+                    <input name="fin" type="text" data-bind="value: data.fin" style="width: 100%"/>
+                </td>
+            </tr>            
+        </table>
+    </fieldset>
+
+    <div class='tabs'>
+        <ul>
+            <li style="margin-left: 30px;">
+                <div style="margin-left: 4px; vertical-align: middle; text-align: center; float: left;">PROPOSITO</div>
+            </li>
+            <li>
+                <div style="margin-left: 4px; vertical-align: middle; text-align: center; float: left;">RESULTADO</div>
+            </li>
+        </ul>
+        <div style="overflow: hidden; padding: 10px;">
+            <table style="width: 100%">
+                <colgroup>
+                    <col style="width: 100px" />
+                </colgroup>
+                <tr>
+                    <td>Código
+                    </td>
+                    <td>
+                        <input name="codigo" type="text" data-bind="value: data.codigo" style="width: 100px" data-val="true" data-val-required="" maxlength="10"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Descripción
+                    </td>
+                    <td>
+                        <input name="proposito" type="text" data-bind="value: data.proposito" style="width: 100%" data-val="true" data-val-required="" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Supuesto</td>
+                    <td>
+                        <textarea name="supuesto" data-bind="value: data.supuesto" data-val="true"   data-val-required=""></textarea>
+                    </td>
+                </tr>
+            </table>
+
+            <table id="tblDetalle" class="grid">
+                <colgroup>
+                    <col style="width: 40px" />
+                    <col />
+                    <col style="width: 60px" />
+                    <col style="width: 40px" />
+                    <col />
+                    <col />
+                    <col style="width: 28px" />
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>Cod
+                        </th>
+                        <th>Meta
+                        </th>
+                        <th>Cant
+                        </th>
+                        <th>Und
+                        </th>
+                        <th>Indicadorcesar
+                        </th>
+                        <th>Fuente
+                        </th>
+                        <th style="width: 48px">
+                            <button type="button" class="btn add" data-bind="enable: $root.habilitado, click: addPropositoMetas"  />
+                        </th>
+                    </tr>
+                </thead>
+                <tbody data-bind='foreach: data.PropositoMetas'>
+                    <tr>
+                        <td>
+                            <input type="hidden" data-bind="value: id, attr: { name: 'PropositoMetas[' + $index() + '].id' }" />
+                            <input type="text" data-bind="value: codigo, attr: { name: 'PropositoMetas[' + $index() + '].codigo' }" data-val="true" data-val-required="" maxlength="10"/>
+                        </td>
+                        <td>
+                            <input type="text" data-bind="    value: nombre, attr: { name: 'PropositoMetas[' + $index() + '].nombre' }" data-val="true" data-val-required="" />
+                        </td>
+                        <td>
+                            @Html.koNumeric("cantidad", @decimal: false, width: 60)
+                        </td>
+                        <td>
+                            <select data-bind="value: unidadid, options: $root.listUnidadMedida, optionsText: 'nombre', optionsValue: 'id', attr: { name: 'PropositoMetas[' + $index() + '].unidadid' }"  data-val="true" data-val-required=""/>
+                        </td>
+                        <td>
+                            <input type="text" data-bind="value: indicador, attr: { name: 'PropositoMetas[' + $index() + '].indicador' }" data-val="true" data-val-required=""  />
+                        </td>
+                        <td>
+                            <input type="text" data-bind="value: fuente, attr: { name: 'PropositoMetas[' + $index() + '].fuente' }" data-val="true" data-val-required=""  />
+                        </td>
+                        <td style="text-align: center">
+                            <button class="btn folder" type="button" title="Archivos" data-bind="attr: { class: 'btn folder' + ((archivos() == true) ? '_open' : '') }, click: function () { ShowPopupPropositoArchivo($data) }, visible: id() != 0"></button>
+                            <button type="button" class="btn del" data-bind="enable: $root.habilitado, click: $root.removePropositoMetas"></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+        <div style="overflow: hidden; padding: 10px;">
+            <div style="text-align: right;">
+                <button type="button"  data-bind="enable: $root.habilitado, click: addResultado"><a class="btn add"></a> Agregar Resultado</button>
+            </div>
+            <!-- ko foreach: data.Resultado -->
+            <div class="divDetalle" style="border: 1px solid #AAA; padding: 5px; margin: 5px 0">
+                <table style="width: 100%">
+                    <colgroup>
+                        <col style="width: 100px" />
+                        <col />
+                        <col style="width: 20px" />
+                        <col style="width: 100px" />
+                        <col />
+                    </colgroup>
+                    <tr>
+                        <td>Código
+                        </td>
+                        <td colspan="4">
+                            <input type="hidden" data-bind="value: id, attr: { name: 'Resultado[' + $index() + '].id' }" />
+                            <input type="text" style="width: 100px;" data-bind="value: codigo, attr: { name: 'Resultado[' + $index() + '].codigo' }" data-val="true" data-val-required="" maxlength="10"/>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Descripción</td>
+                        <td>
+                            <textarea data-bind="value: nombre, attr: { name: 'Resultado[' + $index() + '].nombre' }" data-val="true" data-val-required="" ></textarea>
+                        </td>
+                        <td></td>
+                        <td>Supuesto</td>
+                        <td>
+                            <textarea data-bind="value: supuesto, attr: { name: 'Resultado[' + $index() + '].supuesto' }" data-val="true" data-val-required="" ></textarea>
+                        </td>
+                    </tr>
+                </table>
+
+                <table class="grid">
+                    <colgroup>
+                        <col style="width: 40px" />
+                        <col />
+                        <col style="width: 60px" />
+                        <col style="width: 40px" />
+                        <col />
+                        <col />
+                        <col style="width: 28px" />
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th>Cod
+                            </th>
+                            <th>Meta
+                            </th>
+                            <th>Cantidad
+                            </th>
+                            <th>Unidad
+                            </th>
+                            <th>Indicador
+                            </th>
+                            <th>Fuente
+                            </th>
+                            <th style="width: 48px;">
+                                <button class="btn add" type="button" data-bind="enable: $root.habilitado, click: $root.addResultadoMetas"></button>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody data-bind='foreach: ResultadoMetas'>
+                        <tr>
+                            <td>
+                                <input type="hidden" data-bind="value: id, attr: { name: 'Resultado[' + $parentContext.$index() + '].ResultadoMetas[' + $index() + '].id' }" />
+                                <input type="text" data-bind="value: codigo, attr: { name: 'Resultado[' + $parentContext.$index() + '].ResultadoMetas[' + $index() + '].codigo' }" data-val="true" data-val-required="" maxlength="10"/>
+                            </td>
+                            <td>
+                                <textarea data-bind="value: nombre, attr: { name: 'Resultado[' + $parentContext.$index() + '].ResultadoMetas[' + $index() + '].nombre' }" data-val="true" data-val-required="" ></textarea>
+                            </td>
+                            <td>
+                                @Html.koNumeric("cantidad", @decimal: false, width: 60)
+                            </td>
+                            <td>
+                                <select data-bind="value: unidadid, options: $root.listUnidadMedida, optionsText: 'nombre', optionsValue: 'id', attr: { name: 'Resultado[' + $parentContext.$index() + '].ResultadoMetas[' + $index() + '].unidadid' }" data-val="true" data-val-required=""/>
+                            </td>
+                            <td>
+                                <input type="text" data-bind="value: indicador, attr: { name: 'Resultado[' + $parentContext.$index() + '].ResultadoMetas[' + $index() + '].indicador' }"  data-val="true" data-val-required=""/>
+                            </td>
+                            <td>
+                                <input type="text" data-bind="value: fuente, attr: { name: 'Resultado[' + $parentContext.$index() + '].ResultadoMetas[' + $index() + '].fuente' }"  data-val="true" data-val-required=""/>
+                            </td>
+                            <td style="text-align: center">
+                                <button class="btn folder" type="button" title="Archivos" data-bind="attr: { class: 'btn folder' + ((archivos() == true) ? '_open' : '') }, click: function () { ShowPopupResultadoArchivo($data) }, visible: id() != 0"></button>
+                                <button class="btn del" type="button" data-bind="enable: $root.habilitado, click: $root.removeResultadoMetas.bind($data, $parent)"></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div style="text-align: right;">
+                    <button type="button" data-bind="click: $root.removeResultado, enable: (eliminable || $root.habilitado())"><a class="btn del"></a> Quitar Resultado</button>
+                </div>
+            </div>
+            <!-- /ko -->
+        </div>
+    </div>
+</form>
+

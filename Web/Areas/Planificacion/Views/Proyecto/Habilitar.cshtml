@@ -1,0 +1,91 @@
+﻿@section scripts
+{
+    <script type="text/javascript">
+        $(function () {
+            var data, id = queryString('id');
+            var permiso = getJson('@Url.Content("~/api/Sistema/Permiso/Find")', { id: 67 });
+
+            if (id)
+                data = getJson('@Url.Content("~/api/Planificacion/Proyecto/Find")', { id: id });
+
+            var Model = function (data)
+            {
+                var self = this;
+
+                data = data || {
+                    id: 0,
+                    codigo: null,
+                    nombre: null,
+                    habilitarmarcologico: null,
+                    habilitarplanoperativo: null
+                };
+
+                self.data = ko.mapping.fromJS(data);
+                
+                self.Save = function (form)
+                {
+                    if ($(form).refreshValidator().valid())
+                    {
+                        postJson('@Url.Content("~/api/Planificacion/Proyecto/Habilitar")', JSON.parse(ko.mapping.toJSON(self.data)),
+                        function ()
+                        {
+                            
+                            document.location.href = '@Url.Content("~/Planificacion/Proyecto")';
+                        },
+                        function () {
+                            alert('Error');
+                        });
+                    }
+                };
+
+                self.permiso = permiso;
+                
+            };
+
+            ko.applyBindings(new Model(data));
+
+            $('input[type=checkbox]').prop("disabled", !permiso.modificar);
+            
+            $("#codigo").focus();
+        })
+    </script>
+}
+
+<form data-bind="submit: Save" style="width: 100%; float: left;">
+
+    <div class="toolbar">
+        <a class="back" title="Volver" href="@Url.Action("Index")"></a>
+        <button data-bind="enable: $root.permiso.modificar" type="button" class="save" title="Grabar" onclick="$(this).closest('form').submit()"></button>
+        <button type="button" class="refresh" title="Refrescar" onclick="document.location.reload()"></button>
+    </div>
+
+    <input type="hidden" name="id" data-bind="value: data.id" />
+
+    <fieldset>
+        <legend>Proyecto</legend>
+        <table>
+            <colgroup>
+                <col/>
+                <col style="width:28px"/>
+            </colgroup>
+            <tr>
+                <td>Marco logico planificado (listo para avance):
+                    
+                </td>
+                <td style="text-align: left">
+                    <input name="habilitarmarcologico" type="checkbox" data-bind="checked: data.habilitarmarcologico" />
+                </td>                
+            </tr>
+            <tr>
+                <td>Plan operativo planificado (listo para avance):
+                </td>
+                <td style="text-align: left">
+                    <input name="habilitarplanoperativo" type="checkbox" data-bind="checked: data.habilitarplanoperativo" />
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+</form>
+
+@*<pre class="json" data-bind="text: JSON.stringify(ko.mapping.toJS(data) , null, '  ')"></pre>*@
+

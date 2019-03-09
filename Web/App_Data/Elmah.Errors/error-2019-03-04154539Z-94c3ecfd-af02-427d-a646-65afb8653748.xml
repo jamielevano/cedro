@@ -1,0 +1,159 @@
+﻿<error errorId="94c3ecfd-af02-427d-a646-65afb8653748" application="/LM/W3SVC/2/ROOT" host="JAMIE-MSI" type="System.Web.HttpException" message="The controller for path '/Scripts/jquery.min.map' was not found or does not implement IController." source="System.Web.Mvc" detail="System.Web.HttpException (0x80004005): The controller for path '/Scripts/jquery.min.map' was not found or does not implement IController.&#xD;&#xA;   en System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)&#xD;&#xA;   en System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)&#xD;&#xA;   en System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController&amp; controller, IControllerFactory&amp; factory)&#xD;&#xA;   en System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)&#xD;&#xA;   en System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)&#xD;&#xA;   en System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)&#xD;&#xA;   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()&#xD;&#xA;   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean&amp; completedSynchronously)" user="ccamacho" time="2019-03-04T15:45:39.5707826Z" statusCode="404">
+  <serverVariables>
+    <item name="ALL_HTTP">
+      <value string="HTTP_CONNECTION:keep-alive&#xD;&#xA;HTTP_ACCEPT_ENCODING:gzip, deflate, br&#xD;&#xA;HTTP_ACCEPT_LANGUAGE:es-PE,es-US;q=0.9,es-419;q=0.8,es;q=0.7&#xD;&#xA;HTTP_COOKIE:.ASPXAUTH=4B64E915C1540F2BA9D2C8AA90D4DF51629DD8D053EF1E4616AF91FADBE44464E8080F07610D9415F775BE54A13C636132E292FB81666989FCB5A0FD63BBFFBDBB46AE6A12B376F1F0E0BC2027EBA4095D702E022A5B3E54EC205DBBA327D0A0C8CD0F29876F5E11C63D77EE603C7CAB07C7FF82EF4BDB47937B104B633FB0A5003FEECB2F69705FFBB315370F6E742C29EB5CAA080588C4CD2549B2F5CFB2B87C8A57E6626A0D62063CE985834F4262B24CA48808F067FBB68F85A4192EC20CA84C9EB772E5B690605436CDA10F45E987347438B344332F091303B9905DB4254FD9798BB61D3F7F6881D8B185CE623AF8A83A74A46AC1D97F3B80F58D3C0483; ASP.NET_SessionId=kxoid4fb4luxflfsjbxzenes&#xD;&#xA;HTTP_HOST:localhost:1371&#xD;&#xA;HTTP_USER_AGENT:Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.119 Safari/537.36&#xD;&#xA;" />
+    </item>
+    <item name="ALL_RAW">
+      <value string="Connection: keep-alive&#xD;&#xA;Accept-Encoding: gzip, deflate, br&#xD;&#xA;Accept-Language: es-PE,es-US;q=0.9,es-419;q=0.8,es;q=0.7&#xD;&#xA;Cookie: .ASPXAUTH=4B64E915C1540F2BA9D2C8AA90D4DF51629DD8D053EF1E4616AF91FADBE44464E8080F07610D9415F775BE54A13C636132E292FB81666989FCB5A0FD63BBFFBDBB46AE6A12B376F1F0E0BC2027EBA4095D702E022A5B3E54EC205DBBA327D0A0C8CD0F29876F5E11C63D77EE603C7CAB07C7FF82EF4BDB47937B104B633FB0A5003FEECB2F69705FFBB315370F6E742C29EB5CAA080588C4CD2549B2F5CFB2B87C8A57E6626A0D62063CE985834F4262B24CA48808F067FBB68F85A4192EC20CA84C9EB772E5B690605436CDA10F45E987347438B344332F091303B9905DB4254FD9798BB61D3F7F6881D8B185CE623AF8A83A74A46AC1D97F3B80F58D3C0483; ASP.NET_SessionId=kxoid4fb4luxflfsjbxzenes&#xD;&#xA;Host: localhost:1371&#xD;&#xA;User-Agent: Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.119 Safari/537.36&#xD;&#xA;" />
+    </item>
+    <item name="APPL_MD_PATH">
+      <value string="/LM/W3SVC/2/ROOT" />
+    </item>
+    <item name="APPL_PHYSICAL_PATH">
+      <value string="D:\Trabajo\SIMEL\fuentes\Web\" />
+    </item>
+    <item name="AUTH_TYPE">
+      <value string="Forms" />
+    </item>
+    <item name="AUTH_USER">
+      <value string="ccamacho" />
+    </item>
+    <item name="AUTH_PASSWORD">
+      <value string="*****" />
+    </item>
+    <item name="LOGON_USER">
+      <value string="ccamacho" />
+    </item>
+    <item name="REMOTE_USER">
+      <value string="ccamacho" />
+    </item>
+    <item name="CERT_COOKIE">
+      <value string="" />
+    </item>
+    <item name="CERT_FLAGS">
+      <value string="" />
+    </item>
+    <item name="CERT_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SERIALNUMBER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CERT_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CONTENT_LENGTH">
+      <value string="0" />
+    </item>
+    <item name="CONTENT_TYPE">
+      <value string="" />
+    </item>
+    <item name="GATEWAY_INTERFACE">
+      <value string="CGI/1.1" />
+    </item>
+    <item name="HTTPS">
+      <value string="off" />
+    </item>
+    <item name="HTTPS_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="INSTANCE_ID">
+      <value string="2" />
+    </item>
+    <item name="INSTANCE_META_PATH">
+      <value string="/LM/W3SVC/2" />
+    </item>
+    <item name="LOCAL_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="PATH_INFO">
+      <value string="/Scripts/jquery.min.map" />
+    </item>
+    <item name="PATH_TRANSLATED">
+      <value string="D:\Trabajo\SIMEL\fuentes\Web\Scripts\jquery.min.map" />
+    </item>
+    <item name="QUERY_STRING">
+      <value string="" />
+    </item>
+    <item name="REMOTE_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_HOST">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_PORT">
+      <value string="38892" />
+    </item>
+    <item name="REQUEST_METHOD">
+      <value string="GET" />
+    </item>
+    <item name="SCRIPT_NAME">
+      <value string="/Scripts/jquery.min.map" />
+    </item>
+    <item name="SERVER_NAME">
+      <value string="localhost" />
+    </item>
+    <item name="SERVER_PORT">
+      <value string="1371" />
+    </item>
+    <item name="SERVER_PORT_SECURE">
+      <value string="0" />
+    </item>
+    <item name="SERVER_PROTOCOL">
+      <value string="HTTP/1.1" />
+    </item>
+    <item name="SERVER_SOFTWARE">
+      <value string="Microsoft-IIS/10.0" />
+    </item>
+    <item name="URL">
+      <value string="/Scripts/jquery.min.map" />
+    </item>
+    <item name="HTTP_CONNECTION">
+      <value string="keep-alive" />
+    </item>
+    <item name="HTTP_ACCEPT_ENCODING">
+      <value string="gzip, deflate, br" />
+    </item>
+    <item name="HTTP_ACCEPT_LANGUAGE">
+      <value string="es-PE,es-US;q=0.9,es-419;q=0.8,es;q=0.7" />
+    </item>
+    <item name="HTTP_COOKIE">
+      <value string=".ASPXAUTH=4B64E915C1540F2BA9D2C8AA90D4DF51629DD8D053EF1E4616AF91FADBE44464E8080F07610D9415F775BE54A13C636132E292FB81666989FCB5A0FD63BBFFBDBB46AE6A12B376F1F0E0BC2027EBA4095D702E022A5B3E54EC205DBBA327D0A0C8CD0F29876F5E11C63D77EE603C7CAB07C7FF82EF4BDB47937B104B633FB0A5003FEECB2F69705FFBB315370F6E742C29EB5CAA080588C4CD2549B2F5CFB2B87C8A57E6626A0D62063CE985834F4262B24CA48808F067FBB68F85A4192EC20CA84C9EB772E5B690605436CDA10F45E987347438B344332F091303B9905DB4254FD9798BB61D3F7F6881D8B185CE623AF8A83A74A46AC1D97F3B80F58D3C0483; ASP.NET_SessionId=kxoid4fb4luxflfsjbxzenes" />
+    </item>
+    <item name="HTTP_HOST">
+      <value string="localhost:1371" />
+    </item>
+    <item name="HTTP_USER_AGENT">
+      <value string="Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.119 Safari/537.36" />
+    </item>
+  </serverVariables>
+  <cookies>
+    <item name=".ASPXAUTH">
+      <value string="4B64E915C1540F2BA9D2C8AA90D4DF51629DD8D053EF1E4616AF91FADBE44464E8080F07610D9415F775BE54A13C636132E292FB81666989FCB5A0FD63BBFFBDBB46AE6A12B376F1F0E0BC2027EBA4095D702E022A5B3E54EC205DBBA327D0A0C8CD0F29876F5E11C63D77EE603C7CAB07C7FF82EF4BDB47937B104B633FB0A5003FEECB2F69705FFBB315370F6E742C29EB5CAA080588C4CD2549B2F5CFB2B87C8A57E6626A0D62063CE985834F4262B24CA48808F067FBB68F85A4192EC20CA84C9EB772E5B690605436CDA10F45E987347438B344332F091303B9905DB4254FD9798BB61D3F7F6881D8B185CE623AF8A83A74A46AC1D97F3B80F58D3C0483" />
+    </item>
+    <item name="ASP.NET_SessionId">
+      <value string="kxoid4fb4luxflfsjbxzenes" />
+    </item>
+  </cookies>
+</error>

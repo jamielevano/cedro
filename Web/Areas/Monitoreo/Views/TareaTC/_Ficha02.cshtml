@@ -1,0 +1,217 @@
+﻿<div style="width: 50%; float:left;">        
+    <table>
+        <tr>
+            <td colspan="4">DISEÑO Y PRODUCCIÓN DE PLATAFORMA MULTIMEDIA<br />(1.9)</td>
+        </tr>
+        <tr>
+            <td>Principales temas</td>
+            <td colspan="3">
+                @Html.koTextAreaNoRequired("plataformatemas", maxlength:500)
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">Fecha de creación de la plataforma</td>
+            <td colspan="2">Fecha desde que está disponible para su uso en web.</td>
+        </tr>
+        <tr>
+            <td colspan="2">@Html.koDate("plataformafechacreacion",width:100,enable:"true", required:false)</td>
+            <td colspan="2">@Html.koDate("plataformafechadisponible",width:100,enable:"true", required:false)</td>
+        </tr>
+        <tr>
+            <td colspan="2">Ultima fecha de actualización</td>
+            <td colspan="2">- Responsable de actualización <br />
+                            - Responsable de gestión
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                @Html.koDate("plataformafechaultima",width:100,enable:"true", required:false)
+            </td>
+            <td colspan="2">
+                @Html.koTextAreaNoRequired("plataformaresponsable", maxlength:500)
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">Número de entradas en el mes</td>
+            <td>@Html.koNumeric("plataformanumeroentradas", maxlength:5, required:false)</td>
+        </tr>
+        <tr>
+            <td colspan="3">Número de comentarios en el mes</td>
+            <td >@Html.koNumeric("plataformanumerocomentarios", maxlength:5, required:false)</td>
+        </tr>    
+    </table>
+        
+    <br />
+    <table>
+        <tr>
+            <td colspan="4">PRODUCCIÓN DE CONTENIDOS SMS PARA TELÉFONOS MÓVILES<br />(1.11)</td>
+        </tr>
+        <tr>
+            <td>Tipo de Contenido</td>
+            <td colspan="3">Cantidad</td>
+        </tr>
+        <tr>
+            <td>Imágenes</td>
+            <td colspan="3">@Html.koNumeric("disenosmsimagenes", maxlength:5, required:false)</td>
+        </tr>
+        <tr>
+            <td>Textos</td>
+            <td colspan="3">@Html.koNumeric("disenosmstexto", maxlength:5, required:false)</td>
+        </tr>
+        <tr>
+            <td>Audios</td>
+            <td colspan="3">@Html.koNumeric("disenosmsaudio", maxlength:5, required:false)</td>
+        </tr>
+        <tr>
+            <td>Videos</td>
+            <td colspan="3">@Html.koNumeric("disenosmsvideo", maxlength:5, required:false)</td>
+        </tr>
+        <tr>
+            <td>Fecha de elaboración</td>
+            <td colspan="3">@Html.koDate("disenosmsfechaelaboracion",width:100,enable:"true", required:false)</td>
+        </tr>
+        <tr>
+            <td>Fecha de difusión</td>
+            <td colspan="3">@Html.koDate("disenosmsfechadifusion",width:100,enable:"true", required:false)</td>
+        </tr>
+        <tr>
+            <td>Breve descripción del material:</td>
+            <td colspan="3">
+                @Html.koTextAreaNoRequired("disenosmsdescripcion", maxlength:500)
+            </td>
+        </tr>
+    </table>
+      
+</div>
+
+<div style="width: 50%; float:right;">        
+    <table>
+        <tr>
+            <td colspan="4">PRODUCCIÓN DE MATERIAL DE APOYO<br />(1.4b) (1.4c) (1.10)</td>
+        </tr>
+        <tr>
+            <td colspan="1">Tipo de Material</td>
+            <td colspan="3">Tema</td>
+        </tr>
+        <tr>
+            <td colspan="1">Afiche</td>
+            <td colspan="3">@Html.koTextNoRequired("produccionafiche", maxlength:500)</td>
+        </tr>
+        <tr>
+            <td colspan="1">Poster</td>
+            <td colspan="3">@Html.koTextNoRequired("produccionposter", maxlength:500)</td>
+        </tr>
+        <tr>
+            <td colspan="1">Lienzo</td>
+            <td colspan="3">@Html.koTextNoRequired("produccionlienzo", maxlength:500)</td>
+        </tr>
+        <tr>
+            <td colspan="1">Gigantografía</td>
+            <td colspan="3">@Html.koTextNoRequired("producciongigantografia", maxlength:500)</td>
+        </tr>
+        <tr>
+            <td colspan="1">Tríptico</td>
+            <td colspan="3">@Html.koTextNoRequired("producciontriptico", maxlength:500)</td>
+        </tr>
+        <tr>
+            <td colspan="1">Volante</td>
+            <td colspan="3">@Html.koTextNoRequired("produccionvolante", maxlength:500)</td>
+        </tr>
+        <tr>
+            <td colspan="1">Juegos educativos/ recreativos </td>
+            <td colspan="3">@Html.koTextNoRequired("produccionjuegos", maxlength:500)</td>
+        </tr>
+        <tr>
+            <td colspan="1">Otro (especificar)</td>
+            <td colspan="3">@Html.koTextNoRequired("produccionotro", maxlength:500)</td>
+        </tr>
+        <tr>
+            <td colspan="1">Fecha de elaboración</td>
+            <td colspan="3">@Html.koDate("produccionfechaelaboracion",width:100,enable:"true", required:false)</td>
+        </tr>
+        <tr>
+            <td colspan="1">Impresión</td>
+            <td colspan="3">@Html.koSelectNoRequired("produccionimpresion", "listSiNo")</td>
+        </tr>
+        <tr>
+            <td colspan="1">Ejemplares impresos</td>
+            <td colspan="3">@Html.koTextAreaNoRequired("produccionejemplares", maxlength:500)</td>
+        </tr>
+        <tr>
+            <td colspan="1">Breve descripción del material:</td>
+            <td colspan="3">@Html.koTextAreaNoRequired("producciondescripcion", maxlength:500)</td>
+        </tr>
+    </table>
+</div>
+
+
+
+
+<br />
+
+
+<div style="width: 90%; float:left;">        
+    <table>
+        <tr>
+            <td colspan="5">PRODUCCIÓN Y DIFUSIÓN DE CONTENIDOS <br />(1.12)</td>
+        </tr>
+        <tr>
+            <td>TIPO</td>
+            <td colspan="4">
+                @Html.koCheck("difusionspotvideo") Spot de video&nbsp;&nbsp;
+                @Html.koCheck("difusionspotaudio") Spot de audio&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Otro (especificar): @Html.koTextNoRequired("difusionspototro",maxlength:200)&nbsp;&nbsp;
+                @Html.koChkVal("difusionspotvideo() || difusionspotaudio() || difusionspototro()")
+            </td>
+        </tr>
+        <tr>
+            <td rowspan="3">Producción de spots video y audio(1.12a)/ (1.12b)</td>
+            <td>
+                Mensaje
+            </td>
+            <td colspan="3">
+                @Html.koTextAreaNoRequired("difusionmensaje", maxlength:500)
+            </td>
+        </tr>
+        <tr>
+            <td>Duración</td><td>Fecha de producción</td><td>Lugar de producción</td><td>Responsable de producción</td>
+        </tr>
+        <tr>
+            <td>@Html.koTime("difusionduracion",required:false)</td>
+            <td>@Html.koDate("difusionfechaproduccion",width:100,enable:"true", required:false)</td>
+            <td>@Html.koTextAreaNoRequired("difusionlugarproduccion", maxlength:500)</td>
+            <td>@Html.koTextAreaNoRequired("difusionresponsableproduccion", maxlength:500)</td>
+        </tr>
+        <tr>
+             <td rowspan="3">Elaboración de material de difusión para prensa escrita (1.12c)</td>
+             <td>Fecha de elaboración</td>
+             <td colspan="3">Título</td>
+        </tr>
+        <tr>
+            <td>@Html.koDate("difusionfechaelaboracion1",width:100,enable:"true", required:false)</td>
+            <td colspan="3">@Html.koTextAreaNoRequired("difusiontitulo1", maxlength:500)</td>
+        </tr>
+        <tr>
+            <td>@Html.koDate("difusionfechaelaboracion2",width:100,enable:"true", required:false)</td>
+            <td colspan="3">@Html.koTextAreaNoRequired("difusiontitulo2", maxlength:500)</td>
+        </tr>
+
+        <tr>
+             <td rowspan="3">Difusión de spots y otros materiales a través de medios de comunicación local (1.12d)</td>
+             <td rowspan="3">Frecuencia (radial, canal tv o portal web) donde se difunde</td>
+             <td colspan="2">Nombre</td>
+             <td>Nº de veces</td>
+        </tr>
+
+        <tr>
+            <td colspan="2">@Html.koTextNoRequired("difusionfrecuencianombre1", maxlength:50)</td>
+            <td>@Html.koNumeric("difusionfrecuenciaveces1", @decimal:false, maxlength: 8)</td>
+        </tr>
+        <tr>
+            <td colspan="2">@Html.koTextNoRequired("difusionfrecuencianombre2", maxlength:50)</td>
+            <td>@Html.koNumeric("difusionfrecuenciaveces2", @decimal:false, maxlength: 8)</td>
+        </tr>
+    </table>
+</div>
+
+<br /><br />

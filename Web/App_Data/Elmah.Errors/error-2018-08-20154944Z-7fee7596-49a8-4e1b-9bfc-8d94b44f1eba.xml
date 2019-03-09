@@ -1,0 +1,185 @@
+﻿<error errorId="7fee7596-49a8-4e1b-9bfc-8d94b44f1eba" application="/LM/W3SVC/3/ROOT" host="DESKTOP-RP7B1TI" type="System.IO.FileNotFoundException" message="No se pudo encontrar el archivo 'D:\Cedro\Fuente\17082018_2\SMEC\Web\Reports\Asistencia\Capacitacion0206.rdlc'." source="mscorlib" detail="System.Web.HttpUnhandledException (0x80004005): Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'. ---&gt; Microsoft.Reporting.WebForms.LocalProcessingException: Se ha producido un error durante el procesamiento local de informes. ---&gt; System.ApplicationException: No se ha especificado la definición del informe 'Capacitacion0206' ---&gt; System.IO.FileNotFoundException: No se pudo encontrar el archivo 'D:\Cedro\Fuente\17082018_2\SMEC\Web\Reports\Asistencia\Capacitacion0206.rdlc'.&#xD;&#xA;   en System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)&#xD;&#xA;   en System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)&#xD;&#xA;   en System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)&#xD;&#xA;   en Microsoft.ReportingServices.StandalonePreviewStore.GetReportDefinition(PreviewItemContext itemContext)&#xD;&#xA;   --- Fin del seguimiento de la pila de la excepción interna ---&#xD;&#xA;   en Microsoft.ReportingServices.StandalonePreviewStore.GetReportDefinition(PreviewItemContext itemContext)&#xD;&#xA;   en Microsoft.Reporting.LocalService.GetCompiledReport(PreviewItemContext itemContext, Boolean rebuild, ControlSnapshot&amp; snapshot)&#xD;&#xA;   en Microsoft.Reporting.LocalService.CompileReport()&#xD;&#xA;   en Microsoft.Reporting.LocalService.Microsoft.Reporting.ILocalProcessingHost.CompileReport()&#xD;&#xA;   en Microsoft.Reporting.WebForms.LocalReport.EnsureExecutionSession()&#xD;&#xA;   --- Fin del seguimiento de la pila de la excepción interna ---&#xD;&#xA;   en Microsoft.Reporting.WebForms.LocalReport.EnsureExecutionSession()&#xD;&#xA;   en Microsoft.Reporting.WebForms.LocalReport.SetParameters(IEnumerable`1 parameters)&#xD;&#xA;   en Microsoft.Reporting.WebForms.Report.SetParameters(ReportParameter parameter)&#xD;&#xA;   en Web.Reports.Asistencia.ViewReport(String File, DataTable dt) en D:\Cedro\Fuente\17082018\SMEC\Web\Reports\Asistencia.aspx.cs:línea 547&#xD;&#xA;   en Web.Reports.Asistencia.LoadDatos() en D:\Cedro\Fuente\17082018\SMEC\Web\Reports\Asistencia.aspx.cs:línea 537&#xD;&#xA;   en Web.Reports.Asistencia.InitializeComponent() en D:\Cedro\Fuente\17082018\SMEC\Web\Reports\Asistencia.aspx.cs:línea 32&#xD;&#xA;   en Web.Reports.Asistencia.OnInit(EventArgs e) en D:\Cedro\Fuente\17082018\SMEC\Web\Reports\Asistencia.aspx.cs:línea 23&#xD;&#xA;   en System.Web.UI.Control.InitRecursive(Control namingContainer)&#xD;&#xA;   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)&#xD;&#xA;   en System.Web.UI.Page.HandleError(Exception e)&#xD;&#xA;   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)&#xD;&#xA;   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)&#xD;&#xA;   en System.Web.UI.Page.ProcessRequest()&#xD;&#xA;   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)&#xD;&#xA;   en System.Web.UI.Page.ProcessRequest(HttpContext context)&#xD;&#xA;   en ASP.reports_asistencia_aspx.ProcessRequest(HttpContext context) en c:\Users\hp\AppData\Local\Temp\Temporary ASP.NET Files\vs\9cfb864e\12b5031\App_Web_qbqdgjxc.2.cs:línea 0&#xD;&#xA;   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()&#xD;&#xA;   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)&#xD;&#xA;   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean&amp; completedSynchronously)" user="cvaldivia" time="2018-08-20T15:49:44.7918741Z" statusCode="500" webHostHtmlMessage="&lt;!DOCTYPE html&gt;&#xD;&#xA;&lt;html&gt;&#xD;&#xA;    &lt;head&gt;&#xD;&#xA;        &lt;title&gt;No se pudo encontrar el archivo 'D:\Cedro\Fuente\17082018_2\SMEC\Web\Reports\Asistencia\Capacitacion0206.rdlc'.&lt;/title&gt;&#xD;&#xA;        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width&quot; /&gt;&#xD;&#xA;        &lt;style&gt;&#xD;&#xA;         body {font-family:&quot;Verdana&quot;;font-weight:normal;font-size: .7em;color:black;} &#xD;&#xA;         p {font-family:&quot;Verdana&quot;;font-weight:normal;color:black;margin-top: -5px}&#xD;&#xA;         b {font-family:&quot;Verdana&quot;;font-weight:bold;color:black;margin-top: -5px}&#xD;&#xA;         H1 { font-family:&quot;Verdana&quot;;font-weight:normal;font-size:18pt;color:red }&#xD;&#xA;         H2 { font-family:&quot;Verdana&quot;;font-weight:normal;font-size:14pt;color:maroon }&#xD;&#xA;         pre {font-family:&quot;Consolas&quot;,&quot;Lucida Console&quot;,Monospace;font-size:11pt;margin:0;padding:0.5em;line-height:14pt}&#xD;&#xA;         .marker {font-weight: bold; color: black;text-decoration: none;}&#xD;&#xA;         .version {color: gray;}&#xD;&#xA;         .error {margin-bottom: 10px;}&#xD;&#xA;         .expandable { text-decoration:underline; font-weight:bold; color:navy; cursor:hand; }&#xD;&#xA;         @media screen and (max-width: 639px) {&#xD;&#xA;          pre { width: 440px; overflow: auto; white-space: pre-wrap; word-wrap: break-word; }&#xD;&#xA;         }&#xD;&#xA;         @media screen and (max-width: 479px) {&#xD;&#xA;          pre { width: 280px; }&#xD;&#xA;         }&#xD;&#xA;        &lt;/style&gt;&#xD;&#xA;    &lt;/head&gt;&#xD;&#xA;&#xD;&#xA;    &lt;body bgcolor=&quot;white&quot;&gt;&#xD;&#xA;&#xD;&#xA;            &lt;span&gt;&lt;H1&gt;Error de servidor en la aplicación '/'.&lt;hr width=100% size=1 color=silver&gt;&lt;/H1&gt;&#xD;&#xA;&#xD;&#xA;            &lt;h2&gt; &lt;i&gt;No se pudo encontrar el archivo 'D:\Cedro\Fuente\17082018_2\SMEC\Web\Reports\Asistencia\Capacitacion0206.rdlc'.&lt;/i&gt; &lt;/h2&gt;&lt;/span&gt;&#xD;&#xA;&#xD;&#xA;            &lt;font face=&quot;Arial, Helvetica, Geneva, SunSans-Regular, sans-serif &quot;&gt;&#xD;&#xA;&#xD;&#xA;            &lt;b&gt; Descripción: &lt;/b&gt;Excepción no controlada al ejecutar la solicitud Web actual. Revise el seguimiento de la pila para obtener más información acerca del error y dónde se originó en el código.&#xD;&#xA;&#xD;&#xA;            &lt;br&gt;&lt;br&gt;&#xD;&#xA;&#xD;&#xA;            &lt;b&gt; Detalles de la excepción: &lt;/b&gt;System.IO.FileNotFoundException: No se pudo encontrar el archivo 'D:\Cedro\Fuente\17082018_2\SMEC\Web\Reports\Asistencia\Capacitacion0206.rdlc'.&lt;br&gt;&lt;br&gt;&#xD;&#xA;&#xD;&#xA;            &lt;b&gt;Error de código fuente:&lt;/b&gt; &lt;br&gt;&lt;br&gt;&#xD;&#xA;&#xD;&#xA;            &lt;table width=100% bgcolor=&quot;#ffffcc&quot;&gt;&#xD;&#xA;               &lt;tr&gt;&#xD;&#xA;                  &lt;td&gt;&#xD;&#xA;                      &lt;code&gt;&lt;pre&gt;&#xD;&#xA;&#xD;&#xA;Línea 545:            rptViewer.LocalReport.ReportPath = File;&#xD;&#xA;Línea 546:            ReportParameter par = new ReportParameter(&amp;quot;Usuario&amp;quot;, HttpContext.Current.User.Identity.Name);&#xD;&#xA;&lt;font color=red&gt;Línea 547:            rptViewer.LocalReport.SetParameters(par);&#xD;&#xA;&lt;/font&gt;Línea 548:&#xD;&#xA;Línea 549:            rptViewer.LocalReport.DisplayName = Util.GetReportName(File);&lt;/pre&gt;&lt;/code&gt;&#xD;&#xA;&#xD;&#xA;                  &lt;/td&gt;&#xD;&#xA;               &lt;/tr&gt;&#xD;&#xA;            &lt;/table&gt;&#xD;&#xA;&#xD;&#xA;            &lt;br&gt;&#xD;&#xA;&#xD;&#xA;            &lt;b&gt; Archivo de origen: &lt;/b&gt; D:\Cedro\Fuente\17082018\SMEC\Web\Reports\Asistencia.aspx.cs&lt;b&gt; &amp;nbsp;&amp;nbsp; Línea: &lt;/b&gt; 547&#xD;&#xA;            &lt;br&gt;&lt;br&gt;&#xD;&#xA;&#xD;&#xA;            &lt;b&gt;Seguimiento de la pila:&lt;/b&gt; &lt;br&gt;&lt;br&gt;&#xD;&#xA;&#xD;&#xA;            &lt;table width=100% bgcolor=&quot;#ffffcc&quot;&gt;&#xD;&#xA;               &lt;tr&gt;&#xD;&#xA;                  &lt;td&gt;&#xD;&#xA;                      &lt;code&gt;&lt;pre&gt;&#xD;&#xA;&#xD;&#xA;[FileNotFoundException: No se pudo encontrar el archivo &amp;#39;D:\Cedro\Fuente\17082018_2\SMEC\Web\Reports\Asistencia\Capacitacion0206.rdlc&amp;#39;.]&#xD;&#xA;   System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath) +519&#xD;&#xA;   System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost) +776&#xD;&#xA;   System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share) +65&#xD;&#xA;   Microsoft.ReportingServices.StandalonePreviewStore.GetReportDefinition(PreviewItemContext itemContext) +113&#xD;&#xA;&#xD;&#xA;[ApplicationException: No se ha especificado la definici&amp;#243;n del informe &amp;#39;Capacitacion0206&amp;#39;]&#xD;&#xA;   Microsoft.ReportingServices.StandalonePreviewStore.GetReportDefinition(PreviewItemContext itemContext) +368&#xD;&#xA;   Microsoft.Reporting.LocalService.GetCompiledReport(PreviewItemContext itemContext, Boolean rebuild, ControlSnapshot&amp;amp; snapshot) +197&#xD;&#xA;   Microsoft.Reporting.LocalService.CompileReport() +29&#xD;&#xA;   Microsoft.Reporting.LocalService.Microsoft.Reporting.ILocalProcessingHost.CompileReport() +5&#xD;&#xA;   Microsoft.Reporting.WebForms.LocalReport.EnsureExecutionSession() +61&#xD;&#xA;&#xD;&#xA;[LocalProcessingException: Se ha producido un error durante el procesamiento local de informes.]&#xD;&#xA;   Microsoft.Reporting.WebForms.LocalReport.EnsureExecutionSession() +150&#xD;&#xA;   Microsoft.Reporting.WebForms.LocalReport.SetParameters(IEnumerable`1 parameters) +58&#xD;&#xA;   Microsoft.Reporting.WebForms.Report.SetParameters(ReportParameter parameter) +48&#xD;&#xA;   Web.Reports.Asistencia.ViewReport(String File, DataTable dt) in D:\Cedro\Fuente\17082018\SMEC\Web\Reports\Asistencia.aspx.cs:547&#xD;&#xA;   Web.Reports.Asistencia.LoadDatos() in D:\Cedro\Fuente\17082018\SMEC\Web\Reports\Asistencia.aspx.cs:537&#xD;&#xA;   Web.Reports.Asistencia.InitializeComponent() in D:\Cedro\Fuente\17082018\SMEC\Web\Reports\Asistencia.aspx.cs:32&#xD;&#xA;   Web.Reports.Asistencia.OnInit(EventArgs e) in D:\Cedro\Fuente\17082018\SMEC\Web\Reports\Asistencia.aspx.cs:23&#xD;&#xA;   System.Web.UI.Control.InitRecursive(Control namingContainer) +139&#xD;&#xA;   System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint) +408&#xD;&#xA;&lt;/pre&gt;&lt;/code&gt;&#xD;&#xA;&#xD;&#xA;                  &lt;/td&gt;&#xD;&#xA;               &lt;/tr&gt;&#xD;&#xA;            &lt;/table&gt;&#xD;&#xA;&#xD;&#xA;            &lt;br&gt;&#xD;&#xA;&#xD;&#xA;    &lt;/body&gt;&#xD;&#xA;&lt;/html&gt;&#xD;&#xA;">
+  <serverVariables>
+    <item name="ALL_HTTP">
+      <value string="HTTP_CONNECTION:keep-alive&#xD;&#xA;HTTP_ACCEPT:text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8&#xD;&#xA;HTTP_ACCEPT_ENCODING:gzip, deflate&#xD;&#xA;HTTP_ACCEPT_LANGUAGE:es-ES,es;q=0.8,en-US;q=0.5,en;q=0.3&#xD;&#xA;HTTP_COOKIE:/Reserved.ReportViewerWebControl.axd%3FOpType%3DSessionKeepAlive%26ControlID%3D605e980b89f24852b382f9386e0eeb59%26Mode%3Dtrue_SKA=1; .ASPXAUTH=C8997783CCF911DAF3CBA5085318028968CD14BEF1B7486A5FFF74230B2F0BFD988CBC8FAC72F815FDC1DA56575A442BA2CA77DDF93FA88D51FCAC112CE5554C790E292DDB4CF02B43E9746133EE7A2791103A90E20866D3D649BA4DAE18F26270A70120E67685D56D8A99D26D2F2C9D423C20CB9545A88769759A6FAF218958A72A1EBD72A46669CF2C15D5DE8D43ED9873885EDD1AD7BC99362FF5BD5569559C3377B80C771D99DE3ECC7D3784F145895049AC8F78DCCBD4288F39C9013294CC38E416A4E6840FC860468AA6184E3CD4FEC0174E3F0D324D7FA9DA35E7964DCE787F036AB21B463DA91E437A071C7A7CA4DA7E943CA697A7535783B2D04B03; ASP.NET_SessionId=wpwb5sg021y30h53eun4xhxd&#xD;&#xA;HTTP_HOST:localhost:1371&#xD;&#xA;HTTP_REFERER:http://localhost:1371/Asistencia/Configuracion&#xD;&#xA;HTTP_USER_AGENT:Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0&#xD;&#xA;HTTP_UPGRADE_INSECURE_REQUESTS:1&#xD;&#xA;" />
+    </item>
+    <item name="ALL_RAW">
+      <value string="Connection: keep-alive&#xD;&#xA;Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8&#xD;&#xA;Accept-Encoding: gzip, deflate&#xD;&#xA;Accept-Language: es-ES,es;q=0.8,en-US;q=0.5,en;q=0.3&#xD;&#xA;Cookie: /Reserved.ReportViewerWebControl.axd%3FOpType%3DSessionKeepAlive%26ControlID%3D605e980b89f24852b382f9386e0eeb59%26Mode%3Dtrue_SKA=1; .ASPXAUTH=C8997783CCF911DAF3CBA5085318028968CD14BEF1B7486A5FFF74230B2F0BFD988CBC8FAC72F815FDC1DA56575A442BA2CA77DDF93FA88D51FCAC112CE5554C790E292DDB4CF02B43E9746133EE7A2791103A90E20866D3D649BA4DAE18F26270A70120E67685D56D8A99D26D2F2C9D423C20CB9545A88769759A6FAF218958A72A1EBD72A46669CF2C15D5DE8D43ED9873885EDD1AD7BC99362FF5BD5569559C3377B80C771D99DE3ECC7D3784F145895049AC8F78DCCBD4288F39C9013294CC38E416A4E6840FC860468AA6184E3CD4FEC0174E3F0D324D7FA9DA35E7964DCE787F036AB21B463DA91E437A071C7A7CA4DA7E943CA697A7535783B2D04B03; ASP.NET_SessionId=wpwb5sg021y30h53eun4xhxd&#xD;&#xA;Host: localhost:1371&#xD;&#xA;Referer: http://localhost:1371/Asistencia/Configuracion&#xD;&#xA;User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0&#xD;&#xA;Upgrade-Insecure-Requests: 1&#xD;&#xA;" />
+    </item>
+    <item name="APPL_MD_PATH">
+      <value string="/LM/W3SVC/3/ROOT" />
+    </item>
+    <item name="APPL_PHYSICAL_PATH">
+      <value string="D:\Cedro\Fuente\17082018_2\SMEC\Web\" />
+    </item>
+    <item name="AUTH_TYPE">
+      <value string="Forms" />
+    </item>
+    <item name="AUTH_USER">
+      <value string="cvaldivia" />
+    </item>
+    <item name="AUTH_PASSWORD">
+      <value string="*****" />
+    </item>
+    <item name="LOGON_USER">
+      <value string="cvaldivia" />
+    </item>
+    <item name="REMOTE_USER">
+      <value string="cvaldivia" />
+    </item>
+    <item name="CERT_COOKIE">
+      <value string="" />
+    </item>
+    <item name="CERT_FLAGS">
+      <value string="" />
+    </item>
+    <item name="CERT_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SERIALNUMBER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CERT_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CONTENT_LENGTH">
+      <value string="0" />
+    </item>
+    <item name="CONTENT_TYPE">
+      <value string="" />
+    </item>
+    <item name="GATEWAY_INTERFACE">
+      <value string="CGI/1.1" />
+    </item>
+    <item name="HTTPS">
+      <value string="off" />
+    </item>
+    <item name="HTTPS_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="INSTANCE_ID">
+      <value string="3" />
+    </item>
+    <item name="INSTANCE_META_PATH">
+      <value string="/LM/W3SVC/3" />
+    </item>
+    <item name="LOCAL_ADDR">
+      <value string="127.0.0.1" />
+    </item>
+    <item name="PATH_INFO">
+      <value string="/Reports/Asistencia.aspx" />
+    </item>
+    <item name="PATH_TRANSLATED">
+      <value string="D:\Cedro\Fuente\17082018_2\SMEC\Web\Reports\Asistencia.aspx" />
+    </item>
+    <item name="QUERY_STRING">
+      <value string="reporte=1&amp;configuracionid=8&amp;programaid=02&amp;moduloid=06" />
+    </item>
+    <item name="REMOTE_ADDR">
+      <value string="127.0.0.1" />
+    </item>
+    <item name="REMOTE_HOST">
+      <value string="127.0.0.1" />
+    </item>
+    <item name="REMOTE_PORT">
+      <value string="6560" />
+    </item>
+    <item name="REQUEST_METHOD">
+      <value string="GET" />
+    </item>
+    <item name="SCRIPT_NAME">
+      <value string="/Reports/Asistencia.aspx" />
+    </item>
+    <item name="SERVER_NAME">
+      <value string="localhost" />
+    </item>
+    <item name="SERVER_PORT">
+      <value string="1371" />
+    </item>
+    <item name="SERVER_PORT_SECURE">
+      <value string="0" />
+    </item>
+    <item name="SERVER_PROTOCOL">
+      <value string="HTTP/1.1" />
+    </item>
+    <item name="SERVER_SOFTWARE">
+      <value string="Microsoft-IIS/10.0" />
+    </item>
+    <item name="URL">
+      <value string="/Reports/Asistencia.aspx" />
+    </item>
+    <item name="HTTP_CONNECTION">
+      <value string="keep-alive" />
+    </item>
+    <item name="HTTP_ACCEPT">
+      <value string="text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8" />
+    </item>
+    <item name="HTTP_ACCEPT_ENCODING">
+      <value string="gzip, deflate" />
+    </item>
+    <item name="HTTP_ACCEPT_LANGUAGE">
+      <value string="es-ES,es;q=0.8,en-US;q=0.5,en;q=0.3" />
+    </item>
+    <item name="HTTP_COOKIE">
+      <value string="/Reserved.ReportViewerWebControl.axd%3FOpType%3DSessionKeepAlive%26ControlID%3D605e980b89f24852b382f9386e0eeb59%26Mode%3Dtrue_SKA=1; .ASPXAUTH=C8997783CCF911DAF3CBA5085318028968CD14BEF1B7486A5FFF74230B2F0BFD988CBC8FAC72F815FDC1DA56575A442BA2CA77DDF93FA88D51FCAC112CE5554C790E292DDB4CF02B43E9746133EE7A2791103A90E20866D3D649BA4DAE18F26270A70120E67685D56D8A99D26D2F2C9D423C20CB9545A88769759A6FAF218958A72A1EBD72A46669CF2C15D5DE8D43ED9873885EDD1AD7BC99362FF5BD5569559C3377B80C771D99DE3ECC7D3784F145895049AC8F78DCCBD4288F39C9013294CC38E416A4E6840FC860468AA6184E3CD4FEC0174E3F0D324D7FA9DA35E7964DCE787F036AB21B463DA91E437A071C7A7CA4DA7E943CA697A7535783B2D04B03; ASP.NET_SessionId=wpwb5sg021y30h53eun4xhxd" />
+    </item>
+    <item name="HTTP_HOST">
+      <value string="localhost:1371" />
+    </item>
+    <item name="HTTP_REFERER">
+      <value string="http://localhost:1371/Asistencia/Configuracion" />
+    </item>
+    <item name="HTTP_USER_AGENT">
+      <value string="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0" />
+    </item>
+    <item name="HTTP_UPGRADE_INSECURE_REQUESTS">
+      <value string="1" />
+    </item>
+  </serverVariables>
+  <queryString>
+    <item name="reporte">
+      <value string="1" />
+    </item>
+    <item name="configuracionid">
+      <value string="8" />
+    </item>
+    <item name="programaid">
+      <value string="02" />
+    </item>
+    <item name="moduloid">
+      <value string="06" />
+    </item>
+  </queryString>
+  <cookies>
+    <item name="/Reserved.ReportViewerWebControl.axd%3FOpType%3DSessionKeepAlive%26ControlID%3D605e980b89f24852b382f9386e0eeb59%26Mode%3Dtrue_SKA">
+      <value string="1" />
+    </item>
+    <item name=".ASPXAUTH">
+      <value string="C8997783CCF911DAF3CBA5085318028968CD14BEF1B7486A5FFF74230B2F0BFD988CBC8FAC72F815FDC1DA56575A442BA2CA77DDF93FA88D51FCAC112CE5554C790E292DDB4CF02B43E9746133EE7A2791103A90E20866D3D649BA4DAE18F26270A70120E67685D56D8A99D26D2F2C9D423C20CB9545A88769759A6FAF218958A72A1EBD72A46669CF2C15D5DE8D43ED9873885EDD1AD7BC99362FF5BD5569559C3377B80C771D99DE3ECC7D3784F145895049AC8F78DCCBD4288F39C9013294CC38E416A4E6840FC860468AA6184E3CD4FEC0174E3F0D324D7FA9DA35E7964DCE787F036AB21B463DA91E437A071C7A7CA4DA7E943CA697A7535783B2D04B03" />
+    </item>
+    <item name="ASP.NET_SessionId">
+      <value string="wpwb5sg021y30h53eun4xhxd" />
+    </item>
+  </cookies>
+</error>

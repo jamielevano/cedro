@@ -1,0 +1,89 @@
+﻿<div style="width: 50%; float:left;">
+    <table>
+        <tr>
+            <td>TIPO DE REUNIÓN</td>
+            <td>
+                <select style="width: 100%; border: 1px solid #AAA;"
+                    data-bind="value: tiporeunion, options: $root.listTipoReunion, optionsText: 'nombre', optionsValue: 'id', optionsCaption: '[SELECCIONAR]', uniqueName: true" />
+                <input type="text" style="width: 49%; border: 1px solid #AAA;" data-val="true" data-val-required=""
+                    data-bind="value: reunionotra, visible: tiporeunion() == 80, enable: tiporeunion() == 80, uniqueName: true" maxlength="500" />
+            </td>
+        </tr>
+        <tr>
+            <td>TEMA DE LA REUNIÓN:</td>
+            <td>
+                @Html.koTextAreaNoRequired("reuniontema", maxlength:500)
+            </td>
+        </tr>
+    </table>        
+</div>
+
+<div style="width: 50%; float:right;">        
+        
+    <table>
+        <tr>
+            <td>LOCAL DE REALIZACIÓN</td>
+            <td colspan="3">
+                @Html.koTextAreaNoRequired("reunionlocal", maxlength:500)
+            </td>
+        </tr>
+        <tr>
+            <td>FECHA DE REUNIÓN</td>
+            <td colspan="3">@Html.koDate("reunionfecha",width:100,enable:"true", required:false)</td>
+        </tr>
+        <tr>
+            <td>PERSONA/ ADMINISTRADOR RESPONSABLE:</td>
+            <td colspan="3">
+                @Html.koTextAreaNoRequired("reunionadministrador", maxlength:500)
+            </td>
+        </tr>
+    </table>
+</div>
+<br />
+<table style="width: 100%;">
+    <tr>
+        <td>1</td>
+        <td colspan="3">
+            @Html.koTextAreaNoRequired("reunioncuerdo1", maxlength:500)
+        </td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td colspan="3">
+            @Html.koTextAreaNoRequired("reunioncuerdo2", maxlength:500)
+        </td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td colspan="3">
+            @Html.koTextAreaNoRequired("reunioncuerdo3", maxlength:500)
+        </td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td colspan="3">
+            @Html.koTextAreaNoRequired("reunioncuerdo4", maxlength:500)
+        </td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td colspan="3">
+            @Html.koTextAreaNoRequired("reunioncuerdo5", maxlength:500)
+        </td>
+    </tr>
+</table>
+<br />
+<table style="width: 100%;">
+    <tr>
+        <td colspan="2">FECHA DE PRÓXIMA REUNIÓN</td>
+        <td colspan="2">@Html.koDate("fechaproxima",width:100,enable:"true", required:false)</td>
+    </tr>
+</table>
+<br />
+<table style="width: 100%;">
+    <tr>
+        <td>COMENTARIOS Y OBSERVACIONES</td>
+        <td>@Html.koTextAreaNoRequired("reunionacomentarios", maxlength:500)</td>
+    </tr>
+</table>
+

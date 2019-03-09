@@ -1,0 +1,218 @@
+﻿*{
+    font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif !important;
+    font-size: 12px !important;
+    text-transform: uppercase;
+}
+
+body { font-size: 12px; font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif; color: #232323; background-color: #fff; margin: 0; padding: 0; }
+header, footer, nav, section { display: block; }
+textarea { resize: none; outline: none; min-height: 45px; width: 100%; font-family: inherit; }
+#loading { background: url(../images/loading.gif) no-repeat center #fff; width: 100%; height: 100%; position: absolute; z-index: 9999; opacity: 0.66; filter: alpha(opacity=66); display: none; }
+
+input:focus, textarea:focus, select:focus { background-color: #ffec80; }
+
+fieldset { border: 1px solid #ddd; padding: 0 1.4em 1.4em 1.4em; margin: 0 0 1.5em 0; }
+legend { font-size: 12px; font-weight: bold; }
+.editor-label { margin: 1em 0 0 0; }
+.editor-field { margin: 0.5em 0 0 0; }
+input[type=text], select { border: 1px solid #AAA; margin: 0; padding: 0; width: 150px; height: 20px; outline: none; }
+
+.field-validation-error { color: #f00; }
+.field-validation-valid { display: none; }
+.input-validation-error { border: 1px solid #f00 !important; background-color: #fee; }
+input.chkval, input.chkval.input-validation-error[disabled] { display: none;  }
+input.chkval.input-validation-error { display: inline-block; margin: 0; padding: 0; cursor: default; width: 300px!important; border: none!important; background: transparent!important; color: #FF0000; }
+
+.validation-summary-errors { font-weight: bold; color: #f00; }
+.validation-summary-valid { display: none; }
+
+.sinTbody
+{
+  display: none;
+}
+
+#tablaEncabezados th, #divTablaDetalle td
+{
+  width: 90px;
+  border: 1px solid red;
+}
+
+#tablaEncabezados .colBarraDesp
+{
+  width: 10px;
+}
+
+#tablaEncabezados, #divTablaDetalle
+{
+  width: 210px;
+}
+
+#divTablaDetalle
+{
+  height: 100px;
+  overflow-y: scroll;
+}
+
+#divTablaDetalle table
+{
+  width: 100%;
+  margin: 0;
+}
+
+
+
+div.fixedHeaderTable {
+      position: relative;
+  }
+  div.fixedHeaderTable table {
+      width:100%;
+ }
+ div.fixedHeaderTable tbody {
+     height: 200px;
+     overflow-y: auto;
+     overflow-x: hidden;
+ }
+ div.fixedHeaderTable table th {
+     background-color:#CCCCCC;font-weight:bold
+ }
+ div.fixedHeaderTable table td {
+     background-color:#EEEEEE
+ }
+ div.fixedHeaderTable thead td, div.fixedHeaderTable thead th {
+     position:relative;
+ }
+ 
+ /* IE7 hacks */
+ div.fixedHeaderTable {
+     *position: relative;
+     *height: 200px;
+     *overflow-y: scroll;
+     *overflow-x: hidden;
+     *padding-right:16px;
+ }
+ 
+ div.fixedHeaderTable thead tr {
+     *position: relative;
+     _position: absolute;
+     *top: expression(this.offsetParent.scrollTop-2);
+     *background:none;
+     background-color:#FFFFFF
+ }
+  
+ div.fixedHeaderTable tbody {
+     *height: auto;
+     *position:absolute;
+     *top:50px;   
+ }
+
+ /* IE6 hacks */
+ div.fixedHeaderTable {
+     _width:expression(this.offsetParent.clientWidth-20);
+     _overflow: auto;
+     _overflow-y: scroll;
+     _overflow-x: hidden;
+ }
+ div.fixedHeaderTable thead tr {
+     _position: relative
+ }
+
+
+
+table.header_fijo {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  margin: 10px auto;
+}
+table.header_fijo thead  {
+  /*background-color: #333;
+  color: #FDFDFD;*/
+  color: #ffffff; text-align: center; background-color: #44ca6f; background-image: -webkit-gradient(linear,0 0,0 100%,from(#3cc26e),to(#44ca6f)); background-image: -moz-linear-gradient(top,#3cc26e,#44ca6f); background-image: -o-linear-gradient(top,#3cc26e,#44ca6f); 
+}
+table.header_fijo thead tr {
+  display: block;
+  position: relative;
+}
+table.header_fijo tbody {
+  display: compact;
+  overflow: auto;
+  width: 100%;
+  height: 300px;
+}
+
+
+table.grid { width: 100%; border-collapse: collapse; margin: 10px auto; }
+/*table.grid th { color: #ffffff; text-align: center; background-color: #449bca; background-image: -webkit-gradient(linear,0 0,0 100%,from(#3c91c2),to(#449bca)); background-image: -moz-linear-gradient(top,#3c91c2,#449bca); background-image: -o-linear-gradient(top,#3c91c2,#449bca); }*/
+table.grid th { color: #ffffff; text-align: center; background-color: #44ca6f; background-image: -webkit-gradient(linear,0 0,0 100%,from(#3cc26e),to(#44ca6f)); background-image: -moz-linear-gradient(top,#3cc26e,#44ca6f); background-image: -o-linear-gradient(top,#3cc26e,#44ca6f); }
+/*table.grid th, table.grid td { border: 1px solid #004a73; height: 24px; }*/
+table.grid th, table.grid td { border: 1px solid #007330; height: 24px; }
+table.grid td.detail { padding: 5px 5px 5px 30px; }
+table.grid td.detail table.grid { margin: 0; }
+table.grid td > input[type=text], table.grid td > textarea, table.grid td > select, table.grid td > div { border: none; width: 100%; padding: 0; }
+table.grid td input.hasDatepicker { border: 1px solid #AAA; margin: 0 -1px; }
+table.grid td > textarea { height: 45px; }
+table.grid .input-validation-error { margin: -1px; }
+
+/*table.grid tr:hover td {background:#449bca}*/
+table.grid tr:hover td {background:#44cab2}
+table.grid tr:nth-child(even) { background: #ddd }
+table.grid tr:nth-child(odd) { background: #fff}
+
+table.grid .btn, button a.btn { width: 16px; height: 16px; display: inline-block; vertical-align: text-top; background-color: transparent; border: 0; }
+table.grid .btn { cursor: pointer; }
+button a.btn { margin-right: 5px; }
+table.grid .btn.add, button a.btn.add { background-image: url(../Images/add.png) ;background-repeat: no-repeat; }
+table.grid .btn.del, button a.btn.del { background-image: url(../Images/close.png) ;background-repeat: no-repeat;}
+table.grid .btn.edit, button a.btn.edit { background-image: url(../Images/edit.png);background-repeat: no-repeat;}
+table.grid .btn.report, button a.btn.report { background-image: url(../Images/report.png);background-repeat: no-repeat;}
+table.grid .btn.folder, button a.btn.folder { background-image: url(../Images/folder.png);background-repeat: no-repeat;}
+table.grid .btn.folder_open, button a.btn.folder_open { background-image: url(../Images/folderOpen.png);background-repeat: no-repeat;}
+table.grid .btn.download, button a.btn.download { background-image: url(../Images/download.gif);background-repeat: no-repeat;}
+table.grid .btn.favorito, button a.btn.favorito { background-image: url(../Images/favorites.png);background-repeat: no-repeat;}
+table.grid .btn.movie, button a.btn.movie { background-image: url(../Images/movie.png);background-repeat: no-repeat;}
+table.grid .btn.proceso, button a.btn.proceso { background-image: url(../Images/process.png);background-repeat: no-repeat;}
+table.grid .btn.view, button a.btn.view { background-image: url(../Images/view.png);background-repeat: no-repeat;}
+table.grid .btn.excel, button a.btn.excel { background-image: url(../Images/excel.png);background-repeat: no-repeat;}
+table.grid .btn.camara, button a.btn.camara { background-image: url(../Images/camara.png);background-repeat: no-repeat;}
+table.grid .btn.users, button a.btn.users { background-image: url(../Images/business_users.png);background-repeat: no-repeat;}
+table.grid .btn.settings, button a.btn.settings { background-image: url(../Images/settings.png);background-repeat: no-repeat;}
+button[disabled] { opacity: 0.33; filter: alpha(opacity=33); cursor: not-allowed!important; }
+
+.proceso { 
+    width: 16px; height: 16px; display: inline-block; vertical-align: text-top; background-color: transparent; border: 0;
+     cursor: pointer; margin-right: 5px;
+    background-image: url(../Images/process.png);background-repeat: no-repeat;}
+
+/*div.toolbar { text-align: right; padding-right: 5px; height: 34px; background: #004A73; margin-bottom: 16px; }*/
+div.toolbar { text-align: right; padding-right: 5px; height: 34px; background: #007330; margin-bottom: 16px; }
+div.toolbar a, div.toolbar button { width: 32px; height: 32px; display: inline-block; cursor: pointer; vertical-align: text-top; background-color: transparent; background-repeat:no-repeat; background-position: center; border: 0; }
+div.toolbar .new { background-image: url(../Images/add_page.png); }
+div.toolbar .refresh { background-image: url(../Images/refresh_page.png); }
+div.toolbar .back { background-image: url(../Images/volver.png); }
+div.toolbar .save {  background-image: url(../Images/save.png) ;}
+div.toolbar .search {  background-image: url(../Images/search.png) ;}
+div.toolbar .user {  background-image: url(../Images/business_user.png) ;}
+
+b.fileicon { display: inline-block; width: 16px; height: 16px; background-image: url(icons/other.png); margin: 0 5px; vertical-align: text-bottom; }
+b.fileicon.doc, b.fileicon.docx { background-image: url(icons/doc.png); }
+b.fileicon.xls, b.fileicon.xlsx { background-image: url(icons/xls.png); }
+b.fileicon.ppt, b.fileicon.pptx { background-image: url(icons/ppt.png); }
+b.fileicon.pdf { background-image: url(icons/pdf.png); }
+b.fileicon.txt { background-image: url(icons/txt.png); }
+
+fieldset.ficha { border: 1px solid #004a73; margin: 0 10px 10px 10px; padding: 0; }
+/*fieldset.ficha legend { width: 100%; color: #ffffff; margin: -1px; padding: 3px; border: 1px solid #004a73; cursor: pointer; background-color: #449bca; background-image: -webkit-gradient(linear,0 0,0 100%,from(#3c91c2),to(#449bca)); background-image: -moz-linear-gradient(top,#3c91c2,#449bca); background-image: -o-linear-gradient(top,#3c91c2,#449bca); }*/
+fieldset.ficha legend { width: 100%; color: #ffffff; margin: -1px; padding: 3px; border: 1px solid #007330; cursor: pointer; background-color: #449bca; background-image: -webkit-gradient(linear,0 0,0 100%,from(#3cc26e),to(#44ca6f)); background-image: -moz-linear-gradient(top,#3cc26e,#44ca6f); background-image: -o-linear-gradient(top,#3cc26e,#44ca6f); }
+fieldset.ficha legend a { color: #ffffff; text-decoration: none; width: 100%; display: inline-block; }
+fieldset.ficha ol { margin: 20px 60px 20px 20px; }
+fieldset.ficha ol li { margin: 5px; }
+fieldset.ficha table.grid { margin: 0; }
+fieldset.ficha input[type=text], fieldset.ficha select { width: 200px; }
+
+/* ui */
+.ui-widget { font-family: inherit; font-size: .9em; }
+.ui-datepicker { width: 15em; z-index: 20!important; }
+.ui-datepicker-trigger { background-image: url(jquery-ui/images/ui-icons_888888_256x240.png); background-position: -32px -112px; background-color: transparent; margin: 0 0 0 -20px; padding: 0; border: 0; width: 16px; height: 16px; cursor: pointer; }
+.ui-datepicker-trigger:hover, .ui-datepicker-trigger:active { background-image: url(jquery-ui/images/ui-icons_222222_256x240.png); }
+.ui-datepicker-trigger[disabled] { background-image: none; }
+

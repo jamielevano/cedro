@@ -1,0 +1,168 @@
+﻿<error errorId="8a9ce236-b0ac-4059-9349-d5a6f67954d5" application="/LM/W3SVC/3/ROOT" host="DESKTOP-RP7B1TI" type="System.Web.HttpException" source="System.Web" detail="System.Web.HttpException (0x80004005)&#xD;&#xA;   en System.Web.Util.FileUtil.CheckSuspiciousPhysicalPath(String physicalPath)&#xD;&#xA;   en System.Web.CachedPathData.ValidatePath(String physicalPath)&#xD;&#xA;   en System.Web.HttpContext.ValidatePath()&#xD;&#xA;   en System.Web.HttpApplication.PipelineStepManager.ValidateHelper(HttpContext context)" time="2018-08-24T21:05:52.0636121Z" statusCode="404">
+  <serverVariables>
+    <item name="ALL_HTTP">
+      <value string="HTTP_CONNECTION:keep-alive&#xD;&#xA;HTTP_ACCEPT:text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8&#xD;&#xA;HTTP_ACCEPT_ENCODING:gzip, deflate&#xD;&#xA;HTTP_ACCEPT_LANGUAGE:es-ES,es;q=0.8,en-US;q=0.5,en;q=0.3&#xD;&#xA;HTTP_COOKIE:.ASPXAUTH=E5B1F4AF1911F9C34C5ADECF353C39F1E04CE51AE7C085D94B25D5FC9CDE2C0BF48F9B438066F23171191C4AF500194227C2F021E54E735E8316BFD32A2E4B764865379A32F9B899A8AC932D5935BAD060A0EFBB23E4A7CE142B2014A07ED7C8697A5C1E832AE9410C94B407A9765D38A9B8C6701D9A96C4F30CB00051C93FAB4CB2C0299C295E2C1CF61AD2B949E931CA928F4AC4E471CCAF52453719A5C2B73DFCB37338D86AA3C30D35E1A5532C8F0A52A2081B85373B30BC40A444C2D0CBA9A703ED4A85580FF58791C673EB8A76360B65747B3A82BD45369991E36DEA79DC7E9D9447559B70F89C12F5A97385FE4DAA17B15A05D6C889C5863A0B85D5A7; ASP.NET_SessionId=ste5vdlasm5npmv1j1blrlfm&#xD;&#xA;HTTP_HOST:localhost:1371&#xD;&#xA;HTTP_REFERER:http://localhost:1371/Asistencia/Inscripcion?Length=10?parentid=18&amp;programaid=1&amp;moduloid=5&#xD;&#xA;HTTP_USER_AGENT:Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0&#xD;&#xA;HTTP_UPGRADE_INSECURE_REQUESTS:1&#xD;&#xA;" />
+    </item>
+    <item name="ALL_RAW">
+      <value string="Connection: keep-alive&#xD;&#xA;Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8&#xD;&#xA;Accept-Encoding: gzip, deflate&#xD;&#xA;Accept-Language: es-ES,es;q=0.8,en-US;q=0.5,en;q=0.3&#xD;&#xA;Cookie: .ASPXAUTH=E5B1F4AF1911F9C34C5ADECF353C39F1E04CE51AE7C085D94B25D5FC9CDE2C0BF48F9B438066F23171191C4AF500194227C2F021E54E735E8316BFD32A2E4B764865379A32F9B899A8AC932D5935BAD060A0EFBB23E4A7CE142B2014A07ED7C8697A5C1E832AE9410C94B407A9765D38A9B8C6701D9A96C4F30CB00051C93FAB4CB2C0299C295E2C1CF61AD2B949E931CA928F4AC4E471CCAF52453719A5C2B73DFCB37338D86AA3C30D35E1A5532C8F0A52A2081B85373B30BC40A444C2D0CBA9A703ED4A85580FF58791C673EB8A76360B65747B3A82BD45369991E36DEA79DC7E9D9447559B70F89C12F5A97385FE4DAA17B15A05D6C889C5863A0B85D5A7; ASP.NET_SessionId=ste5vdlasm5npmv1j1blrlfm&#xD;&#xA;Host: localhost:1371&#xD;&#xA;Referer: http://localhost:1371/Asistencia/Inscripcion?Length=10?parentid=18&amp;programaid=1&amp;moduloid=5&#xD;&#xA;User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0&#xD;&#xA;Upgrade-Insecure-Requests: 1&#xD;&#xA;" />
+    </item>
+    <item name="APPL_MD_PATH">
+      <value string="/LM/W3SVC/3/ROOT" />
+    </item>
+    <item name="APPL_PHYSICAL_PATH">
+      <value string="D:\Cedro\Fuente\22082018_1\SMEC\Web\" />
+    </item>
+    <item name="AUTH_TYPE">
+      <value string="" />
+    </item>
+    <item name="AUTH_USER">
+      <value string="" />
+    </item>
+    <item name="AUTH_PASSWORD">
+      <value string="*****" />
+    </item>
+    <item name="LOGON_USER">
+      <value string="" />
+    </item>
+    <item name="REMOTE_USER">
+      <value string="" />
+    </item>
+    <item name="CERT_COOKIE">
+      <value string="" />
+    </item>
+    <item name="CERT_FLAGS">
+      <value string="" />
+    </item>
+    <item name="CERT_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SERIALNUMBER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CERT_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CONTENT_LENGTH">
+      <value string="0" />
+    </item>
+    <item name="CONTENT_TYPE">
+      <value string="" />
+    </item>
+    <item name="GATEWAY_INTERFACE">
+      <value string="CGI/1.1" />
+    </item>
+    <item name="HTTPS">
+      <value string="off" />
+    </item>
+    <item name="HTTPS_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="INSTANCE_ID">
+      <value string="3" />
+    </item>
+    <item name="INSTANCE_META_PATH">
+      <value string="/LM/W3SVC/3" />
+    </item>
+    <item name="LOCAL_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="PATH_INFO">
+      <value string="/Asistencia/" />
+    </item>
+    <item name="PATH_TRANSLATED">
+      <value string="D:\Cedro\Fuente\22082018_1\SMEC\Web\Asistencia\ " />
+    </item>
+    <item name="QUERY_STRING">
+      <value string="" />
+    </item>
+    <item name="REMOTE_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_HOST">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_PORT">
+      <value string="32778" />
+    </item>
+    <item name="REQUEST_METHOD">
+      <value string="GET" />
+    </item>
+    <item name="SCRIPT_NAME">
+      <value string="/Asistencia/" />
+    </item>
+    <item name="SERVER_NAME">
+      <value string="localhost" />
+    </item>
+    <item name="SERVER_PORT">
+      <value string="1371" />
+    </item>
+    <item name="SERVER_PORT_SECURE">
+      <value string="0" />
+    </item>
+    <item name="SERVER_PROTOCOL">
+      <value string="HTTP/1.1" />
+    </item>
+    <item name="SERVER_SOFTWARE">
+      <value string="Microsoft-IIS/10.0" />
+    </item>
+    <item name="URL">
+      <value string="/Asistencia/" />
+    </item>
+    <item name="HTTP_CONNECTION">
+      <value string="keep-alive" />
+    </item>
+    <item name="HTTP_ACCEPT">
+      <value string="text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8" />
+    </item>
+    <item name="HTTP_ACCEPT_ENCODING">
+      <value string="gzip, deflate" />
+    </item>
+    <item name="HTTP_ACCEPT_LANGUAGE">
+      <value string="es-ES,es;q=0.8,en-US;q=0.5,en;q=0.3" />
+    </item>
+    <item name="HTTP_COOKIE">
+      <value string=".ASPXAUTH=E5B1F4AF1911F9C34C5ADECF353C39F1E04CE51AE7C085D94B25D5FC9CDE2C0BF48F9B438066F23171191C4AF500194227C2F021E54E735E8316BFD32A2E4B764865379A32F9B899A8AC932D5935BAD060A0EFBB23E4A7CE142B2014A07ED7C8697A5C1E832AE9410C94B407A9765D38A9B8C6701D9A96C4F30CB00051C93FAB4CB2C0299C295E2C1CF61AD2B949E931CA928F4AC4E471CCAF52453719A5C2B73DFCB37338D86AA3C30D35E1A5532C8F0A52A2081B85373B30BC40A444C2D0CBA9A703ED4A85580FF58791C673EB8A76360B65747B3A82BD45369991E36DEA79DC7E9D9447559B70F89C12F5A97385FE4DAA17B15A05D6C889C5863A0B85D5A7; ASP.NET_SessionId=ste5vdlasm5npmv1j1blrlfm" />
+    </item>
+    <item name="HTTP_HOST">
+      <value string="localhost:1371" />
+    </item>
+    <item name="HTTP_REFERER">
+      <value string="http://localhost:1371/Asistencia/Inscripcion?Length=10?parentid=18&amp;programaid=1&amp;moduloid=5" />
+    </item>
+    <item name="HTTP_USER_AGENT">
+      <value string="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0" />
+    </item>
+    <item name="HTTP_UPGRADE_INSECURE_REQUESTS">
+      <value string="1" />
+    </item>
+  </serverVariables>
+  <cookies>
+    <item name=".ASPXAUTH">
+      <value string="E5B1F4AF1911F9C34C5ADECF353C39F1E04CE51AE7C085D94B25D5FC9CDE2C0BF48F9B438066F23171191C4AF500194227C2F021E54E735E8316BFD32A2E4B764865379A32F9B899A8AC932D5935BAD060A0EFBB23E4A7CE142B2014A07ED7C8697A5C1E832AE9410C94B407A9765D38A9B8C6701D9A96C4F30CB00051C93FAB4CB2C0299C295E2C1CF61AD2B949E931CA928F4AC4E471CCAF52453719A5C2B73DFCB37338D86AA3C30D35E1A5532C8F0A52A2081B85373B30BC40A444C2D0CBA9A703ED4A85580FF58791C673EB8A76360B65747B3A82BD45369991E36DEA79DC7E9D9447559B70F89C12F5A97385FE4DAA17B15A05D6C889C5863A0B85D5A7" />
+    </item>
+    <item name="ASP.NET_SessionId">
+      <value string="ste5vdlasm5npmv1j1blrlfm" />
+    </item>
+  </cookies>
+</error>

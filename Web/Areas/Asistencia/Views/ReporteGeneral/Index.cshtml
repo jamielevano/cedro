@@ -1,0 +1,380 @@
+﻿@section scripts
+{
+    <script type="text/javascript">
+        $(function () {
+
+            $('#loading').show();
+
+            var Model = function ()
+            {
+                var self = this;
+
+                self.fechainicio= ko.observable(DateIni()),
+                self.fechafin= ko.observable(DateNow())
+
+                self.listTipo1 = [
+                    { id: 1, nombre: "Condición final" },
+                    { id: 2, nombre: "Edad" },
+                    { id: 3, nombre: "Productores" }
+                ];
+
+                self.listTipo2 = [
+                    { id: 0, nombre: "Resumen" }
+                ];
+
+                self.listTipo4 = [
+                                    { id: 1, nombre: "Condición final" },
+                                    { id: 2, nombre: "Edad" },
+                                    { id: 3, nombre: "Productores" }
+                ];
+
+                self.listPeriodo = [
+                    { id: 1, nombre: "Mensual" },
+                    { id: 2, nombre: "Bimestral" },
+                    { id: 3, nombre: "Trimestral" },
+                    { id: 4, nombre: "Semestral" },
+                    { id: 5, nombre: "Anual" },
+                ];
+
+                self.listNivel = ko.observableArray([]);
+                self.listNivel = getJson('@Url.Content("~/Api/General/NivelPrograma")', { programa: 1 })
+
+                self.listNivel4 = ko.observableArray([]);
+                self.listNivel4 = getJson('@Url.Content("~/Api/General/NivelPrograma")', { programa: 4 })
+
+                self.listEjeIntervencion = getJson('@Url.Content("~/api/General/EjeIntervencion02")');
+                self.listTelecentros = ko.observableArray([]);
+                
+                self.idEjeIntervencion= ko.observable('@ViewBag.ejeid'),
+                self.idTelecentro= ko.observable('@ViewBag.telecentroid'),
+
+                self.idTipo1 = ko.observable();
+                self.idTipo2 = ko.observable();
+                self.idTipo4 = ko.observable();
+                self.idNivel = ko.observable();
+                self.idNivel4 = ko.observable();
+                self.idPrograma = ko.observable();
+                self.idPeriodo = ko.observable();
+                self.idFormato = ko.observable();
+                
+               
+                /////////////////////////////////////////////////////////////////
+
+                var updateTelecentros = function (id) {
+                    //self.idTelecentro(undefined);
+
+                    self.idTelecentro(self.idTelecentro() || undefined);
+
+                    self.listTelecentros(undefined);
+                    if (id) {
+                        self.listTelecentros(getJson('@Url.Content("~/Api/General/Eje_Telecentros")', { eje: id }))
+                    }
+                };
+
+                self.idEjeIntervencion.subscribe(updateTelecentros);
+                if (self.idEjeIntervencion()) {
+                    var telecentroid = self.idTelecentro();
+                    updateTelecentros(self.idEjeIntervencion());
+                    self.idTelecentro(telecentroid);
+                }
+
+                /////////////////////////////////////////////////////////////////
+            };
+
+            ko.applyBindings(new Model());
+            $('#loading').hide();
+        });
+
+        function eliminar_duplicados()
+        {
+            postJson('@Url.Content("~/api/Asistencia/Persona/EliminarDuplicados")',{},function () {
+                alert('¡Se realizo el proceso satisfactoriamente!');
+            })
+        }
+
+        function report(id, fechainicio, fechafin, periodoid, programaid, nivelid, ejeid, telecentroid, tipoid, formatoid) {
+            if ($("#frmBuscar").refreshValidator().valid()) {
+
+               
+                var fechainicio = formatDate_YYYYMMDD(fechainicio);
+                var fechafin = formatDate_YYYYMMDD(fechafin);
+
+               
+                if (typeof ejeid === 'undefined' || ejeid == '0')
+                {
+                    ejeid = '0';
+                    telecentroid = '0';
+                }
+
+                
+                if (typeof telecentroid === 'undefined')
+                    telecentroid = '0';
+
+                if (typeof periodoid === 'undefined')
+                    periodoid = '0';
+
+                if (typeof programaid === 'undefined') {
+                        alert('Seleccione un programa');
+                        return;
+                }
+
+                if (nivelid != null) {
+                    if (typeof nivelid === 'undefined') {
+                        alert('Seleccione un nivel');
+                        return;
+                    }
+                }
+                else
+                    nivelid = '0';
+
+                if (programaid == '1' || programaid == '2') {
+                    if (typeof tipoid === 'undefined') {
+                        alert("Seleccione un tipo de reporte");
+                        return;
+                    }
+                }
+                else
+                {
+                    tipoid = '0';
+                    programaid='0';
+                }
+
+
+                var cadena = "../Reports/Asistencia.aspx?reporte=" + id + "&fechainicio=" + fechainicio + "&fechafin=" + fechafin +
+                                "&periodoid=" + periodoid + "&programaid=" + programaid + "&nivelid=" + nivelid +
+                                "&ejeid=" + ejeid + "&telecentroid=" + telecentroid + "&tipoid=" + tipoid + "&formatoid=" + ((formatoid)?"1":"0");
+
+
+                ShowPopupArchivo(cadena, 1140, 600);
+            }
+        }
+
+
+
+        function excel(id, fechainicio, fechafin, periodoid, programaid, nivelid, ejeid, telecentroid, tipoid, formatoid) {
+            if ($("#frmBuscar").refreshValidator().valid()) {
+
+               
+                var fechainicio = formatDate_YYYYMMDD(fechainicio);
+                var fechafin = formatDate_YYYYMMDD(fechafin);
+
+               
+                if (typeof ejeid === 'undefined' || ejeid == '0')
+                {
+                    ejeid = '0';
+                    telecentroid = '0';
+                }
+
+                
+                if (typeof telecentroid === 'undefined')
+                    telecentroid = '0';
+
+                if (typeof periodoid === 'undefined')
+                    periodoid = '0';
+
+                if (typeof programaid === 'undefined') {
+                    alert('Seleccione un programa');
+                    return;
+                }
+
+                if (nivelid != null) {
+                    if (typeof nivelid === 'undefined') {
+                        alert('Seleccione un nivel');
+                        return;
+                    }
+                }
+                else
+                    nivelid = '0';
+
+                if (programaid == '1' || programaid == '2') {
+                    if (typeof tipoid === 'undefined') {
+                        alert("Seleccione un tipo de reporte");
+                        return;
+                    }
+                }
+                else
+                {
+                    tipoid = '0';
+                    programaid='0';
+                }
+
+
+                var cadena = "../Reports/Asistencia.aspx?reporte=" + id + "&fechainicio=" + fechainicio + "&fechafin=" + fechafin +
+                                "&periodoid=" + periodoid + "&programaid=" + programaid + "&nivelid=" + nivelid +
+                                "&ejeid=" + ejeid + "&telecentroid=" + telecentroid + "&tipoid=" + tipoid + "&formatoid=" + ((formatoid)?"1":"0");
+
+
+                ShowPopupArchivo(cadena, 300, 300);
+            }
+        }
+
+    
+    </script>
+}
+
+<div class="toolbar">
+    <button type="button" class="refresh" title="Refrescar" onclick="document.location.reload()"></button>
+</div>
+
+<fieldset>
+    <legend></legend>    
+    <form id="frmBuscar">
+    <table style="width: 80%">
+        <colgroup>
+            <col style="width: 160px" />
+            <col />
+        </colgroup>
+        <tr>
+            <td>Desde</td>
+            <td>
+                @Html.koDate("$root.fechainicio",width:100,required:true)
+            </td>
+            <td></td>
+            <td>Hasta</td>
+            <td>
+                @Html.koDate("$root.fechafin",width:100,required:true, min: "$root.fechainicio")
+            </td>
+            <td></td>
+            <td>Periódo</td>
+            <td>@Html.koSelect("idPeriodo", "$root.listPeriodo",true)</td>
+        </tr>
+        <tr>
+            <td>Eje de Intervencion</td>
+            <td>@Html.koSelect("idEjeIntervencion", "$root.listEjeIntervencion",false)</td>
+            <td></td>
+            <td>Telecentro</td>
+            <td>@Html.koSelect("idTelecentro", "$root.listTelecentros", "$root.listTelecentros()",false)</td>
+            <td></td>
+            <td colspan="2">
+                @*<table>
+                    <tr>
+                        <td>Formato Fiscal USAID</td>
+                        <td>@Html.koCheck("idFormato")</td>
+                        <td>*@
+                            <button type="button" class="proceso" title="Eliminar registros duplicados" data-bind="visible: @Web.Auth.GetTicketData().Admin.ToString().ToLower(), click: function () { eliminar_duplicados(); }"></button>
+                        @*</td>
+                    </tr>
+                </table>*@
+            </td>
+        </tr>
+    </table>
+
+    <table class="grid">
+        <colgroup>
+            <col style="width: 50px" />
+            <col />
+            <col style="width: 200px" />
+            <col style="width: 200px" />
+            <col style="width: 28px" />
+            <col style="width: 28px" />
+        </colgroup>
+        <thead>
+            <tr>
+                <th>Nª</th>
+                <th>Reporte</th>
+                <th>Nivel</th>
+                <th>Tipo de reporte</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="padding-left:5px">1</td>
+                <td>Alfabetizacion Digital</td>
+                <td>@Html.koSelect("idNivel", "$root.listNivel",false)</td>
+                <td>
+                    @Html.koSelect("idTipo1", "$root.listTipo1",false)
+                </td>
+                <td style="text-align: center">
+                    <button type="button" class="btn report" title="Reporte" data-bind="click: function () { report(3, $root.fechainicio, $root.fechafin, idPeriodo(), 1, idNivel(), idEjeIntervencion(), idTelecentro(), idTipo1(), idFormato()) }"></button>
+                </td>
+                <td>
+                </td>
+            </tr>  
+            
+            <tr>
+                <td style="padding-left:5px">2</td>
+                <td>Educacion Financiera</td>
+                <td></td>
+                 <td>
+                    @Html.koSelect("idTipo2", "$root.listTipo2",false)
+                </td>
+                <td style="text-align: center">
+                    <button type="button" class="btn report" title="Reporte" data-bind="click: function () { report(300, $root.fechainicio, $root.fechafin, idPeriodo(), 2, 0, idEjeIntervencion(), idTelecentro(), idTipo2(), idFormato()) }"></button>
+                </td>
+                <td>
+                </td>
+            </tr> 
+            <tr>
+                <td style="padding-left:5px">3</td>
+                <td>Resumen de Capacitaciones</td>
+                <td></td>
+                 <td>
+                    
+                </td>
+                <td style="text-align: center">
+                    <button type="button" class="btn report" title="Gráfico" data-bind="click: function () { report(301, $root.fechainicio, $root.fechafin, idPeriodo(), 2, 0, idEjeIntervencion(), idTelecentro(), 0, idFormato()) }"></button>
+                </td>
+                <td>
+                </td>
+            </tr>  
+            @*<tr>
+                <td style="padding-left:5px">4</td>
+                <td>Resumen de Participantes por Capacitaciones(Todos)</td>
+                <td></td>
+                 <td>
+                    
+                </td>
+                <td style="text-align: center">
+                    <button type="button" class="btn report" title="Gráfico" data-bind="click: function () { report(440, $root.fechainicio, $root.fechafin, idPeriodo(), 2, 0, idEjeIntervencion(), idTelecentro(), 0, idFormato()) }"></button>
+                </td>
+                <td>
+                    <button type="button" class="btn excel" title="Listado" data-bind="    click: function () { report(400, $root.fechainicio, $root.fechafin, idPeriodo(), 2, 0, idEjeIntervencion(), idTelecentro(), 0, idFormato()) }"></button>
+                </td>
+            </tr>*@  
+            <tr>
+                <td style="padding-left:5px">4</td>
+                <td>Resumen de Participantes por Capacitaciones</td>
+                <td></td>
+                 <td>
+                    
+                </td>
+                <td style="text-align: center">
+                    <button type="button" class="btn report" title="Gráfico" data-bind="click: function () { report(442, $root.fechainicio, $root.fechafin, idPeriodo(), 2, 0, idEjeIntervencion(), idTelecentro(), 0, idFormato()) }"></button>
+                </td>
+                <td>
+                    <button type="button" class="btn excel" title="Listado" data-bind="    click: function () { report(441, $root.fechainicio, $root.fechafin, idPeriodo(), 2, 0, idEjeIntervencion(), idTelecentro(), 0, idFormato()) }"></button>
+                </td>
+            </tr>  
+            <tr>
+                <td style="padding-left:5px">5</td>
+                <td>Listado de Participantes por Capacitaciones</td>
+                <td></td>
+                 <td>
+                    
+                </td>
+                <td style="text-align: center">
+                    <button type="button" class="btn report" title="Reporte" data-bind="click: function () { report(401, $root.fechainicio, $root.fechafin, idPeriodo(), 2, 0, idEjeIntervencion(), idTelecentro(), 0, idFormato()) }"></button>
+                </td>
+                <td>
+
+                </td>
+            </tr> 
+            <tr>
+                <td style="padding-left:5px">6</td>
+                <td>Resumen de Usuarios de Acceso Guiado a Internet</td>
+                <td colspan="2"/>
+                <td style="text-align: center">
+                    <button type="button" class="btn report" title="Reporte" data-bind="click: function () { report(4, $root.fechainicio, $root.fechafin, idPeriodo(), null, null, idEjeIntervencion(), idTelecentro(), null, idFormato()) }"></button>
+                                                                                                                  
+                </td>
+                <td>
+                    
+                </td>
+            </tr> 
+
+        </tbody>
+    </table>
+    </form>
+</fieldset>

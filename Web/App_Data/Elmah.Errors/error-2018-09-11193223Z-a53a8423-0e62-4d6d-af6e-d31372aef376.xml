@@ -1,0 +1,200 @@
+﻿<error errorId="a53a8423-0e62-4d6d-af6e-d31372aef376" application="/LM/W3SVC/2/ROOT" host="DESKTOP-RP7B1TI" type="System.Data.SqlClient.SqlException" message="Could not find stored procedure 'prpt_asistencia_resumen'." source=".Net SqlClient Data Provider" detail="System.Web.HttpUnhandledException (0x80004005): Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'. ---&gt; System.Data.SqlClient.SqlException (0x80131904): Could not find stored procedure 'prpt_asistencia_resumen'.&#xD;&#xA;   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)&#xD;&#xA;   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)&#xD;&#xA;   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)&#xD;&#xA;   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean&amp; dataReady)&#xD;&#xA;   en System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()&#xD;&#xA;   en System.Data.SqlClient.SqlDataReader.get_MetaData()&#xD;&#xA;   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)&#xD;&#xA;   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task&amp; task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)&#xD;&#xA;   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task&amp; task, Boolean&amp; usedCache, Boolean asyncWrite, Boolean inRetry)&#xD;&#xA;   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)&#xD;&#xA;   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)&#xD;&#xA;   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)&#xD;&#xA;   en System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)&#xD;&#xA;   en System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)&#xD;&#xA;   en System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)&#xD;&#xA;   en System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)&#xD;&#xA;   en Repositorio.General.ExecuteStoredProcedure(DbContext db, String storedProcedureName, SqlParameter[] parameters) en D:\Cedro\Fuente\29082018_2\Repositorio\General.cs:línea 36&#xD;&#xA;   en Web.Reports.Asistencia.LoadDatos() en D:\Cedro\Fuente\11092018_1\Web\Reports\Asistencia.aspx.cs:línea 112&#xD;&#xA;   en Web.Reports.Asistencia.InitializeComponent() en D:\Cedro\Fuente\11092018_1\Web\Reports\Asistencia.aspx.cs:línea 32&#xD;&#xA;   en Web.Reports.Asistencia.OnInit(EventArgs e) en D:\Cedro\Fuente\11092018_1\Web\Reports\Asistencia.aspx.cs:línea 23&#xD;&#xA;   en System.Web.UI.Control.InitRecursive(Control namingContainer)&#xD;&#xA;   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)&#xD;&#xA;ClientConnectionId:536962b0-643e-4c32-bfa1-84efabf39813&#xD;&#xA;Error Number:2812,State:62,Class:16&#xD;&#xA;   en System.Web.UI.Page.HandleError(Exception e)&#xD;&#xA;   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)&#xD;&#xA;   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)&#xD;&#xA;   en System.Web.UI.Page.ProcessRequest()&#xD;&#xA;   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)&#xD;&#xA;   en System.Web.UI.Page.ProcessRequest(HttpContext context)&#xD;&#xA;   en ASP.reports_asistencia_aspx.ProcessRequest(HttpContext context) en c:\Users\hp\AppData\Local\Temp\Temporary ASP.NET Files\vs\6e7cb77c\99ba9d85\App_Web_s22bo5bg.1.cs:línea 0&#xD;&#xA;   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()&#xD;&#xA;   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)&#xD;&#xA;   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean&amp; completedSynchronously)" user="cvaldivia" time="2018-09-11T19:32:23.5594043Z" statusCode="500" webHostHtmlMessage="&lt;!DOCTYPE html&gt;&#xD;&#xA;&lt;html&gt;&#xD;&#xA;    &lt;head&gt;&#xD;&#xA;        &lt;title&gt;Could not find stored procedure 'prpt_asistencia_resumen'.&lt;/title&gt;&#xD;&#xA;        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width&quot; /&gt;&#xD;&#xA;        &lt;style&gt;&#xD;&#xA;         body {font-family:&quot;Verdana&quot;;font-weight:normal;font-size: .7em;color:black;} &#xD;&#xA;         p {font-family:&quot;Verdana&quot;;font-weight:normal;color:black;margin-top: -5px}&#xD;&#xA;         b {font-family:&quot;Verdana&quot;;font-weight:bold;color:black;margin-top: -5px}&#xD;&#xA;         H1 { font-family:&quot;Verdana&quot;;font-weight:normal;font-size:18pt;color:red }&#xD;&#xA;         H2 { font-family:&quot;Verdana&quot;;font-weight:normal;font-size:14pt;color:maroon }&#xD;&#xA;         pre {font-family:&quot;Consolas&quot;,&quot;Lucida Console&quot;,Monospace;font-size:11pt;margin:0;padding:0.5em;line-height:14pt}&#xD;&#xA;         .marker {font-weight: bold; color: black;text-decoration: none;}&#xD;&#xA;         .version {color: gray;}&#xD;&#xA;         .error {margin-bottom: 10px;}&#xD;&#xA;         .expandable { text-decoration:underline; font-weight:bold; color:navy; cursor:hand; }&#xD;&#xA;         @media screen and (max-width: 639px) {&#xD;&#xA;          pre { width: 440px; overflow: auto; white-space: pre-wrap; word-wrap: break-word; }&#xD;&#xA;         }&#xD;&#xA;         @media screen and (max-width: 479px) {&#xD;&#xA;          pre { width: 280px; }&#xD;&#xA;         }&#xD;&#xA;        &lt;/style&gt;&#xD;&#xA;    &lt;/head&gt;&#xD;&#xA;&#xD;&#xA;    &lt;body bgcolor=&quot;white&quot;&gt;&#xD;&#xA;&#xD;&#xA;            &lt;span&gt;&lt;H1&gt;Error de servidor en la aplicación '/'.&lt;hr width=100% size=1 color=silver&gt;&lt;/H1&gt;&#xD;&#xA;&#xD;&#xA;            &lt;h2&gt; &lt;i&gt;Could not find stored procedure 'prpt_asistencia_resumen'.&lt;/i&gt; &lt;/h2&gt;&lt;/span&gt;&#xD;&#xA;&#xD;&#xA;            &lt;font face=&quot;Arial, Helvetica, Geneva, SunSans-Regular, sans-serif &quot;&gt;&#xD;&#xA;&#xD;&#xA;            &lt;b&gt; Descripción: &lt;/b&gt;Excepción no controlada al ejecutar la solicitud Web actual. Revise el seguimiento de la pila para obtener más información acerca del error y dónde se originó en el código.&#xD;&#xA;&#xD;&#xA;            &lt;br&gt;&lt;br&gt;&#xD;&#xA;&#xD;&#xA;            &lt;b&gt; Detalles de la excepción: &lt;/b&gt;System.Data.SqlClient.SqlException: Could not find stored procedure 'prpt_asistencia_resumen'.&lt;br&gt;&lt;br&gt;&#xD;&#xA;&#xD;&#xA;            &lt;b&gt;Error de código fuente:&lt;/b&gt; &lt;br&gt;&lt;br&gt;&#xD;&#xA;&#xD;&#xA;            &lt;table width=100% bgcolor=&quot;#ffffcc&quot;&gt;&#xD;&#xA;               &lt;tr&gt;&#xD;&#xA;                  &lt;td&gt;&#xD;&#xA;                      &lt;code&gt;&lt;pre&gt;&#xD;&#xA;&#xD;&#xA;Línea 34:                     using (var adapter = new SqlDataAdapter(cmd))&#xD;&#xA;Línea 35:                     {&#xD;&#xA;&lt;font color=red&gt;Línea 36:                        adapter.Fill(ds);&#xD;&#xA;&lt;/font&gt;Línea 37:                     }&#xD;&#xA;Línea 38:                 }&lt;/pre&gt;&lt;/code&gt;&#xD;&#xA;&#xD;&#xA;                  &lt;/td&gt;&#xD;&#xA;               &lt;/tr&gt;&#xD;&#xA;            &lt;/table&gt;&#xD;&#xA;&#xD;&#xA;            &lt;br&gt;&#xD;&#xA;&#xD;&#xA;            &lt;b&gt; Archivo de origen: &lt;/b&gt; D:\Cedro\Fuente\29082018_2\Repositorio\General.cs&lt;b&gt; &amp;nbsp;&amp;nbsp; Línea: &lt;/b&gt; 36&#xD;&#xA;            &lt;br&gt;&lt;br&gt;&#xD;&#xA;&#xD;&#xA;            &lt;b&gt;Seguimiento de la pila:&lt;/b&gt; &lt;br&gt;&lt;br&gt;&#xD;&#xA;&#xD;&#xA;            &lt;table width=100% bgcolor=&quot;#ffffcc&quot;&gt;&#xD;&#xA;               &lt;tr&gt;&#xD;&#xA;                  &lt;td&gt;&#xD;&#xA;                      &lt;code&gt;&lt;pre&gt;&#xD;&#xA;&#xD;&#xA;[SqlException (0x80131904): Could not find stored procedure &amp;#39;prpt_asistencia_resumen&amp;#39;.]&#xD;&#xA;   System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction) +2555722&#xD;&#xA;   System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction) +5958412&#xD;&#xA;   System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose) +285&#xD;&#xA;   System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean&amp;amp; dataReady) +4169&#xD;&#xA;   System.Data.SqlClient.SqlDataReader.TryConsumeMetaData() +58&#xD;&#xA;   System.Data.SqlClient.SqlDataReader.get_MetaData() +89&#xD;&#xA;   System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted) +430&#xD;&#xA;   System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task&amp;amp; task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest) +2598&#xD;&#xA;   System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task&amp;amp; task, Boolean&amp;amp; usedCache, Boolean asyncWrite, Boolean inRetry) +1483&#xD;&#xA;   System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method) +64&#xD;&#xA;   System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method) +240&#xD;&#xA;   System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior) +41&#xD;&#xA;   System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior) +12&#xD;&#xA;   System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior) +139&#xD;&#xA;   System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior) +136&#xD;&#xA;   System.Data.Common.DbDataAdapter.Fill(DataSet dataSet) +88&#xD;&#xA;   Repositorio.General.ExecuteStoredProcedure(DbContext db, String storedProcedureName, SqlParameter[] parameters) in D:\Cedro\Fuente\29082018_2\Repositorio\General.cs:36&#xD;&#xA;   Web.Reports.Asistencia.LoadDatos() in D:\Cedro\Fuente\11092018_1\Web\Reports\Asistencia.aspx.cs:112&#xD;&#xA;   Web.Reports.Asistencia.InitializeComponent() in D:\Cedro\Fuente\11092018_1\Web\Reports\Asistencia.aspx.cs:32&#xD;&#xA;   Web.Reports.Asistencia.OnInit(EventArgs e) in D:\Cedro\Fuente\11092018_1\Web\Reports\Asistencia.aspx.cs:23&#xD;&#xA;   System.Web.UI.Control.InitRecursive(Control namingContainer) +139&#xD;&#xA;   System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint) +408&#xD;&#xA;&lt;/pre&gt;&lt;/code&gt;&#xD;&#xA;&#xD;&#xA;                  &lt;/td&gt;&#xD;&#xA;               &lt;/tr&gt;&#xD;&#xA;            &lt;/table&gt;&#xD;&#xA;&#xD;&#xA;            &lt;br&gt;&#xD;&#xA;&#xD;&#xA;    &lt;/body&gt;&#xD;&#xA;&lt;/html&gt;&#xD;&#xA;">
+  <serverVariables>
+    <item name="ALL_HTTP">
+      <value string="HTTP_CONNECTION:keep-alive&#xD;&#xA;HTTP_ACCEPT:text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8&#xD;&#xA;HTTP_ACCEPT_ENCODING:gzip, deflate&#xD;&#xA;HTTP_ACCEPT_LANGUAGE:es-ES,es;q=0.8,en-US;q=0.5,en;q=0.3&#xD;&#xA;HTTP_COOKIE:.ASPXAUTH=3558F2D2A1DE90EEBC38B5EB3B4E69814E9F90F1290B4397D7316E9C6AEAD93F60CE1CAD189EEA8BB992F953A9A53BA1A1B6B9F606EE9625D3103E35A5A7BFC016E8998765766278FAD1596A1DEB242001781E90251FADE7BF8DA32E27C81F372D8F817CF5AC83A44A14310551020C0B38E8C129F4D545AFA489F60383E946C28AC760C2CED84C0D6C50C777C2C1B6753C142DA4A1F4CAB6D5F2901B304DB033D95C0312B836A726DA157FFDD199AAE4A1D62FD5F1C3DB072F0A78B01A6A4DB6FF00B78E6B4F075D3B116415CE96A315BCCF1C059E7C0C903F2CB8DBA7DA6BF373A01553CF6628308ABD237E1D7189932E56240FC469E41D3749650D0AE0D3CC; ASP.NET_SessionId=lzvy5e3yyq5khftqdf1k3wff&#xD;&#xA;HTTP_HOST:localhost:1371&#xD;&#xA;HTTP_REFERER:http://localhost:1371/Asistencia/ReporteIFM&#xD;&#xA;HTTP_USER_AGENT:Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:62.0) Gecko/20100101 Firefox/62.0&#xD;&#xA;HTTP_UPGRADE_INSECURE_REQUESTS:1&#xD;&#xA;" />
+    </item>
+    <item name="ALL_RAW">
+      <value string="Connection: keep-alive&#xD;&#xA;Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8&#xD;&#xA;Accept-Encoding: gzip, deflate&#xD;&#xA;Accept-Language: es-ES,es;q=0.8,en-US;q=0.5,en;q=0.3&#xD;&#xA;Cookie: .ASPXAUTH=3558F2D2A1DE90EEBC38B5EB3B4E69814E9F90F1290B4397D7316E9C6AEAD93F60CE1CAD189EEA8BB992F953A9A53BA1A1B6B9F606EE9625D3103E35A5A7BFC016E8998765766278FAD1596A1DEB242001781E90251FADE7BF8DA32E27C81F372D8F817CF5AC83A44A14310551020C0B38E8C129F4D545AFA489F60383E946C28AC760C2CED84C0D6C50C777C2C1B6753C142DA4A1F4CAB6D5F2901B304DB033D95C0312B836A726DA157FFDD199AAE4A1D62FD5F1C3DB072F0A78B01A6A4DB6FF00B78E6B4F075D3B116415CE96A315BCCF1C059E7C0C903F2CB8DBA7DA6BF373A01553CF6628308ABD237E1D7189932E56240FC469E41D3749650D0AE0D3CC; ASP.NET_SessionId=lzvy5e3yyq5khftqdf1k3wff&#xD;&#xA;Host: localhost:1371&#xD;&#xA;Referer: http://localhost:1371/Asistencia/ReporteIFM&#xD;&#xA;User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:62.0) Gecko/20100101 Firefox/62.0&#xD;&#xA;Upgrade-Insecure-Requests: 1&#xD;&#xA;" />
+    </item>
+    <item name="APPL_MD_PATH">
+      <value string="/LM/W3SVC/2/ROOT" />
+    </item>
+    <item name="APPL_PHYSICAL_PATH">
+      <value string="D:\Cedro\Fuente\11092018_1\Web\" />
+    </item>
+    <item name="AUTH_TYPE">
+      <value string="Forms" />
+    </item>
+    <item name="AUTH_USER">
+      <value string="cvaldivia" />
+    </item>
+    <item name="AUTH_PASSWORD">
+      <value string="*****" />
+    </item>
+    <item name="LOGON_USER">
+      <value string="cvaldivia" />
+    </item>
+    <item name="REMOTE_USER">
+      <value string="cvaldivia" />
+    </item>
+    <item name="CERT_COOKIE">
+      <value string="" />
+    </item>
+    <item name="CERT_FLAGS">
+      <value string="" />
+    </item>
+    <item name="CERT_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SERIALNUMBER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CERT_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CONTENT_LENGTH">
+      <value string="0" />
+    </item>
+    <item name="CONTENT_TYPE">
+      <value string="" />
+    </item>
+    <item name="GATEWAY_INTERFACE">
+      <value string="CGI/1.1" />
+    </item>
+    <item name="HTTPS">
+      <value string="off" />
+    </item>
+    <item name="HTTPS_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="INSTANCE_ID">
+      <value string="2" />
+    </item>
+    <item name="INSTANCE_META_PATH">
+      <value string="/LM/W3SVC/2" />
+    </item>
+    <item name="LOCAL_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="PATH_INFO">
+      <value string="/Reports/Asistencia.aspx" />
+    </item>
+    <item name="PATH_TRANSLATED">
+      <value string="D:\Cedro\Fuente\11092018_1\Web\Reports\Asistencia.aspx" />
+    </item>
+    <item name="QUERY_STRING">
+      <value string="reporte=3&amp;fechainicio=2018-01-01&amp;fechafin=2018-09-11&amp;periodoid=1&amp;programaid=4&amp;nivelid=5&amp;ejeid=0&amp;telecentroid=0&amp;tipoid=4&amp;formatoid=0" />
+    </item>
+    <item name="REMOTE_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_HOST">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_PORT">
+      <value string="41859" />
+    </item>
+    <item name="REQUEST_METHOD">
+      <value string="GET" />
+    </item>
+    <item name="SCRIPT_NAME">
+      <value string="/Reports/Asistencia.aspx" />
+    </item>
+    <item name="SERVER_NAME">
+      <value string="localhost" />
+    </item>
+    <item name="SERVER_PORT">
+      <value string="1371" />
+    </item>
+    <item name="SERVER_PORT_SECURE">
+      <value string="0" />
+    </item>
+    <item name="SERVER_PROTOCOL">
+      <value string="HTTP/1.1" />
+    </item>
+    <item name="SERVER_SOFTWARE">
+      <value string="Microsoft-IIS/10.0" />
+    </item>
+    <item name="URL">
+      <value string="/Reports/Asistencia.aspx" />
+    </item>
+    <item name="HTTP_CONNECTION">
+      <value string="keep-alive" />
+    </item>
+    <item name="HTTP_ACCEPT">
+      <value string="text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8" />
+    </item>
+    <item name="HTTP_ACCEPT_ENCODING">
+      <value string="gzip, deflate" />
+    </item>
+    <item name="HTTP_ACCEPT_LANGUAGE">
+      <value string="es-ES,es;q=0.8,en-US;q=0.5,en;q=0.3" />
+    </item>
+    <item name="HTTP_COOKIE">
+      <value string=".ASPXAUTH=3558F2D2A1DE90EEBC38B5EB3B4E69814E9F90F1290B4397D7316E9C6AEAD93F60CE1CAD189EEA8BB992F953A9A53BA1A1B6B9F606EE9625D3103E35A5A7BFC016E8998765766278FAD1596A1DEB242001781E90251FADE7BF8DA32E27C81F372D8F817CF5AC83A44A14310551020C0B38E8C129F4D545AFA489F60383E946C28AC760C2CED84C0D6C50C777C2C1B6753C142DA4A1F4CAB6D5F2901B304DB033D95C0312B836A726DA157FFDD199AAE4A1D62FD5F1C3DB072F0A78B01A6A4DB6FF00B78E6B4F075D3B116415CE96A315BCCF1C059E7C0C903F2CB8DBA7DA6BF373A01553CF6628308ABD237E1D7189932E56240FC469E41D3749650D0AE0D3CC; ASP.NET_SessionId=lzvy5e3yyq5khftqdf1k3wff" />
+    </item>
+    <item name="HTTP_HOST">
+      <value string="localhost:1371" />
+    </item>
+    <item name="HTTP_REFERER">
+      <value string="http://localhost:1371/Asistencia/ReporteIFM" />
+    </item>
+    <item name="HTTP_USER_AGENT">
+      <value string="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:62.0) Gecko/20100101 Firefox/62.0" />
+    </item>
+    <item name="HTTP_UPGRADE_INSECURE_REQUESTS">
+      <value string="1" />
+    </item>
+  </serverVariables>
+  <queryString>
+    <item name="reporte">
+      <value string="3" />
+    </item>
+    <item name="fechainicio">
+      <value string="2018-01-01" />
+    </item>
+    <item name="fechafin">
+      <value string="2018-09-11" />
+    </item>
+    <item name="periodoid">
+      <value string="1" />
+    </item>
+    <item name="programaid">
+      <value string="4" />
+    </item>
+    <item name="nivelid">
+      <value string="5" />
+    </item>
+    <item name="ejeid">
+      <value string="0" />
+    </item>
+    <item name="telecentroid">
+      <value string="0" />
+    </item>
+    <item name="tipoid">
+      <value string="4" />
+    </item>
+    <item name="formatoid">
+      <value string="0" />
+    </item>
+  </queryString>
+  <cookies>
+    <item name=".ASPXAUTH">
+      <value string="3558F2D2A1DE90EEBC38B5EB3B4E69814E9F90F1290B4397D7316E9C6AEAD93F60CE1CAD189EEA8BB992F953A9A53BA1A1B6B9F606EE9625D3103E35A5A7BFC016E8998765766278FAD1596A1DEB242001781E90251FADE7BF8DA32E27C81F372D8F817CF5AC83A44A14310551020C0B38E8C129F4D545AFA489F60383E946C28AC760C2CED84C0D6C50C777C2C1B6753C142DA4A1F4CAB6D5F2901B304DB033D95C0312B836A726DA157FFDD199AAE4A1D62FD5F1C3DB072F0A78B01A6A4DB6FF00B78E6B4F075D3B116415CE96A315BCCF1C059E7C0C903F2CB8DBA7DA6BF373A01553CF6628308ABD237E1D7189932E56240FC469E41D3749650D0AE0D3CC" />
+    </item>
+    <item name="ASP.NET_SessionId">
+      <value string="lzvy5e3yyq5khftqdf1k3wff" />
+    </item>
+  </cookies>
+</error>

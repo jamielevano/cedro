@@ -1,0 +1,93 @@
+﻿@section scripts
+{
+    <script type="text/javascript">
+        $(function () {
+            var id = queryString('id') || 0;
+            var data = getJson('@Url.Content("~/api/Sistema/Rol/Find")', { id: id });
+
+            var Model = function (data)
+            {
+                var self = this;
+
+                self.Save = function (form) {
+                    if ($(form).refreshValidator().valid()) {
+                        postJson('@Url.Content("~/api/Sistema/Rol/Save")', JSON.parse(ko.mapping.toJSON(self.data)),
+                        function () {
+                            
+                            document.location.href = '@Url.Action("Index")';
+                        },
+                        function () {
+                            alert('Error');
+                        });
+                    }
+                };
+
+                self.data = ko.mapping.fromJS(data);
+            };
+
+            ko.applyBindings(new Model(data));
+        })
+    </script>
+}
+
+<form data-bind="submit: Save" style="width: 100%; float: left;">
+
+    <div class="toolbar">
+        <a class="back" title="Volver" href="@Url.Action("Index")"></a>
+        <button type="submit" class="save" title="Grabar"></button>
+        <button type="button" class="refresh" title="Refrescar" onclick="document.location.reload()"></button>
+    </div>
+
+
+    <fieldset data-bind="with: data">
+        <legend>ROL</legend>
+        <table style="width: 100%">
+            <colgroup>
+                <col style="width: 100px" />
+                <col />
+            </colgroup>
+            <tr>
+                <td>NOMBRE</td>
+                <td>
+                    <input name="descripcion" type="text" data-bind="value: descripcion" data-val="true" data-val-required="" />
+                </td>
+            </tr>
+        </table>
+
+        <!-- ko foreach: Modulo -->
+        <h2 data-bind="text: descripcion"></h2>
+        <table class="grid" style="width: 100%;text-align:left">
+            <thead>
+                <tr>
+                    <th style="width: 200px">SUBMODULO</th>
+                    <th style="width: 200px">PAGINA</th>
+                    <th style="width: 80px">ACCEDER</th>
+                    <th style="width: 80px">AGREGAR</th>
+                    <th style="width: 80px">MODIFICAR</th>
+                    <th style="width: 80px">ELIMINAR</th>
+                </tr>
+            </thead>
+            <tbody data-bind="foreach: SubModulo">
+                        <!-- ko foreach: Pagina -->
+                        <tr>
+                            <!-- ko with: $parent -->
+                            <td data-bind="text: descripcion, visible: $parentContext.$index() == 0, attr: { rowspan: Pagina().length }"></td>
+                            <!-- /ko -->
+                            <td data-bind="text: descripcion"></td>
+                            <td style="text-align: center">
+                                <input type="checkbox" data-bind="checked: acceder, uniqueName: true" /></td>
+                            <td style="text-align: center">
+                                <input type="checkbox" data-bind="visible: reporte , checked: agregar, uniqueName: true" /></td>
+                            <td style="text-align: center">
+                                <input type="checkbox" data-bind="visible: reporte ,checked: modificar, uniqueName: true" /></td>
+                            <td style="text-align: center">
+                                <input type="checkbox" data-bind="visible: reporte ,checked: eliminar, uniqueName: true" /></td>
+                        </tr>
+                        <!-- /ko -->
+            </tbody>
+        </table>
+        <!-- /ko -->
+    </fieldset>
+    @*<pre class="json" data-bind="text: JSON.stringify(ko.mapping.toJS(data) , null, '  ')"></pre>*@
+</form>
+

@@ -1,0 +1,171 @@
+﻿
+@section scripts
+{
+    <script type="text/javascript">
+        $(function () {
+            $('#loading').show();
+
+            var permiso = getJson('@Url.Content("~/api/Sistema/Permiso/Find")', { id: 2110 });
+
+            var Model = function (data) {
+                var self = this;
+
+                self.data = {
+                    tipoid: ko.observable(2),
+                    telecentroid: ko.observable('@ViewBag.telecentroid'),
+                    anioid: ko.observable('@ViewBag.anioid'),
+                    mesid: ko.observable('@ViewBag.mesid')
+                };
+
+                self.listTelecentros = getJson('@Url.Content("~/api/General/Telecentros")');
+                self.list = ko.observableArray();
+                self.listAnio = getJson('@Url.Content("~/api/General/Anios")');
+                self.listMes = getJson('@Url.Content("~/api/General/Meses")');
+
+                self.Search = function (form) {
+                    postJson('@Url.Content("~/api/Asistencia/Telecentro/Search")', JSON.parse(ko.mapping.toJSON(self.data)), function (data) {
+                        self.list(data);
+                    })
+                }
+
+                self.delete = function (item) {
+                    if (confirm('¿Esta seguro de eliminar el registro?')) {
+                        postJson('@Url.Content("~/api/Asistencia/Configuracion/Delete")', { id: item.id },
+                        function () {
+
+                            document.location.reload();
+                        },
+                        function () {
+                            alert('Error');
+                        });
+                    }
+                };
+
+                self.new = function (item) {
+                    document.location.href = '@Url.Action("Edit")';
+                };
+
+                self.modificar = function (item) {
+                    document.location.href = '@Url.Action("Edit")?id=' + item.id;
+                };
+
+                self.inscritos = function (item) {
+                    document.location.href = '@Url.Action("Index", "Equipo","Asistencia")?parentid=' + item.id;
+                };
+
+                self.permiso = permiso;
+            };
+
+            ko.applyBindings(new Model());
+
+            $('#loading').hide();
+            $("#fbusqueda").submit();
+        })
+
+        function report(id) {
+            var cadena = "../Reports/Asistencia.aspx?reporte=2&configuracionid=" + id;
+            ShowPopupArchivo(cadena, 1300, 640);
+        }
+
+        function importar() {
+            var cadena = "../Importar/Telecentro.aspx";
+            ShowPopupArchivo(cadena, 1200, 540);
+        }
+
+        
+    </script>
+}
+
+
+<div class="toolbar">
+    <button type="button" data-bind="click: $root.new, enable: $root.permiso.agregar" class="new" title="Nuevo"></button>
+    <button type="button" class="refresh" title="Refrescar" onclick="document.location.reload()"></button>
+</div>
+
+<table style="width:95%; margin: 10px auto;">
+    <tr>
+        <td>
+            <fieldset>
+                <legend>Buscar</legend>
+                <form id="fbusqueda" data-bind="submit: Search">
+                    <table>
+                        <tr>
+                            <td>
+                                Telecentro
+                            </td>
+                            <td>
+                                @Html.koSelect("data.telecentroid", "$root.listTelecentros",requerido:false,enable:@Web.Auth.GetTicketData().Admin.ToString().ToLower())
+                            </td>
+                            <td>
+                                Año
+                            </td>
+                            <td>
+                                @Html.koSelect("data.anioid", "$root.listAnio",requerido:false)
+                            </td>
+                            <td>
+                                Mes
+                            </td>
+                            <td>
+                                @Html.koSelect("data.mesid", "$root.listMes",requerido:false)
+                            </td>
+                            <td></td>
+                            <td style="text-align:right">
+                                <button type="submit" style="cursor:pointer;">Buscar</button>
+                            </td>
+                            <td>
+                                <button type="button" class="btn proceso" title="Importar datos" data-bind="click: function () { importar(); }" />
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </fieldset>
+        </td>
+    </tr>
+</table>
+
+<table class="grid" style="width:95%;">
+    <colgroup>
+        <col style="width: 40px" />
+        <col style="width: 100px" />
+        <col />
+        <col />
+        <col />
+        <col style="width: 24px" />
+        <col style="width: 24px" />
+        <col style="width: 48px" />
+        <col style="width: 24px" />
+    </colgroup>
+    <thead>
+        <tr>
+            <th>Cod</th>
+            <th>Fecha</th>
+            <th>Eje</th>
+            <th>Telecentro</th>
+            <th>Responsable</th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody data-bind="foreach: list">
+        <tr>
+            <td style="text-align: center" data-bind="text: id"></td>
+            <td data-bind="text: formatDate(fechainicio)" style="text-align: center"></td>
+            <td data-bind="text: ejeintervencion"></td>
+            <td data-bind="text: telecentro"></td>
+            <td data-bind="text: capacitador"></td>
+            <td data-bind="text: cantidad" title="Inscritos" style="text-align:right"></td>
+            <td style="text-align: center">
+                <button type="button" class="btn users" title="Inscritos" data-bind="click: $root.inscritos, enable: $root.permiso.modificar" />
+            </td>
+            <td style="text-align: center">
+                <button type="button" class="btn edit" title="Modificar" data-bind="click: $root.modificar, enable: $root.permiso.modificar" />
+                <button type="button" class="btn del" title="Eliminar" data-bind="click: $root.delete, enable: $root.permiso.eliminar" />
+            </td>
+            <td style="text-align: center">
+                <button type="button" class="btn report" title="Reporte" data-bind="click: function () { report(id) }"></button>
+            </td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,191 @@
+﻿<error errorId="463013bf-a776-49d7-8fad-9320f1ba15aa" application="/LM/W3SVC/3/ROOT" host="DESKTOP-RP7B1TI" type="Microsoft.ReportingServices.ReportProcessing.ReportPublishingException" message="La expresión Value del objeto ‘Textbox34’ de tipo text box hace referencia al campo ‘codigo’. Las expresiones de elementos de informe solo pueden hacer referencia a campos en el ámbito del conjunto de datos actual o, si están dentro de un agregado, en el ámbito de conjunto de datos. Los nombres de los campos deben estar deletreados correctamente." source="Microsoft.ReportViewer.Common" detail="System.Web.HttpUnhandledException (0x80004005): Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'. ---&gt; Microsoft.Reporting.WebForms.LocalProcessingException: Se ha producido un error durante el procesamiento local de informes. ---&gt; Microsoft.Reporting.DefinitionInvalidException: La definición del informe 'D:\Cedro\Fuente\21082018_1\SMEC\Web\Reports\Asistencia\Capacitacion01.rdlc' no es válida. ---&gt; Microsoft.ReportingServices.ReportProcessing.ReportPublishingException: La expresión Value del objeto ‘Textbox34’ de tipo text box hace referencia al campo ‘codigo’. Las expresiones de elementos de informe solo pueden hacer referencia a campos en el ámbito del conjunto de datos actual o, si están dentro de un agregado, en el ámbito de conjunto de datos. Los nombres de los campos deben estar deletreados correctamente.&#xD;&#xA;   en Microsoft.ReportingServices.ReportPublishing.ReportPublishing.InternalCreateIntermediateFormat(Stream definitionStream, RdlUpgradeState upgradeState, String&amp; description, String&amp; language, ParameterInfoCollection&amp; parameters, DataSourceInfoCollection&amp; dataSources, DataSetInfoCollection&amp; sharedDataSetReferences, UserLocationFlags&amp; userReferenceLocation, ArrayList&amp; dataSetsName, Boolean&amp; hasExternalImages, Boolean&amp; hasHyperlinks, Byte[]&amp; dataSetsHash)&#xD;&#xA;   en Microsoft.ReportingServices.ReportPublishing.ReportPublishing.CreateIntermediateFormat(Byte[] definition, String&amp; description, String&amp; language, ParameterInfoCollection&amp; parameters, DataSourceInfoCollection&amp; dataSources, DataSetInfoCollection&amp; sharedDataSetReferences, UserLocationFlags&amp; userReferenceLocation, ArrayList&amp; dataSetsName, Boolean&amp; hasExternalImages, Boolean&amp; hasHyperlinks, Byte[]&amp; dataSetsHash)&#xD;&#xA;   en Microsoft.ReportingServices.ReportProcessing.ReportProcessing.CompileOdpReport(PublishingContext reportPublishingContext, IDataProtection dataProtection, PublishingErrorContext errorContext, String&amp; reportDescription, String&amp; reportLanguage, ParameterInfoCollection&amp; parameters, DataSourceInfoCollection&amp; dataSources, DataSetInfoCollection&amp; sharedDataSetReferences, UserLocationFlags&amp; userReferenceLocation, ArrayList&amp; dataSetsName, Boolean&amp; hasExternalImages, Boolean&amp; hasHyperlinks, Byte[]&amp; dataSetsHash)&#xD;&#xA;   en Microsoft.ReportingServices.ReportProcessing.ReportProcessing.CreateIntermediateFormat(PublishingContext reportPublishingContext, IDataProtection dataProtection)&#xD;&#xA;   en Microsoft.Reporting.ReportCompiler.CompileReport(ICatalogItemContext context, Byte[] reportDefinition, Boolean generateExpressionHostWithRefusedPermissions, ControlSnapshot&amp; snapshot)&#xD;&#xA;   --- Fin del seguimiento de la pila de la excepción interna ---&#xD;&#xA;   en Microsoft.Reporting.ReportCompiler.CompileReport(ICatalogItemContext context, Byte[] reportDefinition, Boolean generateExpressionHostWithRefusedPermissions, ControlSnapshot&amp; snapshot)&#xD;&#xA;   en Microsoft.Reporting.LocalService.GetCompiledReport(PreviewItemContext itemContext, Boolean rebuild, ControlSnapshot&amp; snapshot)&#xD;&#xA;   en Microsoft.Reporting.LocalService.CompileReport()&#xD;&#xA;   en Microsoft.Reporting.LocalService.Microsoft.Reporting.ILocalProcessingHost.CompileReport()&#xD;&#xA;   en Microsoft.Reporting.WebForms.LocalReport.EnsureExecutionSession()&#xD;&#xA;   --- Fin del seguimiento de la pila de la excepción interna ---&#xD;&#xA;   en Microsoft.Reporting.WebForms.LocalReport.EnsureExecutionSession()&#xD;&#xA;   en Microsoft.Reporting.WebForms.LocalReport.SetParameters(IEnumerable`1 parameters)&#xD;&#xA;   en Microsoft.Reporting.WebForms.Report.SetParameters(ReportParameter parameter)&#xD;&#xA;   en Web.Reports.Asistencia.ViewReport(String File, DataTable dt) en D:\Cedro\Fuente\21082018_1\SMEC\Web\Reports\Asistencia.aspx.cs:línea 547&#xD;&#xA;   en Web.Reports.Asistencia.LoadDatos() en D:\Cedro\Fuente\21082018_1\SMEC\Web\Reports\Asistencia.aspx.cs:línea 537&#xD;&#xA;   en Web.Reports.Asistencia.InitializeComponent() en D:\Cedro\Fuente\21082018_1\SMEC\Web\Reports\Asistencia.aspx.cs:línea 32&#xD;&#xA;   en Web.Reports.Asistencia.OnInit(EventArgs e) en D:\Cedro\Fuente\21082018_1\SMEC\Web\Reports\Asistencia.aspx.cs:línea 23&#xD;&#xA;   en System.Web.UI.Control.InitRecursive(Control namingContainer)&#xD;&#xA;   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)&#xD;&#xA;   en System.Web.UI.Page.HandleError(Exception e)&#xD;&#xA;   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)&#xD;&#xA;   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)&#xD;&#xA;   en System.Web.UI.Page.ProcessRequest()&#xD;&#xA;   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)&#xD;&#xA;   en System.Web.UI.Page.ProcessRequest(HttpContext context)&#xD;&#xA;   en ASP.reports_asistencia_aspx.ProcessRequest(HttpContext context) en c:\Users\hp\AppData\Local\Temp\Temporary ASP.NET Files\vs\f0b53114\b7bd1e92\App_Web_k2igqkxd.1.cs:línea 0&#xD;&#xA;   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()&#xD;&#xA;   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)&#xD;&#xA;   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean&amp; completedSynchronously)" user="cvaldivia" time="2018-08-21T19:46:14.7092074Z" statusCode="500" webHostHtmlMessage="&lt;!DOCTYPE html&gt;&#xD;&#xA;&lt;html&gt;&#xD;&#xA;    &lt;head&gt;&#xD;&#xA;        &lt;title&gt;La expresi&amp;#243;n Value del objeto ‘Textbox34’ de tipo text box hace referencia al campo ‘codigo’. Las expresiones de elementos de informe solo pueden hacer referencia a campos en el &amp;#225;mbito del conjunto de datos actual o, si est&amp;#225;n dentro de un agregado, en el &amp;#225;mbito de conjunto de datos. Los nombres de los campos deben estar deletreados correctamente.&lt;/title&gt;&#xD;&#xA;        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width&quot; /&gt;&#xD;&#xA;        &lt;style&gt;&#xD;&#xA;         body {font-family:&quot;Verdana&quot;;font-weight:normal;font-size: .7em;color:black;} &#xD;&#xA;         p {font-family:&quot;Verdana&quot;;font-weight:normal;color:black;margin-top: -5px}&#xD;&#xA;         b {font-family:&quot;Verdana&quot;;font-weight:bold;color:black;margin-top: -5px}&#xD;&#xA;         H1 { font-family:&quot;Verdana&quot;;font-weight:normal;font-size:18pt;color:red }&#xD;&#xA;         H2 { font-family:&quot;Verdana&quot;;font-weight:normal;font-size:14pt;color:maroon }&#xD;&#xA;         pre {font-family:&quot;Consolas&quot;,&quot;Lucida Console&quot;,Monospace;font-size:11pt;margin:0;padding:0.5em;line-height:14pt}&#xD;&#xA;         .marker {font-weight: bold; color: black;text-decoration: none;}&#xD;&#xA;         .version {color: gray;}&#xD;&#xA;         .error {margin-bottom: 10px;}&#xD;&#xA;         .expandable { text-decoration:underline; font-weight:bold; color:navy; cursor:hand; }&#xD;&#xA;         @media screen and (max-width: 639px) {&#xD;&#xA;          pre { width: 440px; overflow: auto; white-space: pre-wrap; word-wrap: break-word; }&#xD;&#xA;         }&#xD;&#xA;         @media screen and (max-width: 479px) {&#xD;&#xA;          pre { width: 280px; }&#xD;&#xA;         }&#xD;&#xA;        &lt;/style&gt;&#xD;&#xA;    &lt;/head&gt;&#xD;&#xA;&#xD;&#xA;    &lt;body bgcolor=&quot;white&quot;&gt;&#xD;&#xA;&#xD;&#xA;            &lt;span&gt;&lt;H1&gt;Error de servidor en la aplicación '/'.&lt;hr width=100% size=1 color=silver&gt;&lt;/H1&gt;&#xD;&#xA;&#xD;&#xA;            &lt;h2&gt; &lt;i&gt;La expresi&amp;#243;n Value del objeto ‘Textbox34’ de tipo text box hace referencia al campo ‘codigo’. Las expresiones de elementos de informe solo pueden hacer referencia a campos en el &amp;#225;mbito del conjunto de datos actual o, si est&amp;#225;n dentro de un agregado, en el &amp;#225;mbito de conjunto de datos. Los nombres de los campos deben estar deletreados correctamente.&lt;/i&gt; &lt;/h2&gt;&lt;/span&gt;&#xD;&#xA;&#xD;&#xA;            &lt;font face=&quot;Arial, Helvetica, Geneva, SunSans-Regular, sans-serif &quot;&gt;&#xD;&#xA;&#xD;&#xA;            &lt;b&gt; Descripción: &lt;/b&gt;Excepción no controlada al ejecutar la solicitud Web actual. Revise el seguimiento de la pila para obtener más información acerca del error y dónde se originó en el código.&#xD;&#xA;&#xD;&#xA;            &lt;br&gt;&lt;br&gt;&#xD;&#xA;&#xD;&#xA;            &lt;b&gt; Detalles de la excepción: &lt;/b&gt;Microsoft.ReportingServices.ReportProcessing.ReportPublishingException: La expresi&amp;#243;n Value del objeto ‘Textbox34’ de tipo text box hace referencia al campo ‘codigo’. Las expresiones de elementos de informe solo pueden hacer referencia a campos en el &amp;#225;mbito del conjunto de datos actual o, si est&amp;#225;n dentro de un agregado, en el &amp;#225;mbito de conjunto de datos. Los nombres de los campos deben estar deletreados correctamente.&lt;br&gt;&lt;br&gt;&#xD;&#xA;&#xD;&#xA;            &lt;b&gt;Error de código fuente:&lt;/b&gt; &lt;br&gt;&lt;br&gt;&#xD;&#xA;&#xD;&#xA;            &lt;table width=100% bgcolor=&quot;#ffffcc&quot;&gt;&#xD;&#xA;               &lt;tr&gt;&#xD;&#xA;                  &lt;td&gt;&#xD;&#xA;                      &lt;code&gt;&lt;pre&gt;&#xD;&#xA;&#xD;&#xA;Línea 545:            rptViewer.LocalReport.ReportPath = File;&#xD;&#xA;Línea 546:            ReportParameter par = new ReportParameter(&amp;quot;Usuario&amp;quot;, HttpContext.Current.User.Identity.Name);&#xD;&#xA;&lt;font color=red&gt;Línea 547:            rptViewer.LocalReport.SetParameters(par);&#xD;&#xA;&lt;/font&gt;Línea 548:&#xD;&#xA;Línea 549:            rptViewer.LocalReport.DisplayName = Util.GetReportName(File);&lt;/pre&gt;&lt;/code&gt;&#xD;&#xA;&#xD;&#xA;                  &lt;/td&gt;&#xD;&#xA;               &lt;/tr&gt;&#xD;&#xA;            &lt;/table&gt;&#xD;&#xA;&#xD;&#xA;            &lt;br&gt;&#xD;&#xA;&#xD;&#xA;            &lt;b&gt; Archivo de origen: &lt;/b&gt; D:\Cedro\Fuente\21082018_1\SMEC\Web\Reports\Asistencia.aspx.cs&lt;b&gt; &amp;nbsp;&amp;nbsp; Línea: &lt;/b&gt; 547&#xD;&#xA;            &lt;br&gt;&lt;br&gt;&#xD;&#xA;&#xD;&#xA;            &lt;b&gt;Seguimiento de la pila:&lt;/b&gt; &lt;br&gt;&lt;br&gt;&#xD;&#xA;&#xD;&#xA;            &lt;table width=100% bgcolor=&quot;#ffffcc&quot;&gt;&#xD;&#xA;               &lt;tr&gt;&#xD;&#xA;                  &lt;td&gt;&#xD;&#xA;                      &lt;code&gt;&lt;pre&gt;&#xD;&#xA;&#xD;&#xA;[ReportPublishingException: La expresi&amp;#243;n Value del objeto ‘Textbox34’ de tipo text box hace referencia al campo ‘codigo’. Las expresiones de elementos de informe solo pueden hacer referencia a campos en el &amp;#225;mbito del conjunto de datos actual o, si est&amp;#225;n dentro de un agregado, en el &amp;#225;mbito de conjunto de datos. Los nombres de los campos deben estar deletreados correctamente.]&#xD;&#xA;   Microsoft.ReportingServices.ReportPublishing.ReportPublishing.InternalCreateIntermediateFormat(Stream definitionStream, RdlUpgradeState upgradeState, String&amp;amp; description, String&amp;amp; language, ParameterInfoCollection&amp;amp; parameters, DataSourceInfoCollection&amp;amp; dataSources, DataSetInfoCollection&amp;amp; sharedDataSetReferences, UserLocationFlags&amp;amp; userReferenceLocation, ArrayList&amp;amp; dataSetsName, Boolean&amp;amp; hasExternalImages, Boolean&amp;amp; hasHyperlinks, Byte[]&amp;amp; dataSetsHash) +260&#xD;&#xA;   Microsoft.ReportingServices.ReportPublishing.ReportPublishing.CreateIntermediateFormat(Byte[] definition, String&amp;amp; description, String&amp;amp; language, ParameterInfoCollection&amp;amp; parameters, DataSourceInfoCollection&amp;amp; dataSources, DataSetInfoCollection&amp;amp; sharedDataSetReferences, UserLocationFlags&amp;amp; userReferenceLocation, ArrayList&amp;amp; dataSetsName, Boolean&amp;amp; hasExternalImages, Boolean&amp;amp; hasHyperlinks, Byte[]&amp;amp; dataSetsHash) +104&#xD;&#xA;   Microsoft.ReportingServices.ReportProcessing.ReportProcessing.CompileOdpReport(PublishingContext reportPublishingContext, IDataProtection dataProtection, PublishingErrorContext errorContext, String&amp;amp; reportDescription, String&amp;amp; reportLanguage, ParameterInfoCollection&amp;amp; parameters, DataSourceInfoCollection&amp;amp; dataSources, DataSetInfoCollection&amp;amp; sharedDataSetReferences, UserLocationFlags&amp;amp; userReferenceLocation, ArrayList&amp;amp; dataSetsName, Boolean&amp;amp; hasExternalImages, Boolean&amp;amp; hasHyperlinks, Byte[]&amp;amp; dataSetsHash) +110&#xD;&#xA;   Microsoft.ReportingServices.ReportProcessing.ReportProcessing.CreateIntermediateFormat(PublishingContext reportPublishingContext, IDataProtection dataProtection) +935&#xD;&#xA;   Microsoft.Reporting.ReportCompiler.CompileReport(ICatalogItemContext context, Byte[] reportDefinition, Boolean generateExpressionHostWithRefusedPermissions, ControlSnapshot&amp;amp; snapshot) +221&#xD;&#xA;&#xD;&#xA;[DefinitionInvalidException: La definici&amp;#243;n del informe &amp;#39;D:\Cedro\Fuente\21082018_1\SMEC\Web\Reports\Asistencia\Capacitacion01.rdlc&amp;#39; no es v&amp;#225;lida.]&#xD;&#xA;   Microsoft.Reporting.ReportCompiler.CompileReport(ICatalogItemContext context, Byte[] reportDefinition, Boolean generateExpressionHostWithRefusedPermissions, ControlSnapshot&amp;amp; snapshot) +287&#xD;&#xA;   Microsoft.Reporting.LocalService.GetCompiledReport(PreviewItemContext itemContext, Boolean rebuild, ControlSnapshot&amp;amp; snapshot) +228&#xD;&#xA;   Microsoft.Reporting.LocalService.CompileReport() +29&#xD;&#xA;   Microsoft.Reporting.LocalService.Microsoft.Reporting.ILocalProcessingHost.CompileReport() +5&#xD;&#xA;   Microsoft.Reporting.WebForms.LocalReport.EnsureExecutionSession() +61&#xD;&#xA;&#xD;&#xA;[LocalProcessingException: Se ha producido un error durante el procesamiento local de informes.]&#xD;&#xA;   Microsoft.Reporting.WebForms.LocalReport.EnsureExecutionSession() +150&#xD;&#xA;   Microsoft.Reporting.WebForms.LocalReport.SetParameters(IEnumerable`1 parameters) +58&#xD;&#xA;   Microsoft.Reporting.WebForms.Report.SetParameters(ReportParameter parameter) +48&#xD;&#xA;   Web.Reports.Asistencia.ViewReport(String File, DataTable dt) in D:\Cedro\Fuente\21082018_1\SMEC\Web\Reports\Asistencia.aspx.cs:547&#xD;&#xA;   Web.Reports.Asistencia.LoadDatos() in D:\Cedro\Fuente\21082018_1\SMEC\Web\Reports\Asistencia.aspx.cs:537&#xD;&#xA;   Web.Reports.Asistencia.InitializeComponent() in D:\Cedro\Fuente\21082018_1\SMEC\Web\Reports\Asistencia.aspx.cs:32&#xD;&#xA;   Web.Reports.Asistencia.OnInit(EventArgs e) in D:\Cedro\Fuente\21082018_1\SMEC\Web\Reports\Asistencia.aspx.cs:23&#xD;&#xA;   System.Web.UI.Control.InitRecursive(Control namingContainer) +390&#xD;&#xA;   System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint) +1627&#xD;&#xA;&lt;/pre&gt;&lt;/code&gt;&#xD;&#xA;&#xD;&#xA;                  &lt;/td&gt;&#xD;&#xA;               &lt;/tr&gt;&#xD;&#xA;            &lt;/table&gt;&#xD;&#xA;&#xD;&#xA;            &lt;br&gt;&#xD;&#xA;&#xD;&#xA;    &lt;/body&gt;&#xD;&#xA;&lt;/html&gt;&#xD;&#xA;">
+  <serverVariables>
+    <item name="ALL_HTTP">
+      <value string="HTTP_CONNECTION:keep-alive&#xD;&#xA;HTTP_ACCEPT:text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8&#xD;&#xA;HTTP_ACCEPT_ENCODING:gzip, deflate&#xD;&#xA;HTTP_ACCEPT_LANGUAGE:es-ES,es;q=0.8,en-US;q=0.5,en;q=0.3&#xD;&#xA;HTTP_COOKIE:/Reserved.ReportViewerWebControl.axd%3FOpType%3DSessionKeepAlive%26ControlID%3D653086c04b964162a572be1d4099b6a0%26Mode%3Dtrue_SKA=1; /Reserved.ReportViewerWebControl.axd%3FOpType%3DSessionKeepAlive%26ControlID%3D9e1bf207aa264b5f9cc9744b2d2674ac%26Mode%3Dtrue_SKA=1; /Reserved.ReportViewerWebControl.axd%3FOpType%3DSessionKeepAlive%26ControlID%3Dc9bc6cd2edbf45ac977da0b189b939d0%26Mode%3Dtrue_SKA=1; .ASPXAUTH=E3640639CBC11BFC0BE7CB279C429BB2677D8437084EA59D8180FE1C660DD072F6185D86BA052F5D47E418D7C17A7D6D2FF394CFAEA04FB90FC809551E73DAB4FBEB3CC6C27A4B23422593719580DB8D00046D54F18B34ED21921A2FA016A3EB769E3A875C84B37B06E5C70F2D7ACBD188DF947EFB37F209C49CD0FC2C4F45A51301392B6E93465488D7992C81DC30F69DF017BD0C2904F085611E35447CBB9A5F0B707F6BE81BA8491AAF5725CCDEDF67842C3D43B9836D066CE98004AA2B774407B3590ECC99B218809CA870021F503D7B13FD7B702C9D1D34859C179B2AFA536BE7A68657199048F25E23F9E51EC85BE11301FE1B4B3B2AA0BE30D95A0C25; ASP.NET_SessionId=kwhtntetxokmoo1ivsfnpeiq&#xD;&#xA;HTTP_HOST:localhost:1371&#xD;&#xA;HTTP_REFERER:http://localhost:1371/Asistencia/Configuracion&#xD;&#xA;HTTP_USER_AGENT:Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0&#xD;&#xA;HTTP_UPGRADE_INSECURE_REQUESTS:1&#xD;&#xA;" />
+    </item>
+    <item name="ALL_RAW">
+      <value string="Connection: keep-alive&#xD;&#xA;Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8&#xD;&#xA;Accept-Encoding: gzip, deflate&#xD;&#xA;Accept-Language: es-ES,es;q=0.8,en-US;q=0.5,en;q=0.3&#xD;&#xA;Cookie: /Reserved.ReportViewerWebControl.axd%3FOpType%3DSessionKeepAlive%26ControlID%3D653086c04b964162a572be1d4099b6a0%26Mode%3Dtrue_SKA=1; /Reserved.ReportViewerWebControl.axd%3FOpType%3DSessionKeepAlive%26ControlID%3D9e1bf207aa264b5f9cc9744b2d2674ac%26Mode%3Dtrue_SKA=1; /Reserved.ReportViewerWebControl.axd%3FOpType%3DSessionKeepAlive%26ControlID%3Dc9bc6cd2edbf45ac977da0b189b939d0%26Mode%3Dtrue_SKA=1; .ASPXAUTH=E3640639CBC11BFC0BE7CB279C429BB2677D8437084EA59D8180FE1C660DD072F6185D86BA052F5D47E418D7C17A7D6D2FF394CFAEA04FB90FC809551E73DAB4FBEB3CC6C27A4B23422593719580DB8D00046D54F18B34ED21921A2FA016A3EB769E3A875C84B37B06E5C70F2D7ACBD188DF947EFB37F209C49CD0FC2C4F45A51301392B6E93465488D7992C81DC30F69DF017BD0C2904F085611E35447CBB9A5F0B707F6BE81BA8491AAF5725CCDEDF67842C3D43B9836D066CE98004AA2B774407B3590ECC99B218809CA870021F503D7B13FD7B702C9D1D34859C179B2AFA536BE7A68657199048F25E23F9E51EC85BE11301FE1B4B3B2AA0BE30D95A0C25; ASP.NET_SessionId=kwhtntetxokmoo1ivsfnpeiq&#xD;&#xA;Host: localhost:1371&#xD;&#xA;Referer: http://localhost:1371/Asistencia/Configuracion&#xD;&#xA;User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0&#xD;&#xA;Upgrade-Insecure-Requests: 1&#xD;&#xA;" />
+    </item>
+    <item name="APPL_MD_PATH">
+      <value string="/LM/W3SVC/3/ROOT" />
+    </item>
+    <item name="APPL_PHYSICAL_PATH">
+      <value string="D:\Cedro\Fuente\21082018_1\SMEC\Web\" />
+    </item>
+    <item name="AUTH_TYPE">
+      <value string="Forms" />
+    </item>
+    <item name="AUTH_USER">
+      <value string="cvaldivia" />
+    </item>
+    <item name="AUTH_PASSWORD">
+      <value string="*****" />
+    </item>
+    <item name="LOGON_USER">
+      <value string="cvaldivia" />
+    </item>
+    <item name="REMOTE_USER">
+      <value string="cvaldivia" />
+    </item>
+    <item name="CERT_COOKIE">
+      <value string="" />
+    </item>
+    <item name="CERT_FLAGS">
+      <value string="" />
+    </item>
+    <item name="CERT_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SERIALNUMBER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CERT_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CONTENT_LENGTH">
+      <value string="0" />
+    </item>
+    <item name="CONTENT_TYPE">
+      <value string="" />
+    </item>
+    <item name="GATEWAY_INTERFACE">
+      <value string="CGI/1.1" />
+    </item>
+    <item name="HTTPS">
+      <value string="off" />
+    </item>
+    <item name="HTTPS_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="INSTANCE_ID">
+      <value string="3" />
+    </item>
+    <item name="INSTANCE_META_PATH">
+      <value string="/LM/W3SVC/3" />
+    </item>
+    <item name="LOCAL_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="PATH_INFO">
+      <value string="/Reports/Asistencia.aspx" />
+    </item>
+    <item name="PATH_TRANSLATED">
+      <value string="D:\Cedro\Fuente\21082018_1\SMEC\Web\Reports\Asistencia.aspx" />
+    </item>
+    <item name="QUERY_STRING">
+      <value string="reporte=1&amp;configuracionid=11&amp;programaid=01&amp;moduloid=05" />
+    </item>
+    <item name="REMOTE_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_HOST">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_PORT">
+      <value string="6779" />
+    </item>
+    <item name="REQUEST_METHOD">
+      <value string="GET" />
+    </item>
+    <item name="SCRIPT_NAME">
+      <value string="/Reports/Asistencia.aspx" />
+    </item>
+    <item name="SERVER_NAME">
+      <value string="localhost" />
+    </item>
+    <item name="SERVER_PORT">
+      <value string="1371" />
+    </item>
+    <item name="SERVER_PORT_SECURE">
+      <value string="0" />
+    </item>
+    <item name="SERVER_PROTOCOL">
+      <value string="HTTP/1.1" />
+    </item>
+    <item name="SERVER_SOFTWARE">
+      <value string="Microsoft-IIS/10.0" />
+    </item>
+    <item name="URL">
+      <value string="/Reports/Asistencia.aspx" />
+    </item>
+    <item name="HTTP_CONNECTION">
+      <value string="keep-alive" />
+    </item>
+    <item name="HTTP_ACCEPT">
+      <value string="text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8" />
+    </item>
+    <item name="HTTP_ACCEPT_ENCODING">
+      <value string="gzip, deflate" />
+    </item>
+    <item name="HTTP_ACCEPT_LANGUAGE">
+      <value string="es-ES,es;q=0.8,en-US;q=0.5,en;q=0.3" />
+    </item>
+    <item name="HTTP_COOKIE">
+      <value string="/Reserved.ReportViewerWebControl.axd%3FOpType%3DSessionKeepAlive%26ControlID%3D653086c04b964162a572be1d4099b6a0%26Mode%3Dtrue_SKA=1; /Reserved.ReportViewerWebControl.axd%3FOpType%3DSessionKeepAlive%26ControlID%3D9e1bf207aa264b5f9cc9744b2d2674ac%26Mode%3Dtrue_SKA=1; /Reserved.ReportViewerWebControl.axd%3FOpType%3DSessionKeepAlive%26ControlID%3Dc9bc6cd2edbf45ac977da0b189b939d0%26Mode%3Dtrue_SKA=1; .ASPXAUTH=E3640639CBC11BFC0BE7CB279C429BB2677D8437084EA59D8180FE1C660DD072F6185D86BA052F5D47E418D7C17A7D6D2FF394CFAEA04FB90FC809551E73DAB4FBEB3CC6C27A4B23422593719580DB8D00046D54F18B34ED21921A2FA016A3EB769E3A875C84B37B06E5C70F2D7ACBD188DF947EFB37F209C49CD0FC2C4F45A51301392B6E93465488D7992C81DC30F69DF017BD0C2904F085611E35447CBB9A5F0B707F6BE81BA8491AAF5725CCDEDF67842C3D43B9836D066CE98004AA2B774407B3590ECC99B218809CA870021F503D7B13FD7B702C9D1D34859C179B2AFA536BE7A68657199048F25E23F9E51EC85BE11301FE1B4B3B2AA0BE30D95A0C25; ASP.NET_SessionId=kwhtntetxokmoo1ivsfnpeiq" />
+    </item>
+    <item name="HTTP_HOST">
+      <value string="localhost:1371" />
+    </item>
+    <item name="HTTP_REFERER">
+      <value string="http://localhost:1371/Asistencia/Configuracion" />
+    </item>
+    <item name="HTTP_USER_AGENT">
+      <value string="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0" />
+    </item>
+    <item name="HTTP_UPGRADE_INSECURE_REQUESTS">
+      <value string="1" />
+    </item>
+  </serverVariables>
+  <queryString>
+    <item name="reporte">
+      <value string="1" />
+    </item>
+    <item name="configuracionid">
+      <value string="11" />
+    </item>
+    <item name="programaid">
+      <value string="01" />
+    </item>
+    <item name="moduloid">
+      <value string="05" />
+    </item>
+  </queryString>
+  <cookies>
+    <item name="/Reserved.ReportViewerWebControl.axd%3FOpType%3DSessionKeepAlive%26ControlID%3D653086c04b964162a572be1d4099b6a0%26Mode%3Dtrue_SKA">
+      <value string="1" />
+    </item>
+    <item name="/Reserved.ReportViewerWebControl.axd%3FOpType%3DSessionKeepAlive%26ControlID%3D9e1bf207aa264b5f9cc9744b2d2674ac%26Mode%3Dtrue_SKA">
+      <value string="1" />
+    </item>
+    <item name="/Reserved.ReportViewerWebControl.axd%3FOpType%3DSessionKeepAlive%26ControlID%3Dc9bc6cd2edbf45ac977da0b189b939d0%26Mode%3Dtrue_SKA">
+      <value string="1" />
+    </item>
+    <item name=".ASPXAUTH">
+      <value string="E3640639CBC11BFC0BE7CB279C429BB2677D8437084EA59D8180FE1C660DD072F6185D86BA052F5D47E418D7C17A7D6D2FF394CFAEA04FB90FC809551E73DAB4FBEB3CC6C27A4B23422593719580DB8D00046D54F18B34ED21921A2FA016A3EB769E3A875C84B37B06E5C70F2D7ACBD188DF947EFB37F209C49CD0FC2C4F45A51301392B6E93465488D7992C81DC30F69DF017BD0C2904F085611E35447CBB9A5F0B707F6BE81BA8491AAF5725CCDEDF67842C3D43B9836D066CE98004AA2B774407B3590ECC99B218809CA870021F503D7B13FD7B702C9D1D34859C179B2AFA536BE7A68657199048F25E23F9E51EC85BE11301FE1B4B3B2AA0BE30D95A0C25" />
+    </item>
+    <item name="ASP.NET_SessionId">
+      <value string="kwhtntetxokmoo1ivsfnpeiq" />
+    </item>
+  </cookies>
+</error>

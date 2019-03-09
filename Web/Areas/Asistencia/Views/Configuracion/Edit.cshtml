@@ -1,0 +1,185 @@
+﻿@section scripts
+{
+    <script type="text/javascript">
+        $(function () {
+
+            $('#loading').show();
+
+            var data, id = queryString('id');
+            var vista = (@Web.Auth.GetTicketData().Admin.ToString().ToLower())?false:queryString('vista');
+
+            if (id)
+                data = getJson('@Url.Content("~/api/Asistencia/Configuracion/Find")', { id: id });
+            @*else
+                data = getJson('@Url.Content("~/api/Asistencia/Configuracion/Find")');*@
+
+            var Model = function (data) {
+                var self = this;
+                self.vista = vista
+
+                data = data || {
+                    id: 0,
+                    fechainicio: null,
+                    fechafin: null,
+                    nombre:null,
+                    ejeintervencionid: ko.observable('@Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(ViewBag.ejeid))'),
+                    telecentroid: ko.observable('@Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(ViewBag.telecentroid))'),
+                    programaid: null,
+                    nivelid: null,
+                    capacitadorid: ko.observable('@Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(ViewBag.usuarioid))'),
+                    tipoid:1,
+                    localidad:null,
+                    organizacion:null,
+                    organizacionotro:null
+                };
+
+                //tipoid:1 -> Capacitacion
+                //tipoid:2 -> Local
+                self.listNivel = ko.observableArray([]);
+                self.listEjeIntervencion = getJson('@Url.Content("~/api/General/EjeIntervencion02")');
+                self.listTelecentros = ko.observableArray([]);
+                self.listPrograma = getJson('@Url.Content("~/api/General/Programa")');
+                self.listUsuario = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(ViewBag.ListUsuario));
+                self.listOrganizacion = getJson('@Url.Content("~/api/General/Organizacion")');
+                self.data = ko.mapping.fromJS(data);
+                /////////////////////////////////////////////////////////////////
+
+                var updateNiveles = function (id) {
+                    self.data.nivelid(undefined);
+                    self.listNivel(undefined);
+                    if (id) {
+                        self.listNivel(getJson('@Url.Content("~/Api/General/NivelPrograma")', { programa: id }))
+                    }
+                };
+
+                self.data.programaid.subscribe(updateNiveles);
+                if (self.data.programaid()) {
+                    var nivelid = self.data.nivelid();
+                    updateNiveles(self.data.programaid());
+                    self.data.nivelid(nivelid);
+                }
+                /////////////////////////////////////////////////////////////////
+
+
+                var updateTelecentros = function (id) {
+                    self.data.telecentroid(self.data.telecentroid() || undefined);
+                    self.listTelecentros(undefined);
+                    if (id) {
+                        self.listTelecentros(getJson('@Url.Content("~/Api/General/Eje_Telecentros")', { eje: id }))
+                    }
+                };
+
+                self.data.ejeintervencionid.subscribe(updateTelecentros);
+                if (self.data.ejeintervencionid()) {
+                    var telecentroid = self.data.telecentroid();
+                    updateTelecentros(self.data.ejeintervencionid());
+                    self.data.telecentroid(telecentroid);
+                }
+
+                /////////////////////////////////////////////////////////////////
+
+                self.Save = function (form)
+                {
+                    if ($(form).refreshValidator().valid())
+                    {
+                        postJson('@Url.Content("~/api/Asistencia/Configuracion/Save")', JSON.parse(ko.mapping.toJSON(self.data)),
+                        function () {
+
+                            document.location.href = '@Url.Action("Index")';
+                        },
+                        function () {
+                            alert('Error');
+                        });
+                    }
+                };
+            };
+
+            ko.applyBindings(new Model(data));
+
+            if (vista ) {
+                $('input,select,textarea,button', 'form').prop("disabled", true);
+                $('button.ui-datepicker-trigger').hide();
+            }
+
+            $('#loading').hide();
+
+        })
+    </script>
+}
+
+<form data-bind="submit: Save" style="width: 100%; float: left;">
+
+    <div class="toolbar">
+        <a class="back" title="Volver" href="@Url.Action("Index")"></a>
+        @*<a class="back" title="Volver" data-bind="attr: { href: '@Url.Action("Index","Configuracion")'}"></a>*@
+        <button type="button" class="save" title="Grabar" onclick="$(this).closest('form').submit()"></button>
+        <button type="button" class="refresh" title="Refrescar" onclick="document.location.reload()"></button>
+    </div>
+
+
+    <fieldset>
+        <legend>CONFIGURACION</legend>
+        <table style="width: 70%; float:left;">
+            <colgroup>
+                <col style="width:20%"/>
+                <col style="width:30%"/>
+                <col style="width:20%"/>
+                <col style="width:30%"/>
+            </colgroup>
+            <tr>
+                <td>EJE DE INTERVENCION</td>
+                @*<td>@Html.koSelect("data.ejeintervencionid", "$root.listEjeIntervencion",enable:@Web.Auth.GetTicketData().Admin.ToString().ToLower())</td>*@
+                <td>@Html.koSelect("data.ejeintervencionid", "$root.listEjeIntervencion")</td>
+                <td>LOCALIDAD</td>
+                @*<td>
+                    @Html.koSelect("data.telecentroid", "$root.listTelecentros",enable:@Web.Auth.GetTicketData().Admin.ToString().ToLower())
+                </td>*@
+                <td>@Html.koSelect("data.telecentroid", "$root.listTelecentros", "($root.listTelecentros() && !$root.bloqueo)")</td>
+            </tr>
+            <tr>
+                <td>NOMBRE DE GRUPO</td>
+                <td >@Html.koTextAreaNoRequired("data.nombre",maxlength:200)</td>
+                @*<td style="display:none;">Localidad</td>
+                <td style="display:none;">
+                    @Html.koTextNoRequired("data.localidad", maxlength:200)
+                </td>*@
+                <td>ORGANIZADO POR</td>
+                <td>
+                    @Html.koSelect("data.organizacion", "$root.listOrganizacion")
+                <input type="text" data-bind="value: data.organizacionotro, enable: data.organizacion() == 80, visible: data.organizacion() == 80, uniqueName: true" data-val="true" data-val-required="" maxlength="50" />
+            </td>
+            </tr>
+            <tr>
+                <td>FECHA INICIO</td>
+                <td>@Html.koDate("data.fechainicio")</td>
+                <td>FECHA FIN</td>
+                <td>@Html.koDate("data.fechafin", min: "data.fechainicio")</td>
+            </tr>
+            <tr>
+                <td>CAPACITADOR
+                </td>
+                <td>@Html.koSelect("data.capacitadorid", "$root.listUsuario")</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>COMPONENTE
+                </td>
+                <td>@Html.koSelect("data.programaid", "$root.listPrograma")</td>
+                <td>CURSO</td>
+                <td>@Html.koSelect("data.nivelid", "$root.listNivel")</td>
+            </tr>
+            <tr>
+                <td>FINALIZADO
+                </td>
+                <td>@Html.koCheck("data.cerrado",enable:"data.id()")
+                </td>
+                <td>FECHA DE CIERRE</td>
+                <td>@Html.koDate("data.fechacierre",enable:"false")</td>
+            </tr>
+        </table>
+
+    </fieldset>
+</form>
+
+@*<pre class="json" data-bind="text: JSON.stringify(ko.mapping.toJS(data) , null, '  ')"></pre>*@

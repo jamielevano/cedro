@@ -1,0 +1,156 @@
+﻿@section scripts
+{
+    <script type="text/javascript">
+        $(function () {
+
+            $('#loading').show();
+
+            var data, id = queryString('id');
+
+            if (id) {
+                data = getJson('@Url.Content("~/api/Planificacion/MarcoLogico/FindByProposito")', { id: id });
+            }
+
+            var Model = function (data)
+            {
+                var self = this;
+
+                data = data || {
+                    id: 0,
+                    periodoinicio: null,
+                    periodofin: null,
+                    proposito: null,
+                    PropositoMetas: [],
+                };
+
+                self.data = ko.mapping.fromJS(data);
+            };
+
+            ko.applyBindings(new Model(data));
+            $('input[type=text],textarea').prop("readonly", true);
+
+            $('#loading').hide();
+        });
+
+        AvancePropositoMetasMetaArchivo = function (item)
+        {
+            ShowPopupArchivo('@Url.Action("AvancePropositoMetaArchivo","MarcoLogicoArchivo",new { area = "BibliotecaVirtual" })?biblioteca=1&id=' + item.id(), 1100, 500);
+            return false;
+        }
+    </script>
+}
+
+<form style="width: 100%; float: left;">
+
+    <div class="toolbar">  
+        <a class="back" title="Volver" href="@Url.Action("Avance","MarcoLogicoArchivo")"></a>
+        <button type="button" class="refresh" title="Refrescar" onclick="document.location.reload()"></button>  
+    </div>
+
+    <fieldset>
+        <legend>Datos del Proyecto</legend>
+
+        <table style="width: 100%">
+            <colgroup>
+                <col style="width: 100px" />
+                <col />
+            </colgroup>
+            <tr>
+                <td>Código</td>
+                <td data-bind="text: data.id"></td>
+            <tr />
+            <tr>
+                <td>Proposito</td>
+                <td data-bind="text: data.proposito">
+                </td>
+            </tr>            
+        </table>
+    </fieldset>
+
+    <!-- ko foreach: data.PropositoMetas -->
+    <table class="grid">
+        <colgroup>
+            <col style="width:200px"/>
+            <col />
+        </colgroup>
+        <tr>
+            <th>Meta
+                <input type="hidden" data-bind="value: id, attr: { name: 'PropositoMetas[' + $index() + '].id' }" />
+            </th>
+            <th style="text-align:left" data-bind="text: nombre"></th>
+        </tr>
+    </table>
+
+    <div style="border: 1px solid #AAA; padding: 5px; margin: 5px 0">
+        <table style="width: 100%">
+            <colgroup>
+                <col style="width: 200px" />
+                <col style="width: 200px" />
+                <col />            
+            </colgroup>
+            <tr>
+                <td></td>
+                <td></td>
+                <td rowspan="6">
+
+                    <table class="grid" style="width:auto">
+                        <colgroup>
+                            <col style="width: 100px" />
+                            <col style="width: 100px" />
+                            <col style="width: 80px" />
+                            <col style="width: 300px" />
+                            <col style="width: 60px" />
+                            <col style="width: 28px" />
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th>Fecha inicio
+                                </th>
+                                <th>Fecha fin
+                                </th>
+                                <th>Avance de meta
+                                </th>
+                                <th>Observación
+                                </th>
+                                <th>Archivo
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody data-bind='foreach: AvancePropositoMetas'>
+                            <tr>
+                                <td>@Html.koDate("fechainicio",width:100,disable:"true")</td>
+                                <td>@Html.koDate("fechafin",width:100,disable:"true")</td>
+                                <td>
+                                    @Html.koNumeric("cantidad", width: 100)
+                                </td>
+                                <td>
+                                    @Html.koTextNoRequired("observacion")
+                                </td>
+                                <td style="text-align:center">
+                                    <button type="button"  data-bind="attr: { class: 'btn folder' + ((archivos() == true) ? '_open' : '') }, visible: (id() != 0), click: function () { AvancePropositoMetasMetaArchivo($data) }"></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </td>
+            </tr>
+            <tr>
+                <td>Meta planificada</td>
+                <td data-bind="text: formatNumber(cantidad)" style="text-align: right"></td>
+            </tr>
+            <tr>
+                <td>Meta acumulada ejecutada</td>
+                <td data-bind="text: formatNumber(ejecutado)" style="text-align: right"></td>
+            </tr>
+            <tr>
+                <td>Avance total de la meta</td>
+                <td data-bind="text: ((cantidad() == 0) ? '0' : formatNumber((ejecutado() * 100) / cantidad()).toString()) + '%'" style="text-align: right"></td>
+            </tr>
+            
+        </table>
+
+    </div>
+    <!-- /ko -->
+
+</form>

@@ -1,0 +1,212 @@
+﻿
+@section scripts
+{
+    <script type="text/javascript">
+        $(function () {
+            $('#loading').show();
+            var marcoid = queryString('marcoid') || 0;
+            var tareaid = queryString('tarea') || 0;
+            var permiso = getJson('@Url.Content("~/api/Sistema/Permiso/Find")', { id: 2126 });
+
+            var Model = function () {
+
+                var self = this;
+
+                self.data = {
+                    id: ko.observable('@ViewBag.id'),
+                    fechainicio: ko.observable('@ViewBag.fechainicio'),
+                    fechafin: ko.observable('@ViewBag.fechafin'),
+                    marcoid:marcoid,
+                    //usuario: ko.observable('@User.Identity.Name'),
+                    usuario: ko.observable('@ViewBag.usuario'),
+                    // telecentroid: ko.observable('@ViewBag.telecentroid'),
+                    telecentroid: null,
+                    //tarea: ko.observable('@ViewBag.tarea'),
+                    tarea: tareaid,
+                    ejeintervencionid: null
+                };
+
+
+                //alert(marcoid);
+
+                self.listTelecentros  = getJson('@Url.Content("~/api/General/Telecentros")');
+                self.listTareas = getJson('@Url.Content("~/api/Planificacion/PlanOperativoTC/ListaTareasFilter")', { id: marcoid });
+                self.listUsuario = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(ViewBag.ListUsuario));
+                self.list = ko.observableArray();
+                self.listEjeIntervencion = getJson('@Url.Content("~/api/General/EjeIntervencion02")');
+
+                self.Search = function (form) {
+
+                    self.list(undefined);
+                    postJson('@Url.Content("~/Api/Monitoreo/TareaTC/Search")', JSON.parse(ko.mapping.toJSON(self.data)), function(data){
+                        self.list(data);
+                        $("#listacount").text(self.list().length + ' registros encontrados');
+                        //self.textcount=self.list().length + ' registros encontrados';
+                    })
+                }
+
+                /////////////////////////////////////////////////////////////////
+
+                self.modificar = function (item)
+                {
+                    document.location.href = '@Url.Action("Edit")?marcoid=' + marcoid + '&id=' + item.id;
+                };
+
+                self.move = function (item)
+                {
+                    document.location.href = '@Url.Action("Mover")?id=' + item.id;
+                };
+
+                self.delete = function (item)
+                {
+                    if (confirm('¿Esta seguro de eliminar el registro?')) {
+                        postJson('@Url.Content("~/api/Monitoreo/TareaTC/Delete")', { id: item.id },
+                        function (){
+
+                            document.location.reload();
+                        },
+                        function () {
+                            alert('Error');
+                        });
+                    }
+                }
+
+                //self.textcount = ko.observable('0 Registros');
+                self.permiso = permiso;
+            }
+
+            ko.applyBindings(new Model());
+
+
+
+            $('#loading').hide();
+            //$("#fbusqueda").submit();
+        })
+    </script>
+}
+
+<div class="toolbar">
+    <a class="back" href="@Url.Action("Index")"></a>
+    <button type="button" class="refresh" title="Refrescar" onclick="document.location.reload()"></button>
+</div>
+
+
+<div style="width:99%; margin: 10px auto;">
+    <fieldset >
+    <legend>Buscar avance</legend>
+    <form id="fbusqueda" data-bind="submit: Search">
+        <table >
+            <tr>
+                <td>CODIGO DE REPORTE
+                </td>
+                <td>
+                    @Html.koTextNoRequired("data.id")
+                </td>
+                <td></td>
+                <td>
+                    TAREA
+                </td>
+                <td>
+                    @Html.koSelect("data.tarea", "$root.listTareas")
+                </td>
+                <td></td>
+                <td>
+                    USUARIO
+                </td>
+                <td>
+                    <select data-bind="value: data.usuario, options: listUsuario, optionsCaption: '[Todos]', uniqueName: true,enable:@Web.Auth.GetTicketData().Admin.ToString().ToLower()"></select>
+                </td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>LOCALIDAD
+                </td>
+                <td>
+                    @Html.koSelect("data.telecentroid", "$root.listTelecentros",requerido:true)
+                </td>
+                <td></td>
+                <td>
+                    DESDE
+                </td>
+                <td>
+                    @Html.koDate("data.fechainicio",width:100)
+                </td>
+                <td></td>
+                <td>HASTA
+                </td>
+                <td>
+                    @Html.koDate("data.fechafin", min:"data.fechainicio",width:100)
+                </td>
+                <td></td>
+                <td>
+                    <button type="submit" style="cursor:pointer;">Buscar</button>
+                </td>
+            </tr>
+            <tr>
+                <td>EJE DE INTERVENCION</td>
+                <td>@Html.koSelect("data.ejeintervencionid", "$root.listEjeIntervencion")</td>
+            </tr>
+        </table>
+    </form>
+</fieldset>
+</div>
+
+<table class="grid" style="width: 99%">
+    <thead>
+        <tr>
+            <th colspan="1000" style="text-align:right;background:#fff url('');color:black">
+                <span id="listacount" name="listacount"></span>
+            </th>
+        </tr>
+        <tr>
+            <th>N°</th>
+            <th style="width: 60px">CODIGO DE REPORTE</th>
+            <th style="width: auto">TAREA</th>
+            <th style="width: 140px">LOCALIDAD</th>
+
+            <th style="width: 160px">EJE DE INTERVENCION</th>
+            <th style="width: 130px">CODIGO DE CAPACITACION</th>
+
+            <th style="width: 60px">FECHA INICIO</th>
+            <th style="width: 60px">FECHA FIN</th>
+            <th style="width: 60px">FECHA INGRESO</th>
+            <th style="width: 80px">USUARIO</th>
+            <th style="width: 30px;"></th>
+            <th style="width: 30px;"></th>
+            <th style="width: 30px;"></th>
+            <th style="width: 30px;"></th>
+        </tr>
+    </thead>
+    <tbody data-bind="foreach: list">
+        <tr>
+            <td data-bind="text: $index() + 1" style="text-align: right"></td>
+            <td data-bind="text: id" style="text-align: center"></td>
+            <td data-bind="text: tarea"></td>
+            <td data-bind="text: telecentro"></td>
+
+            <td data-bind="text: ejeintervencion" style="text-align: center"></td>
+            <td data-bind="text: codigocapacitacion" style="text-align: center"></td>
+
+            <td data-bind="text: formatDateShort(fechainicio)" style="text-align: center"></td>
+            <td data-bind="text: formatDateShort(fechafin)" style="text-align: center"></td>
+            <td data-bind="text: formatDateShort(fechaingreso)" style="text-align: center"></td>
+            <td data-bind="text: aud_usuarioreg" style="text-align: right"></td>
+            <td style="text-align: center">
+                <a class="btn view" title="Ver" data-bind="attr: { href : '@Url.Action("Edit")?vista=1&marcoid=' + marcoid + '&id=' + id }"></a>
+            </td>
+            <td style="text-align: center">
+                <button type="button" class="btn edit" title="Modificar" data-bind="click: $root.modificar, enable: $root.permiso.modificar"/>
+               @* <button type="button" class="btn edit" title="Modificar" data-bind="click: $root.modificar, enable: $root.permiso.modificar" />*@
+                @*<button type="button" class="btn edit" title="Modificar" />*@
+            </td>
+            <td style="text-align: center">
+                <button class="btn del" type="button" title="Eliminar" data-bind="enable: @Web.Auth.GetTicketData().Admin.ToString().ToLower() || (@Web.Auth.GetTicketData().TelecentroId.ToString()==telecentroid && $root.permiso.eliminar) , click: $root.delete"></button>
+            </td>
+            <td style="text-align: center">
+                <button class="btn proceso" type="button" title="Mover" data-bind="enable: @Web.Auth.GetTicketData().Admin.ToString().ToLower(), click: $root.move"></button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+

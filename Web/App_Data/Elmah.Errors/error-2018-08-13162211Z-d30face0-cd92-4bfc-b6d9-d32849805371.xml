@@ -1,0 +1,176 @@
+﻿<error errorId="d30face0-cd92-4bfc-b6d9-d32849805371" application="/LM/W3SVC/3/ROOT" host="DESKTOP-RP7B1TI" type="System.NullReferenceException" message="Referencia a objeto no establecida como instancia de un objeto." source="Web" detail="System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.&#xD;&#xA;   en Web.Areas.Monitoreo.Controllers.TareaTCController.Edit() en D:\Cedro\CEDRO_FINAL\SMEC_PRODUCCION\SMEC\Web\Areas\Monitoreo\Controllers\TareaTCController.cs:línea 22&#xD;&#xA;   en lambda_method(Closure , ControllerBase , Object[] )&#xD;&#xA;   en System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)&#xD;&#xA;   en System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)&#xD;&#xA;   en System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)&#xD;&#xA;   en System.Web.Mvc.Async.AsyncControllerActionInvoker.&lt;BeginInvokeSynchronousActionMethod&gt;b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)&#xD;&#xA;   en System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)&#xD;&#xA;   en System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()&#xD;&#xA;   en System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)&#xD;&#xA;   en System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.&lt;InvokeActionMethodFilterAsynchronouslyRecursive&gt;b__3d()&#xD;&#xA;   en System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.&lt;&gt;c__DisplayClass46.&lt;InvokeActionMethodFilterAsynchronouslyRecursive&gt;b__3f()&#xD;&#xA;   en System.Web.Mvc.Async.AsyncControllerActionInvoker.&lt;&gt;c__DisplayClass33.&lt;BeginInvokeActionMethodWithFilters&gt;b__32(IAsyncResult asyncResult)&#xD;&#xA;   en System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)&#xD;&#xA;   en System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()&#xD;&#xA;   en System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)&#xD;&#xA;   en System.Web.Mvc.Async.AsyncControllerActionInvoker.&lt;&gt;c__DisplayClass21.&lt;&gt;c__DisplayClass2b.&lt;BeginInvokeAction&gt;b__1c()&#xD;&#xA;   en System.Web.Mvc.Async.AsyncControllerActionInvoker.&lt;&gt;c__DisplayClass21.&lt;BeginInvokeAction&gt;b__1e(IAsyncResult asyncResult)&#xD;&#xA;   en System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)&#xD;&#xA;   en System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()&#xD;&#xA;   en System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)&#xD;&#xA;   en System.Web.Mvc.Controller.&lt;BeginExecuteCore&gt;b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)&#xD;&#xA;   en System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)&#xD;&#xA;   en System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()&#xD;&#xA;   en System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)&#xD;&#xA;   en System.Web.Mvc.Controller.&lt;BeginExecute&gt;b__15(IAsyncResult asyncResult, Controller controller)&#xD;&#xA;   en System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)&#xD;&#xA;   en System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()&#xD;&#xA;   en System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)&#xD;&#xA;   en System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)&#xD;&#xA;   en System.Web.Mvc.MvcHandler.&lt;BeginProcessRequest&gt;b__5(IAsyncResult asyncResult, ProcessRequestState innerState)&#xD;&#xA;   en System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)&#xD;&#xA;   en System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()&#xD;&#xA;   en System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)&#xD;&#xA;   en System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)&#xD;&#xA;   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()&#xD;&#xA;   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)&#xD;&#xA;   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean&amp; completedSynchronously)" user="cvaldivia" time="2018-08-13T16:22:11.9697707Z">
+  <serverVariables>
+    <item name="ALL_HTTP">
+      <value string="HTTP_CONNECTION:keep-alive&#xD;&#xA;HTTP_ACCEPT:text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8&#xD;&#xA;HTTP_ACCEPT_ENCODING:gzip, deflate&#xD;&#xA;HTTP_ACCEPT_LANGUAGE:es-ES,es;q=0.8,en-US;q=0.5,en;q=0.3&#xD;&#xA;HTTP_COOKIE:ASP.NET_SessionId=gi34wsv5yltkyeqbp3miwqe3; .ASPXAUTH=F3EAEB583E849283D8B346BF24A0CB1C8A9EEB3AC1BF6A2987339A0C945A7DF6199878739934EF49C53BD7418F33C2F5526AD0C6B51066A86CFD4D17415F1F00190FDFF5E485D605B73FDE62CEEFDC5050762FA9868FA56431FA2E876766BAEB0341714A57F80A0B15BD2E0AD2D990BF0E324243A2C454CE6358DFBDC8F0581C9BBCC1506F77FDE90CC460CD78A053E53B99986B5967FFFA0C784C20C5A35E3F92FA67600860B718738DFC807A432394F2B320517487306C9981262AC5D46A4D73AD943EFCA38641DBF43E1229B5EF40CF874F0992EABE5E74800A00ABB29E5B92EADDAB3A15C96C13CF9943C78D22C2B12C0402049A56B10DF9D24A4451340B&#xD;&#xA;HTTP_HOST:localhost:1371&#xD;&#xA;HTTP_REFERER:http://localhost:1371/Monitoreo/TareaTC?id=3&#xD;&#xA;HTTP_USER_AGENT:Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0&#xD;&#xA;HTTP_UPGRADE_INSECURE_REQUESTS:1&#xD;&#xA;" />
+    </item>
+    <item name="ALL_RAW">
+      <value string="Connection: keep-alive&#xD;&#xA;Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8&#xD;&#xA;Accept-Encoding: gzip, deflate&#xD;&#xA;Accept-Language: es-ES,es;q=0.8,en-US;q=0.5,en;q=0.3&#xD;&#xA;Cookie: ASP.NET_SessionId=gi34wsv5yltkyeqbp3miwqe3; .ASPXAUTH=F3EAEB583E849283D8B346BF24A0CB1C8A9EEB3AC1BF6A2987339A0C945A7DF6199878739934EF49C53BD7418F33C2F5526AD0C6B51066A86CFD4D17415F1F00190FDFF5E485D605B73FDE62CEEFDC5050762FA9868FA56431FA2E876766BAEB0341714A57F80A0B15BD2E0AD2D990BF0E324243A2C454CE6358DFBDC8F0581C9BBCC1506F77FDE90CC460CD78A053E53B99986B5967FFFA0C784C20C5A35E3F92FA67600860B718738DFC807A432394F2B320517487306C9981262AC5D46A4D73AD943EFCA38641DBF43E1229B5EF40CF874F0992EABE5E74800A00ABB29E5B92EADDAB3A15C96C13CF9943C78D22C2B12C0402049A56B10DF9D24A4451340B&#xD;&#xA;Host: localhost:1371&#xD;&#xA;Referer: http://localhost:1371/Monitoreo/TareaTC?id=3&#xD;&#xA;User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0&#xD;&#xA;Upgrade-Insecure-Requests: 1&#xD;&#xA;" />
+    </item>
+    <item name="APPL_MD_PATH">
+      <value string="/LM/W3SVC/3/ROOT" />
+    </item>
+    <item name="APPL_PHYSICAL_PATH">
+      <value string="D:\Cedro\CEDRO_FINAL\SMEC_PRODUCCION\SMEC\Web\" />
+    </item>
+    <item name="AUTH_TYPE">
+      <value string="Forms" />
+    </item>
+    <item name="AUTH_USER">
+      <value string="cvaldivia" />
+    </item>
+    <item name="AUTH_PASSWORD">
+      <value string="*****" />
+    </item>
+    <item name="LOGON_USER">
+      <value string="cvaldivia" />
+    </item>
+    <item name="REMOTE_USER">
+      <value string="cvaldivia" />
+    </item>
+    <item name="CERT_COOKIE">
+      <value string="" />
+    </item>
+    <item name="CERT_FLAGS">
+      <value string="" />
+    </item>
+    <item name="CERT_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SERIALNUMBER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CERT_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CONTENT_LENGTH">
+      <value string="0" />
+    </item>
+    <item name="CONTENT_TYPE">
+      <value string="" />
+    </item>
+    <item name="GATEWAY_INTERFACE">
+      <value string="CGI/1.1" />
+    </item>
+    <item name="HTTPS">
+      <value string="off" />
+    </item>
+    <item name="HTTPS_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="INSTANCE_ID">
+      <value string="3" />
+    </item>
+    <item name="INSTANCE_META_PATH">
+      <value string="/LM/W3SVC/3" />
+    </item>
+    <item name="LOCAL_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="PATH_INFO">
+      <value string="/Monitoreo/TareaTC/Edit" />
+    </item>
+    <item name="PATH_TRANSLATED">
+      <value string="D:\Cedro\CEDRO_FINAL\SMEC_PRODUCCION\SMEC\Web\Monitoreo\TareaTC\Edit" />
+    </item>
+    <item name="QUERY_STRING">
+      <value string="marcoid=3&amp;tarea=1257" />
+    </item>
+    <item name="REMOTE_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_HOST">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_PORT">
+      <value string="50549" />
+    </item>
+    <item name="REQUEST_METHOD">
+      <value string="GET" />
+    </item>
+    <item name="SCRIPT_NAME">
+      <value string="/Monitoreo/TareaTC/Edit" />
+    </item>
+    <item name="SERVER_NAME">
+      <value string="localhost" />
+    </item>
+    <item name="SERVER_PORT">
+      <value string="1371" />
+    </item>
+    <item name="SERVER_PORT_SECURE">
+      <value string="0" />
+    </item>
+    <item name="SERVER_PROTOCOL">
+      <value string="HTTP/1.1" />
+    </item>
+    <item name="SERVER_SOFTWARE">
+      <value string="Microsoft-IIS/10.0" />
+    </item>
+    <item name="URL">
+      <value string="/Monitoreo/TareaTC/Edit" />
+    </item>
+    <item name="HTTP_CONNECTION">
+      <value string="keep-alive" />
+    </item>
+    <item name="HTTP_ACCEPT">
+      <value string="text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8" />
+    </item>
+    <item name="HTTP_ACCEPT_ENCODING">
+      <value string="gzip, deflate" />
+    </item>
+    <item name="HTTP_ACCEPT_LANGUAGE">
+      <value string="es-ES,es;q=0.8,en-US;q=0.5,en;q=0.3" />
+    </item>
+    <item name="HTTP_COOKIE">
+      <value string="ASP.NET_SessionId=gi34wsv5yltkyeqbp3miwqe3; .ASPXAUTH=F3EAEB583E849283D8B346BF24A0CB1C8A9EEB3AC1BF6A2987339A0C945A7DF6199878739934EF49C53BD7418F33C2F5526AD0C6B51066A86CFD4D17415F1F00190FDFF5E485D605B73FDE62CEEFDC5050762FA9868FA56431FA2E876766BAEB0341714A57F80A0B15BD2E0AD2D990BF0E324243A2C454CE6358DFBDC8F0581C9BBCC1506F77FDE90CC460CD78A053E53B99986B5967FFFA0C784C20C5A35E3F92FA67600860B718738DFC807A432394F2B320517487306C9981262AC5D46A4D73AD943EFCA38641DBF43E1229B5EF40CF874F0992EABE5E74800A00ABB29E5B92EADDAB3A15C96C13CF9943C78D22C2B12C0402049A56B10DF9D24A4451340B" />
+    </item>
+    <item name="HTTP_HOST">
+      <value string="localhost:1371" />
+    </item>
+    <item name="HTTP_REFERER">
+      <value string="http://localhost:1371/Monitoreo/TareaTC?id=3" />
+    </item>
+    <item name="HTTP_USER_AGENT">
+      <value string="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0" />
+    </item>
+    <item name="HTTP_UPGRADE_INSECURE_REQUESTS">
+      <value string="1" />
+    </item>
+  </serverVariables>
+  <queryString>
+    <item name="marcoid">
+      <value string="3" />
+    </item>
+    <item name="tarea">
+      <value string="1257" />
+    </item>
+  </queryString>
+  <cookies>
+    <item name="ASP.NET_SessionId">
+      <value string="gi34wsv5yltkyeqbp3miwqe3" />
+    </item>
+    <item name=".ASPXAUTH">
+      <value string="F3EAEB583E849283D8B346BF24A0CB1C8A9EEB3AC1BF6A2987339A0C945A7DF6199878739934EF49C53BD7418F33C2F5526AD0C6B51066A86CFD4D17415F1F00190FDFF5E485D605B73FDE62CEEFDC5050762FA9868FA56431FA2E876766BAEB0341714A57F80A0B15BD2E0AD2D990BF0E324243A2C454CE6358DFBDC8F0581C9BBCC1506F77FDE90CC460CD78A053E53B99986B5967FFFA0C784C20C5A35E3F92FA67600860B718738DFC807A432394F2B320517487306C9981262AC5D46A4D73AD943EFCA38641DBF43E1229B5EF40CF874F0992EABE5E74800A00ABB29E5B92EADDAB3A15C96C13CF9943C78D22C2B12C0402049A56B10DF9D24A4451340B" />
+    </item>
+  </cookies>
+</error>

@@ -1,0 +1,281 @@
+﻿@section scripts
+{
+    <script type="text/javascript">
+        $(function () {
+            var data, proyecto, id = queryString('id'), marcoid = queryString('marcoid');
+            
+            proyecto = getJson('@Url.Content("~/api/Planificacion/MarcoLogicoTC/GetFecha")');
+            var permiso = getJson('@Url.Content("~/api/Sistema/Permiso/Find")', { id: 4 });
+
+            
+            if (id) {
+                data = getJson('@Url.Content("~/api/Planificacion/PlanOperativoTC/Find")', { id: id });
+            }
+            
+
+            var Model = function (data, proyecto) {
+                var self = this;
+
+                data = data || {
+                    id: 0,
+                    resultadoid: null,
+                    actividad: null,
+                    presupuesto: 0,
+                    periodoinicio: null,
+                    periodofin: null,
+                    codigo: null,
+                    supuesto: null,
+                    fuente: null,            
+                    marcoid:null,        
+                    PlanOperativoTareaTC: []
+                };
+
+                //console.log(data);
+
+                self.data = ko.mapping.fromJS(data);
+                self.proyecto = proyecto;
+                self.marcoid = marcoid;
+
+                self.addPlanOperativoTareaTC = function () {
+                    self.data.PlanOperativoTareaTC.push(ko.mapping.fromJS({
+                        id: 0,
+                        poid: null,
+                        codigo: null,
+                        tarea: null,
+                        indicador: null,
+                        unidadid: null,
+                        fuente: null,                        
+                        ficha1: null,
+                        ficha2: null,
+                        ficha3: null,
+                        ficha4: null,                        
+                        ficha6: null,
+                        archivos: null,
+                        marcoid:marcoid
+                    }));
+
+                    $("#tblDetalle tr:last").find('input[type=text]').filter(':first').focus();
+                };
+
+                self.removePlanOperativoTareaTC = function (item) {
+                    self.data.PlanOperativoTareaTC.remove(item);
+                };
+
+                self.Save = function (form) {
+                    if ($(form).refreshValidator().valid()) 
+                    {
+
+                        
+                        postJson('@Url.Content("~/api/Planificacion/PlanOperativoTC/Save")',
+                            JSON.parse(ko.mapping.toJSON(self.data)),
+                        function () {
+                        
+                            var url='@Url.Action("Index")?id=' + marcoid;
+                            document.location.href = url;
+                        },
+                        function () {
+                            alert('Error');
+                        });
+                    }
+                };
+
+                //if (id) {
+                //    self.grabar = permiso.modificar;
+                //    self.agregar = permiso.modificar;
+                //    self.eliminar = permiso.modificar;
+                //}
+                //else {
+                //    self.grabar = permiso.agregar;
+                //    self.agregar = permiso.agregar;
+                //    self.eliminar = permiso.agregar;
+                //}
+
+                self.listUnidadMedida = getJson('@Url.Content("~/api/General/UnidadMedida")');
+                self.listResultado = getJson('@Url.Content("~/api/Planificacion/ResultadoTC/List")', { marcoid: marcoid });
+            };
+
+            ko.applyBindings(new Model(data, proyecto));
+
+            if ((id && !permiso.modificar) || (!id && !permiso.agregar)) {
+                $('input[type=text],textarea').prop("readonly", true);
+                $('input[type=checkbox]').prop("disabled", true);
+            }
+        });
+
+        ShowPopup = function (item) {
+            ShowPopupArchivo('@Url.Action("TareaArchivo","PlanOperativoArchivoTC",new { area = "BibliotecaVirtual" })?biblioteca=0&id=' + item.id(), 1100, 500)
+            return false;
+        }
+
+        ShowPopupMeta = function (item) {
+            ShowPopupArchivo('@Url.Action("Index", "PlanOperativoTareaMetaTC", new { area = "Planificacion" })?id=' + item.id(), 1100, 500);
+            return false;
+        }
+    </script>
+}
+
+
+<form data-bind="submit: Save" style="width: 100%; float: left;">
+    <div class="toolbar">
+        <a class="back" title="Volver"  data-bind="attr: { href: '@Url.Action("Index")?id=' + $root.marcoid}"></a>
+        <button type="button" class="save" title="Grabar" onclick="$(this).closest('form').submit()"></button>
+        <button type="button" class="refresh" title="Refrescar" onclick="document.location.reload()"></button>
+    </div>
+
+    <fieldset>
+        <legend></legend>
+        <table style="width: 100%">
+            <colgroup>
+                <col style="width: 100px" />
+                <col />
+            </colgroup>
+            <tr>
+                <td>RESULTADO
+                </td>
+                <td>
+                    <select style="width: 100%" data-bind="value: data.resultadoid, options: $root.listResultado, optionsText: 'nombre', optionsValue: 'id', optionsCaption: '[SELECCIONAR]', attr: { name: 'data.resultadoid' }" data-val="true" data-val-required="" />
+                </td>
+            </tr>
+        </table>
+
+        <table style="width: 100%">
+            <colgroup>
+                <col style="width: 100px" />
+                <col style="width: 400px" />
+                <col style="width: 20px" />
+                <col style="width: 100px" />
+                <col />
+            </colgroup>
+            <tr>
+                <td>CODIGO
+                </td>
+                <td colspan="4">
+                    <input name="codigo" type="text" data-bind="value: data.codigo" style="width: 80px" data-val="true" data-val-required="" maxlength="10"/>
+                </td>
+            </tr>
+            <tr>
+                <td>ACTIVIDAD</td>
+                <td>
+                    <textarea name="actividad" data-bind="value: data.actividad" data-val="true" data-val-required=""></textarea>
+                </td>
+                <td></td>
+                <td>SUPUESTO</td>
+                <td>
+                    <textarea name="supuesto" data-bind="value: data.supuesto" data-val="true" data-val-required=""></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>PERIODO</td>
+                <td>
+                    <table>
+                        <colgroup>
+                            <col style="width: 40px" />
+                            <col style="width: 100px" />
+                            <col style="width: 20px" />
+                            <col style="width: 40px" />
+                            <col style="width: 100px" />
+                        </colgroup>
+                        <tr>
+                            <td>INICIO</td>
+                            <td>@Html.koDate("data.periodoinicio",width:100)</td>
+                            <td></td>
+                            <td>FIN</td>
+                            <td>@Html.koDate("data.periodofin",width:100)</td>
+                        </tr>
+                    </table>
+                </td>
+                <td></td>
+                @*<td>PRESUPUESTO S/.</td>
+                <td>
+                    @Html.koNumeric("data.presupuesto", width: 60)
+                </td>*@
+            </tr>
+        </table>
+    </fieldset>
+
+
+    <table id="tblDetalle" class="grid">
+        <thead>
+            <tr>
+                <th colspan="5"></th>
+                <th colspan="18">FICHA</th>
+                @*<th ></th>*@
+            </tr>
+
+            <tr>
+                <th style="width: 40px">COD</th>
+                <th style="width: 400px">TAREA</th>
+                <th style="width: 40px">UND</th>
+                <th >INDICADOR</th>
+                <th >FUENTE</th>
+                
+                <th style="width: 10px">1</th>
+                
+                <!-- ko if: data.marcoid()==2 -->
+                <th style="width: 10px">1</th>
+                <th style="width: 10px">2</th>
+                <th style="width: 10px">3</th>
+                <th style="width: 10px">4</th>
+                <!-- /ko -->
+
+                <!-- ko if: data.marcoid()==1 -->
+                <th style="width: 10px">6</th>
+                <!-- /ko -->
+
+                <th style="width: 72px">
+                    <button type="button" class="btn add" data-bind="click: addPlanOperativoTareaTC"></button>
+                </th>
+            </tr>
+        </thead>
+        <tbody data-bind='foreach: data.PlanOperativoTareaTC'>
+            <tr>
+                <td>
+                    <input type="text" data-bind="value: codigo, uniqueName: true" data-val="true" data-val-required="" maxlength="10"/></td>
+                <td>
+                    <textarea data-bind="value: tarea, attr: { name: 'PlanOperativoTareaTC[' + $index() + '].tarea' }" data-val="true" data-val-required="" ></textarea>
+                </td>
+                <td>
+                    <select data-bind="value: unidadid, options: $root.listUnidadMedida, optionsText: 'nombre', optionsValue: 'id', uniqueName: true" data-val="true" data-val-required="" />
+                </td>
+                <td>
+                    <textarea data-bind="value: indicador, attr: { name: 'PlanOperativoTareaTC[' + $index() + '].indicador' }" data-val="true" data-val-required="" ></textarea>
+                </td>
+                <td>
+                    <textarea data-bind="value: fuente, attr: { name: 'PlanOperativoTareaTC[' + $index() + '].fuente' }" data-val="true" data-val-required="" ></textarea>
+                </td>
+                
+                <td style="text-align: center">
+                    <input type="checkbox" data-bind="checked: ficha4, attr: {name: 'checkBoxficha4' + id}" />
+                </td>
+                
+                <!-- ko if: marcoid()==2 -->                
+                <td style="text-align: center">
+                    <input type="checkbox" data-bind="checked: ficha1, attr: {name: 'checkBoxficha1' + id}" />
+                </td>
+                 <td style="text-align: center">
+                    <input type="checkbox" data-bind="checked: ficha2, attr: {name: 'checkBoxficha2' + id}" />
+                </td>
+                 <td style="text-align: center">
+                    <input type="checkbox" data-bind="checked: ficha3, attr: {name: 'checkBoxficha3' + id}" />
+                </td>
+                 <td style="text-align: center">
+                    <input type="checkbox" data-bind="checked: ficha4, attr: {name: 'checkBoxficha4' + id}" />
+                </td>
+                <!-- /ko -->
+
+                <!-- ko if: marcoid()==1 -->    
+                <td style="text-align: center">
+                    <input type="checkbox" data-bind="checked: ficha6, attr: {name: 'checkBoxficha6' + id}" />
+                </td>
+                <!-- /ko -->
+
+                <td style="text-align: center">
+                    <button class="btn folder" type="button" title="Archivos" data-bind="attr: { class: 'btn folder' + ((archivos() == true) ? '_open' : '') }, click: function () { ShowPopup($data) }, visible: id() != 0"></button>
+                    <button type="button" class="btn movie" title="Metas anuales" data-bind="click: function () { ShowPopupMeta($data) }"></button>
+                    <button type="button" class="btn del" data-bind="click: $root.removePlanOperativoTareaTC"></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+   
+</form>

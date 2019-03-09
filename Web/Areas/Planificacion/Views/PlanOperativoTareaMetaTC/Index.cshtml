@@ -1,0 +1,149 @@
+﻿@section scripts
+{
+    <script type="text/javascript">
+        $(function () {
+            var data, id = queryString('id');
+
+            var permiso = getJson('@Url.Content("~/api/Sistema/Permiso/Find")', { id: 4 });
+
+            
+            if (id) {
+                data = getJson('@Url.Content("~/api/Planificacion/PlanOperativoTareaMetaTC/Find")', { id: id });
+            }
+
+            
+
+            var Model = function (data) {
+                var self = this;
+
+                self.listEjeIntervencion = getJson('@Url.Content("~/api/General/EjeIntervencion02")');
+                self.listTelecentros = getJson('@Url.Content("~/api/General/Telecentros")');
+
+                data = data || {
+                    id: 0,
+                    periodoinicio:null,
+                    periodofin:null,
+                    PlanOperativoTareaMetaTC: []
+                };
+
+                self.data = ko.mapping.fromJS(data);
+                
+                self.listYears = ko.computed(function () {
+                    if (self.data.periodoinicio() && self.data.periodofin()) {
+                        return ko.utils.range(self.data.periodoinicio().getFullYear(), self.data.periodofin().getFullYear());
+                    }
+                    else
+                        return 0;
+                });
+
+                self.addPlanOperativoTareaMetaTC = function () {
+                    self.data.PlanOperativoTareaMetaTC.push(ko.mapping.fromJS({
+                        id: 0,
+                        anio: null,
+                        ejeintervencionid: null,
+                        telecentro:null,
+                        mes1: 0,
+                        mes2: 0,
+                        mes3: 0,
+                        mes4: 0,
+                        mes5: 0,
+                        mes6: 0,
+                        mes7: 0,
+                        mes8: 0,
+                        mes9: 0,
+                        mes10: 0,
+                        mes11: 0,
+                        mes12: 0
+                    }));
+
+                    $("#tblDetalle tr:last").find('input[type=text]').filter(':first').focus();
+                };
+
+                self.removePlanOperativoTareaMetaTC = function (item) {
+                    self.data.PlanOperativoTareaMetaTC.remove(item);
+                };
+
+                self.Save = function (form) {
+                    if ($(form).refreshValidator().valid()) {
+                        postJson('@Url.Content("~/api/Planificacion/PlanOperativoTareaMetaTC/Save")', JSON.parse(ko.mapping.toJSON(self.data)),
+                        function () {
+                            
+                            alert('Los registros fueron grabados satisfactoriamente');
+                        },
+                        function () {
+                            alert('Error');
+                        });
+                    }
+                };
+            };
+
+            ko.applyBindings(new Model(data));
+
+            if ((id && !permiso.modificar) || (!id && !permiso.agregar)) {
+                $('input[type=text],textarea').prop("readonly", true);
+                $('input[type=checkbox]').prop("disabled", true);
+            }
+        });
+
+        
+    </script>
+}
+
+
+<form data-bind="submit: Save" style="width: 100%; float: left;">
+    <div class="toolbar">
+        <button type="button" class="save" title="Grabar" onclick="$(this).closest('form').submit()"></button>
+        <button type="button" class="refresh" title="Refrescar" onclick="document.location.reload()"></button>
+    </div>
+
+    
+    <table id="tblDetalle" class="grid">
+        <thead>
+           
+            <tr>
+                <th style="width: 80px">Año</th>
+                <th style="width: 200px">Eje</th>
+                <th style="width: 200px">Telecentro</th>
+                <th style="width: 50px">Ene</th>
+                <th style="width: 50px">Feb</th>
+                <th style="width: 50px">Mar</th>
+                <th style="width: 50px">Abr</th>
+                <th style="width: 50px">May</th>
+                <th style="width: 50px">Jun</th>
+                <th style="width: 50px">Jul</th>
+                <th style="width: 50px">Ago</th>
+                <th style="width: 50px">Sep</th>
+                <th style="width: 50px">Oct</th>
+                <th style="width: 50px">Nov</th>
+                <th style="width: 50px">Dic</th>
+                <th style="width: 24px">
+                    <button type="button" class="btn add" data-bind="click: addPlanOperativoTareaMetaTC"></button>
+                </th>
+            </tr>
+        </thead>
+        <tbody data-bind='foreach: data.PlanOperativoTareaMetaTC'>
+            <tr>
+                <td style="align-content:center">
+                    <input type="hidden" data-bind="value: id, uniqueName: true"/>
+                    @Html.koSelectSimple("anio", "$root.listYears")
+                <td>@Html.koSelect("ejeintervencionid", "$root.listEjeIntervencion")</td>
+                <td>@Html.koSelect("telecentro", "$root.listTelecentros")</td>
+                <td>@Html.koNumeric("mes1", @decimal: false, maxlength:6, required:true)</td>
+                <td>@Html.koNumeric("mes2", @decimal: false, maxlength:6, required:true)</td>
+                <td>@Html.koNumeric("mes3", @decimal: false, maxlength:6, required:true)</td>
+                <td>@Html.koNumeric("mes4", @decimal: false, maxlength:6, required:true)</td>
+                <td>@Html.koNumeric("mes5", @decimal: false, maxlength:6, required:true)</td>
+                <td>@Html.koNumeric("mes6", @decimal: false, maxlength:6, required:true)</td>
+                <td>@Html.koNumeric("mes7", @decimal: false, maxlength:6, required:true)</td>
+                <td>@Html.koNumeric("mes8", @decimal: false, maxlength:6, required:true)</td>
+                <td>@Html.koNumeric("mes9", @decimal: false, maxlength:6, required:true)</td>
+                <td>@Html.koNumeric("mes10", @decimal: false, maxlength:6, required:true)</td>
+                <td>@Html.koNumeric("mes11", @decimal: false, maxlength:6, required:true)</td>
+                <td>@Html.koNumeric("mes12", @decimal: false, maxlength:6, required:true)</td>
+                <td style="text-align: center">
+                    <button type="button" class="btn del" title="Eliminar"  data-bind="click: $root.removePlanOperativoTareaMetaTC"></button>
+                </td>
+            </tr>
+        </tbody>    
+    </table>
+</form>

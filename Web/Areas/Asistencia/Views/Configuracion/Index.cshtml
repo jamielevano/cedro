@@ -1,0 +1,302 @@
+﻿
+@section scripts
+{
+    <script type="text/javascript">
+        $(function () {
+            $('#loading').show();
+
+            var permiso = getJson('@Url.Content("~/api/Sistema/Permiso/Find")', { id: 2107 });
+
+            var Model = function ()
+            {
+                var self = this;
+
+                self.data = {
+                    tipoid:ko.observable(1),
+                    telecentroid: ko.observable('@ViewBag.telecentroid'),
+                    programaid: ko.observable('@ViewBag.programaid'),
+                    nivelid: ko.observable('@ViewBag.nivelid'),
+                    moduloid: ko.observable('@ViewBag.moduloid'),
+                    anioid: ko.observable('@ViewBag.anioid'),
+                    mesid: ko.observable('@ViewBag.mesid'),
+                    id: ko.observable('@ViewBag.id')
+                };
+
+                self.listModulo = ko.observableArray([]);
+                self.listNivel = ko.observableArray([]);
+                self.listEjeIntervencion = getJson('@Url.Content("~/api/General/EjeIntervencion02")');
+                self.listTelecentros = getJson('@Url.Content("~/api/General/TelecentrosFilter")');
+                self.listlocalidad = getJson('@Url.Content("~/api/General/Localidad")');
+                self.list = ko.observableArray();
+                self.listAnio = getJson('@Url.Content("~/api/General/Anios")');
+                self.listMes = getJson('@Url.Content("~/api/General/Meses")');
+                self.listPrograma = getJson('@Url.Content("~/api/General/Programa")');
+                self.listOrganizacion = getJson('@Url.Content("~/api/General/Organizacion")');
+
+
+
+                self.Search = function (form)
+                {
+                    if ($(form).refreshValidator().valid()) {
+
+                        self.list(undefined);
+                        postJson('@Url.Content("~/api/Asistencia/Configuracion/Search")',
+                                JSON.parse(ko.mapping.toJSON(self.data)),
+                                function (data) {
+                                    self.list(data);
+                                })
+                    }
+                };
+
+                /////////////////////////////////////////////////////////////////
+
+                var updateNiveles = function (id) {
+                    self.data.nivelid(self.data.nivelid() || undefined);
+                    self.listNivel(undefined);
+                    if (id) {
+                        self.listNivel(getJson('@Url.Content("~/Api/General/NivelPrograma")', { programa: id }))
+                    }
+                };
+
+                self.data.programaid.subscribe(updateNiveles);
+                if (self.data.programaid()) {
+                    var nivelid = self.data.nivelid();
+                    updateNiveles(self.data.programaid());
+                    self.data.nivelid(nivelid);
+                }
+
+                /////////////////////////////////////////////////////////////////
+
+                var updateModulos = function (id) {
+                    self.data.moduloid(self.data.moduloid() || undefined);
+                    self.listModulo(undefined);
+                    if (id) {
+                        self.listModulo(getJson('@Url.Content("~/Api/General/Modulos")', { nivelid: id }))
+                    }
+                };
+
+                self.data.nivelid.subscribe(updateModulos);
+                if (self.data.nivelid()) {
+                    var moduloid = self.data.moduloid();
+                    updateModulos(self.data.nivelid());
+                    self.data.moduloid(moduloid);
+                }
+
+                /////////////////////////////////////////////////////////////////
+
+                self.delete = function (item) {
+                    if (confirm('¿Esta seguro de eliminar el registro?'))
+                    {
+                        postJson('@Url.Content("~/api/Asistencia/Configuracion/Delete")', { id: item.id },
+                        function () {
+
+                            document.location.reload();
+                        },
+                        function () {
+                            alert('Error');
+                        });
+                    }
+                };
+
+                self.new = function (item)
+                {
+                    document.location.href = '@Url.Action("Edit")';
+                };
+
+                self.modificar = function (item)
+                {
+                    var vistatext = (item.cerrado) ? 'vista=' + item.cerrado + '&' : '';
+                    document.location.href = '@Url.Action("Edit")?' + vistatext + 'id=' + item.id;
+                };
+
+                self.inscritos = function (item) {
+                    var vistatext = (item.cerrado) ? 'vista=' + item.cerrado + '&' : '';
+                    document.location.href = '@Url.Action("Index", "Inscripcion","Asistencia")?' + vistatext + 'parentid=' + item.id + '&programaid=' + item.programaid + '&moduloid=' + item.moduloid
+                };
+
+                self.detalle = function (item) {
+
+                    var vistatext = (item.cerrado) ? 'vista=' + item.cerrado + '&' : '';
+                    document.location.href = '@Url.Action("Index", "Modulo","Asistencia")?' + vistatext + 'parentid=' + item.id + "&nivelid=" + item.nivelid;
+                };
+
+                self.permiso = permiso;
+            };
+
+            ko.applyBindings(new Model());
+
+            $('#loading').hide();
+            //$("#fbusqueda").submit();
+        })
+
+
+        function report(id, programaid, moduloid) {
+            var cadena = "../Reports/Asistencia.aspx?reporte=1&configuracionid=" + id + "&programaid=" + programaid.padLeft(2) + "&moduloid=" + moduloid.padLeft(2);
+            ShowPopupArchivo(cadena, 1300, 640);
+        }
+    </script>
+}
+
+
+<div class="toolbar">
+    <button type="button" data-bind="click: $root.new, enable: $root.permiso.agregar" class="new" title="Nuevo"></button>
+    <button type="button" class="refresh" title="Refrescar" onclick="document.location.reload()"></button>
+</div>
+    
+<table style="width:99%; margin: 10px auto;">
+    <tr>
+        <td>
+            <fieldset>
+                <legend>BUSCAR</legend>
+                <form id="fbusqueda" data-bind="submit: Search">
+                    <table>
+                        <tr>
+                            <td>
+                               EJE DE INTERVENCION
+                            </td>
+                             @*<td>@Html.koSelect("data.localidadid", "$root.listlocalidad", requerido: false )</td>*@
+                            <td>@Html.koSelect("data.ejeintervencionid", "$root.listEjeIntervencion", requerido: false)</td>
+                            @*<td>@Html.koSelect("data.ejeintervencionid", "$root.listEjeIntervencion", enable: @Web.Auth.GetTicketData().Admin.ToString().ToLower())</td>*@
+                            @*<td>
+                                @Html.koSelectV2("data.telecentroid", "$root.listTelecentros",requerido:@Web.Auth.GetTicketData().NotAdmin.ToString().ToLower() )
+                            </td>*@
+                            <td></td>
+                            <td>
+                                COMPONENTE
+                            </td>
+                            <td>
+                                @Html.koSelect("data.programaid", "$root.listPrograma", requerido:false)
+                            </td>
+                            <td></td>
+                            <td>
+                                CURSO
+                            </td>
+                            <td>
+                                @Html.koSelect("data.nivelid", "$root.listNivel", requerido:false)
+                            </td>
+                            <td>ORGANIZADO POR</td>
+                            <td>@Html.koSelect("data.organizacion", "$root.listOrganizacion", requerido: false)</td>
+                             @*<td>
+                                Modulo
+                            </td>
+                            <td>
+                                @Html.koSelect("data.moduloid", "$root.listModulo", requerido:false)
+                            </td>*@
+                        </tr>
+                        <tr>
+                            <td>
+                                AÑO
+                            </td>
+                            <td>
+                                @Html.koSelect("data.anioid", "$root.listAnio",requerido:false)
+                            </td>
+                             <td></td>
+                            <td>
+                                MES
+                            </td>
+                            <td>
+                                @Html.koSelect("data.mesid", "$root.listMes",requerido:false)
+                            </td>
+                            <td></td>
+                            <td>
+                                CODIGO DE CAPACITACION
+                            </td>
+                            <td>
+                                @Html.koNumeric("data.id",required:false)
+                            </td>
+                            <td></td>
+                            <td style="text-align:right" colspan="3">
+                                <button type="submit" style="cursor:pointer;">Buscar</button>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </fieldset>
+        </td>
+    </tr>
+</table>
+
+<div >
+    <table class="grid" style="width:99%;">
+       
+            <colgroup>
+                <col style="width: 20px" />
+                <col style="width: 40px" />
+                <col style="width: 100px" />
+                <col style="width: 100px" />
+                <col style="width: 140px" />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col style="width: 30px" />
+                <col style="width: 24px" />
+                <col style="width: 24px" />
+                <col style="width: 24px" />
+                <col style="width: 48px" />
+                <col style="width: 24px" />
+                <col style="width: 24px" />
+            </colgroup>
+            @*<thead style="position: fixed;">*@
+            <thead>
+                <tr>
+                    <th>N°</th>
+                    <th>CODIGO DE CAPACITACION</th>
+                    <th>INICIO</th>
+                    <th>FIN</th>
+                    <th>GRUPO</th>
+                    <th>EJE</th>
+                    <th>LOCALIDAD</th>
+                    <th>COMPONENTE</th>
+                    <th>CURSO</th>
+                    @*<th>Módulo</th>*@
+                    <th>FINALIZADO</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+           @* <tbody class="sinTbody"><tr><td>&nbsp;</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></tbody>*@
+            @*</table>
+            <table class="grid" style="width:97%;">*@
+            @*<tbody style="overflow:auto;display:compact;width: 100%;height:50px;" data-bind="foreach: list">*@
+            @*<tbody data-bind="foreach: list">*@
+            <tbody data-bind="foreach: list">
+                <tr>
+                    <td style="text-align: center" data-bind="text: $index() + 1" />
+                    <td style="text-align: center" data-bind="text: id"></td>
+                    <td data-bind="text: formatDate(fechainicio)" style="text-align: center"></td>
+                    <td data-bind="text: formatDate(fechafin)" style="text-align: center"></td>
+                    <td data-bind="text: nombre"></td>
+                    <td data-bind="text: ejeintervencion"></td>
+                    <td data-bind="text: telecentro"></td>
+                    <td data-bind="text: programa, attr: { title: programa }"></td>
+                    <td data-bind="text: nivel" />
+                    @*<td data-bind="text: modulo"></td>*@
+                    <td data-bind="text: formatDate(fechacierre)"></td>
+                    <td style="text-align: center">
+                        <input type="hidden" data-bind="value: nivelid, uniqueName: true" />
+                        <button type="button" class="btn users" title="Inscritos" data-bind="click: $root.inscritos, enable: $root.permiso.modificar" />
+                    </td>
+                    <td>
+                        <button type="button" class="btn settings" title="Configurar inscritos sin condición" data-bind="visible: error" />
+                    </td>
+                    <td data-bind="text: cantidad" title="Inscritos" style="text-align:right"></td>
+                    <td style="text-align: center">
+                        <button type="button" class="btn edit" title="Modificar" data-bind="click: $root.modificar, enable: $root.permiso.modificar" />
+                        <button type="button" class="btn del" title="Eliminar" data-bind="click: $root.delete, enable: !cerrado &&  $root.permiso.eliminar" />
+                    </td>
+                    <td style="text-align: center">
+                        <button type="button" class="btn folder" title="Modulo" data-bind="click: $root.detalle, enable: $root.permiso.modificar" />
+                    </td>
+                    <td style="text-align: center">
+                        <button type="button" class="btn report" title="Reporte" data-bind="click: function () { report(id, programaid, moduloid) }"></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</div>

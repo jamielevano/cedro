@@ -1,0 +1,154 @@
+﻿@section scripts
+{
+    <script type="text/javascript">
+        $(function () {
+            var parentid = queryString('parentid');
+
+            var Model = function (data) {
+                var self = this;
+                self.data = {
+                    telecentroid: ko.observable('@Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(ViewBag.telecentroid))'),
+                    dni: ko.observable(null),
+                    apellidopaterno: ko.observable(null),
+                    apellidomaterno: ko.observable(null),
+                    nombre: ko.observable(null)
+                };
+
+                self.listTelecentros = getJson('@Url.Content("~/api/General/Telecentros")');
+                self.list = ko.observableArray();
+                
+                self.Search = function (form) {
+                    self.list(undefined);
+                    postJson('@Url.Content("~/api/Asistencia/Persona/Search")',
+                    JSON.parse(ko.mapping.toJSON(self.data)),
+                    function (data)
+                    {
+                        self.list(data);
+                    })
+                }
+
+                self.Save = function (form)
+                {
+                    if ($(form).refreshValidator().valid())
+                    {
+                        postJson('@Url.Content("~/api/Asistencia/Inscripcion/Save")',
+                             {
+                                    id: parentid,
+                                    persona: JSON.parse(ko.mapping.toJSON(self.list))
+                            },
+                        function () {
+                            alert('Los datos fueron registrados');
+                        },
+                        function () {
+                            alert('Error');
+                        });
+                    }
+                };
+            };
+
+            ko.applyBindings(new Model());
+        })
+
+        
+    </script>
+}
+
+<form data-bind="submit: Save" style="width: 100%; float: left;">
+    <div class="toolbar">
+        <button type="button" class="save" title="Grabar" onclick="$(this).closest('form').submit()"></button>
+        <button type="button" class="refresh" title="Refrescar" onclick="document.location.reload()"></button>
+    </div>
+
+    <table style="width:95%; margin: 10px auto;">
+        <tr>
+            <td>
+                <fieldset>
+                    <legend>BUSCAR PERSONA</legend>
+                    <table>
+                        <tr>
+                            <td>APELLIDO PATERNO
+                            </td>
+                            <td>
+                                @Html.koTextNoRequired("data.apellidopaterno")
+                            </td>
+                            <td></td>
+                            <td>
+                                APELLIDO MATERNO
+                            </td>
+                            <td>
+                                @Html.koTextNoRequired("data.apellidomaterno")
+                            </td>
+                            <td></td>
+                            <td>
+                                NOMBRE
+                            </td>
+                            <td>
+                                @Html.koTextNoRequired("data.nombre")
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>DNI
+                            </td>
+                            <td>
+                                @Html.koNumeric("data.dni",maxlength:8,required:false)
+                            </td>
+                            <td></td>
+                            <td>
+                                LOCALIDAD
+                            </td>
+                            <td>
+                                @Html.koSelect("data.telecentroid", "$root.listTelecentros",requerido:false)
+                            </td>
+                            <td></td>
+                            <td></td>
+                            <td style="text-align:right">
+                                <button type="button" title="Buscar" data-bind="click: $root.Search" >Buscar</button>
+                            </td>
+                        </tr>
+                    </table>
+                </fieldset>
+            </td>
+        </tr>
+    </table>
+
+    <table class="grid" style="width: 95%">
+        <colgroup>
+            <col style="width: 40px" />
+            <col style="width: 180px" />
+            <col style="width: 180px" />
+            <col style="width: 180px" />
+            <col style="width: 80px" />
+            <col />
+            <col />
+            <col style="width: 48px" />
+        </colgroup>
+        <thead>
+            <tr>
+                <th>COD</th>
+                <th>APELLIDO PATERNO</th>
+                <th>APELLIDO MATERNO</th>
+                <th>NOMBRE</th>
+                <th>DNI</th>
+                <th>EJE INTERVENCION</th>
+                <th>LOCALIDAD</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody data-bind="foreach: list">
+            <tr>
+                <td style="text-align: center" data-bind="text: $index() + 1">
+                    <input type="hidden" data-bind="value: id, attr: { name: '[' + $index() + '].id' }" />
+                </td>
+                <td data-bind="text: apellidopaterno"></td>
+                <td data-bind="text: apellidomaterno"></td>
+                <td data-bind="text: nombre"></td>
+                <td style="text-align: center" data-bind="text: dni"></td>
+                <td data-bind="text: ejeintervencion"></td>
+                <td data-bind="text: telecentro"></td>
+                <td style="text-align: center">
+                    <input type="checkbox" data-bind="checked: estado, attr: { name: 'checkBoxPersona' + id }" />
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</form>

@@ -1,0 +1,63 @@
+﻿@section scripts
+{
+    <script type="text/javascript">
+        $(function () {
+            var data = getJson('@Url.Content("~/api/Sistema/Rol/List")');
+
+            var Model = function (data) {
+                var self = this;
+
+                self.delete = function (item) {
+                    if (confirm('¿Esta seguro de eliminar el registro?')) {
+                        postJson('@Url.Content("~/api/Sistema/Rol/Delete")', { id: item.id() },
+                        function () {
+                                
+                            self.data.remove(item);
+                        },
+                        function () {
+                            alert('Error');
+                        });
+                    }
+                };
+                self.data = ko.mapping.fromJS(data);
+            };
+
+            ko.applyBindings(new Model(data));
+        })
+    </script>
+}
+
+
+<div class="toolbar">
+    <a class="new" title="Nuevo" data-bind="attr: { href: '@Url.Action("Edit")'}"></a>
+    <button type="button" class="refresh" title="Refrescar" onclick="document.location.reload()"></button>
+</div>
+
+<fieldset>
+    <legend></legend>
+
+    <table class="grid">
+        <colgroup>
+            <col style="width: 50px" />
+            <col />
+            <col style="width: 48px" />
+        </colgroup>
+        <thead>
+            <tr>
+                <th>N°</th>
+                <th>NOMBRE</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody data-bind='foreach: data'>
+            <tr>
+                <td data-bind="text: $index() + 1 "></td>
+                <td data-bind="text: nombre "></td>
+                <td style="text-align: center">
+                    <a class="btn edit" title="Modificar" data-bind="attr: { href: '@Url.Action("Edit")?id=' + $data.id()}"></a>
+                    <button type="button" class="btn del" title="Eliminar" data-bind="click: $root.delete, enable: eliminable" />
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</fieldset>

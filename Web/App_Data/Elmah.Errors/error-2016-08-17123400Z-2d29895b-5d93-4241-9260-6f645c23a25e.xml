@@ -1,0 +1,632 @@
+﻿<error errorId="2d29895b-5d93-4241-9260-6f645c23a25e" application="/" host="DESARROLLO_NET" type="System.Data.Entity.Validation.DbEntityValidationException" message="Validation failed for one or more entities. See 'EntityValidationErrors' property for more details." source="EntityFramework" detail="System.Data.Entity.Validation.DbEntityValidationException: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.&#xD;&#xA;   at System.Data.Entity.Internal.InternalContext.SaveChanges()&#xD;&#xA;   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()&#xD;&#xA;   at System.Data.Entity.DbContext.SaveChanges()&#xD;&#xA;   at Web.Areas.Monitoreo.Controllers.Api.TareaTCController.SaveAvance(AvancePOTC item) in c:\Proyectos\Cedro\Pase 4\Fuentes\SMEC\Web\Areas\Monitoreo\Controllers\Api\TareaTCController.cs:line 456&#xD;&#xA;   at lambda_method(Closure , Object , Object[] )&#xD;&#xA;   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.&lt;&gt;c__DisplayClass10.&lt;GetExecutor&gt;b__9(Object instance, Object[] methodParameters)&#xD;&#xA;   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)&#xD;&#xA;   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)&#xD;&#xA;--- End of stack trace from previous location where exception was thrown ---&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()&#xD;&#xA;   at System.Web.Http.Controllers.ApiControllerActionInvoker.&lt;InvokeActionAsyncCore&gt;d__0.MoveNext()&#xD;&#xA;--- End of stack trace from previous location where exception was thrown ---&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()&#xD;&#xA;   at System.Web.Http.Controllers.ActionFilterResult.&lt;ExecuteAsync&gt;d__2.MoveNext()&#xD;&#xA;--- End of stack trace from previous location where exception was thrown ---&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()&#xD;&#xA;   at System.Web.Http.Controllers.ExceptionFilterResult.&lt;ExecuteAsync&gt;d__0.MoveNext()" user="lpariatanta" time="2016-08-17T12:34:00.2647849Z">
+  <serverVariables>
+    <item name="ALL_HTTP">
+      <value string="HTTP_CONNECTION:keep-alive&#xD;&#xA;HTTP_CONTENT_LENGTH:4935&#xD;&#xA;HTTP_CONTENT_TYPE:application/x-www-form-urlencoded; charset=UTF-8&#xD;&#xA;HTTP_ACCEPT:application/json, text/javascript, */*; q=0.01&#xD;&#xA;HTTP_ACCEPT_ENCODING:gzip, deflate&#xD;&#xA;HTTP_ACCEPT_LANGUAGE:es-ES,es;q=0.8&#xD;&#xA;HTTP_COOKIE:CookiesLogin=luis.pariatanta@gmail.com; .ASPXAUTH=36866DF944BB17AF2D00779284CBF4D51D254A526C2AB525CE25943AAC34D2296395ACEA33EC61ACFAA145717AB502AB652F698CD0A55F34E7D30F9D76BCDE5C5C4B7CDD23B18CED8DC4BDEDC1B6E22A05AA85905E730A5E8DC26658480920BCCF7EDA5FF35A042A97AFDF44C30F7F237913F46839090890EA4884C5021F058D0F83B71C62AA41630F7F047F3FEF737C64D0374326BAC23BBD549981335E4E83B5A88D2A964FCB4A253DFC0FE8B53EDE370774ACE791FA3E35C748A6AC7B81ED1826BF74FCF269F5F4AEBDEBC9B9ECA29A3FEE98A6861AA32C60179CAB15457470F065D71DE4F63433185F7F52B3B1702AC3C74D628531B1455B75F108C8E1EC&#xD;&#xA;HTTP_HOST:localhost:59065&#xD;&#xA;HTTP_REFERER:http://localhost:59065/Monitoreo/TareaTC/Edit?marcoid=2&amp;tarea=1156&#xD;&#xA;HTTP_USER_AGENT:Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36&#xD;&#xA;HTTP_ORIGIN:http://localhost:59065&#xD;&#xA;HTTP_X_REQUESTED_WITH:XMLHttpRequest&#xD;&#xA;" />
+    </item>
+    <item name="ALL_RAW">
+      <value string="Connection: keep-alive&#xD;&#xA;Content-Length: 4935&#xD;&#xA;Content-Type: application/x-www-form-urlencoded; charset=UTF-8&#xD;&#xA;Accept: application/json, text/javascript, */*; q=0.01&#xD;&#xA;Accept-Encoding: gzip, deflate&#xD;&#xA;Accept-Language: es-ES,es;q=0.8&#xD;&#xA;Cookie: CookiesLogin=luis.pariatanta@gmail.com; .ASPXAUTH=36866DF944BB17AF2D00779284CBF4D51D254A526C2AB525CE25943AAC34D2296395ACEA33EC61ACFAA145717AB502AB652F698CD0A55F34E7D30F9D76BCDE5C5C4B7CDD23B18CED8DC4BDEDC1B6E22A05AA85905E730A5E8DC26658480920BCCF7EDA5FF35A042A97AFDF44C30F7F237913F46839090890EA4884C5021F058D0F83B71C62AA41630F7F047F3FEF737C64D0374326BAC23BBD549981335E4E83B5A88D2A964FCB4A253DFC0FE8B53EDE370774ACE791FA3E35C748A6AC7B81ED1826BF74FCF269F5F4AEBDEBC9B9ECA29A3FEE98A6861AA32C60179CAB15457470F065D71DE4F63433185F7F52B3B1702AC3C74D628531B1455B75F108C8E1EC&#xD;&#xA;Host: localhost:59065&#xD;&#xA;Referer: http://localhost:59065/Monitoreo/TareaTC/Edit?marcoid=2&amp;tarea=1156&#xD;&#xA;User-Agent: Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36&#xD;&#xA;Origin: http://localhost:59065&#xD;&#xA;X-Requested-With: XMLHttpRequest&#xD;&#xA;" />
+    </item>
+    <item name="APPL_MD_PATH">
+      <value string="" />
+    </item>
+    <item name="APPL_PHYSICAL_PATH">
+      <value string="C:\Proyectos\Cedro\Pase 4\Fuentes\SMEC\Web\" />
+    </item>
+    <item name="AUTH_TYPE">
+      <value string="Forms" />
+    </item>
+    <item name="AUTH_USER">
+      <value string="lpariatanta" />
+    </item>
+    <item name="AUTH_PASSWORD">
+      <value string="*****" />
+    </item>
+    <item name="LOGON_USER">
+      <value string="DESARROLLO_NET\Administrator" />
+    </item>
+    <item name="REMOTE_USER">
+      <value string="lpariatanta" />
+    </item>
+    <item name="CERT_COOKIE">
+      <value string="" />
+    </item>
+    <item name="CERT_FLAGS">
+      <value string="" />
+    </item>
+    <item name="CERT_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SERIALNUMBER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CERT_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CONTENT_LENGTH">
+      <value string="4935" />
+    </item>
+    <item name="CONTENT_TYPE">
+      <value string="application/x-www-form-urlencoded; charset=UTF-8" />
+    </item>
+    <item name="GATEWAY_INTERFACE">
+      <value string="" />
+    </item>
+    <item name="HTTPS">
+      <value string="" />
+    </item>
+    <item name="HTTPS_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="INSTANCE_ID">
+      <value string="" />
+    </item>
+    <item name="INSTANCE_META_PATH">
+      <value string="" />
+    </item>
+    <item name="LOCAL_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="PATH_INFO">
+      <value string="/api/Monitoreo/TareaTC/SaveAvance" />
+    </item>
+    <item name="PATH_TRANSLATED">
+      <value string="C:\Proyectos\Cedro\Pase 4\Fuentes\SMEC\Web\api\Monitoreo\TareaTC\SaveAvance" />
+    </item>
+    <item name="QUERY_STRING">
+      <value string="" />
+    </item>
+    <item name="REMOTE_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_HOST">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_PORT">
+      <value string="" />
+    </item>
+    <item name="REQUEST_METHOD">
+      <value string="POST" />
+    </item>
+    <item name="SCRIPT_NAME">
+      <value string="/api/Monitoreo/TareaTC/SaveAvance" />
+    </item>
+    <item name="SERVER_NAME">
+      <value string="localhost" />
+    </item>
+    <item name="SERVER_PORT">
+      <value string="59065" />
+    </item>
+    <item name="SERVER_PORT_SECURE">
+      <value string="0" />
+    </item>
+    <item name="SERVER_PROTOCOL">
+      <value string="HTTP/1.1" />
+    </item>
+    <item name="SERVER_SOFTWARE">
+      <value string="" />
+    </item>
+    <item name="URL">
+      <value string="/api/Monitoreo/TareaTC/SaveAvance" />
+    </item>
+    <item name="HTTP_CONNECTION">
+      <value string="keep-alive" />
+    </item>
+    <item name="HTTP_CONTENT_LENGTH">
+      <value string="4935" />
+    </item>
+    <item name="HTTP_CONTENT_TYPE">
+      <value string="application/x-www-form-urlencoded; charset=UTF-8" />
+    </item>
+    <item name="HTTP_ACCEPT">
+      <value string="application/json, text/javascript, */*; q=0.01" />
+    </item>
+    <item name="HTTP_ACCEPT_ENCODING">
+      <value string="gzip, deflate" />
+    </item>
+    <item name="HTTP_ACCEPT_LANGUAGE">
+      <value string="es-ES,es;q=0.8" />
+    </item>
+    <item name="HTTP_COOKIE">
+      <value string="CookiesLogin=luis.pariatanta@gmail.com; .ASPXAUTH=36866DF944BB17AF2D00779284CBF4D51D254A526C2AB525CE25943AAC34D2296395ACEA33EC61ACFAA145717AB502AB652F698CD0A55F34E7D30F9D76BCDE5C5C4B7CDD23B18CED8DC4BDEDC1B6E22A05AA85905E730A5E8DC26658480920BCCF7EDA5FF35A042A97AFDF44C30F7F237913F46839090890EA4884C5021F058D0F83B71C62AA41630F7F047F3FEF737C64D0374326BAC23BBD549981335E4E83B5A88D2A964FCB4A253DFC0FE8B53EDE370774ACE791FA3E35C748A6AC7B81ED1826BF74FCF269F5F4AEBDEBC9B9ECA29A3FEE98A6861AA32C60179CAB15457470F065D71DE4F63433185F7F52B3B1702AC3C74D628531B1455B75F108C8E1EC" />
+    </item>
+    <item name="HTTP_HOST">
+      <value string="localhost:59065" />
+    </item>
+    <item name="HTTP_REFERER">
+      <value string="http://localhost:59065/Monitoreo/TareaTC/Edit?marcoid=2&amp;tarea=1156" />
+    </item>
+    <item name="HTTP_USER_AGENT">
+      <value string="Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36" />
+    </item>
+    <item name="HTTP_ORIGIN">
+      <value string="http://localhost:59065" />
+    </item>
+    <item name="HTTP_X_REQUESTED_WITH">
+      <value string="XMLHttpRequest" />
+    </item>
+  </serverVariables>
+  <form>
+    <item name="id">
+      <value string="" />
+    </item>
+    <item name="marcoid">
+      <value string="2" />
+    </item>
+    <item name="tareaid">
+      <value string="1156" />
+    </item>
+    <item name="fechaingreso">
+      <value string="" />
+    </item>
+    <item name="ejeintervencionid">
+      <value string="4" />
+    </item>
+    <item name="sectorid">
+      <value string="1" />
+    </item>
+    <item name="telecentroid">
+      <value string="61" />
+    </item>
+    <item name="fechainicio">
+      <value string="2016-08-04T05:00:00.000Z" />
+    </item>
+    <item name="fechafin">
+      <value string="2016-08-19T05:00:00.000Z" />
+    </item>
+    <item name="fechareporte">
+      <value string="2016-08-18T05:00:00.000Z" />
+    </item>
+    <item name="promotorid">
+      <value string="71" />
+    </item>
+    <item name="descripcion">
+      <value string="" />
+    </item>
+    <item name="discapacitados">
+      <value string="true" />
+    </item>
+    <item name="nodiscapacitados">
+      <value string="" />
+    </item>
+    <item name="poblacion01">
+      <value string="true" />
+    </item>
+    <item name="poblacion02">
+      <value string="" />
+    </item>
+    <item name="poblacion03">
+      <value string="" />
+    </item>
+    <item name="poblacion04">
+      <value string="" />
+    </item>
+    <item name="poblacion05">
+      <value string="" />
+    </item>
+    <item name="poblacion06">
+      <value string="" />
+    </item>
+    <item name="poblacion07">
+      <value string="" />
+    </item>
+    <item name="poblacion08">
+      <value string="" />
+    </item>
+    <item name="poblacion09">
+      <value string="" />
+    </item>
+    <item name="poblacion10">
+      <value string="" />
+    </item>
+    <item name="poblacion11">
+      <value string="" />
+    </item>
+    <item name="poblacion12">
+      <value string="" />
+    </item>
+    <item name="poblacion13">
+      <value string="" />
+    </item>
+    <item name="poblacion14">
+      <value string="" />
+    </item>
+    <item name="poblacion15">
+      <value string="" />
+    </item>
+    <item name="poblacion16">
+      <value string="" />
+    </item>
+    <item name="poblacionotro">
+      <value string="" />
+    </item>
+    <item name="horas">
+      <value string="0" />
+    </item>
+    <item name="sustentoficha1">
+      <value string="" />
+    </item>
+    <item name="sustentoficha2">
+      <value string="" />
+    </item>
+    <item name="sustentoficha3">
+      <value string="" />
+    </item>
+    <item name="sustentoficha4">
+      <value string="" />
+    </item>
+    <item name="sustentoficha5">
+      <value string="" />
+    </item>
+    <item name="sustentoficha6">
+      <value string="" />
+    </item>
+    <item name="sustentovideos">
+      <value string="" />
+    </item>
+    <item name="sustentootros">
+      <value string="" />
+    </item>
+    <item name="participanteshombres">
+      <value string="" />
+    </item>
+    <item name="participantesmujeres">
+      <value string="" />
+    </item>
+    <item name="lugar">
+      <value string="" />
+    </item>
+    <item name="lugarnumerohoras">
+      <value string="0" />
+    </item>
+    <item name="lugarcostohora">
+      <value string="0" />
+    </item>
+    <item name="costototalalimentacion">
+      <value string="0" />
+    </item>
+    <item name="costototalmovilidad">
+      <value string="0" />
+    </item>
+    <item name="difusionemisionesradio">
+      <value string="" />
+    </item>
+    <item name="difusionemisionestv">
+      <value string="" />
+    </item>
+    <item name="difusionemisionesprensa">
+      <value string="" />
+    </item>
+    <item name="difusionsegundosradio">
+      <value string="" />
+    </item>
+    <item name="difusionsegundostv">
+      <value string="" />
+    </item>
+    <item name="difusionsegundosprensa">
+      <value string="" />
+    </item>
+    <item name="difusioncostoradio">
+      <value string="" />
+    </item>
+    <item name="difusioncostotv">
+      <value string="" />
+    </item>
+    <item name="difusioncostoprensa">
+      <value string="" />
+    </item>
+    <item name="voluntariosnumero">
+      <value string="" />
+    </item>
+    <item name="voluntarioshoras">
+      <value string="" />
+    </item>
+    <item name="voluntarioscostohora">
+      <value string="" />
+    </item>
+    <item name="consultoresnumero">
+      <value string="" />
+    </item>
+    <item name="consultoreshoras">
+      <value string="" />
+    </item>
+    <item name="consultorescostohora">
+      <value string="" />
+    </item>
+    <item name="asesoriahoras">
+      <value string="" />
+    </item>
+    <item name="asesoriacostohora">
+      <value string="" />
+    </item>
+    <item name="productores">
+      <value string="0" />
+    </item>
+    <item name="noproductores">
+      <value string="0" />
+    </item>
+    <item name="rangoedad1">
+      <value string="1" />
+    </item>
+    <item name="rangoedad2">
+      <value string="2" />
+    </item>
+    <item name="rangoedad3">
+      <value string="3" />
+    </item>
+    <item name="retirados">
+      <value string="3" />
+    </item>
+    <item name="evaluacion">
+      <value string="1" />
+    </item>
+    <item name="desaprobados">
+      <value string="2" />
+    </item>
+    <item name="certificados">
+      <value string="4" />
+    </item>
+    <item name="totalparticipantes">
+      <value string="0" />
+    </item>
+    <item name="temporalid">
+      <value string="593370" />
+    </item>
+    <item name="codigocapacitacion">
+      <value string="" />
+    </item>
+    <item name="AvancePOTC_Ficha01[tipodocumento01]">
+      <value string="true" />
+    </item>
+    <item name="AvancePOTC_Ficha01[tipodocumento02]">
+      <value string="" />
+    </item>
+    <item name="AvancePOTC_Ficha01[tipodocumento03]">
+      <value string="" />
+    </item>
+    <item name="AvancePOTC_Ficha01[tipodocumento04]">
+      <value string="" />
+    </item>
+    <item name="AvancePOTC_Ficha01[tipodocumento05]">
+      <value string="" />
+    </item>
+    <item name="AvancePOTC_Ficha01[tipodocumento06]">
+      <value string="" />
+    </item>
+    <item name="AvancePOTC_Ficha01[tipodocumento07]">
+      <value string="" />
+    </item>
+    <item name="AvancePOTC_Ficha01[tipodocumentootro]">
+      <value string="" />
+    </item>
+    <item name="AvancePOTC_Ficha01[titulo]">
+      <value string="po" />
+    </item>
+    <item name="AvancePOTC_Ficha01[tema]">
+      <value string="tema" />
+    </item>
+    <item name="AvancePOTC_Ficha01[versiones01]">
+      <value string="true" />
+    </item>
+    <item name="AvancePOTC_Ficha01[versiones02]">
+      <value string="false" />
+    </item>
+    <item name="AvancePOTC_Ficha01[versiones03]">
+      <value string="" />
+    </item>
+    <item name="AvancePOTC_Ficha01[versionesotro]">
+      <value string="" />
+    </item>
+    <item name="AvancePOTC_Ficha01[fechaalmacenamiento]">
+      <value string="2016-08-29T05:00:00.000Z" />
+    </item>
+    <item name="AvancePOTC_Ficha01[poblacion]">
+      <value string="" />
+    </item>
+    <item name="AvancePOTC_Ficha01[elaborado01]">
+      <value string="true" />
+    </item>
+    <item name="AvancePOTC_Ficha01[elaborado02]">
+      <value string="false" />
+    </item>
+    <item name="AvancePOTC_Ficha01[autor]">
+      <value string="au" />
+    </item>
+    <item name="AvancePOTC_Ficha01[aprobado]">
+      <value string="apt" />
+    </item>
+    <item name="AvancePOTC_Ficha02[plataformatemas]">
+      <value string="pt" />
+    </item>
+    <item name="AvancePOTC_Ficha02[plataformafechacreacion]">
+      <value string="2016-08-18T05:00:00.000Z" />
+    </item>
+    <item name="AvancePOTC_Ficha02[plataformafechadisponible]">
+      <value string="2016-08-17T05:00:00.000Z" />
+    </item>
+    <item name="AvancePOTC_Ficha02[plataformafechaultima]">
+      <value string="2016-08-18T05:00:00.000Z" />
+    </item>
+    <item name="AvancePOTC_Ficha02[plataformaresponsable]">
+      <value string="res" />
+    </item>
+    <item name="AvancePOTC_Ficha02[plataformanumeroentradas]">
+      <value string="1" />
+    </item>
+    <item name="AvancePOTC_Ficha02[plataformanumerocomentarios]">
+      <value string="2" />
+    </item>
+    <item name="AvancePOTC_Ficha02[disenosmsimagenes]">
+      <value string="3" />
+    </item>
+    <item name="AvancePOTC_Ficha02[disenosmstexto]">
+      <value string="4" />
+    </item>
+    <item name="AvancePOTC_Ficha02[disenosmsaudio]">
+      <value string="5" />
+    </item>
+    <item name="AvancePOTC_Ficha02[disenosmsvideo]">
+      <value string="6" />
+    </item>
+    <item name="AvancePOTC_Ficha02[disenosmsfechaelaboracion]">
+      <value string="2016-08-18T05:00:00.000Z" />
+    </item>
+    <item name="AvancePOTC_Ficha02[disenosmsfechadifusion]">
+      <value string="2016-08-25T05:00:00.000Z" />
+    </item>
+    <item name="AvancePOTC_Ficha02[disenosmsdescripcion]">
+      <value string="breve" />
+    </item>
+    <item name="AvancePOTC_Ficha02[produccionafiche]">
+      <value string="af" />
+    </item>
+    <item name="AvancePOTC_Ficha02[produccionposter]">
+      <value string="pos" />
+    </item>
+    <item name="AvancePOTC_Ficha02[produccionlienzo]">
+      <value string="li" />
+    </item>
+    <item name="AvancePOTC_Ficha02[producciongigantografia]">
+      <value string="gi" />
+    </item>
+    <item name="AvancePOTC_Ficha02[producciontriptico]">
+      <value string="tr" />
+    </item>
+    <item name="AvancePOTC_Ficha02[produccionvolante]">
+      <value string="vo" />
+    </item>
+    <item name="AvancePOTC_Ficha02[produccionjuegos]">
+      <value string="ju" />
+    </item>
+    <item name="AvancePOTC_Ficha02[produccionotro]">
+      <value string="otr" />
+    </item>
+    <item name="AvancePOTC_Ficha02[produccionfechaelaboracion]">
+      <value string="2016-08-24T05:00:00.000Z" />
+    </item>
+    <item name="AvancePOTC_Ficha02[produccionimpresion]">
+      <value string="1" />
+    </item>
+    <item name="AvancePOTC_Ficha02[produccionejemplares]">
+      <value string="ej" />
+    </item>
+    <item name="AvancePOTC_Ficha02[producciondescripcion]">
+      <value string="bre" />
+    </item>
+    <item name="AvancePOTC_Ficha02[difusionspotvideo]">
+      <value string="true" />
+    </item>
+    <item name="AvancePOTC_Ficha02[difusionspotaudio]">
+      <value string="" />
+    </item>
+    <item name="AvancePOTC_Ficha02[difusionspototro]">
+      <value string="" />
+    </item>
+    <item name="AvancePOTC_Ficha02[difusionmensaje]">
+      <value string="men" />
+    </item>
+    <item name="AvancePOTC_Ficha02[difusionduracion]">
+      <value string="09:00:00" />
+    </item>
+    <item name="AvancePOTC_Ficha02[difusionfechaproduccion]">
+      <value string="2016-08-25T05:00:00.000Z" />
+    </item>
+    <item name="AvancePOTC_Ficha02[difusionlugarproduccion]">
+      <value string="lu" />
+    </item>
+    <item name="AvancePOTC_Ficha02[difusionresponsableproduccion]">
+      <value string="res" />
+    </item>
+    <item name="AvancePOTC_Ficha02[difusionfechaelaboracion1]">
+      <value string="" />
+    </item>
+    <item name="AvancePOTC_Ficha02[difusiontitulo1]">
+      <value string="ti1" />
+    </item>
+    <item name="AvancePOTC_Ficha02[difusionfechaelaboracion2]">
+      <value string="" />
+    </item>
+    <item name="AvancePOTC_Ficha02[difusiontitulo2]">
+      <value string="ti2" />
+    </item>
+    <item name="AvancePOTC_Ficha02[difusionfrecuencianombre1]">
+      <value string="nom1" />
+    </item>
+    <item name="AvancePOTC_Ficha02[difusionfrecuenciaveces1]">
+      <value string="1" />
+    </item>
+    <item name="AvancePOTC_Ficha02[difusionfrecuencianombre2]">
+      <value string="nom3" />
+    </item>
+    <item name="AvancePOTC_Ficha02[difusionfrecuenciaveces2]">
+      <value string="2" />
+    </item>
+    <item name="AvancePOTC_Ficha03[tiporeunion]">
+      <value string="1" />
+    </item>
+    <item name="AvancePOTC_Ficha03[reunionotra]">
+      <value string="" />
+    </item>
+    <item name="AvancePOTC_Ficha03[reuniontema]">
+      <value string="tem" />
+    </item>
+    <item name="AvancePOTC_Ficha03[reunionlocal]">
+      <value string="local" />
+    </item>
+    <item name="AvancePOTC_Ficha03[reunionfecha]">
+      <value string="2016-08-03T05:00:00.000Z" />
+    </item>
+    <item name="AvancePOTC_Ficha03[reunionadministrador]">
+      <value string="pers" />
+    </item>
+    <item name="AvancePOTC_Ficha03[reunioncuerdo1]">
+      <value string="res1" />
+    </item>
+    <item name="AvancePOTC_Ficha03[reunioncuerdo2]">
+      <value string="res2" />
+    </item>
+    <item name="AvancePOTC_Ficha03[reunioncuerdo3]">
+      <value string="res3" />
+    </item>
+    <item name="AvancePOTC_Ficha03[reunioncuerdo4]">
+      <value string="res4" />
+    </item>
+    <item name="AvancePOTC_Ficha03[reunioncuerdo5]">
+      <value string="res5" />
+    </item>
+    <item name="AvancePOTC_Ficha03[fechaproxima]">
+      <value string="2016-08-17T05:00:00.000Z" />
+    </item>
+    <item name="AvancePOTC_Ficha03[reunionacomentarios]">
+      <value string="com" />
+    </item>
+  </form>
+  <cookies>
+    <item name="CookiesLogin">
+      <value string="luis.pariatanta@gmail.com" />
+    </item>
+    <item name=".ASPXAUTH">
+      <value string="36866DF944BB17AF2D00779284CBF4D51D254A526C2AB525CE25943AAC34D2296395ACEA33EC61ACFAA145717AB502AB652F698CD0A55F34E7D30F9D76BCDE5C5C4B7CDD23B18CED8DC4BDEDC1B6E22A05AA85905E730A5E8DC26658480920BCCF7EDA5FF35A042A97AFDF44C30F7F237913F46839090890EA4884C5021F058D0F83B71C62AA41630F7F047F3FEF737C64D0374326BAC23BBD549981335E4E83B5A88D2A964FCB4A253DFC0FE8B53EDE370774ACE791FA3E35C748A6AC7B81ED1826BF74FCF269F5F4AEBDEBC9B9ECA29A3FEE98A6861AA32C60179CAB15457470F065D71DE4F63433185F7F52B3B1702AC3C74D628531B1455B75F108C8E1EC" />
+    </item>
+  </cookies>
+</error>

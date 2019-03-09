@@ -1,0 +1,239 @@
+﻿@section scripts
+{
+    <script type="text/javascript">
+    $(function () {
+
+        $('#loading').show();
+
+            var Model = function ()
+            {
+                var self = this;
+                self.data =
+                {
+                    fechainicio: ko.observable(DateIni()),
+                    fechafin: ko.observable(DateNow())
+                };
+
+
+                self.listTelecentros = ko.observableArray([]);
+                self.listEjeIntervencion = getJson('@Url.Content("~/api/General/EjeIntervencion02")');
+
+
+                self.listResultado = getJson('@Url.Content("~/api/Planificacion/ResultadoTC/List")');
+                self.listActividad = ko.observableArray();
+                self.listTarea = ko.observableArray();
+                //self.listEjeIntervencion = getJson('@Url.Content("~/api/General/EjeIntervencion02")');
+                //self.listTelecentros = getJson('@Url.Content("~/api/General/Telecentros")');
+
+                self.lisTipo = [
+                    { id: 1, nombre: "Agrupado" },
+                    { id: 2, nombre: "Consolidado" }
+                ];
+
+                self.idResultado = ko.observable();
+                self.idActividad = ko.observable();
+                self.idTarea = ko.observable();
+                self.idTipo = ko.observable();
+
+                self.idEjeIntervencion = ko.observable();
+                self.idTelecentro = ko.observable();
+
+
+
+                self.idResultado.subscribe(function (id) {
+                    self.idTarea(undefined);
+                    self.listTarea(undefined);
+
+                    self.idActividad(undefined);
+                    self.listActividad(undefined);
+
+                    if (id) self.listActividad(getJson('@Url.Content("~/api/Planificacion/PlanOperativoTC/FindByResultado")', { id: id }));
+                });
+
+                self.SelectActividad = function () {
+                    if (self.idActividad()) {
+                        var actividad = getJson('@Url.Content("~/api/Planificacion/PlanOperativoTC/FindShort")', { id: self.idActividad() });
+
+                        if (actividad) {
+
+                            self.data.fechainicio(actividad.periodoinicio);
+                            self.data.fechafin(actividad.periodofin);
+                        }
+                    }
+                }
+
+
+
+
+                self.idActividad.subscribe(function (id) {
+                    self.idTarea(undefined);
+                    self.listTarea(undefined);
+
+                    if (id) self.listTarea(getJson('@Url.Content("~/api/Planificacion/PlanOperativoTC/FindByTarea")', { id: id }));
+                });
+
+
+                var updateTelecentros = function (id) {
+                    self.idTelecentro(self.idTelecentro() || undefined);
+                    self.listTelecentros(undefined);
+                    if (id) {
+                        self.listTelecentros(getJson('@Url.Content("~/Api/General/Eje_Telecentros")', { eje: id }))
+                    }
+                };
+
+                self.idEjeIntervencion.subscribe(updateTelecentros);
+
+                if (self.idEjeIntervencion()) {
+
+                    var telecentroid = self.idTelecentro();
+                    updateTelecentros(self.idEjeIntervencion());
+                    self.idTelecentro(telecentroid);
+                }
+
+
+                self.Search = function (form)
+                {
+                    if ($(form).refreshValidator().valid()) {
+                        var fechainicio = formatDate_YYYYMMDD(self.data.fechainicio());
+                        var fechafin = formatDate_YYYYMMDD(self.data.fechafin());
+                        var idResultado = self.idResultado();
+                        var idActividad = self.idActividad();
+                        var idTarea = self.idTarea();
+                        var idTipo = self.idTipo();
+                        var idTelecentro = self.idTelecentro();
+                        var idEjeIntervencion = self.idEjeIntervencion();
+                        /*
+                        if (fechainicio.substring(0, 4) != fechafin.substring(0, 4)) {
+                            alert("Las fechas de inicio y fin deben estar contendidas dentro de un año.");
+                            return;
+                        }*/
+
+                        if (typeof idTelecentro === 'undefined')
+                            idTelecentro = '0';
+
+                        if (typeof idResultado === 'undefined')
+                            idResultado = '0';
+
+                        if (typeof idActividad === 'undefined')
+                            idActividad = '0';
+
+                        if (typeof idTarea === 'undefined')
+                            idTarea = '0';
+
+                        if (typeof idEjeIntervencion === 'undefined')
+                            idEjeIntervencion = '0';
+
+                        var cadena = "../Reports/ReportPage.aspx?reporte=4&idResultado=" + idResultado + "&idActividad=" + idActividad + "&idTarea=" + idTarea +
+                            "&idEjeIntervencion=" + idEjeIntervencion + "&idTelecentro=" + idTelecentro + "&idTipo=" + idTipo + "&fechainicio=" + fechainicio + "&fechafin=" + fechafin;
+
+                        if (idTipo==1)
+                            ShowPopupArchivo(cadena, 1200, 640);
+                        else
+                            ShowPopupArchivo(cadena, 500, 400);
+                    }
+                }
+            }
+
+        ko.applyBindings(new Model());
+        $('#loading').hide();
+     })
+    </script>
+}
+
+<div class="toolbar">
+    <button type="button" class="refresh" title="Refrescar" onclick="document.location.reload()"></button>
+</div>
+
+<fieldset>
+    <legend>Buscar avance</legend>
+    <form data-bind="submit: Search">
+        
+        <table style="width: 100%">
+            <colgroup>
+                <col style="width: 100px" />
+                <col />
+                <col style="width: 100px" />
+            </colgroup>
+            <tr>
+                <td>Resultado
+                </td>
+                <td>
+                    <select style="width:100%" data-bind="value: idResultado, options: $root.listResultado, optionsText: 'nombre', optionsValue: 'id', optionsCaption: '[Todos]' , uniqueName: true"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Actividad
+                </td>
+                <td>
+                    <select style="width:100%" data-bind="value: idActividad, enable: (listActividad() && listActividad().length), click:SelectActividad, options: $root.listActividad, optionsText: 'nombre', optionsValue: 'id', optionsCaption: '[Todos]', uniqueName: true" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Tarea
+                </td>
+                <td>
+                    <select style="width:100%" data-bind="value: idTarea, enable: (listTarea() && listTarea().length), options: $root.listTarea, optionsText: 'nombre', optionsValue: 'id', optionsCaption: '[Todos]', uniqueName: true" />
+                </td>
+            </tr>
+        </table>
+        <table style="width:80%;">
+            <colgroup>
+                <col style="width: 100px" />
+                <col />
+                <col style="width: 100px" />
+                <col />
+                <col style="width: 100px" />
+                <col />
+            </colgroup>
+            <tr>
+                <td>
+                    Eje
+                </td>
+                <td colspan="5">
+                    @Html.koSelect("$root.idEjeIntervencion", "$root.listEjeIntervencion",false)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Telecentro
+                </td>
+                <td>
+                    @Html.koSelect("$root.idTelecentro", "$root.listTelecentros", "$root.listTelecentros()", false)
+                </td>
+                <td>Tipo
+                </td>
+                <td>
+                    <select style="width:100px" data-bind="value: idTipo, options: $root.lisTipo, optionsText: 'nombre', optionsValue: 'id', optionsCaption: '[SELECCIONAR]', uniqueName: true" data-val="true" data-val-required=""/>
+                </td>
+                <td>
+                </td>
+                <td>
+                    
+                </td>
+            </tr>
+        </table>
+        <table style="width:40%;">
+            <colgroup>
+                <col style="width: 100px" />
+                <col />
+                <col style="width: 100px" />
+                <col />
+            </colgroup>
+            <tr>
+                <td>Desde</td>
+                <td>
+                    @Html.koDate("data.fechainicio",width:100,required:true)
+                </td>
+                <td>Hasta</td>
+                <td>
+                    @Html.koDate("data.fechafin",width:100,required:true, min: "data.fechainicio")
+                </td>
+                <td>
+                    <button type="submit" >Reporte</button>
+                </td>
+                
+            </tr>
+        </table>
+    </form>
+</fieldset>

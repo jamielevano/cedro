@@ -1,0 +1,99 @@
+﻿@section scripts
+{
+    <script type="text/javascript">
+        $(function () {
+            var id = queryString('id');           
+            var pagina = 0;
+
+            if (id == 1)
+                pagina = 2099;
+
+            if (id == 2)
+                pagina = 2100;
+
+            if (id == 3)
+                pagina = 2103;
+
+            if (id == 4)
+                pagina = 2104;
+
+            var data = getJson('@Url.Content("~/api/BibliotecaVirtual/Documentos/Listar")', { id: id });
+            var permiso = getJson('@Url.Content("~/api/Sistema/Permiso/Find")', { id: pagina });
+
+            var Model = function (data)
+            {
+                var self = this;
+                self.data = ko.mapping.fromJS(data);
+                self.permiso = permiso;
+
+                self.delete = function (item) {
+                    if (confirm('¿Desea eliminar este archivo?')) {
+                        postJson('@Url.Content("~/api/BibliotecaVirtual/Documentos/Eliminar")', { id: item.id() }, function () {
+
+                            self.data.archivos.remove(item);
+                        })
+                    }
+                }
+            };
+
+            ko.applyBindings(new Model(data));
+        })
+    </script>
+}
+
+
+<fieldset>
+    <legend>ADJUNTAR ARCHIVO</legend>
+    <form method="post" enctype="multipart/form-data">
+        <input type="hidden" name="id" data-bind="value: data.id" />
+        <p>
+            ARCHIVO:
+            <input type="file" data-bind="enable: $root.permiso.agregar" name="files" data-val="true" data-val-required="" multiple="multiple" />
+            <font color="#0000ff">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp----------------->EL TITULO DEL ARCHIVO TIENE QUE SER UNA BREVE DESCRIPCION DEL CONTENIDO<------------------</font>
+        </p>
+        <p>DESCRIPCION DEL ARCHIVO</p>
+        <p>
+            <textarea name="descripcion" data-bind="enable: $root.permiso.modificar, value: data.proposito" data-val="true" data-val-required=""></textarea>
+        </p>
+        <p>
+            <button type="submit" data-bind="enable: $root.permiso.agregar"><a class="btn add"></a>Adjuntar</button>
+        </p>
+    </form>
+</fieldset>
+
+<fieldset>
+    <legend>LISTADO DE ARCHIVOS</legend>
+    <table class="grid">
+        <thead>
+            <tr>
+                <th style="width: 40px;">N°</th>
+                <th style="width: 150px;">Nombre</th>
+                <th style="width: 50px;">TAMAÑO</th>
+                <th style="width: 50px;">FECHA</th>
+                <th style="width: 350px;">DESCRIPCION</th>
+                <th style="width: 10px;">USUARIO</th>
+                <th style="width: 60px;"></th>
+            </tr>
+        </thead>
+        <tbody data-bind="foreach: data.archivos">
+            <tr>
+                <td style="text-align: center" data-bind="text: $index() + 1">
+                    <input type="hidden" data-bind="value: id, attr: { name: '[' + $index() + '].id' }" />
+                </td>
+                <td>
+                    <b data-bind="attr: { class: 'fileicon ' + nombre().split('.').pop() }"></b>
+                    <span data-bind="text: nombre"></span>
+                </td>
+                <td data-bind="text: formatFileSize(tamanio)" style="text-align: right;"></td>
+                <td data-bind="text: formatDate(fecha)" style="text-align: center;"></td>
+                <td data-bind="text: descripcion" style="text-align: left;"></td>
+                <td data-bind="text: aud_usuarioreg" style="text-align: right;"></td>
+                <td style="text-align: center;">
+                    <a class="btn download" data-bind="attr: { href: '@Url.Action("Descargar","Documentos", new { area = "BibliotecaVirtual" })/' + id() }"></a>
+                    @*<button type="button" class="btn edit" title="Modificar" data-bind="click: $root.modificar, enable: $root.permiso.modificar" />*@
+                    <button type="button" class="btn del" data-bind="enable: $root.permiso.eliminar,click: $root.delete"></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</fieldset>

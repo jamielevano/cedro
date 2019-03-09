@@ -1,0 +1,134 @@
+﻿@section scripts
+{
+    <script type="text/javascript">
+
+        $(function () {
+            var data, parentid = queryString('parentid');
+            var vista = queryString('vista');
+
+            data = getJson('@Url.Content("~/api/Asistencia/Participante/List")', { id: parentid });
+
+            var Model = function (data) {
+                var self = this;
+
+                data = data || {
+                    id: 0,
+                    apellidopaterno: null,
+                    apellidomaterno: null,
+                    nombre: null,
+                    dni: null,
+                    ejeintervencion: null,
+                    localidad: null,
+                    estado: null,
+                    notaentrada: 0,
+                    notasalida: 0
+                };
+
+                console.log(data);
+                
+                self.Save = function (form) {
+                    if ($(form).refreshValidator().valid()) {
+                        postJson('@Url.Content("~/api/Asistencia/Participante/Save")',
+                             {
+                                 claseid: parentid,
+                                 persona: JSON.parse(ko.mapping.toJSON(self.data))
+                             },
+                        function () {
+                            alert("Los datos fueron guardados");
+                            window.close();
+                            //document.location.href = '@Url.Action("Index")';
+                        },
+                        function () {
+                            alert('Error');
+                        });
+                    }
+                };
+
+                
+
+                self.data = ko.mapping.fromJS(data);
+
+                self.SelectAll = ko.computed({
+                    read: function () {
+                        var persons = self.data();
+                        for (var i = 0, l = persons.length; i < l; i++)
+                            if (!persons[i].estado()) return false;
+                        return true;
+                    },
+                    write: function (value) {
+                        ko.utils.arrayForEach(self.data(), function (person) {
+                            person.estado(value);
+                        });
+                    }
+                });
+            };
+
+            ko.applyBindings(new Model(data));
+
+            if (vista) {
+                $('input,select,textarea,button', 'form').prop("disabled", true);
+                $('button.ui-datepicker-trigger').hide();
+            }
+        })
+
+        
+    </script>
+}
+
+<form data-bind="submit: Save" style="width: 100%; float: left;">
+    <div class="toolbar">
+        <button type="button" class="save" title="Grabar" onclick="$(this).closest('form').submit()"></button>
+        <button type="button" class="refresh" title="Refrescar" onclick="document.location.reload()"></button>
+    </div>
+
+
+    <fieldset>
+        <legend>Personas</legend>
+            <table class="grid">
+            <colgroup>
+                <col style="width: 40px" />
+                <col style="width: 180px" />
+                <col style="width: 180px" />
+                <col style="width: 180px" />
+                <col style="width: 80px" />
+                <col />
+                <col />
+                <col style="width: 48px" />
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>Cod</th>
+                    <th>Apellido Paterno</th>
+                    <th>Apellido Materno</th>
+                    <th>Nombre</th>
+                    <th>DNI</th>
+                    <th>Eje Intervención</th>
+                    <th>Localidad</th>
+                    <th>
+                        <input type="checkbox" data-bind="checked: SelectAll" />
+                    </th>
+                    
+                </tr>
+            </thead>
+            <tbody data-bind="foreach: $root.data">
+                <tr>
+                    <td style="text-align: center" data-bind="text: $index() + 1">
+                        <input type="hidden" data-bind="value: id, attr: { name: '[' + $index() + '].id' }" />
+                    </td>
+                    <td data-bind="text: apellidopaterno"></td>
+                    <td data-bind="text: apellidomaterno"></td>
+                    <td data-bind="text: nombre"></td>
+                    <td style="text-align: center" data-bind="text: dni"></td>
+                    <td data-bind="text: ejeintervencion"></td>
+                    <td data-bind="text: localidad"></td>
+                    <td style="text-align: center">
+                        <input type="checkbox" data-bind="checked: estado, attr: { name: 'checkBoxPersona' + id }" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </fieldset>
+</form>
+
+@*<pre class="json" data-bind="text: JSON.stringify(ko.mapping.toJS(data) , null, '  ')"></pre>*@

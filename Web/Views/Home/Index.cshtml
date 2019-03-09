@@ -1,0 +1,129 @@
+﻿@model List<Repositorio.ModuloResponse>
+@{ Layout = null; }
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SMEC</title>
+    <link rel="icon" href="~/favicon.ico" />
+    <link href="~/Content/MasterPage.css?@(Web.MvcApplication.QS)" rel="stylesheet" />
+    <link href="~/Content/jqwidgets/styles/jqx.base.css" rel="stylesheet" />
+    <link href="~/Content/jqwidgets/styles/jqx.office.css" rel="stylesheet" />
+    <script type="text/javascript">if (top.location != location) top.location.href = document.location.href;</script>
+    <script src="~/Scripts/jquery-2.1.4.min.js"></script>
+    <script src="~/Scripts/jqwidgets/jqxcore.js"></script>
+    <script src="~/Scripts/jqwidgets/jqxmenu.js"></script>
+    <script src="~/Scripts/jqwidgets/jqxtabs.js"></script>
+    @Scripts.Render("~/bundles/globalization")
+    <script type="text/javascript">
+        function OpenDocument(doc) { document.location.href = doc; }
+
+        function MostrarPagina(url, title) {
+            var index = $('#content .jqx-tabs-header ul li').filter(function () { return $(this).text() == title }).index();
+            if (index != -1) { $('#content').jqxTabs('select', index); }
+            else { $('#content').jqxTabs('addLast', title, '<iframe src="' + url + '"></iframe>'); }
+        }
+
+        $(function () {
+            var fn = function () {
+                $("#fecha").text($.global.format(new Date(), 'dd/MM/yyyy HH:mm:ss'));
+
+                var h = $(window).height() - 93;
+                $('#content').height(h);
+                $('#content .jqx-tabs-content').height(h - 30);
+            };
+            fn();
+            setInterval(fn, 500);
+
+            $("#menu").jqxMenu({ showTopLevelArrows: true, theme: 'office', animationShowDuration: 0, animationHideDuration: 0, animationShowDelay: 0 });
+            $("#menu li:last").unbind('click');
+            $("#content").jqxTabs({ position: 'top', theme: 'office', showCloseButtons: true, keyboardNavigation: false }).jqxTabs('removeAt', 0);
+
+            $('.password').click(function () {
+                MostrarPagina('@Url.Action("Password")', 'Cambiar contraseña');
+            });
+        })
+    </script>
+</head>
+<body>
+    @*<div id="menu">
+        <ul>
+            @foreach (var mod in Model)
+            {
+                <li>
+                    @mod.descripcion
+                    <ul>
+                        @foreach (var sub in mod.SubModuloResponse)
+                        {
+                            <li>
+                                @sub.descripcion
+                                <ul>
+                                    @foreach (var pag in sub.PaginaResponse)
+                                    {
+                                        <li onclick="MostrarPagina('@(Url.Content("~/" + pag.url))', '@pag.descripcion')">
+                                            @pag.descripcion
+                                        </li>		 
+                                    }
+                                </ul>
+                            </li>
+                        }
+                    </ul>
+                </li>
+            }
+            <li class="right" ignoretheme='true'>
+                <span id="fecha"></span>
+                &nbsp;|&nbsp;
+                <a class="password" title="Cambiar contraseña"></a>
+                <span>Usuario : @User.Identity.Name</span>
+                &nbsp;|&nbsp;
+                <a href="@Url.Action("Login")">Cerrar Sesión</a>
+            </li>
+
+        </ul>
+    </div>*@
+    <div id="menu">
+        <ul>
+            @foreach (var mod in Model)
+            {
+                <li>
+                    @mod.descripcion
+                    <ul>
+                        @foreach (var sub in mod.SubModuloResponse)
+                        {
+                            foreach (var pag in sub.PaginaResponse)
+                            {
+                                <li onclick="MostrarPagina('@(Url.Content("~/" + pag.url))', '@pag.descripcion')">
+                                    @pag.descripcion
+                                </li>
+                            }
+                        }
+                    </ul>
+                </li>
+            }
+            <li class="right" ignoretheme='true'>
+                <span id="fecha"></span>
+                &nbsp;|&nbsp;
+                <a class="password" title="Cambiar contraseña"></a>
+                <span>Usuario : @User.Identity.Name</span>
+                &nbsp;|&nbsp;
+                <a href="@Url.Action("Login")">Cerrar Sesión</a>
+            </li>
+
+        </ul>
+    </div>
+
+    <div id="content">
+        <ul style="margin-left: 10px;">
+            <li>&nbsp;</li>
+        </ul>
+        <div>
+        </div>
+    </div>
+    <div id="foot">
+        <img src="~/Images/Empresa/logo.jpg" />
+        © 2018 Derechos Reservados © CEDRO.<br />
+        Roca y Boloña 271 · San Antonio - Miraflores · Lima 18 - Perú<br />
+        Telf.: (51-1) 4466682 / 4467046 / 4470748
+    </div>
+</body>
+</html>

@@ -1,0 +1,127 @@
+﻿
+@section scripts
+{
+    <script type="text/javascript">
+        $(function () {
+            $('#loading').show();
+            var vista = queryString('vista');
+
+            var parentid = queryString('parentid');
+            var programaid = queryString('programaid');
+            var moduloid = queryString('moduloid');
+            var data = getJson('@Url.Content("~/api/Asistencia/Inscripcion/List")', { id: parentid });
+            var permiso = getJson('@Url.Content("~/api/Sistema/Permiso/Find")', { id: 2107 });
+
+            var Model = function (data)
+            {
+                var self = this;
+                self.vista = vista;
+
+                self.delete = function (item) {
+                    if (confirm('¿Esta seguro de eliminar el registro?'))
+                    {
+                        postJson('@Url.Content("~/api/Asistencia/Inscripcion/Delete")', { id: item.id() },
+                        function () {
+                            
+                            document.location.reload();
+                        },
+                        function () {
+                            alert('Error');
+                        });
+                    }
+                };
+
+                self.modificar = function (item)
+                {
+                    document.location.href = '@Url.Action("Edit")?id=' + item.id() +"&parentid=" + parentid + "&programaid=" + programaid + "&moduloid=" + moduloid;
+                };
+
+                self.data = ko.mapping.fromJS(data);
+                self.permiso = permiso;
+                self.parentid = parentid;
+                self.programaid= programaid;
+                self.moduloid= moduloid;
+            };
+
+            ko.applyBindings(new Model(data));
+
+            if (vista) {
+                $('input,select,textarea,button', 'form').prop("disabled", true);
+                $('button.ui-datepicker-trigger').hide();
+            }
+
+            $('#loading').hide();
+        })
+
+        ShowPopupEdit = function (parentid) {
+
+            ShowPopupArchivo('@Url.Action("Add","Inscripcion",new { area = "Asistencia" })?parentid=' + parentid, 1100, 500);
+            return false;
+        }
+    </script>
+}
+
+
+<div class="toolbar">
+    <a class="back" title="Volver"  data-bind="attr: { href: '@Url.Action("Index","Configuracion")'}"></a>
+    <button type="button" data-bind="click: function () { ShowPopupEdit($root.parentid) }, enable: ($root.vista)?false:$root.permiso.agregar" class="new" title="Nuevo"></button>
+    <button type="button" class="refresh" title="Refrescar" onclick="document.location.reload()"></button>
+</div>
+
+<fieldset>
+    <legend></legend>
+
+    <table class="grid">
+        <colgroup>
+            <col style="width: 40px" />
+            <col />
+            <col />
+            <col />
+            <col style="width: 80px" />
+            <col style="width: 80px" />
+            <!-- ko 'if': $root.programaid==1 -->
+            <col style="width: 180px" />
+            <!-- /ko -->
+            <col style="width: 100px" />
+            <col style="width: 48px" />
+        </colgroup>
+        <thead>
+            <tr>
+                <th>COD</th>
+                <th>APELLIDO PATERNO</th>
+                <th>APELLIDO MATERNO</th>
+                <th>NOMBRE</th>
+                <th>DNI</th>
+                <th>N° HORAS</th>
+                <!-- ko 'if': $root.programaid==1 -->
+                <th>NOTA FINAL</th>
+                <!-- /ko -->
+                <th>CONDICION</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody data-bind="foreach: $root.data">
+            <tr>
+                <td style="text-align: center" data-bind="text: $index() + 1"></td>
+                <td data-bind="text: apellidopaterno"></td>
+                <td data-bind="text: apellidomaterno"></td>
+                <td data-bind="text: nombre"></td>
+                <td style="text-align: center" data-bind="text: dni"></td>
+                <td style="text-align: center" data-bind="text: horas"></td>
+                <!-- ko 'if': $root.programaid==1 -->
+                <td style="text-align: center" data-bind="text: formatNumber(notafinal)"></td>
+                <!-- /ko -->
+                <td style="text-align: center" data-bind="text: condicion"></td>
+                @*<td style="text-align: center">
+                    <input type="checkbox" data-bind="checked: estado, attr: { name: 'checkBoxCondicion' + id }" />
+                </td>*@
+                <td style="text-align: center">
+                    <button type="button" class="btn edit" title="Modificar" data-bind="click: $root.modificar, enable: ($root.vista)?false:$root.permiso.modificar" />
+                    <button type="button" class="btn del" title="Eliminar" data-bind="click: $root.delete, enable: ($root.vista)?false:$root.permiso.eliminar" />
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</fieldset>
+@*<pre class="json" data-bind="text: JSON.stringify(ko.mapping.toJS(data) , null, '  ')"></pre>*@

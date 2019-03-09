@@ -1,0 +1,264 @@
+﻿@section scripts
+{
+    <script type="text/javascript">
+
+        var vista = queryString('vista');
+        var nivelid = queryString('nivelid');
+
+        $(function () {
+
+            $('#loading').show();
+
+            var data, id = queryString('id'), parentid = queryString('parentid');
+            var permiso = getJson('@Url.Content("~/api/Sistema/Permiso/Find")', { id: 2107 });
+
+            console.log(nivelid);
+            //var vista = queryString('vista');
+
+            if (id)
+                data = getJson('@Url.Content("~/api/Asistencia/Modulo/Find")', { id: id });
+            else
+                data = getJson('@Url.Content("~/api/Asistencia/Modulo/Find")');
+
+            var Model = function (data) {
+                var self = this;
+                self.vista = vista
+
+                data = data || {
+                    id: 0,
+                    moduloid: null,
+                    orden: null,
+                    configuracionid: parentid,
+                    Sesion: [],
+                };
+
+
+                self.listSesion = getJson('@Url.Content("~/api/General/Sesion")');
+                self.listModulos = getJson('@Url.Content("~/api/General/Modulos")', { nivelid: nivelid });
+                self.listCursos = getJson('@Url.Content("~/api/General/Cursos")', { nivelid: nivelid });
+               // self.listModulos = getJson('@Url.Content("~/api/General/Cursos")', { nivelid: nivelid });//cesar cambio Modulos x Cursos
+                self.listClase = getJson('@Url.Content("~/api/General/Clase")');
+                self.vista = vista
+
+                self.data = ko.mapping.fromJS(data);
+                self.permiso = permiso;
+                self.parentid = parentid;
+                self.nivelid = nivelid;
+
+                self.addSesion = function () {
+                    self.data.Sesion.push(ko.mapping.fromJS({
+                        id: 0,
+                        moduloid: null,
+                        listaid: null,
+                        orden: null,
+                        Clase: []
+                    }));
+
+                    $(".divDetalle:last").find('input[type=text]').filter(':first').focus();
+                };
+
+                self.removeSesion = function (item) {
+                    self.data.Sesion.remove(item);
+                }
+                var horacurso=0
+                if (nivelid==1)
+                    horacurso = 30;
+                if (nivelid == 2)
+                    horacurso = 15;
+                if (nivelid == 3)
+                    horacurso = 20;
+                if (nivelid == 4)
+                    horacurso = 15;
+                if (nivelid == 5)
+                    horacurso = 70;
+                if (nivelid == 6)
+                    horacurso = 4;
+                if (nivelid == 7)
+                    horacurso = 3;
+
+                self.addClase = function (parent) {
+                    parent.Clase.push(ko.mapping.fromJS({
+                        id: 0,
+                        sesionid: null,
+                        listaid: null,
+                        orden: null,
+                        fecha: null,                        
+                        horas: horacurso,
+                        horascalculadas: 0.00,
+                        horainicio: null,
+                        horafin: null
+                    }));
+                };
+
+                self.removeClase = function (parent, item) {
+                    parent.Clase.remove(item)
+                };
+
+
+                self.Save = function (form)
+                {
+                    if ($(form).refreshValidator().valid())
+                    {
+                        postJson('@Url.Content("~/api/Asistencia/Modulo/Save")', JSON.parse(ko.mapping.toJSON(self.data)),
+                        function () {
+
+                            document.location.href = '@Url.Action("Index")?nivelid=' + nivelid +'&parentid=' + parentid;
+                        },
+                        function () {
+                            alert('Error');
+                        });
+                    }
+                };
+            };
+
+            ko.applyBindings(new Model(data));
+            $('.tabs').jqxTabs({ theme: 'ui-le-frog.css', keyboardNavigation: false });
+
+            if (vista) {
+                $('input,select,textarea,button','form').prop("disabled", true);
+                $('.btn.users','form').prop("disabled", false);
+                $('button.ui-datepicker-trigger').hide();
+            }
+
+            $('#loading').hide();
+        });
+
+        ShowPopupEdit = function (item) {
+
+            if(nivelid==6 || nivelid==7)
+                ShowPopupArchivo('@Url.Action("Index","Participante2",new { area = "Asistencia" })?parentid=' + item.id() +'&vista=' + vista , 1100, 500);
+            else
+                ShowPopupArchivo('@Url.Action("Index","Participante",new { area = "Asistencia" })?parentid=' + item.id() +'&vista=' + vista , 1100, 500);
+            return false;
+        }
+    </script>
+}
+
+<form data-bind="submit: Save" style="width: 100%; float: left;">
+
+    <div class="toolbar">
+        <a class="back" title="Volver"  data-bind="attr: { href: '@Url.Action("Index","Modulo")?nivelid=' + $root.nivelid + '&parentid=' + $root.parentid + '&vista=' + $root.vista}"></a>
+        <button data-bind="enable: ($root.vista) ? false : true" type="button" class="save" title="Grabar" onclick="$(this).closest('form').submit()"></button>
+        <button type="button" class="refresh" title="Refrescar" onclick="document.location.reload()"></button>
+    </div>
+
+
+    <fieldset>
+        <legend></legend>
+        <table style="width: 80%; float:left;">
+            <colgroup>
+                <col style="width:20%"/>
+                <col style="width:25%"/>
+                <col style="width:10%"/>
+                <col style="width:20%"/>
+                <col style="width:25%"/>
+            </colgroup>
+            <tr>
+                <td>CURSO</td>
+                <td>@Html.koSelect("data.moduloid", "$root.listModulos")</td>
+                <td>
+                    <input type="hidden" data-bind="value: data.configuracionid, uniqueName: true"/>
+                </td>
+                <td>ORDEN</td>
+                <td>@Html.koNumeric("data.orden")</td>
+            </tr>
+        </table>
+
+    </fieldset>
+
+    <div class="tabs">
+        <ul>
+            <li>
+                <div style="margin-left: 4px; vertical-align: middle; text-align: center; float: left;">SESION</div>
+            </li>
+        </ul>
+        
+        <div style="overflow: hidden; padding: 10px;">
+            <div style="text-align: right;">
+                <button type="button" data-bind="click: addSesion, enable: $root.permiso.agregar"><a class="btn add"></a> Agregar Sesion</button>
+            </div>
+            <!-- ko foreach: data.Sesion -->
+            <div class = "divDetalle" style="border: 1px solid #AAA; padding: 5px; margin: 5px 0">
+
+                <table style="width: 100%">
+                    <colgroup>
+                        <col style="width: 100px" />
+                        <col />
+                        <col style="width: 20px" />
+                        <col style="width: 100px" />
+                        <col />
+                    </colgroup>
+                     <tr>
+                        <td>SESION</td>
+                        <td>
+                            <input type="hidden" data-bind="value: id, attr: { name: 'Sesion[' + $index() + '].id' }" />
+                            @Html.koSelect("listaid", "$root.listSesion")
+                        </td>
+                        <td></td>
+                        <td>ORDEN</td>
+                        <td>@Html.koNumeric("orden")</td>
+                    </tr>
+
+                </table>
+
+                <table class="grid">
+                    <colgroup>
+                        <col />
+                        <col style="width:100px" />
+                        <col style="width: 100px" />
+                        <col style="width: 100px"/>
+                        <col style="width: 100px"/>
+                        <col style="width: 28px" />
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th>CLASE</th>
+                            <th>FECHA FIN</th>
+                            @*<th>Hora Inicio</th>
+                            <th>Hora Fin</th>*@
+                            <th>HORAS</th>
+                            <th>ORDEN
+                            </th>
+                            <th style="width: 48px;"></th>
+                            <th style="width: 48px;">
+                                <button class="btn add" type="button" data-bind="click: $root.addClase, enable: $root.permiso.agregar"></button>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody data-bind='foreach: Clase'>
+                        <tr>
+                            <td>
+                                <input type="hidden" data-bind="value: id, attr: { name: 'Sesion[' + $parentContext.$index() + '].Clase[' + $index() + '].id' }" />
+                                @Html.koSelect("listaid", "$root.listClase")
+                            </td>
+                           
+                            <td>@Html.koDate("fecha",width:100,required:false)</td>
+                            
+                            @*<td>@Html.koTime("horainicio",required:false)</td>*@
+                            @*<td>@Html.koTime("horafin",min:"horainicio",required:false  )</td>*@
+                            @*<td>@Html.koNumeric("horascalculadas",@decimal:true, maxlength:5, enable:"false", required: false)</td>*@
+                            
+                            <td>@Html.koNumeric("horas", required: true)</td>
+                            <td>@Html.koNumeric("orden",required:false)</td>
+                            <td style="text-align: center">
+                                <button type="button" class="btn users" title="Asistentes" data-bind="enable: (id() != 0),click: function () { ShowPopupEdit($data) }" />
+                            </td>
+                            <td style="text-align: center">
+                                <button class="btn del" type="button" title="Eliminar" data-bind="enable: (id() == 0) ? true : $root.permiso.eliminar, click: $root.removeClase.bind($data, $parent)"></button>
+                            </td>
+
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div style="text-align: right;">
+                    <button type="button" data-bind="click: $root.removeSesion, enable: (id() == 0) ? true : ($root.permiso.eliminar)"><a class="btn del"></a> Quitar Sesion</button>
+                </div>
+
+            </div>
+            <!-- /ko -->
+        </div>
+    </div>
+</form>
+
+@*<pre class="json" data-bind="text: JSON.stringify(ko.mapping.toJS(data) , null, '  ')"></pre>*@

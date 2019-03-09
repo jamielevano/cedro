@@ -1,0 +1,84 @@
+﻿@section scripts
+{
+    <script type="text/javascript">
+        $(function () {
+            var data, id = queryString('id'), parentid = queryString('parentid');
+
+            if (id)
+                data = getJson('@Url.Content("~/api/Asistencia/Equipo/Find")', { id: id });
+
+            var Model = function (data) {
+                var self = this;
+
+                data = data || {
+                    id: null,
+                    horainicio: null,
+                    horafin: null,
+                    usoid: null,
+                    usootro: null
+                };
+
+                self.listUso = getJson('@Url.Content("~/api/General/UsoEquipo")');
+
+                self.data = ko.mapping.fromJS(data);
+
+                self.Save = function (form) {
+                    if ($(form).refreshValidator().valid()) {
+                        postJson('@Url.Content("~/api/Asistencia/Equipo/Update")', JSON.parse(ko.mapping.toJSON(self.data)),
+                        function () {
+
+                            document.location.href = '@Url.Action("Index")?parentid=' + parentid;
+                        },
+                        function () {
+                            alert('Error');
+                        });
+                    }
+                };
+
+                self.parentid = parentid;
+            };
+
+            ko.applyBindings(new Model(data));
+        })
+    </script>
+}
+
+<form data-bind="submit: Save" style="width: 100%; float: left;">
+
+    <div class="toolbar">
+        <a class="back" title="Volver"  data-bind="attr: { href: '@Url.Action("Index")?parentid=' + $root.parentid}"></a>
+        <button type="button" class="save" title="Grabar" onclick="$(this).closest('form').submit()"></button>
+        <button type="button" class="refresh" title="Refrescar" onclick="document.location.reload()"></button>
+    </div>
+
+
+    <fieldset>
+        <legend>Uso principal del equipo</legend>
+        <table style="width: 70%; float:left;">
+            <colgroup>
+                <col style="width:25%"/>
+                <col style="width:20%"/>
+                <col style="width:15%"/>
+                <col style="width:15%"/>
+                <col style="width:15%"/>
+                <col style="width:15%"/>
+            </colgroup>
+            <tr>
+                <td>Uso principal del equipo</td>
+                <td>@Html.koSelect("data.usoid", "$root.listUso")
+                    <input type="text" data-bind="value: data.usootro, enable: data.usoid() == 80, visible: data.usoid() == 80, uniqueName: true" data-val="true" data-val-required="" maxlength="50" />
+                </td>
+                <td>
+                    <input type="hidden" data-bind="value: data.sesionid, uniqueName: true"/>
+                </td>
+                <td>Hora Inicio</td>
+                <td>@Html.koTime("data.horainicio")</td>
+                <td>Hora Fin</td>
+                <td>@Html.koTime("data.horafin",required:false)</td>
+            </tr>
+        </table>
+
+    </fieldset>
+</form>
+
+@*<pre class="json" data-bind="text: JSON.stringify(ko.mapping.toJS(data) , null, '  ')"></pre>*@

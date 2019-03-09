@@ -1,0 +1,62 @@
+﻿<div style="width: 50%; float:left;">        
+    Tipo de documento/ producto<br />
+    @Html.koCheck("tipodocumento01") Consultoría<br />
+    @Html.koCheck("tipodocumento02") Propuesta metodológica<br />
+    @Html.koCheck("tipodocumento03") Diagnóstico<br />
+    @Html.koCheck("tipodocumento04") Sistematización<br />
+    @Html.koCheck("tipodocumento05") Investigación<br />
+    @Html.koCheck("tipodocumento06") Módulo de capacitación<br />
+    @Html.koCheck("tipodocumento07") Plan<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Otros @Html.koTextNoRequired("tipodocumentootro",maxlength:200)<br />
+    @Html.koChkVal("tipodocumento01() || tipodocumento02() || tipodocumento03() || tipodocumento04() || tipodocumento05() || tipodocumento06() || tipodocumento07() || tipodocumentootro()")
+
+    <table>
+        <tr>
+            <td>Titulo</td>
+            <td>@Html.koTextAreaNoRequired("titulo", maxlength:500)</td>
+        </tr>
+        <tr>
+            <td>Temas principales (Descripción)</td>
+            <td>@Html.koTextAreaNoRequired("tema", maxlength:500)</td>
+        </tr>
+    </table>
+    <br />
+
+    Versiones disponibles <br />
+    @Html.koCheck("versiones01") Pdf<br />
+    @Html.koCheck("versiones02") Word<br />
+    @Html.koCheck("versiones03") Excel<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Otros @Html.koTextNoRequired("versionesotro",maxlength:200)<br />
+    @Html.koChkVal("versiones01() || versiones02() || versiones03() || versionesotro()")
+    <table>
+        <tr>
+            <td>Fecha de almacenamiento en el sistema</td>
+            <td>@Html.koDate("fechaalmacenamiento",width:100,enable:"true", required:false)</td>
+        </tr>
+    </table>
+</div>
+
+<div style="width: 50%; float:right;">        
+    <table>
+        <tr>
+            <td>Población objetivo</td>
+            <td>@Html.koTextAreaNoRequired("poblacion", maxlength:500)</td>
+        </tr>
+    </table>
+    <br />
+    Elaborado por  <br />
+    @Html.koCheck("elaborado01") Equipo Interno<br />
+    @Html.koCheck("elaborado02") Consultor<br />
+
+    <table>
+        <tr>
+            <td>Autor(es)</td>
+            <td>@Html.koTextNoRequired("autor", maxlength:500)</td>
+        </tr>
+        <tr>
+            <td>Aprobado por </td>
+            <td>@Html.koTextNoRequired("aprobado", maxlength:500)</td>
+        </tr>
+    </table>
+</div>
+

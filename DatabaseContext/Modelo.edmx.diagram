@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b71f8c64e5f84806991f9dd30a41b0af" Name="Diagram1" ZoomLevel="65">
+        <EntityTypeShape EntityType="SMECEntities.Inscripcion" Width="1.5" PointX="14" PointY="27.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMECEntities.ModuloArchivo" Width="1.5" PointX="16.25" PointY="35.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMECEntities.Modulos" Width="1.5" PointX="14" PointY="37.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMECEntities.Sesion" Width="1.5" PointX="16.25" PointY="39" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMECEntities.AvanceMLTC_Archivo" Width="1.5" PointX="5.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMECEntities.AvancePO_Archivo" Width="1.5" PointX="31.25" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMECEntities.AvancePOTC_Archivo" Width="2.25" PointX="14.75" PointY="15.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMECEntities.AvancePropositoMetas_Archivo" Width="1.5" PointX="25.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMECEntities.AvanceResultadoMetas_Archivo" Width="1.5" PointX="28" PointY="20.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMECEntities.Documento" Width="1.5" PointX="20" PointY="22" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMECEntities.DocumentoArchivo" Width="1.5" PointX="20" PointY="18.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMECEntities.PlanOperativoMetaArchivo" Width="2.625" PointX="29.25" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMECEntities.PlanOperativoTareaArchivoTC" Width="3" PointX="12.875" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMECEntities.PropositoMetaArchivo" Width="1.5" PointX="23.5" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMECEntities.PropositoMetaArchivoTC" Width="1.5" PointX="5.25" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMECEntities.ResultadoMetaArchivo" Width="1.5" PointX="25.75" PointY="17.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMECEntities.ResultadoMetaArchivoTC" Width="1.5" PointX="7.5" PointY="34.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMECEntities.AvancePropositoMetas" Width="1.5" PointX="23.5" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMECEntities.AvanceResultadoMetas" Width="1.5" PointX="25.75" PointY="20.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMECEntities.Ubigeo" Width="1.5" PointX="11.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMECEntities.AvancePO" Width="1.5" PointX="29.25" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMECEntities.AvancePOTC_Ficha06" Width="2.125" PointX="14.75" PointY="19.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMECEntities.MarcoLogico" Width="1.5" PointX="19" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMECEntities.PlanOperativo" Width="1.75" PointX="23.5" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMECEntities.PlanOperativoMeta" Width="3.25" PointX="25.75" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMECEntities.PlanOperativoMetaAnual" Width="2.625" PointX="29" PointY="15.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMECEntities.PlanOperativoTareaMetaTC" Width="1.5" PointX="9.5" PointY="29.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMECEntities.PlanOperativoTC" Width="2.125" PointX="5.25" PointY="18.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMECEntities.PropositoMetas" Width="1.5" PointX="21.25" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMECEntities.PropositoMetasTC" Width="1.5" PointX="3" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMECEntities.Proyecto" Width="1.5" PointX="16.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMECEntities.Resultado" Width="1.5" PointX="21.25" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMECEntities.ResultadoMetas" Width="1.5" PointX="23.5" PointY="18" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMECEntities.ResultadoMetasTC" Width="1.5" PointX="5.25" PointY="33.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMECEntities.ResultadoTC" Width="1.5" PointX="3" PointY="20.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMECEntities.Error" Width="1.5" PointX="5.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMECEntities.Excepcion" Width="1.5" PointX="5.25" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMECEntities.Modulo" Width="1.5" PointX="1.5" PointY="31.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMECEntities.Pagina" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMECEntities.Permiso" Width="1.5" PointX="3" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMECEntities.Proceso" Width="1.5" PointX="13.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMECEntities.Rol" Width="1.5" PointX="0.75" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMECEntities.SubModulo" Width="1.5" PointX="1.5" PointY="26.25" IsExpanded="true" />
+        <AssociationConnector Association="SMECEntities.FK_EvaluacionFinalArchivo_Documento" ManuallyRouted="false" />
+        <AssociationConnector Association="SMECEntities.FK_Sesion_Modulo" ManuallyRouted="false" />
+        <AssociationConnector Association="SMECEntities.FK_AvancePO_Archivo_AvancePO" ManuallyRouted="false" />
+        <AssociationConnector Association="SMECEntities.FK_AvancePropositoMetas_Archivo_AvancePropositoMetas" ManuallyRouted="false" />
+        <AssociationConnector Association="SMECEntities.FK_AvanceResultadoMetas_Archivo_AvanceResultadoMetas" ManuallyRouted="false" />
+        <AssociationConnector Association="SMECEntities.FK_DocumentoArchivo_Documento" ManuallyRouted="false" />
+        <AssociationConnector Association="SMECEntities.FK_PlanOperativoMetaArchivo_PlanOperativoMeta" ManuallyRouted="false" />
+        <AssociationConnector Association="SMECEntities.FK_PropositoMetaArchivo_PropositoMetas" ManuallyRouted="false" />
+        <AssociationConnector Association="SMECEntities.FK_PropositoMetaArchivoTC_PropositoMetasTC" ManuallyRouted="false" />
+        <AssociationConnector Association="SMECEntities.FK_ResultadoMetaArchivo_ResultadoMetas" ManuallyRouted="false" />
+        <AssociationConnector Association="SMECEntities.FK_ResultadoMetaArchivoTC_ResultadoMetasTC" ManuallyRouted="false" />
+        <AssociationConnector Association="SMECEntities.FK_AvancePropositoMetas_PropositoMetas" ManuallyRouted="false" />
+        <AssociationConnector Association="SMECEntities.FK_AvanceResultadoMetas_ResultadoMetas" ManuallyRouted="false" />
+        <AssociationConnector Association="SMECEntities.FK_AvancePO_PlanOperativoMeta" ManuallyRouted="false" />
+        <AssociationConnector Association="SMECEntities.FK_MarcoLogico_Proyecto" ManuallyRouted="false" />
+        <AssociationConnector Association="SMECEntities.FK_PropositoMetas_MarcoLogico" ManuallyRouted="false" />
+        <AssociationConnector Association="SMECEntities.FK_Resultado_MarcoLogico" ManuallyRouted="false" />
+        <AssociationConnector Association="SMECEntities.FK_PlanOperativo_Resultado" ManuallyRouted="false" />
+        <AssociationConnector Association="SMECEntities.FK_PlanOperativoMeta_PlanOperativo" ManuallyRouted="false" />
+        <AssociationConnector Association="SMECEntities.FK_PlanOperativoMetaAnual_PlanOperativoMeta" ManuallyRouted="false" />
+        <AssociationConnector Association="SMECEntities.FK_PlanOperativoTC_ResultadoTC" ManuallyRouted="false" />
+        <AssociationConnector Association="SMECEntities.FK_ResultadoMetas_Resultado" ManuallyRouted="false" />
+        <AssociationConnector Association="SMECEntities.FK_ResultadoMetasTC_ResultadoTC" ManuallyRouted="false" />
+        <AssociationConnector Association="SMECEntities.R_374" ManuallyRouted="false" />
+        <AssociationConnector Association="SMECEntities.R_499" ManuallyRouted="false" />
+        <AssociationConnector Association="SMECEntities.R_500" ManuallyRouted="false" />
+        <AssociationConnector Association="SMECEntities.R_504" ManuallyRouted="false" />
+        <AssociationConnector Association="SMECEntities.R_506" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="SMECEntities.EjeIntervencion" Width="1.5" PointX="14.375" PointY="2.375" />
+        <EntityTypeShape EntityType="SMECEntities.Usuario" Width="1.5" PointX="3" PointY="13.875" />
+        <AssociationConnector Association="SMECEntities.R_375" />
+        <AssociationConnector Association="SMECEntities.FK_Usuario_Rol" />
+        <EntityTypeShape EntityType="SMECEntities.Clase" Width="1.5" PointX="7.25" PointY="14.875" />
+        <AssociationConnector Association="SMECEntities.FK_Clase_Sesion" />
+        <EntityTypeShape EntityType="SMECEntities.AvancePOTC_Ficha06Integrantes" Width="2.625" PointX="6.375" PointY="31" />
+        <AssociationConnector Association="SMECEntities.AvancePOTC_Ficha06Integrantes_AvanceID" />
+        <EntityTypeShape EntityType="SMECEntities.MarcoLogicoTC" Width="1.5" PointX="7.7721817958039141" PointY="26.136739489686089" />
+        <AssociationConnector Association="SMECEntities.FK_PropositoMetasTC_MarcoLogicoTC" />
+        <AssociationConnector Association="SMECEntities.FK_ResultadoTC_MarcoLogicoTC" />
+        <EntityTypeShape EntityType="SMECEntities.AvancePOTC_Ficha03" Width="1.5" PointX="4.726037601347099" PointY="30.002319096588678" />
+        <EntityTypeShape EntityType="SMECEntities.AvancePOTC_Ficha02" Width="1.5" PointX="2.1773674572712589" PointY="6.71694267108894" />
+        <EntityTypeShape EntityType="SMECEntities.PlanOperativoTareaTC" Width="1.5" PointX="5.0753428773374036" PointY="31.703208401660998" />
+        <AssociationConnector Association="SMECEntities.FK_PlanOperativoTareaArchivoTC_PlanOperativoTareaTC" />
+        <AssociationConnector Association="SMECEntities.FK_PlanOperativoTareaMetaTC_PlanOperativoTareaTC" />
+        <AssociationConnector Association="SMECEntities.FK_PlanOperativoTareaTC_PlanOperativoTC" />
+        <EntityTypeShape EntityType="SMECEntities.Lista" Width="1.5" PointX="6.0136257698822888" PointY="1.2654432511261866" />
+        <EntityTypeShape EntityType="SMECEntities.ListaDetalle" Width="1.5" PointX="6.688642784342469" PointY="31.817775040780088" />
+        <AssociationConnector Association="SMECEntities.FK_ListaDetalle_Lista" />
+        <EntityTypeShape EntityType="SMECEntities.AvancePOTC_Ficha04" Width="1.5" PointX="10.451231817924992" PointY="25.053044986470159" />
+        <EntityTypeShape EntityType="SMECEntities.AvancePOTC_Ficha04Integrantes" Width="1.5" PointX="8.4175775667734349" PointY="12.681706523840179" />
+        <AssociationConnector Association="SMECEntities.AvancePOTC_Ficha04Integrantes_AvanceID" />
+        <EntityTypeShape EntityType="SMECEntities.AvancePOTC_Ficha01" Width="1.5" PointX="11.966459372996567" PointY="20.7365204341414" />
+        <EntityTypeShape EntityType="SMECEntities.Participantes" Width="1.5" PointX="3.9962097909283871" PointY="23.062164093862364" />
+        <AssociationConnector Association="SMECEntities.FK_Participantes_Clase" />
+        <EntityTypeShape EntityType="SMECEntities.Configuracion" Width="1.5" PointX="8.0334983449585256" PointY="26.046302092283174" />
+        <AssociationConnector Association="SMECEntities.FK_Inscripcion_Configuracion" />
+        <AssociationConnector Association="SMECEntities.FK_Modulo_Configuracion" />
+        <EntityTypeShape EntityType="SMECEntities.Persona" Width="1.5" PointX="4.3574410063947742" PointY="10.499081631423477" />
+        <AssociationConnector Association="SMECEntities.FK_Inscripcion_Persona2" />
+        <AssociationConnector Association="SMECEntities.FK_Participantes_Persona2" />
+        <EntityTypeShape EntityType="SMECEntities.vPersona" Width="1.5" PointX="1.0942680263399462" PointY="2.5154528927595603" />
+        <EntityTypeShape EntityType="SMECEntities.AvancePOTC" Width="1.5" PointX="8.8328537628207613" PointY="14.663418478641388" />
+        <AssociationConnector Association="SMECEntities.FK_AvancePOTC_Archivo_AvancePOTC" />
+        <AssociationConnector Association="SMECEntities.FK_AvancePOTC_Ficha01_AvancePOTC" />
+        <AssociationConnector Association="SMECEntities.FK_AvancePOTC_Ficha02_AvancePOTC" />
+        <AssociationConnector Association="SMECEntities.FK_AvancePOTC_Ficha03_AvancePOTC" />
+        <AssociationConnector Association="SMECEntities.FK_AvancePOTC_Ficha04_AvancePOTC" />
+        <AssociationConnector Association="SMECEntities.FK_AvancePOTC_Ficha06_AvancePOTC" />
+        <AssociationConnector Association="SMECEntities.FK_AvancePOTC_PlanOperativoTareaTC" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

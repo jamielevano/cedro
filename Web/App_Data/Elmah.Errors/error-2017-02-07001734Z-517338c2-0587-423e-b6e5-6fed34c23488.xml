@@ -1,0 +1,165 @@
+﻿<error errorId="517338c2-0587-423e-b6e5-6fed34c23488" application="/" host="DESARROLLO_NET" type="System.Web.HttpException" message="The controller for path '/Scripts/jquery.min.map' was not found or does not implement IController." source="System.Web.Mvc" detail="System.Web.HttpException (0x80004005): The controller for path '/Scripts/jquery.min.map' was not found or does not implement IController.&#xD;&#xA;   at System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)&#xD;&#xA;   at System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)&#xD;&#xA;   at System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController&amp; controller, IControllerFactory&amp; factory)&#xD;&#xA;   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)&#xD;&#xA;   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)&#xD;&#xA;   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)&#xD;&#xA;   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()&#xD;&#xA;   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean&amp; completedSynchronously)" user="lpariatanta" time="2017-02-07T00:17:34.2061261Z" statusCode="404">
+  <serverVariables>
+    <item name="ALL_HTTP">
+      <value string="HTTP_CONNECTION:keep-alive&#xD;&#xA;HTTP_ACCEPT_ENCODING:gzip, deflate, sdch, br&#xD;&#xA;HTTP_ACCEPT_LANGUAGE:es-ES,es;q=0.8&#xD;&#xA;HTTP_COOKIE:__AntiXsrfToken=fd5cd1eb8bc9479c92c0cb3505ced6aa; .AspNet.ApplicationCookie=WQyeDrcw1k6aroDN4crs7D3OfL-4YghQI1F4M7a3hiCaDjaktod1fZn0XeGJHkKXbVoDz9aCFU_ZhpUWbDD0xw5CldHwD5L6yBGcmWPfhFm1c3ZGw789cCxOKKiOsJgSPNpelTIwIl4tf82jEtAgVfcCrvtw5dVKQ9TkNdrTLVMD7WivHiwjkorsLbOJvabCqI660iyHVOsWxil3pD3MksJXF1HF4sRV9Hz3_Fnp7QiMNbHVzVxajDwYg_KoDJtpF9cGuPphj4MPszHC9XZLYwVsAzT05i3_EVfoeUMOZzW84AJawWXm7JYCtYCXERhrdbAwICwiLgKrfjTI5UDKMAu3nuJd7MTJKes1uaTrBDeh2W-VivOOUlUQadWdIoIxhfJBOHsRnaFlQA0Ww0uvulm5BDGLo7fjpvNLDlvn2ta1YzU283s54bR946KiLOuHfZAvVrtzAqVCDLLwncESDxIQU5gnx1-SB3mFiOX446cohzNVfRcd9c1Uk2zsi-BX; .ASPXAUTH=7876EBE42CDCD3966615516EB72881B1231854C9569B9878AFFCAAFFA5E1A390C6BE94767E62294AFF989F8AC12761D6EE9C5C189E1B322806CBF8FD7F235EA25E0B3E1C262C9B8F921B72BFF7C3CCF61861AFEC961E3CC114354C3B3B487247F30DB5B52ABDEB13262963F5FAEF28667DA490CDA10CCFD190625BBA0C12B7CD3476864D9F90FEEA8D1B9AF1711F2CE614472C3ACC93E48890F14D04EDA83B437E5F2D094863B43D0B9AE3C3E0E182CAA3FCB6E3BEFA5718314072E88AB9C7F5BC4F043414A2D060A0FA5BA58A679C3D28975A2F870B6C5EFCD361D92014C09461CFB518C9A264BD15534DCC0951D2D055E18FB003CCEB1871A22C6A6845B409; ASP.NET_SessionId=3nqj0xvidzvji44selscwa4f&#xD;&#xA;HTTP_HOST:localhost:1371&#xD;&#xA;HTTP_USER_AGENT:Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36&#xD;&#xA;" />
+    </item>
+    <item name="ALL_RAW">
+      <value string="Connection: keep-alive&#xD;&#xA;Accept-Encoding: gzip, deflate, sdch, br&#xD;&#xA;Accept-Language: es-ES,es;q=0.8&#xD;&#xA;Cookie: __AntiXsrfToken=fd5cd1eb8bc9479c92c0cb3505ced6aa; .AspNet.ApplicationCookie=WQyeDrcw1k6aroDN4crs7D3OfL-4YghQI1F4M7a3hiCaDjaktod1fZn0XeGJHkKXbVoDz9aCFU_ZhpUWbDD0xw5CldHwD5L6yBGcmWPfhFm1c3ZGw789cCxOKKiOsJgSPNpelTIwIl4tf82jEtAgVfcCrvtw5dVKQ9TkNdrTLVMD7WivHiwjkorsLbOJvabCqI660iyHVOsWxil3pD3MksJXF1HF4sRV9Hz3_Fnp7QiMNbHVzVxajDwYg_KoDJtpF9cGuPphj4MPszHC9XZLYwVsAzT05i3_EVfoeUMOZzW84AJawWXm7JYCtYCXERhrdbAwICwiLgKrfjTI5UDKMAu3nuJd7MTJKes1uaTrBDeh2W-VivOOUlUQadWdIoIxhfJBOHsRnaFlQA0Ww0uvulm5BDGLo7fjpvNLDlvn2ta1YzU283s54bR946KiLOuHfZAvVrtzAqVCDLLwncESDxIQU5gnx1-SB3mFiOX446cohzNVfRcd9c1Uk2zsi-BX; .ASPXAUTH=7876EBE42CDCD3966615516EB72881B1231854C9569B9878AFFCAAFFA5E1A390C6BE94767E62294AFF989F8AC12761D6EE9C5C189E1B322806CBF8FD7F235EA25E0B3E1C262C9B8F921B72BFF7C3CCF61861AFEC961E3CC114354C3B3B487247F30DB5B52ABDEB13262963F5FAEF28667DA490CDA10CCFD190625BBA0C12B7CD3476864D9F90FEEA8D1B9AF1711F2CE614472C3ACC93E48890F14D04EDA83B437E5F2D094863B43D0B9AE3C3E0E182CAA3FCB6E3BEFA5718314072E88AB9C7F5BC4F043414A2D060A0FA5BA58A679C3D28975A2F870B6C5EFCD361D92014C09461CFB518C9A264BD15534DCC0951D2D055E18FB003CCEB1871A22C6A6845B409; ASP.NET_SessionId=3nqj0xvidzvji44selscwa4f&#xD;&#xA;Host: localhost:1371&#xD;&#xA;User-Agent: Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36&#xD;&#xA;" />
+    </item>
+    <item name="APPL_MD_PATH">
+      <value string="" />
+    </item>
+    <item name="APPL_PHYSICAL_PATH">
+      <value string="C:\Proyectos\Cedro\Pase 4\Fuentes\SMEC\Web\" />
+    </item>
+    <item name="AUTH_TYPE">
+      <value string="Forms" />
+    </item>
+    <item name="AUTH_USER">
+      <value string="lpariatanta" />
+    </item>
+    <item name="AUTH_PASSWORD">
+      <value string="*****" />
+    </item>
+    <item name="LOGON_USER">
+      <value string="DESARROLLO_NET\Administrator" />
+    </item>
+    <item name="REMOTE_USER">
+      <value string="lpariatanta" />
+    </item>
+    <item name="CERT_COOKIE">
+      <value string="" />
+    </item>
+    <item name="CERT_FLAGS">
+      <value string="" />
+    </item>
+    <item name="CERT_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SERIALNUMBER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CERT_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CONTENT_LENGTH">
+      <value string="0" />
+    </item>
+    <item name="CONTENT_TYPE">
+      <value string="" />
+    </item>
+    <item name="GATEWAY_INTERFACE">
+      <value string="" />
+    </item>
+    <item name="HTTPS">
+      <value string="" />
+    </item>
+    <item name="HTTPS_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="INSTANCE_ID">
+      <value string="" />
+    </item>
+    <item name="INSTANCE_META_PATH">
+      <value string="" />
+    </item>
+    <item name="LOCAL_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="PATH_INFO">
+      <value string="/Scripts/jquery.min.map" />
+    </item>
+    <item name="PATH_TRANSLATED">
+      <value string="C:\Proyectos\Cedro\Pase 4\Fuentes\SMEC\Web\Scripts\jquery.min.map" />
+    </item>
+    <item name="QUERY_STRING">
+      <value string="" />
+    </item>
+    <item name="REMOTE_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_HOST">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_PORT">
+      <value string="" />
+    </item>
+    <item name="REQUEST_METHOD">
+      <value string="GET" />
+    </item>
+    <item name="SCRIPT_NAME">
+      <value string="/Scripts/jquery.min.map" />
+    </item>
+    <item name="SERVER_NAME">
+      <value string="localhost" />
+    </item>
+    <item name="SERVER_PORT">
+      <value string="1371" />
+    </item>
+    <item name="SERVER_PORT_SECURE">
+      <value string="0" />
+    </item>
+    <item name="SERVER_PROTOCOL">
+      <value string="HTTP/1.1" />
+    </item>
+    <item name="SERVER_SOFTWARE">
+      <value string="" />
+    </item>
+    <item name="URL">
+      <value string="/Scripts/jquery.min.map" />
+    </item>
+    <item name="HTTP_CONNECTION">
+      <value string="keep-alive" />
+    </item>
+    <item name="HTTP_ACCEPT_ENCODING">
+      <value string="gzip, deflate, sdch, br" />
+    </item>
+    <item name="HTTP_ACCEPT_LANGUAGE">
+      <value string="es-ES,es;q=0.8" />
+    </item>
+    <item name="HTTP_COOKIE">
+      <value string="__AntiXsrfToken=fd5cd1eb8bc9479c92c0cb3505ced6aa; .AspNet.ApplicationCookie=WQyeDrcw1k6aroDN4crs7D3OfL-4YghQI1F4M7a3hiCaDjaktod1fZn0XeGJHkKXbVoDz9aCFU_ZhpUWbDD0xw5CldHwD5L6yBGcmWPfhFm1c3ZGw789cCxOKKiOsJgSPNpelTIwIl4tf82jEtAgVfcCrvtw5dVKQ9TkNdrTLVMD7WivHiwjkorsLbOJvabCqI660iyHVOsWxil3pD3MksJXF1HF4sRV9Hz3_Fnp7QiMNbHVzVxajDwYg_KoDJtpF9cGuPphj4MPszHC9XZLYwVsAzT05i3_EVfoeUMOZzW84AJawWXm7JYCtYCXERhrdbAwICwiLgKrfjTI5UDKMAu3nuJd7MTJKes1uaTrBDeh2W-VivOOUlUQadWdIoIxhfJBOHsRnaFlQA0Ww0uvulm5BDGLo7fjpvNLDlvn2ta1YzU283s54bR946KiLOuHfZAvVrtzAqVCDLLwncESDxIQU5gnx1-SB3mFiOX446cohzNVfRcd9c1Uk2zsi-BX; .ASPXAUTH=7876EBE42CDCD3966615516EB72881B1231854C9569B9878AFFCAAFFA5E1A390C6BE94767E62294AFF989F8AC12761D6EE9C5C189E1B322806CBF8FD7F235EA25E0B3E1C262C9B8F921B72BFF7C3CCF61861AFEC961E3CC114354C3B3B487247F30DB5B52ABDEB13262963F5FAEF28667DA490CDA10CCFD190625BBA0C12B7CD3476864D9F90FEEA8D1B9AF1711F2CE614472C3ACC93E48890F14D04EDA83B437E5F2D094863B43D0B9AE3C3E0E182CAA3FCB6E3BEFA5718314072E88AB9C7F5BC4F043414A2D060A0FA5BA58A679C3D28975A2F870B6C5EFCD361D92014C09461CFB518C9A264BD15534DCC0951D2D055E18FB003CCEB1871A22C6A6845B409; ASP.NET_SessionId=3nqj0xvidzvji44selscwa4f" />
+    </item>
+    <item name="HTTP_HOST">
+      <value string="localhost:1371" />
+    </item>
+    <item name="HTTP_USER_AGENT">
+      <value string="Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36" />
+    </item>
+  </serverVariables>
+  <cookies>
+    <item name="__AntiXsrfToken">
+      <value string="fd5cd1eb8bc9479c92c0cb3505ced6aa" />
+    </item>
+    <item name=".AspNet.ApplicationCookie">
+      <value string="WQyeDrcw1k6aroDN4crs7D3OfL-4YghQI1F4M7a3hiCaDjaktod1fZn0XeGJHkKXbVoDz9aCFU_ZhpUWbDD0xw5CldHwD5L6yBGcmWPfhFm1c3ZGw789cCxOKKiOsJgSPNpelTIwIl4tf82jEtAgVfcCrvtw5dVKQ9TkNdrTLVMD7WivHiwjkorsLbOJvabCqI660iyHVOsWxil3pD3MksJXF1HF4sRV9Hz3_Fnp7QiMNbHVzVxajDwYg_KoDJtpF9cGuPphj4MPszHC9XZLYwVsAzT05i3_EVfoeUMOZzW84AJawWXm7JYCtYCXERhrdbAwICwiLgKrfjTI5UDKMAu3nuJd7MTJKes1uaTrBDeh2W-VivOOUlUQadWdIoIxhfJBOHsRnaFlQA0Ww0uvulm5BDGLo7fjpvNLDlvn2ta1YzU283s54bR946KiLOuHfZAvVrtzAqVCDLLwncESDxIQU5gnx1-SB3mFiOX446cohzNVfRcd9c1Uk2zsi-BX" />
+    </item>
+    <item name=".ASPXAUTH">
+      <value string="7876EBE42CDCD3966615516EB72881B1231854C9569B9878AFFCAAFFA5E1A390C6BE94767E62294AFF989F8AC12761D6EE9C5C189E1B322806CBF8FD7F235EA25E0B3E1C262C9B8F921B72BFF7C3CCF61861AFEC961E3CC114354C3B3B487247F30DB5B52ABDEB13262963F5FAEF28667DA490CDA10CCFD190625BBA0C12B7CD3476864D9F90FEEA8D1B9AF1711F2CE614472C3ACC93E48890F14D04EDA83B437E5F2D094863B43D0B9AE3C3E0E182CAA3FCB6E3BEFA5718314072E88AB9C7F5BC4F043414A2D060A0FA5BA58A679C3D28975A2F870B6C5EFCD361D92014C09461CFB518C9A264BD15534DCC0951D2D055E18FB003CCEB1871A22C6A6845B409" />
+    </item>
+    <item name="ASP.NET_SessionId">
+      <value string="3nqj0xvidzvji44selscwa4f" />
+    </item>
+  </cookies>
+</error>

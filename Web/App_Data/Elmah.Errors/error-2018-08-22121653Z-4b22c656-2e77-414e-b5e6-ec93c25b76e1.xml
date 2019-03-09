@@ -1,0 +1,635 @@
+﻿<error errorId="4b22c656-2e77-414e-b5e6-ec93c25b76e1" application="/LM/W3SVC/3/ROOT" host="DESKTOP-RP7B1TI" type="System.Data.SqlClient.SqlException" message="The DELETE statement conflicted with the REFERENCE constraint &quot;FK_PlanOperativoTC_ResultadoTC&quot;. The conflict occurred in database &quot;SMEC_V3&quot;, table &quot;planificacion.PlanOperativoTC&quot;, column 'resultadoid'.&#xD;&#xA;The statement has been terminated." source=".Net SqlClient Data Provider" detail="System.Data.Entity.Infrastructure.DbUpdateException: An error occurred while updating the entries. See the inner exception for details. ---&gt; System.Data.Entity.Core.UpdateException: An error occurred while updating the entries. See the inner exception for details. ---&gt; System.Data.SqlClient.SqlException: The DELETE statement conflicted with the REFERENCE constraint &quot;FK_PlanOperativoTC_ResultadoTC&quot;. The conflict occurred in database &quot;SMEC_V3&quot;, table &quot;planificacion.PlanOperativoTC&quot;, column 'resultadoid'.&#xD;&#xA;The statement has been terminated.&#xD;&#xA;   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)&#xD;&#xA;   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)&#xD;&#xA;   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)&#xD;&#xA;   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean&amp; dataReady)&#xD;&#xA;   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)&#xD;&#xA;   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task&amp; task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)&#xD;&#xA;   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task&amp; task, Boolean&amp; usedCache, Boolean asyncWrite, Boolean inRetry)&#xD;&#xA;   en System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean&amp; usedCache, Boolean asyncWrite, Boolean inRetry)&#xD;&#xA;   en System.Data.SqlClient.SqlCommand.ExecuteNonQuery()&#xD;&#xA;   en System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.&lt;NonQuery&gt;b__0(DbCommand t, DbCommandInterceptionContext`1 c)&#xD;&#xA;   en System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext,TResult](TTarget target, Func`3 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)&#xD;&#xA;   en System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.NonQuery(DbCommand command, DbCommandInterceptionContext interceptionContext)&#xD;&#xA;   en System.Data.Entity.Internal.InterceptableDbCommand.ExecuteNonQuery()&#xD;&#xA;   en System.Data.Entity.Core.Mapping.Update.Internal.DynamicUpdateCommand.Execute(Dictionary`2 identifierValues, List`1 generatedValues)&#xD;&#xA;   en System.Data.Entity.Core.Mapping.Update.Internal.UpdateTranslator.Update()&#xD;&#xA;   --- Fin del seguimiento de la pila de la excepción interna ---&#xD;&#xA;   en System.Data.Entity.Core.Mapping.Update.Internal.UpdateTranslator.Update()&#xD;&#xA;   en System.Data.Entity.Core.EntityClient.Internal.EntityAdapter.&lt;Update&gt;b__2(UpdateTranslator ut)&#xD;&#xA;   en System.Data.Entity.Core.EntityClient.Internal.EntityAdapter.Update[T](T noChangesResult, Func`2 updateFunction)&#xD;&#xA;   en System.Data.Entity.Core.EntityClient.Internal.EntityAdapter.Update()&#xD;&#xA;   en System.Data.Entity.Core.Objects.ObjectContext.&lt;SaveChangesToStore&gt;b__35()&#xD;&#xA;   en System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)&#xD;&#xA;   en System.Data.Entity.Core.Objects.ObjectContext.SaveChangesToStore(SaveOptions options, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction)&#xD;&#xA;   en System.Data.Entity.Core.Objects.ObjectContext.&lt;&gt;c__DisplayClass2a.&lt;SaveChangesInternal&gt;b__27()&#xD;&#xA;   en System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)&#xD;&#xA;   en System.Data.Entity.Core.Objects.ObjectContext.SaveChangesInternal(SaveOptions options, Boolean executeInExistingTransaction)&#xD;&#xA;   en System.Data.Entity.Core.Objects.ObjectContext.SaveChanges(SaveOptions options)&#xD;&#xA;   en System.Data.Entity.Internal.InternalContext.SaveChanges()&#xD;&#xA;   --- Fin del seguimiento de la pila de la excepción interna ---&#xD;&#xA;   en System.Data.Entity.Internal.InternalContext.SaveChanges()&#xD;&#xA;   en System.Data.Entity.Internal.LazyInternalContext.SaveChanges()&#xD;&#xA;   en System.Data.Entity.DbContext.SaveChanges()&#xD;&#xA;   en Web.Areas.Planificacion.Controllers.Api.MarcoLogicoTCController.Save(MarcoLogicoTC item) en D:\Cedro\Fuente\21082018_2\SMEC\Web\Areas\Planificacion\Controllers\Api\MarcoLogicoTCController.cs:línea 275&#xD;&#xA;   en lambda_method(Closure , Object , Object[] )&#xD;&#xA;   en System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.&lt;&gt;c__DisplayClassc.&lt;GetExecutor&gt;b__6(Object instance, Object[] methodParameters)&#xD;&#xA;   en System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)&#xD;&#xA;   en System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)&#xD;&#xA;--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---&#xD;&#xA;   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;&#xA;   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;&#xA;   en System.Web.Http.Controllers.ApiControllerActionInvoker.&lt;InvokeActionAsyncCore&gt;d__0.MoveNext()&#xD;&#xA;--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---&#xD;&#xA;   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;&#xA;   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;&#xA;   en System.Web.Http.Controllers.ActionFilterResult.&lt;ExecuteAsync&gt;d__2.MoveNext()&#xD;&#xA;--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---&#xD;&#xA;   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;&#xA;   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;&#xA;   en System.Web.Http.Controllers.ExceptionFilterResult.&lt;ExecuteAsync&gt;d__0.MoveNext()" user="cvaldivia" time="2018-08-22T12:16:53.1833270Z">
+  <serverVariables>
+    <item name="ALL_HTTP">
+      <value string="HTTP_CONNECTION:keep-alive&#xD;&#xA;HTTP_CONTENT_LENGTH:11361&#xD;&#xA;HTTP_CONTENT_TYPE:application/x-www-form-urlencoded; charset=UTF-8&#xD;&#xA;HTTP_ACCEPT:application/json, text/javascript, */*; q=0.01&#xD;&#xA;HTTP_ACCEPT_ENCODING:gzip, deflate&#xD;&#xA;HTTP_ACCEPT_LANGUAGE:es-ES,es;q=0.8,en-US;q=0.5,en;q=0.3&#xD;&#xA;HTTP_COOKIE:.ASPXAUTH=F6F195087F0BB8C9F0E8B9C7DA7F86C5E730D119F929F564E287EC7DB350579D6B87B0F197AC117F97F90FB28C794E5B72C8D05DCFE1E7BE7B55E0CE783015A87514D58089198F9FC8B790BEAB131C4141182EAD7BE2DEF234590416A3BBCB0E81CE89156E30AC7E900E6483F763E3B15A2821B1EE00E5A293238F82F538E21BD4BA4D636A9DB83A003A4BC7621CA72192ADB0392CEA887A75FF57B0F8B1368FA0EFDC942B92D2F14F928A56B7452F5B04A5735DA521A2D0C8B53F7083B0EBC47D4B8290497B9632CE019F7018A9BE51597D8A4F4310DB13811DBE390DBD125D207C13B551DDDF3B27A1B25D6DB12AD67DC0E890390F9D34AD1BAF932E2A22B9&#xD;&#xA;HTTP_HOST:localhost:1371&#xD;&#xA;HTTP_REFERER:http://localhost:1371/Planificacion/MarcoLogicoTC/Edit?id=3&#xD;&#xA;HTTP_USER_AGENT:Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0&#xD;&#xA;HTTP_X_REQUESTED_WITH:XMLHttpRequest&#xD;&#xA;" />
+    </item>
+    <item name="ALL_RAW">
+      <value string="Connection: keep-alive&#xD;&#xA;Content-Length: 11361&#xD;&#xA;Content-Type: application/x-www-form-urlencoded; charset=UTF-8&#xD;&#xA;Accept: application/json, text/javascript, */*; q=0.01&#xD;&#xA;Accept-Encoding: gzip, deflate&#xD;&#xA;Accept-Language: es-ES,es;q=0.8,en-US;q=0.5,en;q=0.3&#xD;&#xA;Cookie: .ASPXAUTH=F6F195087F0BB8C9F0E8B9C7DA7F86C5E730D119F929F564E287EC7DB350579D6B87B0F197AC117F97F90FB28C794E5B72C8D05DCFE1E7BE7B55E0CE783015A87514D58089198F9FC8B790BEAB131C4141182EAD7BE2DEF234590416A3BBCB0E81CE89156E30AC7E900E6483F763E3B15A2821B1EE00E5A293238F82F538E21BD4BA4D636A9DB83A003A4BC7621CA72192ADB0392CEA887A75FF57B0F8B1368FA0EFDC942B92D2F14F928A56B7452F5B04A5735DA521A2D0C8B53F7083B0EBC47D4B8290497B9632CE019F7018A9BE51597D8A4F4310DB13811DBE390DBD125D207C13B551DDDF3B27A1B25D6DB12AD67DC0E890390F9D34AD1BAF932E2A22B9&#xD;&#xA;Host: localhost:1371&#xD;&#xA;Referer: http://localhost:1371/Planificacion/MarcoLogicoTC/Edit?id=3&#xD;&#xA;User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0&#xD;&#xA;X-Requested-With: XMLHttpRequest&#xD;&#xA;" />
+    </item>
+    <item name="APPL_MD_PATH">
+      <value string="/LM/W3SVC/3/ROOT" />
+    </item>
+    <item name="APPL_PHYSICAL_PATH">
+      <value string="D:\Cedro\Fuente\21082018_2\SMEC\Web\" />
+    </item>
+    <item name="AUTH_TYPE">
+      <value string="Forms" />
+    </item>
+    <item name="AUTH_USER">
+      <value string="cvaldivia" />
+    </item>
+    <item name="AUTH_PASSWORD">
+      <value string="*****" />
+    </item>
+    <item name="LOGON_USER">
+      <value string="cvaldivia" />
+    </item>
+    <item name="REMOTE_USER">
+      <value string="cvaldivia" />
+    </item>
+    <item name="CERT_COOKIE">
+      <value string="" />
+    </item>
+    <item name="CERT_FLAGS">
+      <value string="" />
+    </item>
+    <item name="CERT_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SERIALNUMBER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CERT_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CONTENT_LENGTH">
+      <value string="11361" />
+    </item>
+    <item name="CONTENT_TYPE">
+      <value string="application/x-www-form-urlencoded; charset=UTF-8" />
+    </item>
+    <item name="GATEWAY_INTERFACE">
+      <value string="CGI/1.1" />
+    </item>
+    <item name="HTTPS">
+      <value string="off" />
+    </item>
+    <item name="HTTPS_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="INSTANCE_ID">
+      <value string="3" />
+    </item>
+    <item name="INSTANCE_META_PATH">
+      <value string="/LM/W3SVC/3" />
+    </item>
+    <item name="LOCAL_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="PATH_INFO">
+      <value string="/api/Planificacion/MarcoLogicoTC/Save" />
+    </item>
+    <item name="PATH_TRANSLATED">
+      <value string="D:\Cedro\Fuente\21082018_2\SMEC\Web\api\Planificacion\MarcoLogicoTC\Save" />
+    </item>
+    <item name="QUERY_STRING">
+      <value string="" />
+    </item>
+    <item name="REMOTE_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_HOST">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_PORT">
+      <value string="12748" />
+    </item>
+    <item name="REQUEST_METHOD">
+      <value string="POST" />
+    </item>
+    <item name="SCRIPT_NAME">
+      <value string="/api/Planificacion/MarcoLogicoTC/Save" />
+    </item>
+    <item name="SERVER_NAME">
+      <value string="localhost" />
+    </item>
+    <item name="SERVER_PORT">
+      <value string="1371" />
+    </item>
+    <item name="SERVER_PORT_SECURE">
+      <value string="0" />
+    </item>
+    <item name="SERVER_PROTOCOL">
+      <value string="HTTP/1.1" />
+    </item>
+    <item name="SERVER_SOFTWARE">
+      <value string="Microsoft-IIS/10.0" />
+    </item>
+    <item name="URL">
+      <value string="/api/Planificacion/MarcoLogicoTC/Save" />
+    </item>
+    <item name="HTTP_CONNECTION">
+      <value string="keep-alive" />
+    </item>
+    <item name="HTTP_CONTENT_LENGTH">
+      <value string="11361" />
+    </item>
+    <item name="HTTP_CONTENT_TYPE">
+      <value string="application/x-www-form-urlencoded; charset=UTF-8" />
+    </item>
+    <item name="HTTP_ACCEPT">
+      <value string="application/json, text/javascript, */*; q=0.01" />
+    </item>
+    <item name="HTTP_ACCEPT_ENCODING">
+      <value string="gzip, deflate" />
+    </item>
+    <item name="HTTP_ACCEPT_LANGUAGE">
+      <value string="es-ES,es;q=0.8,en-US;q=0.5,en;q=0.3" />
+    </item>
+    <item name="HTTP_COOKIE">
+      <value string=".ASPXAUTH=F6F195087F0BB8C9F0E8B9C7DA7F86C5E730D119F929F564E287EC7DB350579D6B87B0F197AC117F97F90FB28C794E5B72C8D05DCFE1E7BE7B55E0CE783015A87514D58089198F9FC8B790BEAB131C4141182EAD7BE2DEF234590416A3BBCB0E81CE89156E30AC7E900E6483F763E3B15A2821B1EE00E5A293238F82F538E21BD4BA4D636A9DB83A003A4BC7621CA72192ADB0392CEA887A75FF57B0F8B1368FA0EFDC942B92D2F14F928A56B7452F5B04A5735DA521A2D0C8B53F7083B0EBC47D4B8290497B9632CE019F7018A9BE51597D8A4F4310DB13811DBE390DBD125D207C13B551DDDF3B27A1B25D6DB12AD67DC0E890390F9D34AD1BAF932E2A22B9" />
+    </item>
+    <item name="HTTP_HOST">
+      <value string="localhost:1371" />
+    </item>
+    <item name="HTTP_REFERER">
+      <value string="http://localhost:1371/Planificacion/MarcoLogicoTC/Edit?id=3" />
+    </item>
+    <item name="HTTP_USER_AGENT">
+      <value string="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0" />
+    </item>
+    <item name="HTTP_X_REQUESTED_WITH">
+      <value string="XMLHttpRequest" />
+    </item>
+  </serverVariables>
+  <form>
+    <item name="id">
+      <value string="3" />
+    </item>
+    <item name="fin">
+      <value string="" />
+    </item>
+    <item name="nombre">
+      <value string="" />
+    </item>
+    <item name="periodoinicio">
+      <value string="2018-07-23T05:00:00.000Z" />
+    </item>
+    <item name="periodofin">
+      <value string="2018-08-16T05:00:00.000Z" />
+    </item>
+    <item name="codigo">
+      <value string="EOG1" />
+    </item>
+    <item name="proposito">
+      <value string="Contribuir a modernizar y diversificar los mercados locales en zonas de Desarrollo Alternativo de las regiones Huánuco, San Martín y Ucayali; a través del acceso a la conectividad y los servicios financieros." />
+    </item>
+    <item name="supuesto">
+      <value string="Las entidades financieras tienen la disposicion para contribuir a la modernización y divesrificacion. " />
+    </item>
+    <item name="PropositoMetasTC[0][id]">
+      <value string="29" />
+    </item>
+    <item name="PropositoMetasTC[0][codigo]">
+      <value string="0.1" />
+    </item>
+    <item name="PropositoMetasTC[0][nombre]">
+      <value string="meta" />
+    </item>
+    <item name="PropositoMetasTC[0][cantidad]">
+      <value string="1" />
+    </item>
+    <item name="PropositoMetasTC[0][unidadid]">
+      <value string="1" />
+    </item>
+    <item name="PropositoMetasTC[0][indicador]">
+      <value string="% de la poblacion que hace uso servicios de internet " />
+    </item>
+    <item name="PropositoMetasTC[0][fuente]">
+      <value string="Encuesta de evaluación" />
+    </item>
+    <item name="PropositoMetasTC[0][archivos]">
+      <value string="false" />
+    </item>
+    <item name="PropositoMetasTC[1][id]">
+      <value string="30" />
+    </item>
+    <item name="PropositoMetasTC[1][codigo]">
+      <value string="0.2" />
+    </item>
+    <item name="PropositoMetasTC[1][nombre]">
+      <value string="meta" />
+    </item>
+    <item name="PropositoMetasTC[1][cantidad]">
+      <value string="1" />
+    </item>
+    <item name="PropositoMetasTC[1][unidadid]">
+      <value string="1" />
+    </item>
+    <item name="PropositoMetasTC[1][indicador]">
+      <value string="% de la  población que reporta mejoras en sus condiciones de vida familiar debido al uso de internet y/o de las TIC" />
+    </item>
+    <item name="PropositoMetasTC[1][fuente]">
+      <value string="Encuesta de evaluación" />
+    </item>
+    <item name="PropositoMetasTC[1][archivos]">
+      <value string="false" />
+    </item>
+    <item name="PropositoMetasTC[2][id]">
+      <value string="31" />
+    </item>
+    <item name="PropositoMetasTC[2][codigo]">
+      <value string="0.3" />
+    </item>
+    <item name="PropositoMetasTC[2][nombre]">
+      <value string="meta" />
+    </item>
+    <item name="PropositoMetasTC[2][cantidad]">
+      <value string="1" />
+    </item>
+    <item name="PropositoMetasTC[2][unidadid]">
+      <value string="1" />
+    </item>
+    <item name="PropositoMetasTC[2][indicador]">
+      <value string="% de la población que hace uso de productos y/ o servicios financieros" />
+    </item>
+    <item name="PropositoMetasTC[2][fuente]">
+      <value string="Encuesta de evaluación" />
+    </item>
+    <item name="PropositoMetasTC[2][archivos]">
+      <value string="false" />
+    </item>
+    <item name="PropositoMetasTC[3][id]">
+      <value string="32" />
+    </item>
+    <item name="PropositoMetasTC[3][codigo]">
+      <value string="0.4" />
+    </item>
+    <item name="PropositoMetasTC[3][nombre]">
+      <value string="meta" />
+    </item>
+    <item name="PropositoMetasTC[3][cantidad]">
+      <value string="1" />
+    </item>
+    <item name="PropositoMetasTC[3][unidadid]">
+      <value string="1" />
+    </item>
+    <item name="PropositoMetasTC[3][indicador]">
+      <value string="% de la población que reporta mejoras en las condiciones de vida de sus familias debido al uso de los productos o servicios financieros" />
+    </item>
+    <item name="PropositoMetasTC[3][fuente]">
+      <value string="Encuesta de evaluación" />
+    </item>
+    <item name="PropositoMetasTC[3][archivos]">
+      <value string="false" />
+    </item>
+    <item name="ResultadoTC[0][id]">
+      <value string="17" />
+    </item>
+    <item name="ResultadoTC[0][codigo]">
+      <value string="OE1" />
+    </item>
+    <item name="ResultadoTC[0][nombre]">
+      <value string="Potenciar el uso efectivo de la conectividad y de herramientas digitales, mediante la expansión de un mercado de servicios de internet y el fortalecimiento de competencias en tecnologías de la información." />
+    </item>
+    <item name="ResultadoTC[0][supuesto]">
+      <value string="Las autoridades locales brindan un ambiente adecuado para el equipamiento y funcionamiento de los Telecentros. La población participa en las actividades de los Telecentros." />
+    </item>
+    <item name="ResultadoTC[0][ResultadoMetasTC][0][id]">
+      <value string="27" />
+    </item>
+    <item name="ResultadoTC[0][ResultadoMetasTC][0][codigo]">
+      <value string="1.1" />
+    </item>
+    <item name="ResultadoTC[0][ResultadoMetasTC][0][nombre]">
+      <value string="$5.3m" />
+    </item>
+    <item name="ResultadoTC[0][ResultadoMetasTC][0][cantidad]">
+      <value string="5" />
+    </item>
+    <item name="ResultadoTC[0][ResultadoMetasTC][0][unidadid]">
+      <value string="1" />
+    </item>
+    <item name="ResultadoTC[0][ResultadoMetasTC][0][indicador]">
+      <value string="Valor de la inversión privada movilizada para expandir la inversión en Internet [anual]" />
+    </item>
+    <item name="ResultadoTC[0][ResultadoMetasTC][0][fuente]">
+      <value string="Reporte de empresas de telecomunicaciones" />
+    </item>
+    <item name="ResultadoTC[0][ResultadoMetasTC][0][archivos]">
+      <value string="false" />
+    </item>
+    <item name="ResultadoTC[0][ResultadoMetasTC][1][id]">
+      <value string="28" />
+    </item>
+    <item name="ResultadoTC[0][ResultadoMetasTC][1][codigo]">
+      <value string="1.2" />
+    </item>
+    <item name="ResultadoTC[0][ResultadoMetasTC][1][nombre]">
+      <value string="15000" />
+    </item>
+    <item name="ResultadoTC[0][ResultadoMetasTC][1][cantidad]">
+      <value string="15000" />
+    </item>
+    <item name="ResultadoTC[0][ResultadoMetasTC][1][unidadid]">
+      <value string="2" />
+    </item>
+    <item name="ResultadoTC[0][ResultadoMetasTC][1][indicador]">
+      <value string="Nº mensual de clientes pagantes de Internet [acumulativo]" />
+    </item>
+    <item name="ResultadoTC[0][ResultadoMetasTC][1][fuente]">
+      <value string="Reporte de empresas de telecomunicaciones" />
+    </item>
+    <item name="ResultadoTC[0][ResultadoMetasTC][1][archivos]">
+      <value string="false" />
+    </item>
+    <item name="ResultadoTC[0][ResultadoMetasTC][2][id]">
+      <value string="29" />
+    </item>
+    <item name="ResultadoTC[0][ResultadoMetasTC][2][codigo]">
+      <value string="1.3" />
+    </item>
+    <item name="ResultadoTC[0][ResultadoMetasTC][2][nombre]">
+      <value string="75000" />
+    </item>
+    <item name="ResultadoTC[0][ResultadoMetasTC][2][cantidad]">
+      <value string="75000" />
+    </item>
+    <item name="ResultadoTC[0][ResultadoMetasTC][2][unidadid]">
+      <value string="1" />
+    </item>
+    <item name="ResultadoTC[0][ResultadoMetasTC][2][indicador]">
+      <value string="Nº  total de usuarios de Internet [acumulativo]" />
+    </item>
+    <item name="ResultadoTC[0][ResultadoMetasTC][2][fuente]">
+      <value string="Reporte de empresas de telecomunicaciones" />
+    </item>
+    <item name="ResultadoTC[0][ResultadoMetasTC][2][archivos]">
+      <value string="false" />
+    </item>
+    <item name="ResultadoTC[0][ResultadoMetasTC][3][id]">
+      <value string="30" />
+    </item>
+    <item name="ResultadoTC[0][ResultadoMetasTC][3][codigo]">
+      <value string="1.4" />
+    </item>
+    <item name="ResultadoTC[0][ResultadoMetasTC][3][nombre]">
+      <value string="101" />
+    </item>
+    <item name="ResultadoTC[0][ResultadoMetasTC][3][cantidad]">
+      <value string="101" />
+    </item>
+    <item name="ResultadoTC[0][ResultadoMetasTC][3][unidadid]">
+      <value string="1" />
+    </item>
+    <item name="ResultadoTC[0][ResultadoMetasTC][3][indicador]">
+      <value string="Nº de centros poblados con más de 400 habitantes con acceso a internet [acumulativo]" />
+    </item>
+    <item name="ResultadoTC[0][ResultadoMetasTC][3][fuente]">
+      <value string="Reporte de empresas de telecomunicaciones" />
+    </item>
+    <item name="ResultadoTC[0][ResultadoMetasTC][3][archivos]">
+      <value string="false" />
+    </item>
+    <item name="ResultadoTC[0][ResultadoMetasTC][4][id]">
+      <value string="31" />
+    </item>
+    <item name="ResultadoTC[0][ResultadoMetasTC][4][codigo]">
+      <value string="1.5" />
+    </item>
+    <item name="ResultadoTC[0][ResultadoMetasTC][4][nombre]">
+      <value string="16m" />
+    </item>
+    <item name="ResultadoTC[0][ResultadoMetasTC][4][cantidad]">
+      <value string="16" />
+    </item>
+    <item name="ResultadoTC[0][ResultadoMetasTC][4][unidadid]">
+      <value string="1" />
+    </item>
+    <item name="ResultadoTC[0][ResultadoMetasTC][4][indicador]">
+      <value string="Ganancias generadas mediante los servicios de Internet [anual]" />
+    </item>
+    <item name="ResultadoTC[0][ResultadoMetasTC][4][fuente]">
+      <value string="Reporte de empresas de telecomunicaciones" />
+    </item>
+    <item name="ResultadoTC[0][ResultadoMetasTC][4][archivos]">
+      <value string="false" />
+    </item>
+    <item name="ResultadoTC[0][ResultadoMetasTC][5][id]">
+      <value string="32" />
+    </item>
+    <item name="ResultadoTC[0][ResultadoMetasTC][5][codigo]">
+      <value string="1.6" />
+    </item>
+    <item name="ResultadoTC[0][ResultadoMetasTC][5][nombre]">
+      <value string="10000" />
+    </item>
+    <item name="ResultadoTC[0][ResultadoMetasTC][5][cantidad]">
+      <value string="100000" />
+    </item>
+    <item name="ResultadoTC[0][ResultadoMetasTC][5][unidadid]">
+      <value string="1" />
+    </item>
+    <item name="ResultadoTC[0][ResultadoMetasTC][5][indicador]">
+      <value string="Nº de personas que han recibido entrenamiento digital [anual]" />
+    </item>
+    <item name="ResultadoTC[0][ResultadoMetasTC][5][fuente]">
+      <value string="Sistema MEL" />
+    </item>
+    <item name="ResultadoTC[0][ResultadoMetasTC][5][archivos]">
+      <value string="false" />
+    </item>
+    <item name="ResultadoTC[0][ResultadoMetasTC][6][id]">
+      <value string="33" />
+    </item>
+    <item name="ResultadoTC[0][ResultadoMetasTC][6][codigo]">
+      <value string="1.7" />
+    </item>
+    <item name="ResultadoTC[0][ResultadoMetasTC][6][nombre]">
+      <value string="1" />
+    </item>
+    <item name="ResultadoTC[0][ResultadoMetasTC][6][cantidad]">
+      <value string="1" />
+    </item>
+    <item name="ResultadoTC[0][ResultadoMetasTC][6][unidadid]">
+      <value string="1" />
+    </item>
+    <item name="ResultadoTC[0][ResultadoMetasTC][6][indicador]">
+      <value string="Proporción de hombres y mujeres que reciben entrenamiento digital&#xA;" />
+    </item>
+    <item name="ResultadoTC[0][ResultadoMetasTC][6][fuente]">
+      <value string="Sistema MEL" />
+    </item>
+    <item name="ResultadoTC[0][ResultadoMetasTC][6][archivos]">
+      <value string="false" />
+    </item>
+    <item name="ResultadoTC[0][eliminable]">
+      <value string="true" />
+    </item>
+    <item name="ResultadoTC[1][id]">
+      <value string="18" />
+    </item>
+    <item name="ResultadoTC[1][codigo]">
+      <value string="OE2" />
+    </item>
+    <item name="ResultadoTC[1][nombre]">
+      <value string="Propiciar el acceso y uso de servicios financieros formales, mediante la expansión de la oferta y el fortalecimiento de capacidades financieras.		&#xA;		&#xA;		&#xA;		&#xA;		&#xA;		&#xA;		&#xA;		&#xA;" />
+    </item>
+    <item name="ResultadoTC[1][supuesto]">
+      <value string="Las autoridades locales brindan un ambiente adecuado para el equipamiento y funcionamiento de los Telecentros. La población participa en las actividades de los Telecentros." />
+    </item>
+    <item name="ResultadoTC[1][ResultadoMetasTC][0][id]">
+      <value string="34" />
+    </item>
+    <item name="ResultadoTC[1][ResultadoMetasTC][0][codigo]">
+      <value string="2.1" />
+    </item>
+    <item name="ResultadoTC[1][ResultadoMetasTC][0][nombre]">
+      <value string="$22m" />
+    </item>
+    <item name="ResultadoTC[1][ResultadoMetasTC][0][cantidad]">
+      <value string="22" />
+    </item>
+    <item name="ResultadoTC[1][ResultadoMetasTC][0][unidadid]">
+      <value string="1" />
+    </item>
+    <item name="ResultadoTC[1][ResultadoMetasTC][0][indicador]">
+      <value string="Valor de nuevos servicios financieros movilizados [anual]&#xA;" />
+    </item>
+    <item name="ResultadoTC[1][ResultadoMetasTC][0][fuente]">
+      <value string="Reporte de entidades financieras&#xA;" />
+    </item>
+    <item name="ResultadoTC[1][ResultadoMetasTC][0][archivos]">
+      <value string="false" />
+    </item>
+    <item name="ResultadoTC[1][ResultadoMetasTC][1][id]">
+      <value string="35" />
+    </item>
+    <item name="ResultadoTC[1][ResultadoMetasTC][1][codigo]">
+      <value string="2.1a" />
+    </item>
+    <item name="ResultadoTC[1][ResultadoMetasTC][1][nombre]">
+      <value string="$19m" />
+    </item>
+    <item name="ResultadoTC[1][ResultadoMetasTC][1][cantidad]">
+      <value string="19" />
+    </item>
+    <item name="ResultadoTC[1][ResultadoMetasTC][1][unidadid]">
+      <value string="1" />
+    </item>
+    <item name="ResultadoTC[1][ResultadoMetasTC][1][indicador]">
+      <value string="Crédito [anual]&#xA;" />
+    </item>
+    <item name="ResultadoTC[1][ResultadoMetasTC][1][fuente]">
+      <value string="Reporte de entidades financieras" />
+    </item>
+    <item name="ResultadoTC[1][ResultadoMetasTC][1][archivos]">
+      <value string="false" />
+    </item>
+    <item name="ResultadoTC[1][ResultadoMetasTC][2][id]">
+      <value string="36" />
+    </item>
+    <item name="ResultadoTC[1][ResultadoMetasTC][2][codigo]">
+      <value string="2.1b" />
+    </item>
+    <item name="ResultadoTC[1][ResultadoMetasTC][2][nombre]">
+      <value string="$3m" />
+    </item>
+    <item name="ResultadoTC[1][ResultadoMetasTC][2][cantidad]">
+      <value string="3" />
+    </item>
+    <item name="ResultadoTC[1][ResultadoMetasTC][2][unidadid]">
+      <value string="1" />
+    </item>
+    <item name="ResultadoTC[1][ResultadoMetasTC][2][indicador]">
+      <value string="Ahorros [acumulativo]&#xA;" />
+    </item>
+    <item name="ResultadoTC[1][ResultadoMetasTC][2][fuente]">
+      <value string="Reporte de entidades financieras" />
+    </item>
+    <item name="ResultadoTC[1][ResultadoMetasTC][2][archivos]">
+      <value string="false" />
+    </item>
+    <item name="ResultadoTC[1][ResultadoMetasTC][3][id]">
+      <value string="37" />
+    </item>
+    <item name="ResultadoTC[1][ResultadoMetasTC][3][codigo]">
+      <value string="2.2" />
+    </item>
+    <item name="ResultadoTC[1][ResultadoMetasTC][3][nombre]">
+      <value string="8000" />
+    </item>
+    <item name="ResultadoTC[1][ResultadoMetasTC][3][cantidad]">
+      <value string="8000" />
+    </item>
+    <item name="ResultadoTC[1][ResultadoMetasTC][3][unidadid]">
+      <value string="1" />
+    </item>
+    <item name="ResultadoTC[1][ResultadoMetasTC][3][indicador]">
+      <value string="Nº de clientes de préstamos y ahorros [acumulativo]&#xA;" />
+    </item>
+    <item name="ResultadoTC[1][ResultadoMetasTC][3][fuente]">
+      <value string="Reporte de entidades financieras" />
+    </item>
+    <item name="ResultadoTC[1][ResultadoMetasTC][3][archivos]">
+      <value string="false" />
+    </item>
+    <item name="ResultadoTC[1][ResultadoMetasTC][4][id]">
+      <value string="38" />
+    </item>
+    <item name="ResultadoTC[1][ResultadoMetasTC][4][codigo]">
+      <value string="2.3" />
+    </item>
+    <item name="ResultadoTC[1][ResultadoMetasTC][4][nombre]">
+      <value string="10000" />
+    </item>
+    <item name="ResultadoTC[1][ResultadoMetasTC][4][cantidad]">
+      <value string="10000" />
+    </item>
+    <item name="ResultadoTC[1][ResultadoMetasTC][4][unidadid]">
+      <value string="1" />
+    </item>
+    <item name="ResultadoTC[1][ResultadoMetasTC][4][indicador]">
+      <value string="Nº de personas que reciben entrenamiento en alfabetización financiera [anual]&#xA;" />
+    </item>
+    <item name="ResultadoTC[1][ResultadoMetasTC][4][fuente]">
+      <value string="Sistema MEL&#xA;" />
+    </item>
+    <item name="ResultadoTC[1][ResultadoMetasTC][4][archivos]">
+      <value string="false" />
+    </item>
+    <item name="ResultadoTC[1][ResultadoMetasTC][5][id]">
+      <value string="39" />
+    </item>
+    <item name="ResultadoTC[1][ResultadoMetasTC][5][codigo]">
+      <value string="2.4" />
+    </item>
+    <item name="ResultadoTC[1][ResultadoMetasTC][5][nombre]">
+      <value string="3000" />
+    </item>
+    <item name="ResultadoTC[1][ResultadoMetasTC][5][cantidad]">
+      <value string="3000" />
+    </item>
+    <item name="ResultadoTC[1][ResultadoMetasTC][5][unidadid]">
+      <value string="1" />
+    </item>
+    <item name="ResultadoTC[1][ResultadoMetasTC][5][indicador]">
+      <value string="Nº de personas entrenadas por socios de la Alianza sin fondos de USAID [anual]&#xA;" />
+    </item>
+    <item name="ResultadoTC[1][ResultadoMetasTC][5][fuente]">
+      <value string="Reporte de entidades financieras/ Sistema MEL&#xA;" />
+    </item>
+    <item name="ResultadoTC[1][ResultadoMetasTC][5][archivos]">
+      <value string="false" />
+    </item>
+    <item name="ResultadoTC[1][eliminable]">
+      <value string="true" />
+    </item>
+  </form>
+  <cookies>
+    <item name=".ASPXAUTH">
+      <value string="F6F195087F0BB8C9F0E8B9C7DA7F86C5E730D119F929F564E287EC7DB350579D6B87B0F197AC117F97F90FB28C794E5B72C8D05DCFE1E7BE7B55E0CE783015A87514D58089198F9FC8B790BEAB131C4141182EAD7BE2DEF234590416A3BBCB0E81CE89156E30AC7E900E6483F763E3B15A2821B1EE00E5A293238F82F538E21BD4BA4D636A9DB83A003A4BC7621CA72192ADB0392CEA887A75FF57B0F8B1368FA0EFDC942B92D2F14F928A56B7452F5B04A5735DA521A2D0C8B53F7083B0EBC47D4B8290497B9632CE019F7018A9BE51597D8A4F4310DB13811DBE390DBD125D207C13B551DDDF3B27A1B25D6DB12AD67DC0E890390F9D34AD1BAF932E2A22B9" />
+    </item>
+  </cookies>
+</error>

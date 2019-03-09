@@ -1,0 +1,30 @@
+﻿.largo
+{
+    width: 350px;
+}
+
+.corto
+{
+    width: 100px;
+}
+
+.text-input
+{
+    height: 21px;
+}
+                
+.register-table
+{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.register-table td, 
+.register-table tr
+{
+    margin: 0px;
+    padding: 2px;
+    border-spacing: 0px;
+    border-collapse: collapse;
+    font-family: Verdana;
+    font-size: 12px;
+}

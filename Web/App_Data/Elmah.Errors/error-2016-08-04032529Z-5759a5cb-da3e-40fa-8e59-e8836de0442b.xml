@@ -1,0 +1,162 @@
+﻿<error errorId="5759a5cb-da3e-40fa-8e59-e8836de0442b" application="/" host="DESARROLLO_NET" type="System.Web.HttpException" message="The controller for path '/Scripts/jquery.min.map' was not found or does not implement IController." source="System.Web.Mvc" detail="System.Web.HttpException (0x80004005): The controller for path '/Scripts/jquery.min.map' was not found or does not implement IController.&#xD;&#xA;   at System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)&#xD;&#xA;   at System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)&#xD;&#xA;   at System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController&amp; controller, IControllerFactory&amp; factory)&#xD;&#xA;   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)&#xD;&#xA;   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)&#xD;&#xA;   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)&#xD;&#xA;   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()&#xD;&#xA;   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean&amp; completedSynchronously)" user="lpariatanta" time="2016-08-04T03:25:29.8309496Z" statusCode="404">
+  <serverVariables>
+    <item name="ALL_HTTP">
+      <value string="HTTP_CONNECTION:keep-alive&#xD;&#xA;HTTP_ACCEPT_ENCODING:gzip, deflate, sdch&#xD;&#xA;HTTP_ACCEPT_LANGUAGE:es-ES,es;q=0.8&#xD;&#xA;HTTP_COOKIE:CookiesLogin=luis.pariatanta@gmail.com; .ASPXAUTH=F928D2FB393CA0F8E3CDEC8BC94DC82A68271D6E440554FEBCAE412B5CDF507CE5FAB1724193ED4F181207358BAFB98EA1C46DD8A5499D1AFFF2D40CE31BFF504E85766B77CE4EA3B96FC1CB28608720FD65C423EBC5A8869AE306F40770E8E4241252205669F66FEB08BEFFF39C6717731E309E4D3719D11E9552AC065EE42DF708C06E8D642471CA5997DC20D8A02C773B06715FECDA492118D96CC5376D0119BCA1F69A3D24512C9DF8044FD7EE7A3C95E0308A435BDD321CFFAB90215934C7915F0BDA1DE3EFDBE5FC84BF9D988CF571606D44B34C6C44809501FBE118C0FC8CC6C3F29B1B8A26D882C7AD3F6E2A07AA8FB35B7BD03B80AB1D35E6FF8031; ASP.NET_SessionId=iz2m5w51t55scqy3vebsxlbn&#xD;&#xA;HTTP_HOST:localhost:59065&#xD;&#xA;HTTP_USER_AGENT:Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36&#xD;&#xA;" />
+    </item>
+    <item name="ALL_RAW">
+      <value string="Connection: keep-alive&#xD;&#xA;Accept-Encoding: gzip, deflate, sdch&#xD;&#xA;Accept-Language: es-ES,es;q=0.8&#xD;&#xA;Cookie: CookiesLogin=luis.pariatanta@gmail.com; .ASPXAUTH=F928D2FB393CA0F8E3CDEC8BC94DC82A68271D6E440554FEBCAE412B5CDF507CE5FAB1724193ED4F181207358BAFB98EA1C46DD8A5499D1AFFF2D40CE31BFF504E85766B77CE4EA3B96FC1CB28608720FD65C423EBC5A8869AE306F40770E8E4241252205669F66FEB08BEFFF39C6717731E309E4D3719D11E9552AC065EE42DF708C06E8D642471CA5997DC20D8A02C773B06715FECDA492118D96CC5376D0119BCA1F69A3D24512C9DF8044FD7EE7A3C95E0308A435BDD321CFFAB90215934C7915F0BDA1DE3EFDBE5FC84BF9D988CF571606D44B34C6C44809501FBE118C0FC8CC6C3F29B1B8A26D882C7AD3F6E2A07AA8FB35B7BD03B80AB1D35E6FF8031; ASP.NET_SessionId=iz2m5w51t55scqy3vebsxlbn&#xD;&#xA;Host: localhost:59065&#xD;&#xA;User-Agent: Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36&#xD;&#xA;" />
+    </item>
+    <item name="APPL_MD_PATH">
+      <value string="" />
+    </item>
+    <item name="APPL_PHYSICAL_PATH">
+      <value string="C:\Proyectos\Cedro\Pase 4\Fuentes\SMEC\Web\" />
+    </item>
+    <item name="AUTH_TYPE">
+      <value string="Forms" />
+    </item>
+    <item name="AUTH_USER">
+      <value string="lpariatanta" />
+    </item>
+    <item name="AUTH_PASSWORD">
+      <value string="*****" />
+    </item>
+    <item name="LOGON_USER">
+      <value string="DESARROLLO_NET\Administrator" />
+    </item>
+    <item name="REMOTE_USER">
+      <value string="lpariatanta" />
+    </item>
+    <item name="CERT_COOKIE">
+      <value string="" />
+    </item>
+    <item name="CERT_FLAGS">
+      <value string="" />
+    </item>
+    <item name="CERT_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SERIALNUMBER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CERT_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CONTENT_LENGTH">
+      <value string="0" />
+    </item>
+    <item name="CONTENT_TYPE">
+      <value string="" />
+    </item>
+    <item name="GATEWAY_INTERFACE">
+      <value string="" />
+    </item>
+    <item name="HTTPS">
+      <value string="" />
+    </item>
+    <item name="HTTPS_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="INSTANCE_ID">
+      <value string="" />
+    </item>
+    <item name="INSTANCE_META_PATH">
+      <value string="" />
+    </item>
+    <item name="LOCAL_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="PATH_INFO">
+      <value string="/Scripts/jquery.min.map" />
+    </item>
+    <item name="PATH_TRANSLATED">
+      <value string="C:\Proyectos\Cedro\Pase 4\Fuentes\SMEC\Web\Scripts\jquery.min.map" />
+    </item>
+    <item name="QUERY_STRING">
+      <value string="" />
+    </item>
+    <item name="REMOTE_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_HOST">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_PORT">
+      <value string="" />
+    </item>
+    <item name="REQUEST_METHOD">
+      <value string="GET" />
+    </item>
+    <item name="SCRIPT_NAME">
+      <value string="/Scripts/jquery.min.map" />
+    </item>
+    <item name="SERVER_NAME">
+      <value string="localhost" />
+    </item>
+    <item name="SERVER_PORT">
+      <value string="59065" />
+    </item>
+    <item name="SERVER_PORT_SECURE">
+      <value string="0" />
+    </item>
+    <item name="SERVER_PROTOCOL">
+      <value string="HTTP/1.1" />
+    </item>
+    <item name="SERVER_SOFTWARE">
+      <value string="" />
+    </item>
+    <item name="URL">
+      <value string="/Scripts/jquery.min.map" />
+    </item>
+    <item name="HTTP_CONNECTION">
+      <value string="keep-alive" />
+    </item>
+    <item name="HTTP_ACCEPT_ENCODING">
+      <value string="gzip, deflate, sdch" />
+    </item>
+    <item name="HTTP_ACCEPT_LANGUAGE">
+      <value string="es-ES,es;q=0.8" />
+    </item>
+    <item name="HTTP_COOKIE">
+      <value string="CookiesLogin=luis.pariatanta@gmail.com; .ASPXAUTH=F928D2FB393CA0F8E3CDEC8BC94DC82A68271D6E440554FEBCAE412B5CDF507CE5FAB1724193ED4F181207358BAFB98EA1C46DD8A5499D1AFFF2D40CE31BFF504E85766B77CE4EA3B96FC1CB28608720FD65C423EBC5A8869AE306F40770E8E4241252205669F66FEB08BEFFF39C6717731E309E4D3719D11E9552AC065EE42DF708C06E8D642471CA5997DC20D8A02C773B06715FECDA492118D96CC5376D0119BCA1F69A3D24512C9DF8044FD7EE7A3C95E0308A435BDD321CFFAB90215934C7915F0BDA1DE3EFDBE5FC84BF9D988CF571606D44B34C6C44809501FBE118C0FC8CC6C3F29B1B8A26D882C7AD3F6E2A07AA8FB35B7BD03B80AB1D35E6FF8031; ASP.NET_SessionId=iz2m5w51t55scqy3vebsxlbn" />
+    </item>
+    <item name="HTTP_HOST">
+      <value string="localhost:59065" />
+    </item>
+    <item name="HTTP_USER_AGENT">
+      <value string="Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36" />
+    </item>
+  </serverVariables>
+  <cookies>
+    <item name="CookiesLogin">
+      <value string="luis.pariatanta@gmail.com" />
+    </item>
+    <item name=".ASPXAUTH">
+      <value string="F928D2FB393CA0F8E3CDEC8BC94DC82A68271D6E440554FEBCAE412B5CDF507CE5FAB1724193ED4F181207358BAFB98EA1C46DD8A5499D1AFFF2D40CE31BFF504E85766B77CE4EA3B96FC1CB28608720FD65C423EBC5A8869AE306F40770E8E4241252205669F66FEB08BEFFF39C6717731E309E4D3719D11E9552AC065EE42DF708C06E8D642471CA5997DC20D8A02C773B06715FECDA492118D96CC5376D0119BCA1F69A3D24512C9DF8044FD7EE7A3C95E0308A435BDD321CFFAB90215934C7915F0BDA1DE3EFDBE5FC84BF9D988CF571606D44B34C6C44809501FBE118C0FC8CC6C3F29B1B8A26D882C7AD3F6E2A07AA8FB35B7BD03B80AB1D35E6FF8031" />
+    </item>
+    <item name="ASP.NET_SessionId">
+      <value string="iz2m5w51t55scqy3vebsxlbn" />
+    </item>
+  </cookies>
+</error>

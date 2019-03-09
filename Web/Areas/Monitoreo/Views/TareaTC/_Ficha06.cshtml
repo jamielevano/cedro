@@ -1,0 +1,116 @@
+﻿<table style="width: 100%;">
+    <colgroup>
+        <col style="width:50%"/>
+        <col />
+    </colgroup> 
+    <tr>
+        <td>
+            <h2>Registro de participantes</h2>
+        </td>
+        <td style="text-align:right">
+            @*<button type="button" data-bind="click: function () { FichaArchivo(6) }"><a class="btn folder"></a> Agregar Archivo</button>*@
+        </td>
+    </tr>
+    <tr>
+        <table>
+            <tr>
+                <td>
+                    Buscar por DNI:
+                </td>
+                <td>
+                    <input type="text" maxlength="8" data-bind="numeric: { decimal: false, negative: false }" style="text-align: right" name="txtdni" id="txtdni">
+                </td>
+                <td>
+                    <button type="button" data-bind="enable: !$root.vista, click: function (){
+
+                        var persona=getJson('@Url.Content("~/api/Monitoreo/TareaTC/FindPersona")',{dni:$('#txtdni').val()});
+
+                        if(persona)
+                        {
+                            AvancePOTC_Ficha06Integrantes.push(ko.mapping.fromJS(
+                                {
+                                    nombres: persona.nombres,
+                                    apellidopaterno: persona.apellidopaterno,
+                                    apellidomaterno: persona.apellidomaterno,
+                                    sexoid: persona.sexoid,
+                                    dni: persona.dni,
+                                    fechanacimiento: persona.fechanacimiento,
+                                    edad:null,
+                                    ocupacionid:persona.ocupacionid,
+                                    ocupacionotro:null,
+                                    localidad: persona.localidad,
+                                    telefono: persona.telefono,
+                                    celular: persona.celular,
+                                    correo: persona.correo,
+                                    telecentroid:@Web.Auth.GetTicketData().TelecentroId.ToString(),
+                                    telecentro:null
+                                }
+                            ))
+                        }
+                        else
+                        {
+                            alert('El DNI ingresado no existe');
+                            $('#txtdni').val('');
+                        }
+                        }">Buscar
+                     </button>
+                </td>
+            </tr>
+        </table>
+    </tr>
+</table>
+
+
+<table class="grid" style="margin: 0">
+    <thead>
+        <tr>
+            <th>N°</th>
+            <th>Apellido Paterno</th>
+            <th>Apellido Materno</th>
+            <th>Nombres</th>
+            <th style="width: 100px;">Sexo</th>
+            <th style="width: 100px;">DNI</th>
+            <th style="width: 100px;">Fecha Nac.</th>
+            <th style="width: 50px;">Edad</th>
+            <th style="width: 150px;">Ocupación</th>
+            <th>Localidad</th>
+            <th style="width: 100px;">Teléfono</th>
+            <th style="width: 100px;">Celular</th>
+            <th>Correo</th>
+            <th></th>
+            <th>Telecentro</th>
+            <th style="width: 40px;">
+                <button type="button" class="btn add" data-bind="enable: !$root.vista, click: function (){
+                        var integrantes=entities.AvancePOTC_Ficha06Integrantes();
+                        integrantes.telecentroid=@Web.Auth.GetTicketData().TelecentroId.ToString();
+                        AvancePOTC_Ficha06Integrantes.push(ko.mapping.fromJS(integrantes))
+                    }">
+                </button>
+            </th>
+        </tr>
+    </thead>
+    <tbody data-bind="foreach: AvancePOTC_Ficha06Integrantes">
+        <tr>
+            <td data-bind="text: $index() + 1" style="text-align: right"></td>
+            <td>@Html.koText("apellidopaterno", maxlength:50)</td>
+            <td>@Html.koText("apellidomaterno", maxlength:50)</td>
+            <td>@Html.koText("nombres", maxlength:50)</td>
+            <td>@Html.koSelect("sexoid", "$root.listSexo")</td>
+            <td>@Html.koNumeric("dni", @decimal:false, maxlength: 8)</td>
+            <td>@Html.koDate("fechanacimiento",width:100,required:false)</td>
+            <td data-bind="text:edad" style="text-align:center"></td>
+            <td>@Html.koSelect("ocupacionid", "$root.listOcupacion")<br />
+                <input type="text" data-bind="value: ocupacionotro, enable: ocupacionid() == 80, visible: ocupacionid() == 80, uniqueName: true" data-val="true" data-val-required="" maxlength="50" />
+            </td>
+            <td>@Html.koText("localidad", maxlength:50)</td>
+            <td>@Html.koTextNoRequired("telefono", maxlength:50 )</td>
+            <td>@Html.koTextNoRequired("celular", maxlength:50)</td>
+            <td>@Html.koTextNoRequired("correo", maxlength:50)</td>
+            <td data-bind="text:telecentroid" style="text-align:center"></td>
+            <td data-bind="text:telecentro" style="text-align:center"></td>
+            <td style="text-align: center;">
+                <button type="button" class="btn del" data-bind="enable: @Web.Auth.GetTicketData().Admin.ToString().ToLower() || ($root.vista?false:(@Web.Auth.GetTicketData().TelecentroId.ToString()==telecentroid())), click: function () { $parent.AvancePOTC_Ficha06Integrantes.remove($data) }"></button>
+            </td>
+        </tr>
+    </tbody>
+</table>

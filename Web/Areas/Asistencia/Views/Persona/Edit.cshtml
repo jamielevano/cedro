@@ -1,0 +1,269 @@
+﻿@section scripts
+{
+    <script type="text/javascript">
+        $(function () {
+            var data, id = queryString('id');
+
+            if (id)
+                data = getJson('@Url.Content("~/api/Asistencia/Persona/Find")', { id: id });
+
+            var Model = function (data) {
+                var self = this;
+
+                data = data || {
+                    id: 0,
+                    codigo:null,
+                    apellidopaterno: null,
+                    apellidomaterno: null,
+                    nombre: null,
+                    estadocivilid: null,
+                    sexoid: null,
+                    //telecentroid: ko.observable('@ViewBag.telecentroid'),
+                    telecentroid: ko.observable(null),
+                    ejeintervencionid: ko.observable(null),
+                    localidad: null,
+                    direccion: null,
+                    gradoinstruccionid: null,
+                    dni: null,
+                    fechanacimiento: null,
+                    lugarnacimiento: null,
+                    ocupacionid: null,
+                    ocupacionotro: null,
+                    centrotrabajo: null,
+                    telefono: null,
+                    celular: null,
+                    email: null,
+                    //aud_usuariomod: ko.observable('@Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(ViewBag.usuarioid))'),
+                    aud_usuariomod: ko.observable('@ViewBag.usuarioid'),
+                    asociacion: null,
+                    cargoocupa: null,
+                    hectareas: null,
+                    observacion: null,
+                    tipocomunidadid: null,
+                    tiempoorganizacion: 0,
+                    tiempotelecentro:0
+                   
+                };
+
+                self.listTelecentros = ko.observableArray([]);
+                self.listEjeIntervencion = getJson('@Url.Content("~/api/General/EjeIntervencion02")');
+                self.listTipoComunidad = getJson('@Url.Content("~/api/General/TipoComunidad")');
+                self.listSexo = getJson('@Url.Content("~/api/General/Sexo")');
+                self.listEstadoCivil = getJson('@Url.Content("~/api/General/EstadoCivil")');
+                self.listGradoInstruccion = getJson('@Url.Content("~/api/General/GradoInstruccion")');
+                self.listOcupacion = getJson('@Url.Content("~/api/General/Ocupacion")');
+                self.listUsuario = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(ViewBag.ListUsuario));
+                self.fechaini = DateNowVal2()
+                //self.fechaactual = DateNow();
+                self.data = ko.mapping.fromJS(data);
+
+                self.data = ko.mapping.fromJS(data);
+                var dt = new Date();
+                // Display the month, day, and year. getMonth() returns a 0-based number.
+                var month = dt.getMonth() + 1;
+                var day = dt.getDate();
+                var year = dt.getFullYear() - 12;
+                var year2 = dt.getFullYear() - 90;
+                self.fechaactual = new Date(month + '/' + day + '/' + year);
+                self.fechaactual2 = new Date(month + '/' + day + '/' + year2);
+
+                @*var updateTelecentros = function (id) {
+                    self.data.telecentroid(self.data.telecentroid() || undefined);
+                    self.listTelecentros(undefined);
+                    if (id) {
+                        self.listTelecentros(getJson('@Url.Content("~/Api/General/Eje_Telecentros")', { eje: id }))
+                    }
+                };
+
+                self.data.ejeintervencionid.subscribe(updateTelecentros);
+                if (self.data.ejeintervencionid()) {
+                    var telecentroid = self.data.telecentroid();
+                    updateTelecentros(self.data.ejeintervencionid());
+                    self.data.telecentroid(telecentroid);
+                }*@
+
+                var updateTelecentros = function (id) {
+
+                    self.data.telecentroid(self.data.telecentroid() || undefined);
+                    self.listTelecentros(undefined);
+                    if (id) {
+                        self.listTelecentros(getJson('@Url.Content("~/Api/General/Eje_Telecentros")', { eje: id }))
+                    }
+                };
+
+                self.data.ejeintervencionid.subscribe(updateTelecentros);
+                if (self.data.ejeintervencionid()) {
+                    var telecentroid = self.data.telecentroid();
+                    updateTelecentros(self.data.ejeintervencionid());
+                    self.data.telecentroid(telecentroid);
+                }
+
+                self.Save = function (form)
+                {
+                    if ($(form).refreshValidator().valid())
+                    {
+                        postJson('@Url.Content("~/api/Asistencia/Persona/Save")', JSON.parse(ko.mapping.toJSON(self.data)),
+                        function (data) {
+
+                            if (data!="")
+                                alert(data);
+                            else
+                                document.location.href = '@Url.Action("Index")';
+                        },
+                        function (error) {
+                            //var r = jQuery.parseJSON(error.responseText);
+                            //alert(r.ExceptionMessage);
+                        });
+                    }
+                };
+            };
+
+            ko.applyBindings(new Model(data));
+        })
+    </script>
+}
+
+<form data-bind="submit: Save" style="width: 100%; float: left;">
+
+    <div class="toolbar">
+        <a class="back" title="Volver" href="@Url.Action("Index")"></a>
+        <button type="button" class="save" title="Grabar" onclick="$(this).closest('form').submit()"></button>
+        <button type="button" class="refresh" title="Refrescar" onclick="document.location.reload()"></button>
+    </div>
+
+
+    <fieldset>
+        <legend>REGISTRO</legend>
+        <table style="width: 70%; float:left;">
+            <colgroup>
+                <col style="width:20%"/>
+                <col style="width:30%"/>
+                <col style="width:20%"/>
+                <col style="width:30%"/>
+            </colgroup>
+            <tr>
+                <td>CODIGO</td>
+                <td>@Html.koText("data.codigo",enable:"false")</td>
+                <td>Fecha de Registro</td>
+                <td>@Html.koDate("data.fecharegistro",enable:"false")</td>
+            </tr>
+            <tr>
+                <td>EJE DE INTERVENCION</td>
+                <td >@Html.koSelect("data.ejeintervencionid", "$root.listEjeIntervencion")<font color="#000000">&nbsp&nbsp&nbsp&nbsp*</font></td>
+                <td>LOCALIDAD</td>
+                <td>@Html.koSelect("data.telecentroid", "$root.listTelecentros", "($root.listTelecentros() && !$root.bloqueo)")<font color="#000000">&nbsp&nbsp&nbsp&nbsp*</font></td>
+                @*<td>Telecentro</td>
+                <td>
+                    @Html.koSelect("data.telecentroid", "$root.listTelecentros", "$root.listTelecentros()")
+                </td>*@
+
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td>ANEXO DE LOCALIDAD</td>
+                <td>@Html.koTextNoRequired("data.hectareas", 100)</td>
+            </tr>
+            <tr>
+                <td>APELLIDO PATERNO</td>
+                <td>@Html.koText("data.apellidopaterno", 50)<font color="#000000">&nbsp&nbsp&nbsp&nbsp*</font></td>
+                <td>APELLIDO MATERNO</td>
+                <td>@Html.koText("data.apellidomaterno", 50)<font color="#000000">&nbsp&nbsp&nbsp&nbsp*</font></td>
+            </tr>
+            <tr>
+                <td>NOMBRES</td>
+                <td>@Html.koText("data.nombre", 50)<font color="#000000">&nbsp&nbsp&nbsp&nbsp*</font></td>
+                <td>ESTADO CIVIL</td>
+                <td>@Html.koSelectNoRequired("data.estadocivilid", "$root.listEstadoCivil")</td>
+            </tr>
+            <tr>
+                <td>DNI</td>
+                <td>@Html.koNumeric("data.dni", minlength:8, maxlength: 8,@decimal: false)<font color="#000000">&nbsp&nbsp&nbsp&nbsp*</font></td>
+                <td>SEXO</td>
+                <td>@Html.koSelect("data.sexoid", "$root.listSexo")<font color="#000000">&nbsp&nbsp&nbsp&nbsp*</font></td>
+            </tr>
+            <tr>
+                <td>FECHA NACIMIENTO</td>
+                @*<td>@Html.koDate("data.fechanacimiento", min: "$root.fechaini", max: "$root.fechaactual")</td>*@
+                <td>@Html.koDate("data.fechanacimiento", min: "$root.fechaactual2", max: "$root.fechaactual")<font color="#000000">&nbsp&nbsp&nbsp&nbsp&nbsp*</font></td>
+                <td>LUGAR NACIMIENTO</td>
+                <td>@Html.koText("data.lugarnacimiento", 50)<font color="#000000">&nbsp&nbsp&nbsp&nbsp*</font></td>
+            </tr>
+            <tr>
+                 <td style="display:none;">LOCALIDAD DE RESIDENCIA</td>
+                <td style="display:none;">@Html.koTextNoRequired("data.localidad",50)</td>                
+                <td>DIRECCION DE RESIDENCIA</td>
+                <td>@Html.koTextAreaNoRequired("data.direccion",maxlength:200,tooltip:"Registrar su domicilio actual")</td>
+            </tr>
+            <tr>
+                <td>GRADO INSTRUCCION</td>
+                <td>@Html.koSelect("data.gradoinstruccionid", "$root.listGradoInstruccion")<font color="#000000">&nbsp&nbsp&nbsp&nbsp*</font></td>
+                <td></td>
+                <td></td>
+            </tr>
+            
+            <tr>
+                <td>OCUPACION PRINCIPAL</td>
+                <td>
+                    @Html.koSelect("data.ocupacionid", "$root.listOcupacion")<font color="#000000">&nbsp&nbsp&nbsp&nbsp*</font>
+                    <input type="text" data-bind="value: data.ocupacionotro, enable: data.ocupacionid() == 80, visible: data.ocupacionid() == 80, uniqueName: true" data-val="true" data-val-required="" maxlength="50" />
+                </td>
+                <td>CENTRO TRABAJO</td>
+                <td>@Html.koTextNoRequired("data.centrotrabajo",maxlength:50)</td>
+            </tr>
+            <tr>
+                <td>TELEFONO FIJO</td>
+                <td>@Html.koTextNoRequired("data.telefono",maxlength:15)</td>
+                <td>CELULAR</td>
+                <td>@Html.koTextNoRequired("data.celular",maxlength:25)</td>
+            </tr>
+            <tr>
+                <td>CORREO ELECTRONICO</td>
+                <td>@Html.koTextNoRequired("data.email",maxlength:100)</td>
+                <td style="display:none;">Tiempo de participacion en telecentros (meses)</td>
+                <td style="display:none;">@Html.koNumeric("data.tiempotelecentro",maxlength:3,@decimal:false,required:false)</td>
+            </tr>
+
+            <tr>
+                <td>ORGANIZACION/INSTITUCION
+               
+                </td>
+                <td>@Html.koTextNoRequired("data.asociacion",100, tooltip:"Registrar el nombre completo de la Organización y/o Institución a la que pertenece (Si pertenece a una Asociación de Productores, indicar el nombre de la asociación)")</td>
+                <td>CARGO QUE OCUPA</td>
+                <td>@Html.koTextNoRequired("data.cargoocupa",50, tooltip:"Registrar el cargo que ocupa en la Organización y/o Institución a la que pertenece")</td>
+            </tr>
+
+            <tr>
+                <td>TIPO DE COMUNIDAD</td>
+                <td>@Html.koSelect("data.tipocomunidadid", "$root.listTipoComunidad")<font color="#000000">&nbsp&nbsp&nbsp&nbsp*</font></td>
+                <td>TIEMPO EN LA ORGANIZACION (MESES)</td>
+                <td>@Html.koNumeric("data.tiempoorganizacion",maxlength:3,@decimal:false,required:false)</td>
+            </tr>
+
+            <tr>
+                <td style="display:none">OBSERVACION</td>
+                <td style="display:none">@Html.koTextAreaNoRequired("data.observacion",maxlength:200, tooltip:"Registrar anotación importante respecto al inscrito, de ser el caso")</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>
+                    RESPONSABLE DEL REGISTRO
+                </td>
+                @*<td><select data-bind="value: data.aud_usuariomod, options: listUsuario, optionsCaption: '[Todos]', uniqueName: true, enable: @Web.Auth.GetTicketData().Admin.ToString().ToLower()"></select></td>*@                
+                <td>@Html.koSelectV3("data.aud_usuariomod", "$root.listUsuario",enable: "false")</td>
+                @*<td>@Html.koCheck("usodatos") ACEPTO EL USO DE DATOS</td>*@
+                <td>@Html.koCheck("data.usodatos") ACEPTO EL USO DE DATOS</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <font color="#0000ff">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp----------------->LOS CAMPOS CON ASTERISCO (*) SON CAMPOS DE LLENADO OBLIGATORIO<------------------</font>
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+    
+    
+</form>
+@*<pre class="json" data-bind="text: JSON.stringify(ko.mapping.toJS(data) , null, '  ')"></pre>*@

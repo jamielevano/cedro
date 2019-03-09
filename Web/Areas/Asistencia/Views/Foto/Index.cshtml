@@ -1,0 +1,18 @@
+﻿<h3>Recuede que solo podra almacenar fotos de hasta 1MB</h3>
+<form enctype="multipart/form-data" method="post" action="@Url.Action("SendImage")">
+    <table>
+        <tr>
+            <td>
+                <input type="hidden" name="id" value="@ViewBag.Id" />
+            </td>
+            <td>
+                <input type="file" name="img" /> <br />
+            </td>
+            <td>
+                <input type="submit" value="Subir foto"/>
+            </td>
+        </tr>
+    </table>
+</form>
+
+<img src="@Url.Action("Preview", new {id=ViewBag.Id})" />

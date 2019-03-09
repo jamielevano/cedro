@@ -1,0 +1,176 @@
+﻿<error errorId="2f28a831-e549-40ed-b0be-fb523dea2ac6" application="/LM/W3SVC/2/ROOT" host="DESKTOP-RP7B1TI" type="System.Threading.Tasks.TaskCanceledException" message="Se canceló una tarea." source="mscorlib" detail="System.Threading.Tasks.TaskCanceledException: Se canceló una tarea.&#xD;&#xA;   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;&#xA;   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;&#xA;   en System.Web.Http.Controllers.ApiControllerActionInvoker.&lt;InvokeActionAsyncCore&gt;d__0.MoveNext()&#xD;&#xA;--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---&#xD;&#xA;   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;&#xA;   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;&#xA;   en System.Web.Http.Controllers.ActionFilterResult.&lt;ExecuteAsync&gt;d__2.MoveNext()&#xD;&#xA;--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---&#xD;&#xA;   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;&#xA;   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;&#xA;   en System.Web.Http.Controllers.ExceptionFilterResult.&lt;ExecuteAsync&gt;d__0.MoveNext()" user="agutierrez" time="2019-01-10T18:03:24.3714986Z">
+  <serverVariables>
+    <item name="ALL_HTTP">
+      <value string="HTTP_CONNECTION:keep-alive&#xD;&#xA;HTTP_ACCEPT:*/*&#xD;&#xA;HTTP_ACCEPT_ENCODING:gzip, deflate&#xD;&#xA;HTTP_ACCEPT_LANGUAGE:es-ES,es;q=0.8,en-US;q=0.5,en;q=0.3&#xD;&#xA;HTTP_COOKIE:.ASPXAUTH=C78D3B2FC0A422EA69E4DFECEDBFF15373D182DD73D198A944ED477F9D8EAEB651B17A9EE0517263290F8BAB134E8886F12B049F950C74C1A86CA92DC07D848C4D4FD475B7A145B0AA1B6D954A0064C4F897F56EDD886D09ADF19137E4832973CAF9F45F4B57F8F3469EA09BC90DD80F1EB892332F3EEFE89B66FE03855A997BC18A28969EB3CD52CDA1C2747E30A1D6AE93ECD8D2E36FB1443D18B12D59AEFD96B0CDBFFAF3B6DCBF4C52FE51091C808203076F1A172CEC8C0981E6D24D11C613BB971FFAFA6DF297B4A634E3102E1A53B824DB5BAB7AC841C0C9AD240A4347D2D1A423DFA4B3CDB14494FD27E9C39D8A70E15BEB74BB3E19EC9C238554E339; ASP.NET_SessionId=ho20xneb4so2yzr10dscyy1c&#xD;&#xA;HTTP_HOST:localhost:1371&#xD;&#xA;HTTP_REFERER:http://localhost:1371/Monitoreo/TareaTC/Search?marcoid=3&amp;tarea=1267&#xD;&#xA;HTTP_USER_AGENT:Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:64.0) Gecko/20100101 Firefox/64.0&#xD;&#xA;HTTP_X_REQUESTED_WITH:XMLHttpRequest&#xD;&#xA;" />
+    </item>
+    <item name="ALL_RAW">
+      <value string="Connection: keep-alive&#xD;&#xA;Accept: */*&#xD;&#xA;Accept-Encoding: gzip, deflate&#xD;&#xA;Accept-Language: es-ES,es;q=0.8,en-US;q=0.5,en;q=0.3&#xD;&#xA;Cookie: .ASPXAUTH=C78D3B2FC0A422EA69E4DFECEDBFF15373D182DD73D198A944ED477F9D8EAEB651B17A9EE0517263290F8BAB134E8886F12B049F950C74C1A86CA92DC07D848C4D4FD475B7A145B0AA1B6D954A0064C4F897F56EDD886D09ADF19137E4832973CAF9F45F4B57F8F3469EA09BC90DD80F1EB892332F3EEFE89B66FE03855A997BC18A28969EB3CD52CDA1C2747E30A1D6AE93ECD8D2E36FB1443D18B12D59AEFD96B0CDBFFAF3B6DCBF4C52FE51091C808203076F1A172CEC8C0981E6D24D11C613BB971FFAFA6DF297B4A634E3102E1A53B824DB5BAB7AC841C0C9AD240A4347D2D1A423DFA4B3CDB14494FD27E9C39D8A70E15BEB74BB3E19EC9C238554E339; ASP.NET_SessionId=ho20xneb4so2yzr10dscyy1c&#xD;&#xA;Host: localhost:1371&#xD;&#xA;Referer: http://localhost:1371/Monitoreo/TareaTC/Search?marcoid=3&amp;tarea=1267&#xD;&#xA;User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:64.0) Gecko/20100101 Firefox/64.0&#xD;&#xA;X-Requested-With: XMLHttpRequest&#xD;&#xA;" />
+    </item>
+    <item name="APPL_MD_PATH">
+      <value string="/LM/W3SVC/2/ROOT" />
+    </item>
+    <item name="APPL_PHYSICAL_PATH">
+      <value string="D:\Cedro\Fuente\22112018_1\Web\" />
+    </item>
+    <item name="AUTH_TYPE">
+      <value string="Forms" />
+    </item>
+    <item name="AUTH_USER">
+      <value string="agutierrez" />
+    </item>
+    <item name="AUTH_PASSWORD">
+      <value string="*****" />
+    </item>
+    <item name="LOGON_USER">
+      <value string="agutierrez" />
+    </item>
+    <item name="REMOTE_USER">
+      <value string="agutierrez" />
+    </item>
+    <item name="CERT_COOKIE">
+      <value string="" />
+    </item>
+    <item name="CERT_FLAGS">
+      <value string="" />
+    </item>
+    <item name="CERT_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SERIALNUMBER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CERT_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CONTENT_LENGTH">
+      <value string="0" />
+    </item>
+    <item name="CONTENT_TYPE">
+      <value string="" />
+    </item>
+    <item name="GATEWAY_INTERFACE">
+      <value string="CGI/1.1" />
+    </item>
+    <item name="HTTPS">
+      <value string="off" />
+    </item>
+    <item name="HTTPS_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="INSTANCE_ID">
+      <value string="2" />
+    </item>
+    <item name="INSTANCE_META_PATH">
+      <value string="/LM/W3SVC/2" />
+    </item>
+    <item name="LOCAL_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="PATH_INFO">
+      <value string="/api/Sistema/Permiso/Find" />
+    </item>
+    <item name="PATH_TRANSLATED">
+      <value string="D:\Cedro\Fuente\22112018_1\Web\api\Sistema\Permiso\Find" />
+    </item>
+    <item name="QUERY_STRING">
+      <value string="id=2126&amp;_=1547143337319" />
+    </item>
+    <item name="REMOTE_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_HOST">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_PORT">
+      <value string="19223" />
+    </item>
+    <item name="REQUEST_METHOD">
+      <value string="GET" />
+    </item>
+    <item name="SCRIPT_NAME">
+      <value string="/api/Sistema/Permiso/Find" />
+    </item>
+    <item name="SERVER_NAME">
+      <value string="localhost" />
+    </item>
+    <item name="SERVER_PORT">
+      <value string="1371" />
+    </item>
+    <item name="SERVER_PORT_SECURE">
+      <value string="0" />
+    </item>
+    <item name="SERVER_PROTOCOL">
+      <value string="HTTP/1.1" />
+    </item>
+    <item name="SERVER_SOFTWARE">
+      <value string="Microsoft-IIS/10.0" />
+    </item>
+    <item name="URL">
+      <value string="/api/Sistema/Permiso/Find" />
+    </item>
+    <item name="HTTP_CONNECTION">
+      <value string="keep-alive" />
+    </item>
+    <item name="HTTP_ACCEPT">
+      <value string="*/*" />
+    </item>
+    <item name="HTTP_ACCEPT_ENCODING">
+      <value string="gzip, deflate" />
+    </item>
+    <item name="HTTP_ACCEPT_LANGUAGE">
+      <value string="es-ES,es;q=0.8,en-US;q=0.5,en;q=0.3" />
+    </item>
+    <item name="HTTP_COOKIE">
+      <value string=".ASPXAUTH=C78D3B2FC0A422EA69E4DFECEDBFF15373D182DD73D198A944ED477F9D8EAEB651B17A9EE0517263290F8BAB134E8886F12B049F950C74C1A86CA92DC07D848C4D4FD475B7A145B0AA1B6D954A0064C4F897F56EDD886D09ADF19137E4832973CAF9F45F4B57F8F3469EA09BC90DD80F1EB892332F3EEFE89B66FE03855A997BC18A28969EB3CD52CDA1C2747E30A1D6AE93ECD8D2E36FB1443D18B12D59AEFD96B0CDBFFAF3B6DCBF4C52FE51091C808203076F1A172CEC8C0981E6D24D11C613BB971FFAFA6DF297B4A634E3102E1A53B824DB5BAB7AC841C0C9AD240A4347D2D1A423DFA4B3CDB14494FD27E9C39D8A70E15BEB74BB3E19EC9C238554E339; ASP.NET_SessionId=ho20xneb4so2yzr10dscyy1c" />
+    </item>
+    <item name="HTTP_HOST">
+      <value string="localhost:1371" />
+    </item>
+    <item name="HTTP_REFERER">
+      <value string="http://localhost:1371/Monitoreo/TareaTC/Search?marcoid=3&amp;tarea=1267" />
+    </item>
+    <item name="HTTP_USER_AGENT">
+      <value string="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:64.0) Gecko/20100101 Firefox/64.0" />
+    </item>
+    <item name="HTTP_X_REQUESTED_WITH">
+      <value string="XMLHttpRequest" />
+    </item>
+  </serverVariables>
+  <queryString>
+    <item name="id">
+      <value string="2126" />
+    </item>
+    <item name="_">
+      <value string="1547143337319" />
+    </item>
+  </queryString>
+  <cookies>
+    <item name=".ASPXAUTH">
+      <value string="C78D3B2FC0A422EA69E4DFECEDBFF15373D182DD73D198A944ED477F9D8EAEB651B17A9EE0517263290F8BAB134E8886F12B049F950C74C1A86CA92DC07D848C4D4FD475B7A145B0AA1B6D954A0064C4F897F56EDD886D09ADF19137E4832973CAF9F45F4B57F8F3469EA09BC90DD80F1EB892332F3EEFE89B66FE03855A997BC18A28969EB3CD52CDA1C2747E30A1D6AE93ECD8D2E36FB1443D18B12D59AEFD96B0CDBFFAF3B6DCBF4C52FE51091C808203076F1A172CEC8C0981E6D24D11C613BB971FFAFA6DF297B4A634E3102E1A53B824DB5BAB7AC841C0C9AD240A4347D2D1A423DFA4B3CDB14494FD27E9C39D8A70E15BEB74BB3E19EC9C238554E339" />
+    </item>
+    <item name="ASP.NET_SessionId">
+      <value string="ho20xneb4so2yzr10dscyy1c" />
+    </item>
+  </cookies>
+</error>

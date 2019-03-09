@@ -1,0 +1,104 @@
+﻿
+@section scripts
+{
+    <script type="text/javascript">
+
+        $(function () {
+            var id = queryString('id') || 0;
+            var data = getJson('@Url.Content("~/api/Planificacion/PlanOperativoTC/List")', { id: id });
+            var permiso = getJson('@Url.Content("~/api/Sistema/Permiso/Find")', { id: 4 });
+
+            var Model = function (data)
+            {
+                var self = this;
+
+                self.delete = function (item) {
+                    if (confirm('¿Esta seguro de eliminar el registro?'))
+                    {
+                        postJson('@Url.Content("~/api/Planificacion/PlanOperativoTC/Delete")', { id: item.id() },
+                        function () {
+                            
+                            document.location.reload();
+                        },
+                        function () {
+                            alert('Error');
+                        });
+                    }
+                };
+
+                self.new = function (item)
+                {
+                    document.location.href = '@Url.Action("Edit")?marcoid=' + id;
+                };
+
+                self.modificar = function (item)
+                {
+                    document.location.href = '@Url.Action("Edit")?marcoid=' + id + '&id=' + item.id();
+                };
+
+                self.data = ko.mapping.fromJS(data);
+                self.permiso = permiso;
+            };
+
+            ko.applyBindings(new Model(data));
+        })
+    </script>
+}
+
+
+<div class="toolbar">
+    <button type="button" data-bind="click: $root.new, enable: $root.permiso.agregar" class="new" title="Nuevo"></button>
+    <button type="button" class="refresh" title="Refrescar" onclick="document.location.reload()"></button>
+</div>
+
+<fieldset>
+    <legend></legend>
+
+    <table class="grid">
+        <colgroup>
+            <col style="width: 40px" />
+            <col />
+            <col style="width: 40px" />
+            <col />
+            <col style="width: 120px" />
+            <col style="width: 100px" />
+            <col style="width: 100px" />
+            <col style="width: 48px" />
+        </colgroup>
+        <thead>
+            <tr>
+                <th>COD</th>
+                <th>RESULTADO</th>
+                <th>COD</th>
+                <th>ACTIVIDAD</th>
+                @*<th>PRESUPUESTO (S/.)</th>*@
+                <th>FEC INICIO</th>
+                <th>FEC FIN</th>
+                <th>
+                    @*<a href='@Url.Content("/Planificacion/PlanOperativoTC/Edit")'>+</a>*@
+                </th>
+            </tr>
+        </thead>
+        <tbody data-bind="foreach: $root.data">
+            <!-- ko foreach: PlanOperativoTC -->
+            <tr>
+                <!-- ko with: $parent -->
+                <td data-bind="text: codigo, visible: $parentContext.$index() == 0, attr: { rowspan: PlanOperativoTC().length }"></td>
+                <td data-bind="text: nombre, visible: $parentContext.$index() == 0, attr: { rowspan: PlanOperativoTC().length }"></td>                
+                <!-- /ko -->
+                <td style="text-align: center" data-bind="text: codigo"></td>
+                <td data-bind="text: actividad "></td>
+                @*<td data-bind="text: formatNumber(presupuesto)" style="text-align: right"></td>*@
+                <td data-bind="text: formatDate(periodoinicio)" style="text-align: center"></td>
+                <td data-bind="text: formatDate(periodofin)" style="text-align: center"></td>
+                <td style="text-align: center">
+                    <button type="button" class="btn edit" title="Modificar" data-bind="click: $root.modificar, enable: $root.permiso.modificar" />
+                    <button type="button" class="btn del" title="Eliminar" data-bind="click: $root.delete, enable: $root.permiso.eliminar && eliminable" />
+                </td>
+            </tr>
+            <!-- /ko -->
+        </tbody>
+    </table>
+
+</fieldset>
+@*<pre class="json" data-bind="text: JSON.stringify(ko.mapping.toJS(data) , null, '  ')"></pre>*@

@@ -1,0 +1,176 @@
+﻿<error errorId="2d160002-84b1-499a-9d9f-f36feaf46c48" application="/LM/W3SVC/2/ROOT" host="DESKTOP-RP7B1TI" type="System.NotSupportedException" message="The specified type member 'descripcion' is not supported in LINQ to Entities. Only initializers, entity members, and entity navigation properties are supported." source="EntityFramework" detail="System.NotSupportedException: The specified type member 'descripcion' is not supported in LINQ to Entities. Only initializers, entity members, and entity navigation properties are supported.&#xD;&#xA;   en System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MemberAccessTranslator.TypedTranslate(ExpressionConverter parent, MemberExpression linq)&#xD;&#xA;   en System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.TypedTranslator`1.Translate(ExpressionConverter parent, Expression linq)&#xD;&#xA;   en System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.TranslateExpression(Expression linq)&#xD;&#xA;   en System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.NewTranslator.TypedTranslate(ExpressionConverter parent, NewExpression linq)&#xD;&#xA;   en System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.TypedTranslator`1.Translate(ExpressionConverter parent, Expression linq)&#xD;&#xA;   en System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.TranslateExpression(Expression linq)&#xD;&#xA;   en System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.TranslateLambda(LambdaExpression lambda, DbExpression input)&#xD;&#xA;   en System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.TranslateLambda(LambdaExpression lambda, DbExpression input, DbExpressionBinding&amp; binding)&#xD;&#xA;   en System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.OneLambdaTranslator.Translate(ExpressionConverter parent, MethodCallExpression call, DbExpression&amp; source, DbExpressionBinding&amp; sourceBinding, DbExpression&amp; lambda)&#xD;&#xA;   en System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.SelectTranslator.Translate(ExpressionConverter parent, MethodCallExpression call)&#xD;&#xA;   en System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.SequenceMethodTranslator.Translate(ExpressionConverter parent, MethodCallExpression call, SequenceMethod sequenceMethod)&#xD;&#xA;   en System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.TypedTranslate(ExpressionConverter parent, MethodCallExpression linq)&#xD;&#xA;   en System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.TypedTranslator`1.Translate(ExpressionConverter parent, Expression linq)&#xD;&#xA;   en System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.TranslateExpression(Expression linq)&#xD;&#xA;   en System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.NewTranslator.TypedTranslate(ExpressionConverter parent, NewExpression linq)&#xD;&#xA;   en System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.TypedTranslator`1.Translate(ExpressionConverter parent, Expression linq)&#xD;&#xA;   en System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.TranslateExpression(Expression linq)&#xD;&#xA;   en System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.TranslateLambda(LambdaExpression lambda, DbExpression input)&#xD;&#xA;   en System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.TranslateLambda(LambdaExpression lambda, DbExpression input, DbExpressionBinding&amp; binding)&#xD;&#xA;   en System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.OneLambdaTranslator.Translate(ExpressionConverter parent, MethodCallExpression call, DbExpression&amp; source, DbExpressionBinding&amp; sourceBinding, DbExpression&amp; lambda)&#xD;&#xA;   en System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.SelectTranslator.Translate(ExpressionConverter parent, MethodCallExpression call)&#xD;&#xA;   en System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.SequenceMethodTranslator.Translate(ExpressionConverter parent, MethodCallExpression call, SequenceMethod sequenceMethod)&#xD;&#xA;   en System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.TypedTranslate(ExpressionConverter parent, MethodCallExpression linq)&#xD;&#xA;   en System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.TypedTranslator`1.Translate(ExpressionConverter parent, Expression linq)&#xD;&#xA;   en System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.TranslateExpression(Expression linq)&#xD;&#xA;   en System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.UnarySequenceMethodTranslator.Translate(ExpressionConverter parent, MethodCallExpression call)&#xD;&#xA;   en System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.SequenceMethodTranslator.Translate(ExpressionConverter parent, MethodCallExpression call, SequenceMethod sequenceMethod)&#xD;&#xA;   en System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.TypedTranslate(ExpressionConverter parent, MethodCallExpression linq)&#xD;&#xA;   en System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.TypedTranslator`1.Translate(ExpressionConverter parent, Expression linq)&#xD;&#xA;   en System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.TranslateExpression(Expression linq)&#xD;&#xA;   en System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.Convert()&#xD;&#xA;   en System.Data.Entity.Core.Objects.ELinq.ELinqQueryState.GetExecutionPlan(Nullable`1 forMergeOption)&#xD;&#xA;   en System.Data.Entity.Core.Objects.ObjectQuery`1.&lt;&gt;c__DisplayClass7.&lt;GetResults&gt;b__6()&#xD;&#xA;   en System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)&#xD;&#xA;   en System.Data.Entity.Core.Objects.ObjectQuery`1.&lt;&gt;c__DisplayClass7.&lt;GetResults&gt;b__5()&#xD;&#xA;   en System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)&#xD;&#xA;   en System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)&#xD;&#xA;   en System.Data.Entity.Core.Objects.ObjectQuery`1.&lt;System.Collections.Generic.IEnumerable&lt;T&gt;.GetEnumerator&gt;b__0()&#xD;&#xA;   en System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()&#xD;&#xA;   en System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)&#xD;&#xA;   en System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.&lt;GetElementFunction&gt;b__2[TResult](IEnumerable`1 sequence)&#xD;&#xA;   en System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.ExecuteSingle[TResult](IEnumerable`1 query, Expression queryRoot)&#xD;&#xA;   en System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.System.Linq.IQueryProvider.Execute[TResult](Expression expression)&#xD;&#xA;   en System.Data.Entity.Internal.Linq.DbQueryProvider.Execute[TResult](Expression expression)&#xD;&#xA;   en System.Linq.Queryable.SingleOrDefault[TSource](IQueryable`1 source)&#xD;&#xA;   en Web.Areas.BibliotecaVirtual.Controllers.Api.DocumentosController.Listar(Int32 id) en D:\Cedro\Fuente\29082018_1\Web\Areas\BibliotecaVirtual\Controllers\Api\DocumentosController.cs:línea 23&#xD;&#xA;   en lambda_method(Closure , Object , Object[] )&#xD;&#xA;   en System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.&lt;&gt;c__DisplayClass10.&lt;GetExecutor&gt;b__9(Object instance, Object[] methodParameters)&#xD;&#xA;   en System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)&#xD;&#xA;   en System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)&#xD;&#xA;--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---&#xD;&#xA;   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;&#xA;   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;&#xA;   en System.Web.Http.Controllers.ApiControllerActionInvoker.&lt;InvokeActionAsyncCore&gt;d__0.MoveNext()&#xD;&#xA;--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---&#xD;&#xA;   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;&#xA;   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;&#xA;   en System.Web.Http.Controllers.ActionFilterResult.&lt;ExecuteAsync&gt;d__2.MoveNext()&#xD;&#xA;--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---&#xD;&#xA;   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;&#xA;   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;&#xA;   en System.Web.Http.Controllers.ExceptionFilterResult.&lt;ExecuteAsync&gt;d__0.MoveNext()" user="cvaldivia" time="2018-08-29T12:35:10.1380247Z">
+  <serverVariables>
+    <item name="ALL_HTTP">
+      <value string="HTTP_CONNECTION:keep-alive&#xD;&#xA;HTTP_ACCEPT:*/*&#xD;&#xA;HTTP_ACCEPT_ENCODING:gzip, deflate&#xD;&#xA;HTTP_ACCEPT_LANGUAGE:es-ES,es;q=0.8,en-US;q=0.5,en;q=0.3&#xD;&#xA;HTTP_COOKIE:.ASPXAUTH=3FC25EBEEFE4C35A76F8769C0AAF01964E01FC4D4F24B9020C68E7A336C71C8565D8BA47018277D11FB65C17AC7D9089D4E522DFDEE3254A1D028034BC7EBEAD081AF4879000C36DB9D8C9BE4936DE9B72DB05708664231635BB0260A583FDC3C3CE1F5611137F94536E524A22C8120E4FE4D87886446058D2DAF2D96434A6BF08EB5BAD1FAE5E74C7B06FD8296734C904949F98EAF183D916B41AB4F66B82CC10A3D11BE65D780CC06BE7665190D75570329D09619B10B6AF42B992A9010282FA4FAEC3392E6FEA86A764478EE629AF97AC5BEE8690B0E8C2AA997AAF4488012EC29BCBFA72BE94B5FA2F9ADF735F21CB4EBD3572049A3E975BB4DB89B5436A; ASP.NET_SessionId=sgqv3cfsto51znwxlac5r3fa&#xD;&#xA;HTTP_HOST:localhost:1371&#xD;&#xA;HTTP_REFERER:http://localhost:1371/BibliotecaVirtual/Documentos?id=13&#xD;&#xA;HTTP_USER_AGENT:Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0&#xD;&#xA;HTTP_X_REQUESTED_WITH:XMLHttpRequest&#xD;&#xA;" />
+    </item>
+    <item name="ALL_RAW">
+      <value string="Connection: keep-alive&#xD;&#xA;Accept: */*&#xD;&#xA;Accept-Encoding: gzip, deflate&#xD;&#xA;Accept-Language: es-ES,es;q=0.8,en-US;q=0.5,en;q=0.3&#xD;&#xA;Cookie: .ASPXAUTH=3FC25EBEEFE4C35A76F8769C0AAF01964E01FC4D4F24B9020C68E7A336C71C8565D8BA47018277D11FB65C17AC7D9089D4E522DFDEE3254A1D028034BC7EBEAD081AF4879000C36DB9D8C9BE4936DE9B72DB05708664231635BB0260A583FDC3C3CE1F5611137F94536E524A22C8120E4FE4D87886446058D2DAF2D96434A6BF08EB5BAD1FAE5E74C7B06FD8296734C904949F98EAF183D916B41AB4F66B82CC10A3D11BE65D780CC06BE7665190D75570329D09619B10B6AF42B992A9010282FA4FAEC3392E6FEA86A764478EE629AF97AC5BEE8690B0E8C2AA997AAF4488012EC29BCBFA72BE94B5FA2F9ADF735F21CB4EBD3572049A3E975BB4DB89B5436A; ASP.NET_SessionId=sgqv3cfsto51znwxlac5r3fa&#xD;&#xA;Host: localhost:1371&#xD;&#xA;Referer: http://localhost:1371/BibliotecaVirtual/Documentos?id=13&#xD;&#xA;User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0&#xD;&#xA;X-Requested-With: XMLHttpRequest&#xD;&#xA;" />
+    </item>
+    <item name="APPL_MD_PATH">
+      <value string="/LM/W3SVC/2/ROOT" />
+    </item>
+    <item name="APPL_PHYSICAL_PATH">
+      <value string="D:\Cedro\Fuente\29082018_1\Web\" />
+    </item>
+    <item name="AUTH_TYPE">
+      <value string="Forms" />
+    </item>
+    <item name="AUTH_USER">
+      <value string="cvaldivia" />
+    </item>
+    <item name="AUTH_PASSWORD">
+      <value string="*****" />
+    </item>
+    <item name="LOGON_USER">
+      <value string="cvaldivia" />
+    </item>
+    <item name="REMOTE_USER">
+      <value string="cvaldivia" />
+    </item>
+    <item name="CERT_COOKIE">
+      <value string="" />
+    </item>
+    <item name="CERT_FLAGS">
+      <value string="" />
+    </item>
+    <item name="CERT_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SERIALNUMBER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CERT_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CONTENT_LENGTH">
+      <value string="0" />
+    </item>
+    <item name="CONTENT_TYPE">
+      <value string="" />
+    </item>
+    <item name="GATEWAY_INTERFACE">
+      <value string="CGI/1.1" />
+    </item>
+    <item name="HTTPS">
+      <value string="off" />
+    </item>
+    <item name="HTTPS_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="INSTANCE_ID">
+      <value string="2" />
+    </item>
+    <item name="INSTANCE_META_PATH">
+      <value string="/LM/W3SVC/2" />
+    </item>
+    <item name="LOCAL_ADDR">
+      <value string="127.0.0.1" />
+    </item>
+    <item name="PATH_INFO">
+      <value string="/api/BibliotecaVirtual/Documentos/Listar" />
+    </item>
+    <item name="PATH_TRANSLATED">
+      <value string="D:\Cedro\Fuente\29082018_1\Web\api\BibliotecaVirtual\Documentos\Listar" />
+    </item>
+    <item name="QUERY_STRING">
+      <value string="id=13&amp;_=1535545557093" />
+    </item>
+    <item name="REMOTE_ADDR">
+      <value string="127.0.0.1" />
+    </item>
+    <item name="REMOTE_HOST">
+      <value string="127.0.0.1" />
+    </item>
+    <item name="REMOTE_PORT">
+      <value string="57490" />
+    </item>
+    <item name="REQUEST_METHOD">
+      <value string="GET" />
+    </item>
+    <item name="SCRIPT_NAME">
+      <value string="/api/BibliotecaVirtual/Documentos/Listar" />
+    </item>
+    <item name="SERVER_NAME">
+      <value string="localhost" />
+    </item>
+    <item name="SERVER_PORT">
+      <value string="1371" />
+    </item>
+    <item name="SERVER_PORT_SECURE">
+      <value string="0" />
+    </item>
+    <item name="SERVER_PROTOCOL">
+      <value string="HTTP/1.1" />
+    </item>
+    <item name="SERVER_SOFTWARE">
+      <value string="Microsoft-IIS/10.0" />
+    </item>
+    <item name="URL">
+      <value string="/api/BibliotecaVirtual/Documentos/Listar" />
+    </item>
+    <item name="HTTP_CONNECTION">
+      <value string="keep-alive" />
+    </item>
+    <item name="HTTP_ACCEPT">
+      <value string="*/*" />
+    </item>
+    <item name="HTTP_ACCEPT_ENCODING">
+      <value string="gzip, deflate" />
+    </item>
+    <item name="HTTP_ACCEPT_LANGUAGE">
+      <value string="es-ES,es;q=0.8,en-US;q=0.5,en;q=0.3" />
+    </item>
+    <item name="HTTP_COOKIE">
+      <value string=".ASPXAUTH=3FC25EBEEFE4C35A76F8769C0AAF01964E01FC4D4F24B9020C68E7A336C71C8565D8BA47018277D11FB65C17AC7D9089D4E522DFDEE3254A1D028034BC7EBEAD081AF4879000C36DB9D8C9BE4936DE9B72DB05708664231635BB0260A583FDC3C3CE1F5611137F94536E524A22C8120E4FE4D87886446058D2DAF2D96434A6BF08EB5BAD1FAE5E74C7B06FD8296734C904949F98EAF183D916B41AB4F66B82CC10A3D11BE65D780CC06BE7665190D75570329D09619B10B6AF42B992A9010282FA4FAEC3392E6FEA86A764478EE629AF97AC5BEE8690B0E8C2AA997AAF4488012EC29BCBFA72BE94B5FA2F9ADF735F21CB4EBD3572049A3E975BB4DB89B5436A; ASP.NET_SessionId=sgqv3cfsto51znwxlac5r3fa" />
+    </item>
+    <item name="HTTP_HOST">
+      <value string="localhost:1371" />
+    </item>
+    <item name="HTTP_REFERER">
+      <value string="http://localhost:1371/BibliotecaVirtual/Documentos?id=13" />
+    </item>
+    <item name="HTTP_USER_AGENT">
+      <value string="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0" />
+    </item>
+    <item name="HTTP_X_REQUESTED_WITH">
+      <value string="XMLHttpRequest" />
+    </item>
+  </serverVariables>
+  <queryString>
+    <item name="id">
+      <value string="13" />
+    </item>
+    <item name="_">
+      <value string="1535545557093" />
+    </item>
+  </queryString>
+  <cookies>
+    <item name=".ASPXAUTH">
+      <value string="3FC25EBEEFE4C35A76F8769C0AAF01964E01FC4D4F24B9020C68E7A336C71C8565D8BA47018277D11FB65C17AC7D9089D4E522DFDEE3254A1D028034BC7EBEAD081AF4879000C36DB9D8C9BE4936DE9B72DB05708664231635BB0260A583FDC3C3CE1F5611137F94536E524A22C8120E4FE4D87886446058D2DAF2D96434A6BF08EB5BAD1FAE5E74C7B06FD8296734C904949F98EAF183D916B41AB4F66B82CC10A3D11BE65D780CC06BE7665190D75570329D09619B10B6AF42B992A9010282FA4FAEC3392E6FEA86A764478EE629AF97AC5BEE8690B0E8C2AA997AAF4488012EC29BCBFA72BE94B5FA2F9ADF735F21CB4EBD3572049A3E975BB4DB89B5436A" />
+    </item>
+    <item name="ASP.NET_SessionId">
+      <value string="sgqv3cfsto51znwxlac5r3fa" />
+    </item>
+  </cookies>
+</error>

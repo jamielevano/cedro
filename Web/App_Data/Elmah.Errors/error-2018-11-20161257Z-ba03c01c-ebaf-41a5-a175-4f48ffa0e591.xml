@@ -1,0 +1,173 @@
+﻿<error errorId="ba03c01c-ebaf-41a5-a175-4f48ffa0e591" application="/LM/W3SVC/2/ROOT" host="DESKTOP-RP7B1TI" type="System.Data.Entity.Core.MappingException" message="&#xD;&#xA;Modelo.msl(870,10) : error 3031: Problem in mapping fragments starting at line 870:Non-nullable column ListaDetalle.avanceacumulado in table ListaDetalle is mapped to a nullable entity property.&#xD;&#xA;" source="EntityFramework" detail="System.Data.Entity.Core.EntityCommandCompilationException: An error occurred while preparing the command definition. See the inner exception for details. ---&gt; System.Data.Entity.Core.MappingException: &#xD;&#xA;Modelo.msl(870,10) : error 3031: Problem in mapping fragments starting at line 870:Non-nullable column ListaDetalle.avanceacumulado in table ListaDetalle is mapped to a nullable entity property.&#xD;&#xA;&#xD;&#xA;   en System.Data.Entity.Core.Mapping.StorageMappingItemCollection.ViewDictionary.SerializedGenerateViews(EntityContainerMapping entityContainerMap, Dictionary`2 resultDictionary)&#xD;&#xA;   en System.Data.Entity.Core.Mapping.StorageMappingItemCollection.ViewDictionary.SerializedGetGeneratedViews(EntityContainer container)&#xD;&#xA;   en System.Data.Entity.Core.Common.Utils.Memoizer`2.&lt;&gt;c__DisplayClass2.&lt;Evaluate&gt;b__0()&#xD;&#xA;   en System.Data.Entity.Core.Common.Utils.Memoizer`2.Result.GetValue()&#xD;&#xA;   en System.Data.Entity.Core.Common.Utils.Memoizer`2.Evaluate(TArg arg)&#xD;&#xA;   en System.Data.Entity.Core.Mapping.StorageMappingItemCollection.ViewDictionary.GetGeneratedView(EntitySetBase extent, MetadataWorkspace workspace, StorageMappingItemCollection storageMappingItemCollection)&#xD;&#xA;   en System.Data.Entity.Core.Metadata.Edm.MetadataWorkspace.GetGeneratedView(EntitySetBase extent)&#xD;&#xA;   en System.Data.Entity.Core.Query.PlanCompiler.PreProcessor.ExpandView(ScanTableOp scanTableOp, IsOfOp&amp; typeFilter)&#xD;&#xA;   en System.Data.Entity.Core.Query.PlanCompiler.PreProcessor.ProcessScanTable(Node scanTableNode, ScanTableOp scanTableOp, IsOfOp&amp; typeFilter)&#xD;&#xA;   en System.Data.Entity.Core.Query.PlanCompiler.PreProcessor.Visit(ScanTableOp op, Node n)&#xD;&#xA;   en System.Data.Entity.Core.Query.InternalTrees.ScanTableOp.Accept[TResultType](BasicOpVisitorOfT`1 v, Node n)&#xD;&#xA;   en System.Data.Entity.Core.Query.InternalTrees.BasicOpVisitorOfT`1.VisitNode(Node n)&#xD;&#xA;   en System.Data.Entity.Core.Query.PlanCompiler.SubqueryTrackingVisitor.VisitChildren(Node n)&#xD;&#xA;   en System.Data.Entity.Core.Query.PlanCompiler.SubqueryTrackingVisitor.VisitRelOpDefault(RelOp op, Node n)&#xD;&#xA;   en System.Data.Entity.Core.Query.PlanCompiler.PreProcessor.Visit(FilterOp op, Node n)&#xD;&#xA;   en System.Data.Entity.Core.Query.InternalTrees.FilterOp.Accept[TResultType](BasicOpVisitorOfT`1 v, Node n)&#xD;&#xA;   en System.Data.Entity.Core.Query.InternalTrees.BasicOpVisitorOfT`1.VisitNode(Node n)&#xD;&#xA;   en System.Data.Entity.Core.Query.PlanCompiler.SubqueryTrackingVisitor.VisitChildren(Node n)&#xD;&#xA;   en System.Data.Entity.Core.Query.PlanCompiler.SubqueryTrackingVisitor.VisitRelOpDefault(RelOp op, Node n)&#xD;&#xA;   en System.Data.Entity.Core.Query.PlanCompiler.PreProcessor.Visit(ProjectOp op, Node n)&#xD;&#xA;   en System.Data.Entity.Core.Query.InternalTrees.ProjectOp.Accept[TResultType](BasicOpVisitorOfT`1 v, Node n)&#xD;&#xA;   en System.Data.Entity.Core.Query.InternalTrees.BasicOpVisitorOfT`1.VisitNode(Node n)&#xD;&#xA;   en System.Data.Entity.Core.Query.PlanCompiler.SubqueryTrackingVisitor.VisitChildren(Node n)&#xD;&#xA;   en System.Data.Entity.Core.Query.PlanCompiler.SubqueryTrackingVisitor.VisitRelOpDefault(RelOp op, Node n)&#xD;&#xA;   en System.Data.Entity.Core.Query.PlanCompiler.PreProcessor.Visit(ProjectOp op, Node n)&#xD;&#xA;   en System.Data.Entity.Core.Query.InternalTrees.ProjectOp.Accept[TResultType](BasicOpVisitorOfT`1 v, Node n)&#xD;&#xA;   en System.Data.Entity.Core.Query.InternalTrees.BasicOpVisitorOfT`1.VisitNode(Node n)&#xD;&#xA;   en System.Data.Entity.Core.Query.PlanCompiler.SubqueryTrackingVisitor.VisitChildren(Node n)&#xD;&#xA;   en System.Data.Entity.Core.Query.PlanCompiler.SubqueryTrackingVisitor.VisitRelOpDefault(RelOp op, Node n)&#xD;&#xA;   en System.Data.Entity.Core.Query.PlanCompiler.PreProcessor.Visit(SortOp op, Node n)&#xD;&#xA;   en System.Data.Entity.Core.Query.InternalTrees.SortOp.Accept[TResultType](BasicOpVisitorOfT`1 v, Node n)&#xD;&#xA;   en System.Data.Entity.Core.Query.InternalTrees.BasicOpVisitorOfT`1.VisitNode(Node n)&#xD;&#xA;   en System.Data.Entity.Core.Query.PlanCompiler.SubqueryTrackingVisitor.VisitChildren(Node n)&#xD;&#xA;   en System.Data.Entity.Core.Query.InternalTrees.BasicOpVisitorOfNode.VisitDefault(Node n)&#xD;&#xA;   en System.Data.Entity.Core.Query.InternalTrees.BasicOpVisitorOfNode.VisitPhysicalOpDefault(PhysicalOp op, Node n)&#xD;&#xA;   en System.Data.Entity.Core.Query.InternalTrees.BasicOpVisitorOfT`1.Visit(PhysicalProjectOp op, Node n)&#xD;&#xA;   en System.Data.Entity.Core.Query.InternalTrees.PhysicalProjectOp.Accept[TResultType](BasicOpVisitorOfT`1 v, Node n)&#xD;&#xA;   en System.Data.Entity.Core.Query.InternalTrees.BasicOpVisitorOfT`1.VisitNode(Node n)&#xD;&#xA;   en System.Data.Entity.Core.Query.PlanCompiler.PreProcessor.Process(Dictionary`2&amp; tvfResultKeys)&#xD;&#xA;   en System.Data.Entity.Core.Query.PlanCompiler.PreProcessor.Process(PlanCompiler planCompilerState, StructuredTypeInfo&amp; typeInfo, Dictionary`2&amp; tvfResultKeys)&#xD;&#xA;   en System.Data.Entity.Core.Query.PlanCompiler.PlanCompiler.Compile(List`1&amp; providerCommands, ColumnMap&amp; resultColumnMap, Int32&amp; columnCount, Set`1&amp; entitySets)&#xD;&#xA;   en System.Data.Entity.Core.Query.PlanCompiler.PlanCompiler.Compile(DbCommandTree ctree, List`1&amp; providerCommands, ColumnMap&amp; resultColumnMap, Int32&amp; columnCount, Set`1&amp; entitySets)&#xD;&#xA;   en System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition..ctor(DbProviderFactory storeProviderFactory, DbCommandTree commandTree, DbInterceptionContext interceptionContext, IDbDependencyResolver resolver, BridgeDataReaderFactory bridgeDataReaderFactory, ColumnMapFactory columnMapFactory)&#xD;&#xA;   --- Fin del seguimiento de la pila de la excepción interna ---&#xD;&#xA;   en System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition..ctor(DbProviderFactory storeProviderFactory, DbCommandTree commandTree, DbInterceptionContext interceptionContext, IDbDependencyResolver resolver, BridgeDataReaderFactory bridgeDataReaderFactory, ColumnMapFactory columnMapFactory)&#xD;&#xA;   en System.Data.Entity.Core.EntityClient.Internal.EntityProviderServices.CreateDbCommandDefinition(DbProviderManifest providerManifest, DbCommandTree commandTree, DbInterceptionContext interceptionContext)&#xD;&#xA;   en System.Data.Entity.Core.Common.DbProviderServices.CreateCommandDefinition(DbCommandTree commandTree, DbInterceptionContext interceptionContext)&#xD;&#xA;   en System.Data.Entity.Core.Objects.Internal.ObjectQueryExecutionPlanFactory.CreateCommandDefinition(ObjectContext context, DbQueryCommandTree tree)&#xD;&#xA;   en System.Data.Entity.Core.Objects.Internal.ObjectQueryExecutionPlanFactory.Prepare(ObjectContext context, DbQueryCommandTree tree, Type elementType, MergeOption mergeOption, Boolean streaming, Span span, IEnumerable`1 compiledQueryParameters, AliasGenerator aliasGenerator)&#xD;&#xA;   en System.Data.Entity.Core.Objects.ELinq.ELinqQueryState.GetExecutionPlan(Nullable`1 forMergeOption)&#xD;&#xA;   en System.Data.Entity.Core.Objects.ObjectQuery`1.&lt;&gt;c__DisplayClass7.&lt;GetResults&gt;b__6()&#xD;&#xA;   en System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)&#xD;&#xA;   en System.Data.Entity.Core.Objects.ObjectQuery`1.&lt;&gt;c__DisplayClass7.&lt;GetResults&gt;b__5()&#xD;&#xA;   en System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)&#xD;&#xA;   en System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)&#xD;&#xA;   en System.Data.Entity.Core.Objects.ObjectQuery`1.&lt;System.Collections.Generic.IEnumerable&lt;T&gt;.GetEnumerator&gt;b__0()&#xD;&#xA;   en System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()&#xD;&#xA;   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)&#xD;&#xA;   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)&#xD;&#xA;   en Web.Controllers.Api.GeneralController.ListaGeneral(Int32 id) en D:\Cedro\Fuente\19112018_2\Web\Areas\Sistema\Api\GeneralController.cs:línea 18&#xD;&#xA;   en Web.Controllers.Api.GeneralController.UnidadMedida() en D:\Cedro\Fuente\19112018_2\Web\Areas\Sistema\Api\GeneralController.cs:línea 63&#xD;&#xA;   en lambda_method(Closure , Object , Object[] )&#xD;&#xA;   en System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.&lt;&gt;c__DisplayClass10.&lt;GetExecutor&gt;b__9(Object instance, Object[] methodParameters)&#xD;&#xA;   en System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)&#xD;&#xA;   en System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)&#xD;&#xA;--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---&#xD;&#xA;   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;&#xA;   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;&#xA;   en System.Web.Http.Controllers.ApiControllerActionInvoker.&lt;InvokeActionAsyncCore&gt;d__0.MoveNext()&#xD;&#xA;--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---&#xD;&#xA;   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;&#xA;   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;&#xA;   en System.Web.Http.Controllers.ActionFilterResult.&lt;ExecuteAsync&gt;d__2.MoveNext()&#xD;&#xA;--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---&#xD;&#xA;   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;&#xA;   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;&#xA;   en System.Web.Http.Controllers.ExceptionFilterResult.&lt;ExecuteAsync&gt;d__0.MoveNext()" user="cvaldivia" time="2018-11-20T16:12:57.9073508Z">
+  <serverVariables>
+    <item name="ALL_HTTP">
+      <value string="HTTP_CONNECTION:keep-alive&#xD;&#xA;HTTP_ACCEPT:*/*&#xD;&#xA;HTTP_ACCEPT_ENCODING:gzip, deflate, br&#xD;&#xA;HTTP_ACCEPT_LANGUAGE:es-419,es;q=0.9&#xD;&#xA;HTTP_COOKIE:ASP.NET_SessionId=eznkzejeyc2vhvxrurwis0ty; .ASPXAUTH=C636F9AE98BAC46CB6D60947FA56FC60AD6731EA9D976BF9A0FB3558962F032CBD62499976500183ECF6E0135324F3292B2020572AE12DDAFFCC41650575F1EDBE084EEA4CE43111596E5E2C99C360C8C2FFDBD843DBD326B88565419C2331E40EB8863FE1F405AF6CC35AE030461325F8477F354A7E7CC62B8784C5A7E92CCFF609802F0137F190008F46E2DB64CCEBA654B239EB03CDD1EFB03336BE401813D437433F744BA225EB04AF67A8CB1DE3B9A175EB62ADF55E4C523AB48A8A9D55C666E69523B26B82BE7A59BD80EEBCD8E501D635333E97D7F272FAC61A50042D9C06637FC77BD3F21915715CA682BCFD0886D3B30F374C7EA5E83D859010CEC8&#xD;&#xA;HTTP_HOST:localhost:1371&#xD;&#xA;HTTP_REFERER:http://localhost:1371/Evaluacion/EvaluacionReporteTC/Index&#xD;&#xA;HTTP_USER_AGENT:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36&#xD;&#xA;HTTP_X_REQUESTED_WITH:XMLHttpRequest&#xD;&#xA;" />
+    </item>
+    <item name="ALL_RAW">
+      <value string="Connection: keep-alive&#xD;&#xA;Accept: */*&#xD;&#xA;Accept-Encoding: gzip, deflate, br&#xD;&#xA;Accept-Language: es-419,es;q=0.9&#xD;&#xA;Cookie: ASP.NET_SessionId=eznkzejeyc2vhvxrurwis0ty; .ASPXAUTH=C636F9AE98BAC46CB6D60947FA56FC60AD6731EA9D976BF9A0FB3558962F032CBD62499976500183ECF6E0135324F3292B2020572AE12DDAFFCC41650575F1EDBE084EEA4CE43111596E5E2C99C360C8C2FFDBD843DBD326B88565419C2331E40EB8863FE1F405AF6CC35AE030461325F8477F354A7E7CC62B8784C5A7E92CCFF609802F0137F190008F46E2DB64CCEBA654B239EB03CDD1EFB03336BE401813D437433F744BA225EB04AF67A8CB1DE3B9A175EB62ADF55E4C523AB48A8A9D55C666E69523B26B82BE7A59BD80EEBCD8E501D635333E97D7F272FAC61A50042D9C06637FC77BD3F21915715CA682BCFD0886D3B30F374C7EA5E83D859010CEC8&#xD;&#xA;Host: localhost:1371&#xD;&#xA;Referer: http://localhost:1371/Evaluacion/EvaluacionReporteTC/Index&#xD;&#xA;User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36&#xD;&#xA;X-Requested-With: XMLHttpRequest&#xD;&#xA;" />
+    </item>
+    <item name="APPL_MD_PATH">
+      <value string="/LM/W3SVC/2/ROOT" />
+    </item>
+    <item name="APPL_PHYSICAL_PATH">
+      <value string="D:\Cedro\Fuente\19112018_2\Web\" />
+    </item>
+    <item name="AUTH_TYPE">
+      <value string="Forms" />
+    </item>
+    <item name="AUTH_USER">
+      <value string="cvaldivia" />
+    </item>
+    <item name="AUTH_PASSWORD">
+      <value string="*****" />
+    </item>
+    <item name="LOGON_USER">
+      <value string="cvaldivia" />
+    </item>
+    <item name="REMOTE_USER">
+      <value string="cvaldivia" />
+    </item>
+    <item name="CERT_COOKIE">
+      <value string="" />
+    </item>
+    <item name="CERT_FLAGS">
+      <value string="" />
+    </item>
+    <item name="CERT_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SERIALNUMBER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CERT_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CONTENT_LENGTH">
+      <value string="0" />
+    </item>
+    <item name="CONTENT_TYPE">
+      <value string="" />
+    </item>
+    <item name="GATEWAY_INTERFACE">
+      <value string="CGI/1.1" />
+    </item>
+    <item name="HTTPS">
+      <value string="off" />
+    </item>
+    <item name="HTTPS_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="INSTANCE_ID">
+      <value string="2" />
+    </item>
+    <item name="INSTANCE_META_PATH">
+      <value string="/LM/W3SVC/2" />
+    </item>
+    <item name="LOCAL_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="PATH_INFO">
+      <value string="/api/General/UnidadMedida" />
+    </item>
+    <item name="PATH_TRANSLATED">
+      <value string="D:\Cedro\Fuente\19112018_2\Web\api\General\UnidadMedida" />
+    </item>
+    <item name="QUERY_STRING">
+      <value string="_=1542730372059" />
+    </item>
+    <item name="REMOTE_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_HOST">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_PORT">
+      <value string="11147" />
+    </item>
+    <item name="REQUEST_METHOD">
+      <value string="GET" />
+    </item>
+    <item name="SCRIPT_NAME">
+      <value string="/api/General/UnidadMedida" />
+    </item>
+    <item name="SERVER_NAME">
+      <value string="localhost" />
+    </item>
+    <item name="SERVER_PORT">
+      <value string="1371" />
+    </item>
+    <item name="SERVER_PORT_SECURE">
+      <value string="0" />
+    </item>
+    <item name="SERVER_PROTOCOL">
+      <value string="HTTP/1.1" />
+    </item>
+    <item name="SERVER_SOFTWARE">
+      <value string="Microsoft-IIS/10.0" />
+    </item>
+    <item name="URL">
+      <value string="/api/General/UnidadMedida" />
+    </item>
+    <item name="HTTP_CONNECTION">
+      <value string="keep-alive" />
+    </item>
+    <item name="HTTP_ACCEPT">
+      <value string="*/*" />
+    </item>
+    <item name="HTTP_ACCEPT_ENCODING">
+      <value string="gzip, deflate, br" />
+    </item>
+    <item name="HTTP_ACCEPT_LANGUAGE">
+      <value string="es-419,es;q=0.9" />
+    </item>
+    <item name="HTTP_COOKIE">
+      <value string="ASP.NET_SessionId=eznkzejeyc2vhvxrurwis0ty; .ASPXAUTH=C636F9AE98BAC46CB6D60947FA56FC60AD6731EA9D976BF9A0FB3558962F032CBD62499976500183ECF6E0135324F3292B2020572AE12DDAFFCC41650575F1EDBE084EEA4CE43111596E5E2C99C360C8C2FFDBD843DBD326B88565419C2331E40EB8863FE1F405AF6CC35AE030461325F8477F354A7E7CC62B8784C5A7E92CCFF609802F0137F190008F46E2DB64CCEBA654B239EB03CDD1EFB03336BE401813D437433F744BA225EB04AF67A8CB1DE3B9A175EB62ADF55E4C523AB48A8A9D55C666E69523B26B82BE7A59BD80EEBCD8E501D635333E97D7F272FAC61A50042D9C06637FC77BD3F21915715CA682BCFD0886D3B30F374C7EA5E83D859010CEC8" />
+    </item>
+    <item name="HTTP_HOST">
+      <value string="localhost:1371" />
+    </item>
+    <item name="HTTP_REFERER">
+      <value string="http://localhost:1371/Evaluacion/EvaluacionReporteTC/Index" />
+    </item>
+    <item name="HTTP_USER_AGENT">
+      <value string="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36" />
+    </item>
+    <item name="HTTP_X_REQUESTED_WITH">
+      <value string="XMLHttpRequest" />
+    </item>
+  </serverVariables>
+  <queryString>
+    <item name="_">
+      <value string="1542730372059" />
+    </item>
+  </queryString>
+  <cookies>
+    <item name="ASP.NET_SessionId">
+      <value string="eznkzejeyc2vhvxrurwis0ty" />
+    </item>
+    <item name=".ASPXAUTH">
+      <value string="C636F9AE98BAC46CB6D60947FA56FC60AD6731EA9D976BF9A0FB3558962F032CBD62499976500183ECF6E0135324F3292B2020572AE12DDAFFCC41650575F1EDBE084EEA4CE43111596E5E2C99C360C8C2FFDBD843DBD326B88565419C2331E40EB8863FE1F405AF6CC35AE030461325F8477F354A7E7CC62B8784C5A7E92CCFF609802F0137F190008F46E2DB64CCEBA654B239EB03CDD1EFB03336BE401813D437433F744BA225EB04AF67A8CB1DE3B9A175EB62ADF55E4C523AB48A8A9D55C666E69523B26B82BE7A59BD80EEBCD8E501D635333E97D7F272FAC61A50042D9C06637FC77BD3F21915715CA682BCFD0886D3B30F374C7EA5E83D859010CEC8" />
+    </item>
+  </cookies>
+</error>

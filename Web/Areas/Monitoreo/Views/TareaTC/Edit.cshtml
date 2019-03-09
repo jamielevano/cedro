@@ -1,0 +1,380 @@
+﻿@section scripts
+{
+    <script type="text/javascript">
+        var vista;
+
+        $(function () {
+            $('#loading').show();
+
+            var marcoid = queryString('marcoid') || 0;
+            var permiso = getJson('@Url.Content("~/api/Sistema/Permiso/Find")', { id: 2126 });
+            //var permiso = getJson('@Url.Content("~/api/Sistema/Permiso/Find")', { id: id });
+            var data, id = queryString('id'), tarea = queryString('tarea');
+            var  bloqueo=false;
+            vista = queryString('vista');
+
+
+            if (!id == !tarea) document.location.href = '@Url.Action("Index")';
+
+            if (id)
+            {
+                data = getJson('@Url.Content("~/api/Monitoreo/TareaTC/FindAvance")', { id: id })
+                self.mainarchivoid = id;
+
+                if (!vista) {
+                    if(!@Web.Auth.GetTicketData().Admin.ToString().ToLower())  {
+
+                        @*if(@Web.Auth.GetTicketData().TelecentroId.ToString()!=data.avance.telecentroid)
+                        {
+                            $('#divinfo').find('*').prop('disabled', true);
+                            $('#divpartida').find('*').prop('disabled', true);
+                            self.delete=false;
+                            bloqueo=true;
+                        }*@
+                    }
+                }
+            }
+            else
+            {
+                data = {
+                    tarea: getJson('@Url.Content("~/api/Planificacion/POTareaTC/Find")', { id: tarea }),
+                    avance: entities.AvancePOTC()
+                };
+
+                self.mainarchivoid = '@ViewData["archivoid"]';
+                self.delete=true;
+
+                data.avance.ejeintervencionid= ko.observable('@ViewBag.ejeid');
+                data.avance.telecentroid= ko.observable('@ViewBag.telecentroid');
+                data.avance.promotorid= ko.observable('@ViewBag.usuarioid');
+
+                data.avance.tareaid = data.tarea.id;
+                data.avance.temporalid = '@ViewData["archivoid"]';
+            }
+
+
+
+            data.avance.AvancePOTC_Ficha01 = data.tarea.ficha1  ? (data.avance.AvancePOTC_Ficha01 || entities.AvancePOTC_Ficha01()) : undefined;
+            data.avance.AvancePOTC_Ficha02 = data.tarea.ficha2  ? (data.avance.AvancePOTC_Ficha02 || entities.AvancePOTC_Ficha02()) : undefined;
+            data.avance.AvancePOTC_Ficha03 = data.tarea.ficha3  ? (data.avance.AvancePOTC_Ficha03 || entities.AvancePOTC_Ficha03()) : undefined;
+            data.avance.AvancePOTC_Ficha04 = data.tarea.ficha4  ? (data.avance.AvancePOTC_Ficha04 || entities.AvancePOTC_Ficha04()) : undefined;
+            data.avance.AvancePOTC_Ficha06 = data.tarea.ficha6  ? (data.avance.AvancePOTC_Ficha06 || entities.AvancePOTC_Ficha06()) : undefined;
+
+
+
+            data.avance.marcoid=marcoid;
+
+            function Model(data)
+            {
+                var self = this;
+
+                var anioinicio = data.tarea.periodoinicio.getFullYear();
+                var aniofin = data.tarea.periodofin.getFullYear();
+
+                self.listAnios = [];
+                for (var i = anioinicio; i <= aniofin; i++) { self.listAnios.push(i); }
+
+                self.listUsuario = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(ViewBag.ListUsuario));
+                self.listOcupacion = getJson('@Url.Content("~/api/General/Ocupacion")');
+                self.listEjeIntervencion = getJson('@Url.Content("~/api/General/EjeIntervencion02")');
+                self.listSector = getJson('@Url.Content("~/api/General/Sector")');
+                self.listTelecentros = ko.observableArray([]);
+                self.listRegion =  getJson('@Url.Content("~/api/General/Region")');
+                self.listSiNo = [{ id: 1, nombre: 'Si' }, { id: 0, nombre: 'No' }]
+                self.listPoblacion = getJson('@Url.Content("~/api/General/Poblacion")');
+
+                if (data.avance.AvancePOTC_Ficha03) {
+                    self.listCoordinacion = getJson('@Url.Content("~/api/General/Coordinacion")');
+                    self.listTipoReunion = getJson('@Url.Content("~/api/General/TipoReunion")');
+                }
+
+                if (data.avance.AvancePOTC_Ficha04) {
+                    self.listSexo = [{ id: 1, nombre: 'Hombre' }, { id: 2, nombre: 'Mujer' }]
+                }
+
+                if (data.avance.AvancePOTC_Ficha06) {
+                    self.listSexo = [{ id: 1, nombre: 'Hombre' }, { id: 2, nombre: 'Mujer' }]
+                }
+
+                self.bloqueo=bloqueo;
+
+                //if (!id)
+                //    data.avance.AvancePOTC_Ficha06.AvancePOTC_Ficha06Integrantes.push(ko.mapping.fromJS(entities.AvancePOTC_Ficha06Integrantes()));
+
+
+                self.id=id;
+                self.avance = ko.mapping.fromJS(data.avance);
+                self.tarea = data.tarea;
+
+
+
+                ////////////////////////////////////////////////////////////////////////////////////////////////
+                var updateTelecentros = function (id) {
+
+                    self.avance.telecentroid(self.avance.telecentroid() || undefined);
+                    self.listTelecentros(undefined);
+                    if (id) {
+                        self.listTelecentros(getJson('@Url.Content("~/Api/General/Eje_Telecentros")', { eje: id }))}
+                };
+                self.avance.ejeintervencionid.subscribe(updateTelecentros);
+
+                if (self.avance.ejeintervencionid())
+                {
+                    var telecentroid = self.avance.telecentroid();
+                    updateTelecentros(self.avance.ejeintervencionid());
+                    self.avance.telecentroid(telecentroid);
+                }
+                ////////////////////////////////////////////////////////////////////////////////////////////////
+                @*var updateRegion = function (id) {
+
+                    self.avance.regionid(self.avance.regionid() || undefined);
+
+                    self.listRegion(undefined);
+                    if (id) {
+                        self.listRegion(getJson('@Url.Content("~/Api/General/Telecentros_Region")', { telecentro: id }))}
+                };
+                self.avance.telecentroid.subscribe(updateRegion);
+
+                if (self.avance.telecentroid())
+                {
+                    var regionid = self.avance.regionid();
+                    updateRegion(self.avance.telecentroid());
+                    self.avance.regionid(regionid);
+                }*@
+                ////////////////////////////////////////////////////////////////////////////////////////////////
+
+                self.Back = function ()
+                {
+                    if (confirm("Esta seguro de volver a la página anterior")) {
+
+                        if (id != 0)
+                            document.location.href = '@Url.Action("Search")?marcoid=' + marcoid;
+                        else
+                            document.location.href = '@Url.Action("Index")?id=' + marcoid;
+                    }
+                }
+
+                self.ObtenerCapacitaion= function(id){
+
+                    if(id!=null)
+                    {
+                        var persona=getJson('@Url.Content("~/api/Monitoreo/TareaTC/FindCapacitacion")', { id: id });
+
+                        if(persona)
+                        {
+                            self.avance.participanteshombres(persona.hombres);
+                            self.avance.participantesmujeres(persona.mujeres);
+                            self.avance.productores(persona.productor);
+                            self.avance.noproductores(persona.noproductor);
+
+
+                            self.avance.desaprobados(persona.desaprobados);
+                            self.avance.evaluacion(persona.aprobados);
+                            self.avance.retirados(persona.retirados);
+                            self.avance.horas(persona.horas);
+                        }
+                        else{
+                            alert('El codigo de capacitacion no existe');
+
+                        }
+                    }
+
+                };
+
+
+                self.Save = function (form) {
+                    if ($(form).refreshValidator().valid()) {
+                        postJson('@Url.Content("~/api/Monitoreo/TareaTC/SaveAvance")', JSON.parse(ko.mapping.toJSON(self.avance)),
+                        function (data) {
+                            if (confirm('Se grabó con código de reporte: ' + data + '\n¿Desea regresar al listado?'))
+                                self.Back();
+                            else
+                                document.location.href = '@Url.Action("Edit")?id=' + data;
+                        },
+                        function () {
+                            alert('Error');
+                        });
+                    }
+                };
+
+                self.vista = false;
+
+                if (vista) {
+                    self.vista = true;
+                }
+
+                if (id) {
+                    self.grabar = permiso.modificar;
+                    self.agregar = permiso.modificar;
+                    self.eliminar = permiso.modificar;
+                }
+                else {
+                    self.grabar = permiso.agregar;
+                    self.agregar = permiso.agregar;
+                    self.eliminar = permiso.agregar;
+                }
+
+                self.Ficha06_Reporte = function (parent) {
+                    var cadena = "../../Reports/MonitoreoTC.aspx?reporte=201&id=" + id;
+                    ShowPopupArchivo(cadena, 1240, 640);
+                };
+
+            }
+
+            ko.applyBindings(x = new Model(data));
+
+
+            $('.tabs').jqxTabs({ theme: 'ui-le-frog.css', keyboardNavigation: false });
+
+            if (vista) {
+                $('input,select,textarea', 'form').prop("disabled", true);
+                $('button.ui-datepicker-trigger').hide();
+            }
+
+
+            $('#loading').hide();
+        });
+
+        FichaArchivo = function (ficha)
+        {
+            var id = self.mainarchivoid;
+
+            ShowPopupArchivo('@Url.Action("FichaArchivo", "PlanOperativoArchivoTC", new { area = "BibliotecaVirtual" })?biblioteca=0&id=' + id + '&ficha=' + ficha + '&vista=' + vista, 1100, 500);
+            return false;
+        }
+
+
+
+    </script>
+}
+
+<form data-bind="with: avance, submit: Save" style="width: 100%; float: left;">
+    <div class="toolbar">
+        <a class="back" title="Volver" data-bind="click: $root.Back"></a>
+        <button data-bind="enable: ($root.vista == true) ? false : $root.grabar" type="button" class="save" title="Grabar" onclick="$(this).closest('form').submit()"></button>
+        <button type="button" class="refresh" title="Refrescar" onclick="document.location.reload()"></button>
+    </div>
+
+    <fieldset>
+        <legend></legend>
+
+        <table style="width: 100%;">
+            <colgroup>
+                <col style="width: 100px;" />
+            </colgroup>
+            @*<tr>
+                <td>Resultado</td>
+                <td data-bind="text: $root.tarea.resultado"></td>
+            </tr>*@
+            <tr>
+                <td>ACTIVIDAD</td>
+                <td data-bind="text: $root.tarea.actividad"></td>
+            </tr>
+            <tr>
+                <td>TAREA</td>
+                <td data-bind="text: $root.tarea.tarea"></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <table style="width: 100%;">
+                        <colgroup>
+                            <col style="width: 150px;" />
+                            <col style="width: 100px;" />
+                            
+                            <col style="width: 20px;" />
+
+                            <col style="width: 120px;" />
+                            <col style="width: 120px;" />
+                            
+                            <col style="width: 20px;" />
+                            <col style="width: 200px;" />
+                            <col style="width: 20px;" />
+                            <col />
+                        </colgroup>
+                        <tr>
+                            <td>CODIGO DE REPORTE</td>
+                            <td>
+                                <input type="text" name="id" data-bind="value: id" readonly="true" />
+                            </td>
+                            <td></td>
+                            <td>FECHA INGRESO</td>
+                            <td>
+                                @Html.koDate("fechaingreso",width:100,enable:"false")
+                            </td>
+                            <td></td>
+                            <td>CODIGO DE CAPACITACION</td>
+                            <td>
+                                @Html.koNumeric("codigocapacitacion",width:100,@decimal:false,required:false)
+                            </td>
+                            <td>
+                                <button data-bind="click: $root.ObtenerCapacitaion(codigocapacitacion())">Buscar</button>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+
+    <div class="tabs">
+        <ul>
+            <li>INFORMACION GENERAL</li>
+
+            <!-- ko if: marcoid()==1 -->
+                <li>Contrapartida</li>
+            <!-- /ko -->
+
+            <!-- ko with: AvancePOTC_Ficha01 -->
+                <li>FICHA 1</li>
+            <!-- /ko -->
+
+            <!-- ko with: AvancePOTC_Ficha02 -->
+                <li>FICHA 2</li>
+            <!-- /ko -->
+
+            <!-- ko with: AvancePOTC_Ficha03 -->
+                <li>FICHA 3</li>
+            <!-- /ko -->
+
+            <!-- ko with: AvancePOTC_Ficha04 -->
+                <li>FICHA 1</li>
+            <!-- /ko -->
+
+            <!-- ko with: AvancePOTC_Ficha06 -->
+                <li>FICHA 6</li>
+            <!-- /ko -->          
+        </ul>
+
+        <!-- ko if: marcoid()==3 -->
+            <div id="divinfo">@Html.Partial("_InformacionGeneral")</div>
+        <!-- /ko -->
+
+        <!-- ko if: marcoid()==2 -->
+            <div id="divinfo">@Html.Partial("_InformacionGeneralb")</div>
+        <!-- /ko -->
+
+        <!-- ko if: marcoid()==1 -->
+            <div id="divpartida">@Html.Partial("_Contrapartida")</div>
+        <!-- /ko -->
+
+        <!-- ko with: AvancePOTC_Ficha01 -->
+            <div>@Html.Partial("_Ficha01")</div>
+        <!-- /ko -->
+
+        <!-- ko with: AvancePOTC_Ficha02 -->
+            <div>@Html.Partial("_Ficha02")</div>
+        <!-- /ko -->
+
+        <!-- ko with: AvancePOTC_Ficha03 -->
+            <div>@Html.Partial("_Ficha03")</div>
+        <!-- /ko -->
+
+        <!-- ko with: AvancePOTC_Ficha04 -->
+            <div>@Html.Partial("_Ficha04")</div>
+        <!-- /ko -->
+        
+        <!-- ko with: AvancePOTC_Ficha06 -->
+            <div>@Html.Partial("_Ficha06")</div>
+        <!-- /ko -->
+    </div>
+</form>

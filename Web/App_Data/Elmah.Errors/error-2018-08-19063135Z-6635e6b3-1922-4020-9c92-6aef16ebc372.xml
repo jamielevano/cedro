@@ -1,0 +1,165 @@
+﻿<error errorId="6635e6b3-1922-4020-9c92-6aef16ebc372" application="/LM/W3SVC/3/ROOT" host="DESKTOP-RP7B1TI" type="System.Web.HttpException" message="The controller for path '/Images/Empresa/fondo_smec2.1.jpg' was not found or does not implement IController." source="System.Web.Mvc" detail="System.Web.HttpException (0x80004005): The controller for path '/Images/Empresa/fondo_smec2.1.jpg' was not found or does not implement IController.&#xD;&#xA;   en System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)&#xD;&#xA;   en System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)&#xD;&#xA;   en System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController&amp; controller, IControllerFactory&amp; factory)&#xD;&#xA;   en System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)&#xD;&#xA;   en System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)&#xD;&#xA;   en System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)&#xD;&#xA;   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()&#xD;&#xA;   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)&#xD;&#xA;   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean&amp; completedSynchronously)" user="cvaldivia" time="2018-08-19T06:31:35.9607173Z" statusCode="404">
+  <serverVariables>
+    <item name="ALL_HTTP">
+      <value string="HTTP_CONNECTION:keep-alive&#xD;&#xA;HTTP_ACCEPT:*/*&#xD;&#xA;HTTP_ACCEPT_ENCODING:gzip, deflate&#xD;&#xA;HTTP_ACCEPT_LANGUAGE:es-ES,es;q=0.8,en-US;q=0.5,en;q=0.3&#xD;&#xA;HTTP_COOKIE:ASP.NET_SessionId=b3b2isdvl2yh5vwuzsgw5rct; .ASPXAUTH=7DC6797FBFC082060A1A9B23FE0A9FA691BBFD035102C1408578B8695F8031633D6E0194F21E50964D257BD974B2D2B01C9018FAE775839CB85AB078D2BDB14808322576645E43B4A83FDFC041F430D34EBE557A3902CC5487BC21E631F202603DACC4B1046D7EE83AA14E38C183E840A89CF1F4FEE777066B5D6B1659EEF4A3C09AAD496B0E246DAF331F78B0BDA12AC0F507357880C5986E9381E09D5CB76F349A75CBBD921AEB98871574B993B2117F299BA71D556BC8F9191195E19070C95B1AE6BAFFB8501CEDC7B4F25CB5311D923BAB0F7D0F3229A056313B51118C8C27A0C408FCA8BCFF9028680203D7A24D6F8A020A1F274140A5183CD4B09C9D53&#xD;&#xA;HTTP_HOST:localhost:1371&#xD;&#xA;HTTP_REFERER:http://localhost:1371/Content/MasterPage.css?636701275517166251&#xD;&#xA;HTTP_USER_AGENT:Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0&#xD;&#xA;" />
+    </item>
+    <item name="ALL_RAW">
+      <value string="Connection: keep-alive&#xD;&#xA;Accept: */*&#xD;&#xA;Accept-Encoding: gzip, deflate&#xD;&#xA;Accept-Language: es-ES,es;q=0.8,en-US;q=0.5,en;q=0.3&#xD;&#xA;Cookie: ASP.NET_SessionId=b3b2isdvl2yh5vwuzsgw5rct; .ASPXAUTH=7DC6797FBFC082060A1A9B23FE0A9FA691BBFD035102C1408578B8695F8031633D6E0194F21E50964D257BD974B2D2B01C9018FAE775839CB85AB078D2BDB14808322576645E43B4A83FDFC041F430D34EBE557A3902CC5487BC21E631F202603DACC4B1046D7EE83AA14E38C183E840A89CF1F4FEE777066B5D6B1659EEF4A3C09AAD496B0E246DAF331F78B0BDA12AC0F507357880C5986E9381E09D5CB76F349A75CBBD921AEB98871574B993B2117F299BA71D556BC8F9191195E19070C95B1AE6BAFFB8501CEDC7B4F25CB5311D923BAB0F7D0F3229A056313B51118C8C27A0C408FCA8BCFF9028680203D7A24D6F8A020A1F274140A5183CD4B09C9D53&#xD;&#xA;Host: localhost:1371&#xD;&#xA;Referer: http://localhost:1371/Content/MasterPage.css?636701275517166251&#xD;&#xA;User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0&#xD;&#xA;" />
+    </item>
+    <item name="APPL_MD_PATH">
+      <value string="/LM/W3SVC/3/ROOT" />
+    </item>
+    <item name="APPL_PHYSICAL_PATH">
+      <value string="D:\Cedro\Fuente\17082018_2\SMEC\Web\" />
+    </item>
+    <item name="AUTH_TYPE">
+      <value string="Forms" />
+    </item>
+    <item name="AUTH_USER">
+      <value string="cvaldivia" />
+    </item>
+    <item name="AUTH_PASSWORD">
+      <value string="*****" />
+    </item>
+    <item name="LOGON_USER">
+      <value string="cvaldivia" />
+    </item>
+    <item name="REMOTE_USER">
+      <value string="cvaldivia" />
+    </item>
+    <item name="CERT_COOKIE">
+      <value string="" />
+    </item>
+    <item name="CERT_FLAGS">
+      <value string="" />
+    </item>
+    <item name="CERT_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SERIALNUMBER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CERT_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CONTENT_LENGTH">
+      <value string="0" />
+    </item>
+    <item name="CONTENT_TYPE">
+      <value string="" />
+    </item>
+    <item name="GATEWAY_INTERFACE">
+      <value string="CGI/1.1" />
+    </item>
+    <item name="HTTPS">
+      <value string="off" />
+    </item>
+    <item name="HTTPS_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="INSTANCE_ID">
+      <value string="3" />
+    </item>
+    <item name="INSTANCE_META_PATH">
+      <value string="/LM/W3SVC/3" />
+    </item>
+    <item name="LOCAL_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="PATH_INFO">
+      <value string="/Images/Empresa/fondo_smec2.1.jpg" />
+    </item>
+    <item name="PATH_TRANSLATED">
+      <value string="D:\Cedro\Fuente\17082018_2\SMEC\Web\Images\Empresa\fondo_smec2.1.jpg" />
+    </item>
+    <item name="QUERY_STRING">
+      <value string="" />
+    </item>
+    <item name="REMOTE_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_HOST">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_PORT">
+      <value string="64679" />
+    </item>
+    <item name="REQUEST_METHOD">
+      <value string="GET" />
+    </item>
+    <item name="SCRIPT_NAME">
+      <value string="/Images/Empresa/fondo_smec2.1.jpg" />
+    </item>
+    <item name="SERVER_NAME">
+      <value string="localhost" />
+    </item>
+    <item name="SERVER_PORT">
+      <value string="1371" />
+    </item>
+    <item name="SERVER_PORT_SECURE">
+      <value string="0" />
+    </item>
+    <item name="SERVER_PROTOCOL">
+      <value string="HTTP/1.1" />
+    </item>
+    <item name="SERVER_SOFTWARE">
+      <value string="Microsoft-IIS/10.0" />
+    </item>
+    <item name="URL">
+      <value string="/Images/Empresa/fondo_smec2.1.jpg" />
+    </item>
+    <item name="HTTP_CONNECTION">
+      <value string="keep-alive" />
+    </item>
+    <item name="HTTP_ACCEPT">
+      <value string="*/*" />
+    </item>
+    <item name="HTTP_ACCEPT_ENCODING">
+      <value string="gzip, deflate" />
+    </item>
+    <item name="HTTP_ACCEPT_LANGUAGE">
+      <value string="es-ES,es;q=0.8,en-US;q=0.5,en;q=0.3" />
+    </item>
+    <item name="HTTP_COOKIE">
+      <value string="ASP.NET_SessionId=b3b2isdvl2yh5vwuzsgw5rct; .ASPXAUTH=7DC6797FBFC082060A1A9B23FE0A9FA691BBFD035102C1408578B8695F8031633D6E0194F21E50964D257BD974B2D2B01C9018FAE775839CB85AB078D2BDB14808322576645E43B4A83FDFC041F430D34EBE557A3902CC5487BC21E631F202603DACC4B1046D7EE83AA14E38C183E840A89CF1F4FEE777066B5D6B1659EEF4A3C09AAD496B0E246DAF331F78B0BDA12AC0F507357880C5986E9381E09D5CB76F349A75CBBD921AEB98871574B993B2117F299BA71D556BC8F9191195E19070C95B1AE6BAFFB8501CEDC7B4F25CB5311D923BAB0F7D0F3229A056313B51118C8C27A0C408FCA8BCFF9028680203D7A24D6F8A020A1F274140A5183CD4B09C9D53" />
+    </item>
+    <item name="HTTP_HOST">
+      <value string="localhost:1371" />
+    </item>
+    <item name="HTTP_REFERER">
+      <value string="http://localhost:1371/Content/MasterPage.css?636701275517166251" />
+    </item>
+    <item name="HTTP_USER_AGENT">
+      <value string="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0" />
+    </item>
+  </serverVariables>
+  <cookies>
+    <item name="ASP.NET_SessionId">
+      <value string="b3b2isdvl2yh5vwuzsgw5rct" />
+    </item>
+    <item name=".ASPXAUTH">
+      <value string="7DC6797FBFC082060A1A9B23FE0A9FA691BBFD035102C1408578B8695F8031633D6E0194F21E50964D257BD974B2D2B01C9018FAE775839CB85AB078D2BDB14808322576645E43B4A83FDFC041F430D34EBE557A3902CC5487BC21E631F202603DACC4B1046D7EE83AA14E38C183E840A89CF1F4FEE777066B5D6B1659EEF4A3C09AAD496B0E246DAF331F78B0BDA12AC0F507357880C5986E9381E09D5CB76F349A75CBBD921AEB98871574B993B2117F299BA71D556BC8F9191195E19070C95B1AE6BAFFB8501CEDC7B4F25CB5311D923BAB0F7D0F3229A056313B51118C8C27A0C408FCA8BCFF9028680203D7A24D6F8A020A1F274140A5183CD4B09C9D53" />
+    </item>
+  </cookies>
+</error>

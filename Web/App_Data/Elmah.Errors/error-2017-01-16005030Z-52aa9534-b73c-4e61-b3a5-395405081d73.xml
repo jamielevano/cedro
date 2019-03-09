@@ -1,0 +1,209 @@
+﻿<error errorId="52aa9534-b73c-4e61-b3a5-395405081d73" application="/" host="DESARROLLO_NET" type="Microsoft.ReportingServices.ReportProcessing.ReportPublishingException" message="The Group expression for the grouping ‘Chart4_CategoryGroup’ refers to the field ‘anio’.  Report item expressions can only refer to fields within the current dataset scope or, if inside an aggregate, the specified dataset scope. Letters in the names of fields must use the correct case." source="Microsoft.ReportViewer.Common" detail="System.Web.HttpUnhandledException (0x80004005): Exception of type 'System.Web.HttpUnhandledException' was thrown. ---&gt; Microsoft.Reporting.WebForms.LocalProcessingException: An error occurred during local report processing. ---&gt; Microsoft.Reporting.DefinitionInvalidException: The definition of the report 'C:\Proyectos\Cedro\Pase 4\Fuentes\SMEC\Web\Reports\Asistencia\CapacitacionResumenIFM.rdlc' is invalid. ---&gt; Microsoft.ReportingServices.ReportProcessing.ReportPublishingException: The Group expression for the grouping ‘Chart4_CategoryGroup’ refers to the field ‘anio’.  Report item expressions can only refer to fields within the current dataset scope or, if inside an aggregate, the specified dataset scope. Letters in the names of fields must use the correct case.&#xD;&#xA;   at Microsoft.ReportingServices.ReportPublishing.ReportPublishing.InternalCreateIntermediateFormat(Stream definitionStream, RdlUpgradeState upgradeState, String&amp; description, String&amp; language, ParameterInfoCollection&amp; parameters, DataSourceInfoCollection&amp; dataSources, DataSetInfoCollection&amp; sharedDataSetReferences, UserLocationFlags&amp; userReferenceLocation, ArrayList&amp; dataSetsName, Boolean&amp; hasExternalImages, Boolean&amp; hasHyperlinks, Byte[]&amp; dataSetsHash)&#xD;&#xA;   at Microsoft.ReportingServices.ReportPublishing.ReportPublishing.CreateIntermediateFormat(Byte[] definition, String&amp; description, String&amp; language, ParameterInfoCollection&amp; parameters, DataSourceInfoCollection&amp; dataSources, DataSetInfoCollection&amp; sharedDataSetReferences, UserLocationFlags&amp; userReferenceLocation, ArrayList&amp; dataSetsName, Boolean&amp; hasExternalImages, Boolean&amp; hasHyperlinks, Byte[]&amp; dataSetsHash)&#xD;&#xA;   at Microsoft.ReportingServices.ReportProcessing.ReportProcessing.CompileOdpReport(PublishingContext reportPublishingContext, IDataProtection dataProtection, PublishingErrorContext errorContext, String&amp; reportDescription, String&amp; reportLanguage, ParameterInfoCollection&amp; parameters, DataSourceInfoCollection&amp; dataSources, DataSetInfoCollection&amp; sharedDataSetReferences, UserLocationFlags&amp; userReferenceLocation, ArrayList&amp; dataSetsName, Boolean&amp; hasExternalImages, Boolean&amp; hasHyperlinks, Byte[]&amp; dataSetsHash)&#xD;&#xA;   at Microsoft.ReportingServices.ReportProcessing.ReportProcessing.CreateIntermediateFormat(PublishingContext reportPublishingContext, IDataProtection dataProtection)&#xD;&#xA;   at Microsoft.Reporting.ReportCompiler.CompileReport(ICatalogItemContext context, Byte[] reportDefinition, Boolean generateExpressionHostWithRefusedPermissions, ControlSnapshot&amp; snapshot)&#xD;&#xA;   --- End of inner exception stack trace ---&#xD;&#xA;   at Microsoft.Reporting.ReportCompiler.CompileReport(ICatalogItemContext context, Byte[] reportDefinition, Boolean generateExpressionHostWithRefusedPermissions, ControlSnapshot&amp; snapshot)&#xD;&#xA;   at Microsoft.Reporting.LocalService.GetCompiledReport(PreviewItemContext itemContext, Boolean rebuild, ControlSnapshot&amp; snapshot)&#xD;&#xA;   at Microsoft.Reporting.LocalService.CompileReport()&#xD;&#xA;   at Microsoft.Reporting.LocalService.Microsoft.Reporting.ILocalProcessingHost.CompileReport()&#xD;&#xA;   at Microsoft.Reporting.WebForms.LocalReport.EnsureExecutionSession()&#xD;&#xA;   --- End of inner exception stack trace ---&#xD;&#xA;   at Microsoft.Reporting.WebForms.LocalReport.EnsureExecutionSession()&#xD;&#xA;   at Microsoft.Reporting.WebForms.LocalReport.SetParameters(IEnumerable`1 parameters)&#xD;&#xA;   at Microsoft.Reporting.WebForms.Report.SetParameters(ReportParameter parameter)&#xD;&#xA;   at Web.Reports.Asistencia.ViewReport(String File, DataTable dt) in c:\Proyectos\Cedro\Pase 4\Fuentes\SMEC\Web\Reports\Asistencia.aspx.cs:line 547&#xD;&#xA;   at Web.Reports.Asistencia.LoadDatos() in c:\Proyectos\Cedro\Pase 4\Fuentes\SMEC\Web\Reports\Asistencia.aspx.cs:line 537&#xD;&#xA;   at Web.Reports.Asistencia.InitializeComponent() in c:\Proyectos\Cedro\Pase 4\Fuentes\SMEC\Web\Reports\Asistencia.aspx.cs:line 32&#xD;&#xA;   at Web.Reports.Asistencia.OnInit(EventArgs e) in c:\Proyectos\Cedro\Pase 4\Fuentes\SMEC\Web\Reports\Asistencia.aspx.cs:line 23&#xD;&#xA;   at System.Web.UI.Control.InitRecursive(Control namingContainer)&#xD;&#xA;   at System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)&#xD;&#xA;   at System.Web.UI.Page.HandleError(Exception e)&#xD;&#xA;   at System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)&#xD;&#xA;   at System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)&#xD;&#xA;   at System.Web.UI.Page.ProcessRequest()&#xD;&#xA;   at System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)&#xD;&#xA;   at System.Web.UI.Page.ProcessRequest(HttpContext context)&#xD;&#xA;   at ASP.reports_asistencia_aspx.ProcessRequest(HttpContext context) in c:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\vs\e2ce3df2\705170e9\App_Web_14pzkltc.1.cs:line 0&#xD;&#xA;   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()&#xD;&#xA;   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean&amp; completedSynchronously)" user="lpariatanta" time="2017-01-16T00:50:30.6734940Z" statusCode="500" webHostHtmlMessage="&lt;!DOCTYPE html&gt;&#xD;&#xA;&lt;html&gt;&#xD;&#xA;    &lt;head&gt;&#xD;&#xA;        &lt;title&gt;The Group expression for the grouping ‘Chart4_CategoryGroup’ refers to the field ‘anio’. &amp;nbsp;Report item expressions can only refer to fields within the current dataset scope or, if inside an aggregate, the specified dataset scope. Letters in the names of fields must use the correct case.&lt;/title&gt;&#xD;&#xA;        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width&quot; /&gt;&#xD;&#xA;        &lt;style&gt;&#xD;&#xA;         body {font-family:&quot;Verdana&quot;;font-weight:normal;font-size: .7em;color:black;} &#xD;&#xA;         p {font-family:&quot;Verdana&quot;;font-weight:normal;color:black;margin-top: -5px}&#xD;&#xA;         b {font-family:&quot;Verdana&quot;;font-weight:bold;color:black;margin-top: -5px}&#xD;&#xA;         H1 { font-family:&quot;Verdana&quot;;font-weight:normal;font-size:18pt;color:red }&#xD;&#xA;         H2 { font-family:&quot;Verdana&quot;;font-weight:normal;font-size:14pt;color:maroon }&#xD;&#xA;         pre {font-family:&quot;Consolas&quot;,&quot;Lucida Console&quot;,Monospace;font-size:11pt;margin:0;padding:0.5em;line-height:14pt}&#xD;&#xA;         .marker {font-weight: bold; color: black;text-decoration: none;}&#xD;&#xA;         .version {color: gray;}&#xD;&#xA;         .error {margin-bottom: 10px;}&#xD;&#xA;         .expandable { text-decoration:underline; font-weight:bold; color:navy; cursor:hand; }&#xD;&#xA;         @media screen and (max-width: 639px) {&#xD;&#xA;          pre { width: 440px; overflow: auto; white-space: pre-wrap; word-wrap: break-word; }&#xD;&#xA;         }&#xD;&#xA;         @media screen and (max-width: 479px) {&#xD;&#xA;          pre { width: 280px; }&#xD;&#xA;         }&#xD;&#xA;        &lt;/style&gt;&#xD;&#xA;    &lt;/head&gt;&#xD;&#xA;&#xD;&#xA;    &lt;body bgcolor=&quot;white&quot;&gt;&#xD;&#xA;&#xD;&#xA;            &lt;span&gt;&lt;H1&gt;Server Error in '/' Application.&lt;hr width=100% size=1 color=silver&gt;&lt;/H1&gt;&#xD;&#xA;&#xD;&#xA;            &lt;h2&gt; &lt;i&gt;The Group expression for the grouping ‘Chart4_CategoryGroup’ refers to the field ‘anio’. &amp;nbsp;Report item expressions can only refer to fields within the current dataset scope or, if inside an aggregate, the specified dataset scope. Letters in the names of fields must use the correct case.&lt;/i&gt; &lt;/h2&gt;&lt;/span&gt;&#xD;&#xA;&#xD;&#xA;            &lt;font face=&quot;Arial, Helvetica, Geneva, SunSans-Regular, sans-serif &quot;&gt;&#xD;&#xA;&#xD;&#xA;            &lt;b&gt; Description: &lt;/b&gt;An unhandled exception occurred during the execution of the current web request. Please review the stack trace for more information about the error and where it originated in the code.&#xD;&#xA;&#xD;&#xA;            &lt;br&gt;&lt;br&gt;&#xD;&#xA;&#xD;&#xA;            &lt;b&gt; Exception Details: &lt;/b&gt;Microsoft.ReportingServices.ReportProcessing.ReportPublishingException: The Group expression for the grouping ‘Chart4_CategoryGroup’ refers to the field ‘anio’. &amp;nbsp;Report item expressions can only refer to fields within the current dataset scope or, if inside an aggregate, the specified dataset scope. Letters in the names of fields must use the correct case.&lt;br&gt;&lt;br&gt;&#xD;&#xA;&#xD;&#xA;            &lt;b&gt;Source Error:&lt;/b&gt; &lt;br&gt;&lt;br&gt;&#xD;&#xA;&#xD;&#xA;            &lt;table width=100% bgcolor=&quot;#ffffcc&quot;&gt;&#xD;&#xA;               &lt;tr&gt;&#xD;&#xA;                  &lt;td&gt;&#xD;&#xA;                      &lt;code&gt;&lt;pre&gt;&#xD;&#xA;&#xD;&#xA;Line 545:            rptViewer.LocalReport.ReportPath = File;&#xD;&#xA;Line 546:            ReportParameter par = new ReportParameter(&amp;quot;Usuario&amp;quot;, HttpContext.Current.User.Identity.Name);&#xD;&#xA;&lt;font color=red&gt;Line 547:            rptViewer.LocalReport.SetParameters(par);&#xD;&#xA;&lt;/font&gt;Line 548:&#xD;&#xA;Line 549:            rptViewer.LocalReport.DisplayName = Util.GetReportName(File);&lt;/pre&gt;&lt;/code&gt;&#xD;&#xA;&#xD;&#xA;                  &lt;/td&gt;&#xD;&#xA;               &lt;/tr&gt;&#xD;&#xA;            &lt;/table&gt;&#xD;&#xA;&#xD;&#xA;            &lt;br&gt;&#xD;&#xA;&#xD;&#xA;            &lt;b&gt; Source File: &lt;/b&gt; c:\Proyectos\Cedro\Pase 4\Fuentes\SMEC\Web\Reports\Asistencia.aspx.cs&lt;b&gt; &amp;nbsp;&amp;nbsp; Line: &lt;/b&gt; 547&#xD;&#xA;            &lt;br&gt;&lt;br&gt;&#xD;&#xA;&#xD;&#xA;            &lt;b&gt;Stack Trace:&lt;/b&gt; &lt;br&gt;&lt;br&gt;&#xD;&#xA;&#xD;&#xA;            &lt;table width=100% bgcolor=&quot;#ffffcc&quot;&gt;&#xD;&#xA;               &lt;tr&gt;&#xD;&#xA;                  &lt;td&gt;&#xD;&#xA;                      &lt;code&gt;&lt;pre&gt;&#xD;&#xA;&#xD;&#xA;[ReportPublishingException: The Group expression for the grouping ‘Chart4_CategoryGroup’ refers to the field ‘anio’.  Report item expressions can only refer to fields within the current dataset scope or, if inside an aggregate, the specified dataset scope. Letters in the names of fields must use the correct case.]&#xD;&#xA;   Microsoft.ReportingServices.ReportPublishing.ReportPublishing.InternalCreateIntermediateFormat(Stream definitionStream, RdlUpgradeState upgradeState, String&amp;amp; description, String&amp;amp; language, ParameterInfoCollection&amp;amp; parameters, DataSourceInfoCollection&amp;amp; dataSources, DataSetInfoCollection&amp;amp; sharedDataSetReferences, UserLocationFlags&amp;amp; userReferenceLocation, ArrayList&amp;amp; dataSetsName, Boolean&amp;amp; hasExternalImages, Boolean&amp;amp; hasHyperlinks, Byte[]&amp;amp; dataSetsHash) +253&#xD;&#xA;   Microsoft.ReportingServices.ReportPublishing.ReportPublishing.CreateIntermediateFormat(Byte[] definition, String&amp;amp; description, String&amp;amp; language, ParameterInfoCollection&amp;amp; parameters, DataSourceInfoCollection&amp;amp; dataSources, DataSetInfoCollection&amp;amp; sharedDataSetReferences, UserLocationFlags&amp;amp; userReferenceLocation, ArrayList&amp;amp; dataSetsName, Boolean&amp;amp; hasExternalImages, Boolean&amp;amp; hasHyperlinks, Byte[]&amp;amp; dataSetsHash) +102&#xD;&#xA;   Microsoft.ReportingServices.ReportProcessing.ReportProcessing.CompileOdpReport(PublishingContext reportPublishingContext, IDataProtection dataProtection, PublishingErrorContext errorContext, String&amp;amp; reportDescription, String&amp;amp; reportLanguage, ParameterInfoCollection&amp;amp; parameters, DataSourceInfoCollection&amp;amp; dataSources, DataSetInfoCollection&amp;amp; sharedDataSetReferences, UserLocationFlags&amp;amp; userReferenceLocation, ArrayList&amp;amp; dataSetsName, Boolean&amp;amp; hasExternalImages, Boolean&amp;amp; hasHyperlinks, Byte[]&amp;amp; dataSetsHash) +107&#xD;&#xA;   Microsoft.ReportingServices.ReportProcessing.ReportProcessing.CreateIntermediateFormat(PublishingContext reportPublishingContext, IDataProtection dataProtection) +928&#xD;&#xA;   Microsoft.Reporting.ReportCompiler.CompileReport(ICatalogItemContext context, Byte[] reportDefinition, Boolean generateExpressionHostWithRefusedPermissions, ControlSnapshot&amp;amp; snapshot) +218&#xD;&#xA;&#xD;&#xA;[DefinitionInvalidException: The definition of the report &amp;#39;C:\Proyectos\Cedro\Pase 4\Fuentes\SMEC\Web\Reports\Asistencia\CapacitacionResumenIFM.rdlc&amp;#39; is invalid.]&#xD;&#xA;   Microsoft.Reporting.ReportCompiler.CompileReport(ICatalogItemContext context, Byte[] reportDefinition, Boolean generateExpressionHostWithRefusedPermissions, ControlSnapshot&amp;amp; snapshot) +284&#xD;&#xA;   Microsoft.Reporting.LocalService.GetCompiledReport(PreviewItemContext itemContext, Boolean rebuild, ControlSnapshot&amp;amp; snapshot) +220&#xD;&#xA;   Microsoft.Reporting.LocalService.CompileReport() +28&#xD;&#xA;   Microsoft.Reporting.LocalService.Microsoft.Reporting.ILocalProcessingHost.CompileReport() +9&#xD;&#xA;   Microsoft.Reporting.WebForms.LocalReport.EnsureExecutionSession() +127&#xD;&#xA;&#xD;&#xA;[LocalProcessingException: An error occurred during local report processing.]&#xD;&#xA;   Microsoft.Reporting.WebForms.LocalReport.EnsureExecutionSession() +234&#xD;&#xA;   Microsoft.Reporting.WebForms.LocalReport.SetParameters(IEnumerable`1 parameters) +142&#xD;&#xA;   Microsoft.Reporting.WebForms.Report.SetParameters(ReportParameter parameter) +95&#xD;&#xA;   Web.Reports.Asistencia.ViewReport(String File, DataTable dt) in c:\Proyectos\Cedro\Pase 4\Fuentes\SMEC\Web\Reports\Asistencia.aspx.cs:547&#xD;&#xA;   Web.Reports.Asistencia.LoadDatos() in c:\Proyectos\Cedro\Pase 4\Fuentes\SMEC\Web\Reports\Asistencia.aspx.cs:537&#xD;&#xA;   Web.Reports.Asistencia.InitializeComponent() in c:\Proyectos\Cedro\Pase 4\Fuentes\SMEC\Web\Reports\Asistencia.aspx.cs:32&#xD;&#xA;   Web.Reports.Asistencia.OnInit(EventArgs e) in c:\Proyectos\Cedro\Pase 4\Fuentes\SMEC\Web\Reports\Asistencia.aspx.cs:23&#xD;&#xA;   System.Web.UI.Control.InitRecursive(Control namingContainer) +139&#xD;&#xA;   System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint) +1580&#xD;&#xA;&lt;/pre&gt;&lt;/code&gt;&#xD;&#xA;&#xD;&#xA;                  &lt;/td&gt;&#xD;&#xA;               &lt;/tr&gt;&#xD;&#xA;            &lt;/table&gt;&#xD;&#xA;&#xD;&#xA;            &lt;br&gt;&#xD;&#xA;&#xD;&#xA;    &lt;/body&gt;&#xD;&#xA;&lt;/html&gt;&#xD;&#xA;">
+  <serverVariables>
+    <item name="ALL_HTTP">
+      <value string="HTTP_CONNECTION:keep-alive&#xD;&#xA;HTTP_ACCEPT:text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8&#xD;&#xA;HTTP_ACCEPT_ENCODING:gzip, deflate, sdch, br&#xD;&#xA;HTTP_ACCEPT_LANGUAGE:es-ES,es;q=0.8&#xD;&#xA;HTTP_COOKIE:/Reserved.ReportViewerWebControl.axd%3FOpType%3DSessionKeepAlive%26ControlID%3D92ecbc056a794c16b00be4531912b369%26Mode%3Dtrue_SKA=1; /Reserved.ReportViewerWebControl.axd%3FOpType%3DSessionKeepAlive%26ControlID%3Dfa5a9554d7f14d8998f1cb7b1a7e9c5f%26Mode%3Dtrue_SKA=1; CookiesLogin=admin; .ASPXAUTH=C0AB2B5E88FFA9696D06E0B04A9F62020836C105E2F06E8D0DC011BC85785E163E0405FA14873A50D71BE1BB3D5EAB7DE7C3329AD13222A057E37F1F3B091A035DFB0B09B485E5B1300C4C19D9AEB1EDAB3967339070FF7123954F23E6667F11F604BBF01F189A06B7920268C9BD7C64A5C89946032F272977558391C557ABE2E11C37BE398F40FBD1C0BA6F0FF206DF7334BCA6908A9F7DCB69653D45676F90227C5715F2663964E531AFA51D390A5D370718726B0A762E0ABF7440F6D88C211A574F8B89D85EE4D4D2FA2FB4F1325966B9B4B88BE9DBD771677DDAB16DCA0EEEBB051E5135AF46F82364042F70B6FE2F27FEA3D708AEC6738BCFFA9F63E1CD; ASP.NET_SessionId=lhunz4wqe5ntzjbwegqev2e4&#xD;&#xA;HTTP_HOST:localhost:1371&#xD;&#xA;HTTP_REFERER:http://localhost:1371/Asistencia/ReporteIFM&#xD;&#xA;HTTP_USER_AGENT:Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36&#xD;&#xA;HTTP_UPGRADE_INSECURE_REQUESTS:1&#xD;&#xA;" />
+    </item>
+    <item name="ALL_RAW">
+      <value string="Connection: keep-alive&#xD;&#xA;Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8&#xD;&#xA;Accept-Encoding: gzip, deflate, sdch, br&#xD;&#xA;Accept-Language: es-ES,es;q=0.8&#xD;&#xA;Cookie: /Reserved.ReportViewerWebControl.axd%3FOpType%3DSessionKeepAlive%26ControlID%3D92ecbc056a794c16b00be4531912b369%26Mode%3Dtrue_SKA=1; /Reserved.ReportViewerWebControl.axd%3FOpType%3DSessionKeepAlive%26ControlID%3Dfa5a9554d7f14d8998f1cb7b1a7e9c5f%26Mode%3Dtrue_SKA=1; CookiesLogin=admin; .ASPXAUTH=C0AB2B5E88FFA9696D06E0B04A9F62020836C105E2F06E8D0DC011BC85785E163E0405FA14873A50D71BE1BB3D5EAB7DE7C3329AD13222A057E37F1F3B091A035DFB0B09B485E5B1300C4C19D9AEB1EDAB3967339070FF7123954F23E6667F11F604BBF01F189A06B7920268C9BD7C64A5C89946032F272977558391C557ABE2E11C37BE398F40FBD1C0BA6F0FF206DF7334BCA6908A9F7DCB69653D45676F90227C5715F2663964E531AFA51D390A5D370718726B0A762E0ABF7440F6D88C211A574F8B89D85EE4D4D2FA2FB4F1325966B9B4B88BE9DBD771677DDAB16DCA0EEEBB051E5135AF46F82364042F70B6FE2F27FEA3D708AEC6738BCFFA9F63E1CD; ASP.NET_SessionId=lhunz4wqe5ntzjbwegqev2e4&#xD;&#xA;Host: localhost:1371&#xD;&#xA;Referer: http://localhost:1371/Asistencia/ReporteIFM&#xD;&#xA;User-Agent: Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36&#xD;&#xA;Upgrade-Insecure-Requests: 1&#xD;&#xA;" />
+    </item>
+    <item name="APPL_MD_PATH">
+      <value string="" />
+    </item>
+    <item name="APPL_PHYSICAL_PATH">
+      <value string="C:\Proyectos\Cedro\Pase 4\Fuentes\SMEC\Web\" />
+    </item>
+    <item name="AUTH_TYPE">
+      <value string="Forms" />
+    </item>
+    <item name="AUTH_USER">
+      <value string="lpariatanta" />
+    </item>
+    <item name="AUTH_PASSWORD">
+      <value string="*****" />
+    </item>
+    <item name="LOGON_USER">
+      <value string="DESARROLLO_NET\Administrator" />
+    </item>
+    <item name="REMOTE_USER">
+      <value string="lpariatanta" />
+    </item>
+    <item name="CERT_COOKIE">
+      <value string="" />
+    </item>
+    <item name="CERT_FLAGS">
+      <value string="" />
+    </item>
+    <item name="CERT_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SERIALNUMBER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CERT_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CONTENT_LENGTH">
+      <value string="0" />
+    </item>
+    <item name="CONTENT_TYPE">
+      <value string="" />
+    </item>
+    <item name="GATEWAY_INTERFACE">
+      <value string="" />
+    </item>
+    <item name="HTTPS">
+      <value string="" />
+    </item>
+    <item name="HTTPS_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="INSTANCE_ID">
+      <value string="" />
+    </item>
+    <item name="INSTANCE_META_PATH">
+      <value string="" />
+    </item>
+    <item name="LOCAL_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="PATH_INFO">
+      <value string="/Reports/Asistencia.aspx" />
+    </item>
+    <item name="PATH_TRANSLATED">
+      <value string="C:\Proyectos\Cedro\Pase 4\Fuentes\SMEC\Web\Reports\Asistencia.aspx" />
+    </item>
+    <item name="QUERY_STRING">
+      <value string="reporte=502&amp;fechainicio=2012-01-01&amp;fechafin=2017-01-15&amp;periodoid=1&amp;programaid=4&amp;nivelid=7&amp;ejeid=0&amp;telecentroid=0&amp;tipoid=0&amp;formatoid=0" />
+    </item>
+    <item name="REMOTE_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_HOST">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_PORT">
+      <value string="" />
+    </item>
+    <item name="REQUEST_METHOD">
+      <value string="GET" />
+    </item>
+    <item name="SCRIPT_NAME">
+      <value string="/Reports/Asistencia.aspx" />
+    </item>
+    <item name="SERVER_NAME">
+      <value string="localhost" />
+    </item>
+    <item name="SERVER_PORT">
+      <value string="1371" />
+    </item>
+    <item name="SERVER_PORT_SECURE">
+      <value string="0" />
+    </item>
+    <item name="SERVER_PROTOCOL">
+      <value string="HTTP/1.1" />
+    </item>
+    <item name="SERVER_SOFTWARE">
+      <value string="" />
+    </item>
+    <item name="URL">
+      <value string="/Reports/Asistencia.aspx" />
+    </item>
+    <item name="HTTP_CONNECTION">
+      <value string="keep-alive" />
+    </item>
+    <item name="HTTP_ACCEPT">
+      <value string="text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8" />
+    </item>
+    <item name="HTTP_ACCEPT_ENCODING">
+      <value string="gzip, deflate, sdch, br" />
+    </item>
+    <item name="HTTP_ACCEPT_LANGUAGE">
+      <value string="es-ES,es;q=0.8" />
+    </item>
+    <item name="HTTP_COOKIE">
+      <value string="/Reserved.ReportViewerWebControl.axd%3FOpType%3DSessionKeepAlive%26ControlID%3D92ecbc056a794c16b00be4531912b369%26Mode%3Dtrue_SKA=1; /Reserved.ReportViewerWebControl.axd%3FOpType%3DSessionKeepAlive%26ControlID%3Dfa5a9554d7f14d8998f1cb7b1a7e9c5f%26Mode%3Dtrue_SKA=1; CookiesLogin=admin; .ASPXAUTH=C0AB2B5E88FFA9696D06E0B04A9F62020836C105E2F06E8D0DC011BC85785E163E0405FA14873A50D71BE1BB3D5EAB7DE7C3329AD13222A057E37F1F3B091A035DFB0B09B485E5B1300C4C19D9AEB1EDAB3967339070FF7123954F23E6667F11F604BBF01F189A06B7920268C9BD7C64A5C89946032F272977558391C557ABE2E11C37BE398F40FBD1C0BA6F0FF206DF7334BCA6908A9F7DCB69653D45676F90227C5715F2663964E531AFA51D390A5D370718726B0A762E0ABF7440F6D88C211A574F8B89D85EE4D4D2FA2FB4F1325966B9B4B88BE9DBD771677DDAB16DCA0EEEBB051E5135AF46F82364042F70B6FE2F27FEA3D708AEC6738BCFFA9F63E1CD; ASP.NET_SessionId=lhunz4wqe5ntzjbwegqev2e4" />
+    </item>
+    <item name="HTTP_HOST">
+      <value string="localhost:1371" />
+    </item>
+    <item name="HTTP_REFERER">
+      <value string="http://localhost:1371/Asistencia/ReporteIFM" />
+    </item>
+    <item name="HTTP_USER_AGENT">
+      <value string="Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36" />
+    </item>
+    <item name="HTTP_UPGRADE_INSECURE_REQUESTS">
+      <value string="1" />
+    </item>
+  </serverVariables>
+  <queryString>
+    <item name="reporte">
+      <value string="502" />
+    </item>
+    <item name="fechainicio">
+      <value string="2012-01-01" />
+    </item>
+    <item name="fechafin">
+      <value string="2017-01-15" />
+    </item>
+    <item name="periodoid">
+      <value string="1" />
+    </item>
+    <item name="programaid">
+      <value string="4" />
+    </item>
+    <item name="nivelid">
+      <value string="7" />
+    </item>
+    <item name="ejeid">
+      <value string="0" />
+    </item>
+    <item name="telecentroid">
+      <value string="0" />
+    </item>
+    <item name="tipoid">
+      <value string="0" />
+    </item>
+    <item name="formatoid">
+      <value string="0" />
+    </item>
+  </queryString>
+  <cookies>
+    <item name="/Reserved.ReportViewerWebControl.axd%3FOpType%3DSessionKeepAlive%26ControlID%3D92ecbc056a794c16b00be4531912b369%26Mode%3Dtrue_SKA">
+      <value string="1" />
+    </item>
+    <item name="/Reserved.ReportViewerWebControl.axd%3FOpType%3DSessionKeepAlive%26ControlID%3Dfa5a9554d7f14d8998f1cb7b1a7e9c5f%26Mode%3Dtrue_SKA">
+      <value string="1" />
+    </item>
+    <item name="CookiesLogin">
+      <value string="admin" />
+    </item>
+    <item name=".ASPXAUTH">
+      <value string="C0AB2B5E88FFA9696D06E0B04A9F62020836C105E2F06E8D0DC011BC85785E163E0405FA14873A50D71BE1BB3D5EAB7DE7C3329AD13222A057E37F1F3B091A035DFB0B09B485E5B1300C4C19D9AEB1EDAB3967339070FF7123954F23E6667F11F604BBF01F189A06B7920268C9BD7C64A5C89946032F272977558391C557ABE2E11C37BE398F40FBD1C0BA6F0FF206DF7334BCA6908A9F7DCB69653D45676F90227C5715F2663964E531AFA51D390A5D370718726B0A762E0ABF7440F6D88C211A574F8B89D85EE4D4D2FA2FB4F1325966B9B4B88BE9DBD771677DDAB16DCA0EEEBB051E5135AF46F82364042F70B6FE2F27FEA3D708AEC6738BCFFA9F63E1CD" />
+    </item>
+    <item name="ASP.NET_SessionId">
+      <value string="lhunz4wqe5ntzjbwegqev2e4" />
+    </item>
+  </cookies>
+</error>

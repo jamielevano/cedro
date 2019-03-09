@@ -1,0 +1,79 @@
+﻿@section scripts
+{
+    <script type="text/javascript">
+        $(function () {
+            var id = queryString('id');
+            var biblioteca = queryString('biblioteca');
+            var vista = queryString('vista');
+
+            var pagina = 84;
+            if (biblioteca == 0)
+                pagina = 11;
+
+            if (!id) document.location.href = '@Url.Action("Index")';
+            var data = getJson('@Url.Content("~/api/BibliotecaVirtual/ModuloArchivo/ModuloListArchivos")', { id: id});
+            var permiso = getJson('@Url.Content("~/api/Sistema/Permiso/Find")', { id: pagina });
+
+            var Model = function (data)
+            {
+                var self = this;
+                self.data = ko.mapping.fromJS(data);
+                self.id = id;
+                self.permiso = permiso;
+                self.vista = vista;
+
+                self.delete = function (item)
+                {
+                    if (confirm('¿Desea eliminar este archivo?')) {
+                        postJson('@Url.Content("~/api/BibliotecaVirtual/ModuloArchivo/ModuloDeleteArchivo")', { id: item.id() }, function ()
+                        {
+                            document.location.reload();
+                        })
+                    }
+                }
+            };
+
+            ko.applyBindings(new Model(data));
+        })
+    </script>
+}
+
+
+<fieldset>
+    <legend>Adjuntar archivo de la encuesta</legend>
+    <form method="post" enctype="multipart/form-data">
+        <input type="hidden" name="id" data-bind="value: $root.id" />
+        <p>
+            Archivo:
+            <input type="file" data-bind="enable: ($root.vista==true)?false:$root.permiso.agregar" name="files" data-val="true" data-val-required="" multiple="multiple" />
+            <button type="submit" data-bind="enable: ($root.vista==true)?false:$root.permiso.agregar"><a class="btn add"></a>Adjuntar</button>
+        </p>
+    </form>
+    
+    <br />
+
+    <table class="grid">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th style="width: 150px;">Tamaño</th>
+                <th style="width: 150px;">Fecha</th>
+                <th style="width: 40px;"></th>
+            </tr>
+        </thead>
+        <tbody data-bind="foreach: data">
+            <tr>
+                <td>
+                    <b data-bind="attr: { class: 'fileicon ' + nombre().split('.').pop() }"></b>
+                    <span data-bind="text: nombre"></span>
+                </td>
+                <td data-bind="text: formatFileSize(tamanio)" style="text-align: right;"></td>
+                <td data-bind="text: formatDate(fecha)" style="text-align: right;"></td>
+                <td style="text-align: center;">
+                    <a class="btn download" data-bind="attr: { href: '@Url.Action("EncuestaDownload","ModuloArchivo", new { area = "BibliotecaVirtual" })/' + id() }"></a>
+                    <button type="button" class="btn del" data-bind="enable: ($root.vista==true)?false:$root.permiso.eliminar,click: $root.delete"></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</fieldset>

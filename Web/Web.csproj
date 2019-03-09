@@ -1,0 +1,1482 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E1DB473D-2183-4FB2-8B75-FB276A13BE4B}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Web</RootNamespace>
+    <AssemblyName>Web</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.4.1.9004, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ClientDependency.Core, Version=1.8.3.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ClientDependency.1.8.3.1\lib\net45\ClientDependency.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ClientDependency.Core.Mvc, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ClientDependency-Mvc5.1.8.0.0\lib\net45\ClientDependency.Core.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Elmah">
+      <HintPath>..\packages\elmah.corelibrary.1.2.2\lib\Elmah.dll</HintPath>
+    </Reference>
+    <Reference Include="Elmah.Mvc, Version=2.1.2.1389, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Elmah.Mvc.2.1.2\lib\net40\Elmah.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Gestalt, Version=1.0.0.0, Culture=neutral, PublicKeyToken=8e981b51c67b26bb, processorArchitecture=MSIL">
+      <HintPath>..\packages\OptimizerPrime.1.0\lib\Gestalt.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.WebApi.MessageHandlers.Compression, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.MessageHandlers.Compression.1.2.2\lib\portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1\Microsoft.AspNet.WebApi.MessageHandlers.Compression.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\MicrosoftReportViewerWebForms.11.0.0.0\lib\Microsoft.ReportViewer.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\MicrosoftReportViewerWebForms.11.0.0.0\lib\Microsoft.ReportViewer.ProcessingObjectModel.DLL</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\MicrosoftReportViewerWebForms.11.0.0.0\lib\Microsoft.ReportViewer.WebForms.DLL</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="OptimizerPrime, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\OptimizerPrime.1.0\lib\OptimizerPrime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Rabbit.Bootstrap, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rabbit.Bootstrap.MVC.1.1.0.0\lib\net40\Rabbit.Bootstrap.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Net.Http.Extensions, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives, Version=4.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Primitives.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc.Extensions, Version=1.0.9.0, Culture=neutral, PublicKeyToken=17e35335fc9f8fc8, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Web.Mvc.Extensions.Mvc.4.1.0.9\lib\net40\System.Web.Mvc.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Providers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Providers.Core.2.0.0\lib\net40\System.Web.Providers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="Utilities.Compression, Version=1.0.0.0, Culture=neutral, PublicKeyToken=353b021c6ffac084, processorArchitecture=MSIL">
+      <HintPath>..\packages\OptimizerPrime.1.0\lib\Utilities.Compression.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Utilities.DataTypes, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1a9f1ce8fe69b437, processorArchitecture=MSIL">
+      <HintPath>..\packages\OptimizerPrime.1.0\lib\Utilities.DataTypes.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Utilities.Encryption, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5a44967fd06b87ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\OptimizerPrime.1.0\lib\Utilities.Encryption.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Utilities.Events, Version=1.0.0.0, Culture=neutral, PublicKeyToken=e178ba78a0ac7623, processorArchitecture=MSIL">
+      <HintPath>..\packages\OptimizerPrime.1.0\lib\Utilities.Events.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Utilities.FileFormats, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cf552f07a3cb083a, processorArchitecture=MSIL">
+      <HintPath>..\packages\OptimizerPrime.1.0\lib\Utilities.FileFormats.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Utilities.IO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=312f07f157e6ffd6, processorArchitecture=MSIL">
+      <HintPath>..\packages\OptimizerPrime.1.0\lib\Utilities.IO.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Utilities.Random, Version=1.0.0.0, Culture=neutral, PublicKeyToken=7171cc3be6ac60dc, processorArchitecture=MSIL">
+      <HintPath>..\packages\OptimizerPrime.1.0\lib\Utilities.Random.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Utilities.Reflection, Version=1.0.0.0, Culture=neutral, PublicKeyToken=501e17eff79c154d, processorArchitecture=MSIL">
+      <HintPath>..\packages\OptimizerPrime.1.0\lib\Utilities.Reflection.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Utilities.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=53dcaf16ffff41af, processorArchitecture=MSIL">
+      <HintPath>..\packages\OptimizerPrime.1.0\lib\Utilities.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\Asistencia\AsistenciaAreaRegistration.cs" />
+    <Compile Include="Areas\Asistencia\Controllers\Api\ConfiguracionController.cs" />
+    <Compile Include="Areas\Asistencia\Controllers\Api\EquipoController.cs" />
+    <Compile Include="Areas\Asistencia\Controllers\Api\TelecentroController.cs" />
+    <Compile Include="Areas\Asistencia\Controllers\Api\ParticipanteController.cs" />
+    <Compile Include="Areas\Asistencia\Controllers\Api\InscripcionController.cs" />
+    <Compile Include="Areas\Asistencia\Controllers\Api\PersonaController.cs" />
+    <Compile Include="Areas\Asistencia\Controllers\Api\ModuloController.cs" />
+    <Compile Include="Areas\Asistencia\Controllers\ConfiguracionController.cs" />
+    <Compile Include="Areas\Asistencia\Controllers\Participante2Controller.cs" />
+    <Compile Include="Areas\Asistencia\Controllers\ReporteActividadesController.cs" />
+    <Compile Include="Areas\Asistencia\Controllers\ReporteIFMController.cs" />
+    <Compile Include="Areas\Asistencia\Controllers\EquipoController.cs" />
+    <Compile Include="Areas\Asistencia\Controllers\FotoController.cs" />
+    <Compile Include="Areas\Asistencia\Controllers\InscripcionController.cs" />
+    <Compile Include="Areas\Asistencia\Controllers\ModuloController.cs" />
+    <Compile Include="Areas\Asistencia\Controllers\ParticipanteController.cs" />
+    <Compile Include="Areas\Asistencia\Controllers\PersonaController.cs" />
+    <Compile Include="Areas\Asistencia\Controllers\ReporteGeneralController.cs" />
+    <Compile Include="Areas\Asistencia\Controllers\ReportePersonalizadoController.cs" />
+    <Compile Include="Areas\Asistencia\Controllers\TelecentroController.cs" />
+    <Compile Include="Areas\Asistencia\Models\ConfiguracionSearchModel.cs" />
+    <Compile Include="Areas\Asistencia\Models\ImportarTelecentroModel.cs" />
+    <Compile Include="Areas\Asistencia\Models\InscripcionFinalModel.cs" />
+    <Compile Include="Areas\Asistencia\Models\EquipoModel.cs" />
+    <Compile Include="Areas\Asistencia\Models\ParticipanteModel.cs" />
+    <Compile Include="Areas\Asistencia\Models\InscripcionModel.cs" />
+    <Compile Include="Areas\Asistencia\Models\PersonaSearchModel.cs" />
+    <Compile Include="Areas\BibliotecaVirtual\BibliotecaVirtualAreaRegistration.cs" />
+    <Compile Include="Areas\BibliotecaVirtual\Controllers\Api\ModuloArchivoController.cs" />
+    <Compile Include="Areas\BibliotecaVirtual\Controllers\Api\DocumentosController.cs" />
+    <Compile Include="Areas\BibliotecaVirtual\Controllers\Api\PlanOperativoArchivoController.cs" />
+    <Compile Include="Areas\BibliotecaVirtual\Controllers\Api\MarcoLogicoArchivoController.cs" />
+    <Compile Include="Areas\BibliotecaVirtual\Controllers\Api\PlanOperativoArchivoTCController.cs" />
+    <Compile Include="Areas\BibliotecaVirtual\Controllers\Api\MarcoLogicoArchivoTCController.cs" />
+    <Compile Include="Areas\BibliotecaVirtual\Controllers\ModuloArchivoController.cs" />
+    <Compile Include="Areas\BibliotecaVirtual\Controllers\DocumentosController.cs" />
+    <Compile Include="Areas\BibliotecaVirtual\Controllers\InstrumentosEvaluacionTCController.cs" />
+    <Compile Include="Areas\BibliotecaVirtual\Controllers\InstrumentosMonitoreoTCController.cs" />
+    <Compile Include="Areas\BibliotecaVirtual\Controllers\MarcoLogicoArchivoController.cs" />
+    <Compile Include="Areas\BibliotecaVirtual\Controllers\MarcoLogicoArchivoTCController.cs" />
+    <Compile Include="Areas\BibliotecaVirtual\Controllers\PlanOperativoArchivoController.cs" />
+    <Compile Include="Areas\BibliotecaVirtual\Controllers\PlanOperativoArchivoTCController.cs" />
+    <Compile Include="Areas\BibliotecaVirtual\Controllers\ProyectoArchivoController.cs" />
+    <Compile Include="Areas\Evaluacion\Controllers\Api\EvaluacionReporteController.cs" />
+    <Compile Include="Areas\Evaluacion\Controllers\Api\EvaluacionReporteTCController.cs" />
+    <Compile Include="Areas\Evaluacion\Controllers\EvaluacionReporteController.cs" />
+    <Compile Include="Areas\Evaluacion\Controllers\EvaluacionReporteTCController.cs" />
+    <Compile Include="Areas\Evaluacion\EvaluacionAreaRegistration.cs" />
+    <Compile Include="Areas\Evaluacion\Models\PermisosModel.cs" />
+    <Compile Include="Areas\Monitoreo\Controllers\ActividadController.cs" />
+    <Compile Include="Areas\Monitoreo\Controllers\Api\ActividadController.cs" />
+    <Compile Include="Areas\Monitoreo\Controllers\Api\TareaTCController.cs" />
+    <Compile Include="Areas\Monitoreo\Controllers\TareaTCController.cs" />
+    <Compile Include="Areas\Monitoreo\Models\AvancePOTCSearchModel.cs" />
+    <Compile Include="Areas\Monitoreo\Models\MoveAvanceModel.cs" />
+    <Compile Include="Areas\Monitoreo\Models\PlanesOperativosModel.cs" />
+    <Compile Include="Areas\Monitoreo\MonitoreoAreaRegistration.cs" />
+    <Compile Include="Areas\Planificacion\Controllers\Api\PlanOperativoTareaMetaTCController.cs" />
+    <Compile Include="Areas\Planificacion\Controllers\Api\POTareaTCController.cs" />
+    <Compile Include="Areas\Planificacion\Controllers\Api\ResultadoController.cs" />
+    <Compile Include="Areas\Planificacion\Controllers\Api\PlanOperativoController.cs" />
+    <Compile Include="Areas\Planificacion\Controllers\Api\MarcoLogicoController.cs" />
+    <Compile Include="Areas\Planificacion\Controllers\Api\ResultadoTCController.cs" />
+    <Compile Include="Areas\Planificacion\Controllers\Api\PlanOperativoTCController.cs" />
+    <Compile Include="Areas\Planificacion\Controllers\Api\ProyectoController.cs" />
+    <Compile Include="Areas\Planificacion\Controllers\MarcoLogicoController.cs" />
+    <Compile Include="Areas\Planificacion\Controllers\MarcoLogicoTCController.cs" />
+    <Compile Include="Areas\Planificacion\Controllers\PlanOperativoController.cs" />
+    <Compile Include="Areas\Planificacion\Controllers\PlanOperativoTareaMetaTCController.cs" />
+    <Compile Include="Areas\Planificacion\Controllers\PlanOperativoTCController.cs" />
+    <Compile Include="Areas\Planificacion\Controllers\POTareaTCController.cs" />
+    <Compile Include="Areas\Planificacion\Controllers\ProyectoController.cs" />
+    <Compile Include="Areas\Planificacion\Controllers\ResultadoController.cs" />
+    <Compile Include="Areas\Planificacion\Controllers\ResultadoTCController.cs" />
+    <Compile Include="Areas\Planificacion\Controllers\TareaTCController.cs" />
+    <Compile Include="Areas\Planificacion\Models\PermisosModel.cs" />
+    <Compile Include="Areas\Planificacion\PlanificacionAreaRegistration.cs" />
+    <Compile Include="Areas\Planificacion\Controllers\Api\MarcoLogicoTCController.cs" />
+    <Compile Include="Areas\Reporte\Controllers\AvanceEvaluacionController.cs" />
+    <Compile Include="Areas\Reporte\Controllers\AvanceEvaluacionTCController.cs" />
+    <Compile Include="Areas\Reporte\Controllers\AvanceMonitoreoController.cs" />
+    <Compile Include="Areas\Reporte\Controllers\AvanceMonitoreoTCController.cs" />
+    <Compile Include="Areas\Reporte\Controllers\EncuestaEvaluacionTCController.cs" />
+    <Compile Include="Areas\Reporte\Controllers\FichasMonitoreoTCController.cs" />
+    <Compile Include="Areas\Reporte\Controllers\ListadoController.cs" />
+    <Compile Include="Areas\Reporte\Controllers\MatrizMarcoLogicoTCController.cs" />
+    <Compile Include="Areas\Reporte\Controllers\MatrizPlanOperativoTCController.cs" />
+    <Compile Include="Areas\Reporte\Controllers\ProyectoController.cs" />
+    <Compile Include="Areas\Reporte\ReporteAreaRegistration.cs" />
+    <Compile Include="Areas\Sistema\Controllers\Api\LogController.cs" />
+    <Compile Include="Areas\Sistema\Controllers\Api\PermisoController.cs" />
+    <Compile Include="Areas\Sistema\Controllers\Api\RolController.cs" />
+    <Compile Include="Areas\Sistema\Controllers\Api\MaestroController.cs" />
+    <Compile Include="Areas\Sistema\Controllers\Api\UsuarioController.cs" />
+    <Compile Include="Areas\Sistema\Controllers\EjeController.cs" />
+    <Compile Include="Areas\Sistema\Controllers\ListaDetalleController.cs" />
+    <Compile Include="Areas\Sistema\Controllers\LogController.cs" />
+    <Compile Include="Areas\Sistema\Controllers\MaestroController.cs" />
+    <Compile Include="Areas\Sistema\Controllers\PermisoController.cs" />
+    <Compile Include="Areas\Sistema\Controllers\RolController.cs" />
+    <Compile Include="Areas\Sistema\Controllers\UsuarioController.cs" />
+    <Compile Include="Areas\Sistema\Models\UsuarioSearchModel.cs" />
+    <Compile Include="Areas\Sistema\Models\LogSearchModel.cs" />
+    <Compile Include="Areas\Sistema\SistemaAreaRegistration.cs" />
+    <Compile Include="Auth.cs" />
+    <Compile Include="Areas\Sistema\Api\GeneralController.cs" />
+    <Compile Include="Areas\Sistema\Api\UbigeoController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="ElmahHandledErrorLoggerFilter.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="HtmlHelperExtensions.cs" />
+    <Compile Include="Importar\Telecentro.aspx.cs">
+      <DependentUpon>Telecentro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Importar\Telecentro.aspx.designer.cs">
+      <DependentUpon>Telecentro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ArchivoModel.cs" />
+    <Compile Include="Models\DeleteModel.cs" />
+    <Compile Include="Models\ListItem.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\Asistencia.aspx.cs">
+      <DependentUpon>Asistencia.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\Asistencia.aspx.designer.cs">
+      <DependentUpon>Asistencia.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\EvaluacionTC.aspx.cs">
+      <DependentUpon>EvaluacionTC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\EvaluacionTC.aspx.designer.cs">
+      <DependentUpon>EvaluacionTC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\MonitoreoTC.aspx.cs">
+      <DependentUpon>MonitoreoTC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\MonitoreoTC.aspx.designer.cs">
+      <DependentUpon>MonitoreoTC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportPage.aspx.cs">
+      <DependentUpon>ReportPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportPage.aspx.designer.cs">
+      <DependentUpon>ReportPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SessionExtensions.cs" />
+    <Compile Include="Util.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\Elmah.Errors\ElmahErrors.txt" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\DataTables\css\dataTables.autoFill.css" />
+    <Content Include="Content\DataTables\css\dataTables.autoFill.min.css" />
+    <Content Include="Content\DataTables\css\dataTables.bootstrap.css" />
+    <Content Include="Content\DataTables\css\dataTables.colReorder.css" />
+    <Content Include="Content\DataTables\css\dataTables.colReorder.min.css" />
+    <Content Include="Content\DataTables\css\dataTables.colVis.css" />
+    <Content Include="Content\DataTables\css\dataTables.colvis.jqueryui.css" />
+    <Content Include="Content\DataTables\css\dataTables.colVis.min.css" />
+    <Content Include="Content\DataTables\css\dataTables.fixedColumns.css" />
+    <Content Include="Content\DataTables\css\dataTables.fixedColumns.min.css" />
+    <Content Include="Content\DataTables\css\dataTables.fixedHeader.css" />
+    <Content Include="Content\DataTables\css\dataTables.fixedHeader.min.css" />
+    <Content Include="Content\DataTables\css\dataTables.foundation.css" />
+    <Content Include="Content\DataTables\css\dataTables.jqueryui.css" />
+    <Content Include="Content\DataTables\css\dataTables.keyTable.css" />
+    <Content Include="Content\DataTables\css\dataTables.keyTable.min.css" />
+    <Content Include="Content\DataTables\css\dataTables.responsive.css" />
+    <Content Include="Content\DataTables\css\dataTables.scroller.css" />
+    <Content Include="Content\DataTables\css\dataTables.scroller.min.css" />
+    <Content Include="Content\DataTables\css\dataTables.tableTools.css" />
+    <Content Include="Content\DataTables\css\dataTables.tableTools.min.css" />
+    <Content Include="Content\DataTables\css\jquery.dataTables.css" />
+    <Content Include="Content\DataTables\css\jquery.dataTables.min.css" />
+    <Content Include="Content\DataTables\css\jquery.dataTables_themeroller.css" />
+    <Content Include="Content\DataTables\images\background.png" />
+    <Content Include="Content\DataTables\images\back_disabled.png" />
+    <Content Include="Content\DataTables\images\back_enabled.png" />
+    <Content Include="Content\DataTables\images\back_enabled_hover.png" />
+    <Content Include="Content\DataTables\images\collection.png" />
+    <Content Include="Content\DataTables\images\collection_hover.png" />
+    <Content Include="Content\DataTables\images\copy.png" />
+    <Content Include="Content\DataTables\images\copy_hover.png" />
+    <Content Include="Content\DataTables\images\csv.png" />
+    <Content Include="Content\DataTables\images\csv_hover.png" />
+    <Content Include="Content\DataTables\images\details_close.png" />
+    <Content Include="Content\DataTables\images\details_open.png" />
+    <Content Include="Content\DataTables\images\filler.png" />
+    <Content Include="Content\DataTables\images\forward_disabled.png" />
+    <Content Include="Content\DataTables\images\forward_enabled.png" />
+    <Content Include="Content\DataTables\images\forward_enabled_hover.png" />
+    <Content Include="Content\DataTables\images\insert.png" />
+    <Content Include="Content\DataTables\images\loading-background.png" />
+    <Content Include="Content\DataTables\images\pdf.png" />
+    <Content Include="Content\DataTables\images\pdf_hover.png" />
+    <Content Include="Content\DataTables\images\print.png" />
+    <Content Include="Content\DataTables\images\print_hover.png" />
+    <Content Include="Content\DataTables\images\sort_asc.png" />
+    <Content Include="Content\DataTables\images\sort_asc_disabled.png" />
+    <Content Include="Content\DataTables\images\sort_both.png" />
+    <Content Include="Content\DataTables\images\sort_desc.png" />
+    <Content Include="Content\DataTables\images\sort_desc_disabled.png" />
+    <Content Include="Content\DataTables\images\xls.png" />
+    <Content Include="Content\DataTables\images\xls_hover.png" />
+    <Content Include="Content\DataTables\swf\copy_csv_xls.swf" />
+    <Content Include="Content\DataTables\swf\copy_csv_xls_pdf.swf" />
+    <Content Include="Content\jquery-ui\images\animated-overlay.gif" />
+    <Content Include="Content\jquery-ui\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\jquery-ui\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\jquery-ui\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\jquery-ui\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\jquery-ui\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\jquery-ui\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\jquery-ui\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\jquery-ui\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\jquery-ui\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\jquery-ui\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\jquery-ui\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\jquery-ui\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\jquery-ui\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\jquery-ui\jquery-ui.css" />
+    <Content Include="Content\jquery-ui\jquery-ui.min.css" />
+    <Content Include="Content\jquery-ui\jquery.ui.accordion.css" />
+    <Content Include="Content\jquery-ui\jquery.ui.accordion.min.css" />
+    <Content Include="Content\jquery-ui\jquery.ui.all.css" />
+    <Content Include="Content\jquery-ui\jquery.ui.autocomplete.css" />
+    <Content Include="Content\jquery-ui\jquery.ui.autocomplete.min.css" />
+    <Content Include="Content\jquery-ui\jquery.ui.base.css" />
+    <Content Include="Content\jquery-ui\jquery.ui.button.css" />
+    <Content Include="Content\jquery-ui\jquery.ui.button.min.css" />
+    <Content Include="Content\jquery-ui\jquery.ui.core.css" />
+    <Content Include="Content\jquery-ui\jquery.ui.core.min.css" />
+    <Content Include="Content\jquery-ui\jquery.ui.datepicker.css" />
+    <Content Include="Content\jquery-ui\jquery.ui.datepicker.min.css" />
+    <Content Include="Content\jquery-ui\jquery.ui.dialog.css" />
+    <Content Include="Content\jquery-ui\jquery.ui.dialog.min.css" />
+    <Content Include="Content\jquery-ui\jquery.ui.menu.css" />
+    <Content Include="Content\jquery-ui\jquery.ui.menu.min.css" />
+    <Content Include="Content\jquery-ui\jquery.ui.progressbar.css" />
+    <Content Include="Content\jquery-ui\jquery.ui.progressbar.min.css" />
+    <Content Include="Content\jquery-ui\jquery.ui.resizable.css" />
+    <Content Include="Content\jquery-ui\jquery.ui.resizable.min.css" />
+    <Content Include="Content\jquery-ui\jquery.ui.selectable.css" />
+    <Content Include="Content\jquery-ui\jquery.ui.selectable.min.css" />
+    <Content Include="Content\jquery-ui\jquery.ui.slider.css" />
+    <Content Include="Content\jquery-ui\jquery.ui.slider.min.css" />
+    <Content Include="Content\jquery-ui\jquery.ui.spinner.css" />
+    <Content Include="Content\jquery-ui\jquery.ui.spinner.min.css" />
+    <Content Include="Content\jquery-ui\jquery.ui.tabs.css" />
+    <Content Include="Content\jquery-ui\jquery.ui.tabs.min.css" />
+    <Content Include="Content\jquery-ui\jquery.ui.theme.css" />
+    <Content Include="Content\jquery-ui\jquery.ui.theme.min.css" />
+    <Content Include="Content\jquery-ui\jquery.ui.tooltip.css" />
+    <Content Include="Content\jquery-ui\jquery.ui.tooltip.min.css" />
+    <Content Include="Content\front.css" />
+    <Content Include="Content\icons\doc.png" />
+    <Content Include="Content\icons\other.png" />
+    <Content Include="Content\icons\pdf.png" />
+    <Content Include="Content\icons\ppt.png" />
+    <Content Include="Content\icons\txt.png" />
+    <Content Include="Content\icons\xls.png" />
+    <Content Include="Content\jqwidgets\styles\images\arrow_bottom.png" />
+    <Content Include="Content\jqwidgets\styles\images\arrow_left.png" />
+    <Content Include="Content\jqwidgets\styles\images\arrow_right.png" />
+    <Content Include="Content\jqwidgets\styles\images\arrow_top.png" />
+    <Content Include="Content\jqwidgets\styles\images\backgroundTop.png" />
+    <Content Include="Content\jqwidgets\styles\images\backImage.png" />
+    <Content Include="Content\jqwidgets\styles\images\bar-hue.png" />
+    <Content Include="Content\jqwidgets\styles\images\bar-saturation.png" />
+    <Content Include="Content\jqwidgets\styles\images\bg_black.png" />
+    <Content Include="Content\jqwidgets\styles\images\bg_black2.png" />
+    <Content Include="Content\jqwidgets\styles\images\bg_blackhover.png" />
+    <Content Include="Content\jqwidgets\styles\images\bg_blackhover_horizontal.png" />
+    <Content Include="Content\jqwidgets\styles\images\bg_blackpressed.png" />
+    <Content Include="Content\jqwidgets\styles\images\bg_blackpressed_horizontal.png" />
+    <Content Include="Content\jqwidgets\styles\images\bg_black_horizontal.png" />
+    <Content Include="Content\jqwidgets\styles\images\bg_blueenergy.png" />
+    <Content Include="Content\jqwidgets\styles\images\bg_darkblue.png" />
+    <Content Include="Content\jqwidgets\styles\images\bg_darkbluehover.png" />
+    <Content Include="Content\jqwidgets\styles\images\bg_darkbluepressed.png" />
+    <Content Include="Content\jqwidgets\styles\images\blackbackground.png" />
+    <Content Include="Content\jqwidgets\styles\images\black_gradient.png" />
+    <Content Include="Content\jqwidgets\styles\images\check_black.png" />
+    <Content Include="Content\jqwidgets\styles\images\check_disabled.png" />
+    <Content Include="Content\jqwidgets\styles\images\check_indeterminate_black.png" />
+    <Content Include="Content\jqwidgets\styles\images\check_indeterminate_disabled.png" />
+    <Content Include="Content\jqwidgets\styles\images\check_indeterminate_white.png" />
+    <Content Include="Content\jqwidgets\styles\images\check_white.png" />
+    <Content Include="Content\jqwidgets\styles\images\close.png" />
+    <Content Include="Content\jqwidgets\styles\images\close_white.png" />
+    <Content Include="Content\jqwidgets\styles\images\crosshair-white.png" />
+    <Content Include="Content\jqwidgets\styles\images\crosshair.png" />
+    <Content Include="Content\jqwidgets\styles\images\darkness\ui-bg_flat_30_cccccc_40x100.png" />
+    <Content Include="Content\jqwidgets\styles\images\darkness\ui-bg_flat_50_5c5c5c_40x100.png" />
+    <Content Include="Content\jqwidgets\styles\images\darkness\ui-bg_glass_20_555555_1x400.png" />
+    <Content Include="Content\jqwidgets\styles\images\darkness\ui-bg_glass_40_0078a3_1x400.png" />
+    <Content Include="Content\jqwidgets\styles\images\darkness\ui-bg_glass_40_ffc73d_1x400.png" />
+    <Content Include="Content\jqwidgets\styles\images\darkness\ui-bg_gloss-wave_25_333333_500x100.png" />
+    <Content Include="Content\jqwidgets\styles\images\darkness\ui-bg_highlight-soft_80_eeeeee_1x100.png" />
+    <Content Include="Content\jqwidgets\styles\images\darkness\ui-bg_inset-soft_25_000000_1x100.png" />
+    <Content Include="Content\jqwidgets\styles\images\darkness\ui-bg_inset-soft_30_f58400_1x100.png" />
+    <Content Include="Content\jqwidgets\styles\images\darkness\ui-icons_222222_256x240.png" />
+    <Content Include="Content\jqwidgets\styles\images\darkness\ui-icons_4b8e0b_256x240.png" />
+    <Content Include="Content\jqwidgets\styles\images\darkness\ui-icons_a83300_256x240.png" />
+    <Content Include="Content\jqwidgets\styles\images\darkness\ui-icons_cccccc_256x240.png" />
+    <Content Include="Content\jqwidgets\styles\images\darkness\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\jqwidgets\styles\images\darkred_gradient.png" />
+    <Content Include="Content\jqwidgets\styles\images\icon-down - Copy.png" />
+    <Content Include="Content\jqwidgets\styles\images\icon-down-white.png" />
+    <Content Include="Content\jqwidgets\styles\images\icon-down.png" />
+    <Content Include="Content\jqwidgets\styles\images\icon-left-white.png" />
+    <Content Include="Content\jqwidgets\styles\images\icon-left.png" />
+    <Content Include="Content\jqwidgets\styles\images\icon-right-white.png" />
+    <Content Include="Content\jqwidgets\styles\images\icon-right.png" />
+    <Content Include="Content\jqwidgets\styles\images\icon-up-white.png" />
+    <Content Include="Content\jqwidgets\styles\images\icon-up.png" />
+    <Content Include="Content\jqwidgets\styles\images\le-frog\ui-bg_diagonals-small_0_aaaaaa_40x40.png" />
+    <Content Include="Content\jqwidgets\styles\images\le-frog\ui-bg_diagonals-thick_15_444444_40x40.png" />
+    <Content Include="Content\jqwidgets\styles\images\le-frog\ui-bg_diagonals-thick_95_ffdc2e_40x40.png" />
+    <Content Include="Content\jqwidgets\styles\images\le-frog\ui-bg_glass_55_fbf5d0_1x400.png" />
+    <Content Include="Content\jqwidgets\styles\images\le-frog\ui-bg_highlight-hard_30_285c00_1x100.png" />
+    <Content Include="Content\jqwidgets\styles\images\le-frog\ui-bg_highlight-soft_33_3a8104_1x100.png" />
+    <Content Include="Content\jqwidgets\styles\images\le-frog\ui-bg_highlight-soft_50_4eb305_1x100.png" />
+    <Content Include="Content\jqwidgets\styles\images\le-frog\ui-bg_highlight-soft_60_4ca20b_1x100.png" />
+    <Content Include="Content\jqwidgets\styles\images\le-frog\ui-bg_inset-soft_10_285c00_1x100.png" />
+    <Content Include="Content\jqwidgets\styles\images\le-frog\ui-icons_4eb305_256x240.png" />
+    <Content Include="Content\jqwidgets\styles\images\le-frog\ui-icons_72b42d_256x240.png" />
+    <Content Include="Content\jqwidgets\styles\images\le-frog\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\jqwidgets\styles\images\le-frog\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\jqwidgets\styles\images\lightness\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="Content\jqwidgets\styles\images\lightness\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="Content\jqwidgets\styles\images\lightness\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="Content\jqwidgets\styles\images\lightness\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="Content\jqwidgets\styles\images\lightness\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="Content\jqwidgets\styles\images\lightness\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\jqwidgets\styles\images\lightness\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <Content Include="Content\jqwidgets\styles\images\lightness\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="Content\jqwidgets\styles\images\lightness\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="Content\jqwidgets\styles\images\lightness\ui-icons_222222_256x240.png" />
+    <Content Include="Content\jqwidgets\styles\images\lightness\ui-icons_228ef1_256x240.png" />
+    <Content Include="Content\jqwidgets\styles\images\lightness\ui-icons_ef8c08_256x240.png" />
+    <Content Include="Content\jqwidgets\styles\images\lightness\ui-icons_ffd27a_256x240.png" />
+    <Content Include="Content\jqwidgets\styles\images\lightness\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\jqwidgets\styles\images\map-hue.png" />
+    <Content Include="Content\jqwidgets\styles\images\map-saturation-overlay.png" />
+    <Content Include="Content\jqwidgets\styles\images\map-saturation.png" />
+    <Content Include="Content\jqwidgets\styles\images\metro-icon-down-white.png" />
+    <Content Include="Content\jqwidgets\styles\images\metro-icon-down.png" />
+    <Content Include="Content\jqwidgets\styles\images\metro-icon-left-white.png" />
+    <Content Include="Content\jqwidgets\styles\images\metro-icon-left.png" />
+    <Content Include="Content\jqwidgets\styles\images\metro-icon-right-white.png" />
+    <Content Include="Content\jqwidgets\styles\images\metro-icon-right.png" />
+    <Content Include="Content\jqwidgets\styles\images\metro-icon-up-white.png" />
+    <Content Include="Content\jqwidgets\styles\images\metro-icon-up.png" />
+    <Content Include="Content\jqwidgets\styles\images\multi-arrow.gif" />
+    <Content Include="Content\jqwidgets\styles\images\nav-arrow-down.png" />
+    <Content Include="Content\jqwidgets\styles\images\nav-arrow-left.png" />
+    <Content Include="Content\jqwidgets\styles\images\nav-arrow-right.png" />
+    <Content Include="Content\jqwidgets\styles\images\nav-arrow-up.png" />
+    <Content Include="Content\jqwidgets\styles\images\office-icon-down.png" />
+    <Content Include="Content\jqwidgets\styles\images\office-icon-left.png" />
+    <Content Include="Content\jqwidgets\styles\images\office-icon-right.png" />
+    <Content Include="Content\jqwidgets\styles\images\office-icon-up.png" />
+    <Content Include="Content\jqwidgets\styles\images\overcast\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\jqwidgets\styles\images\overcast\ui-bg_flat_0_eeeeee_40x100.png" />
+    <Content Include="Content\jqwidgets\styles\images\overcast\ui-bg_flat_55_c0402a_40x100.png" />
+    <Content Include="Content\jqwidgets\styles\images\overcast\ui-bg_flat_55_eeeeee_40x100.png" />
+    <Content Include="Content\jqwidgets\styles\images\overcast\ui-bg_glass_100_f8f8f8_1x400.png" />
+    <Content Include="Content\jqwidgets\styles\images\overcast\ui-bg_glass_35_dddddd_1x400.png" />
+    <Content Include="Content\jqwidgets\styles\images\overcast\ui-bg_glass_60_eeeeee_1x400.png" />
+    <Content Include="Content\jqwidgets\styles\images\overcast\ui-bg_inset-hard_75_999999_1x100.png" />
+    <Content Include="Content\jqwidgets\styles\images\overcast\ui-bg_inset-soft_50_c9c9c9_1x100.png" />
+    <Content Include="Content\jqwidgets\styles\images\overcast\ui-icons_3383bb_256x240.png" />
+    <Content Include="Content\jqwidgets\styles\images\overcast\ui-icons_454545_256x240.png" />
+    <Content Include="Content\jqwidgets\styles\images\overcast\ui-icons_70b2e1_256x240.png" />
+    <Content Include="Content\jqwidgets\styles\images\overcast\ui-icons_999999_256x240.png" />
+    <Content Include="Content\jqwidgets\styles\images\overcast\ui-icons_fbc856_256x240.png" />
+    <Content Include="Content\jqwidgets\styles\images\pointer.png" />
+    <Content Include="Content\jqwidgets\styles\images\rangebar_classic.png" />
+    <Content Include="Content\jqwidgets\styles\images\rangebar_darkblue.png" />
+    <Content Include="Content\jqwidgets\styles\images\rangebar_shinyblack.png" />
+    <Content Include="Content\jqwidgets\styles\images\rangebar_summer.png" />
+    <Content Include="Content\jqwidgets\styles\images\redmond\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\jqwidgets\styles\images\redmond\ui-bg_flat_55_fbec88_40x100.png" />
+    <Content Include="Content\jqwidgets\styles\images\redmond\ui-bg_glass_75_d0e5f5_1x400.png" />
+    <Content Include="Content\jqwidgets\styles\images\redmond\ui-bg_glass_85_dfeffc_1x400.png" />
+    <Content Include="Content\jqwidgets\styles\images\redmond\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\jqwidgets\styles\images\redmond\ui-bg_gloss-wave_55_5c9ccc_500x100.png" />
+    <Content Include="Content\jqwidgets\styles\images\redmond\ui-bg_inset-hard_100_f5f8f9_1x100.png" />
+    <Content Include="Content\jqwidgets\styles\images\redmond\ui-bg_inset-hard_100_fcfdfd_1x100.png" />
+    <Content Include="Content\jqwidgets\styles\images\redmond\ui-icons_217bc0_256x240.png" />
+    <Content Include="Content\jqwidgets\styles\images\redmond\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\jqwidgets\styles\images\redmond\ui-icons_469bdd_256x240.png" />
+    <Content Include="Content\jqwidgets\styles\images\redmond\ui-icons_6da8d5_256x240.png" />
+    <Content Include="Content\jqwidgets\styles\images\redmond\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\jqwidgets\styles\images\redmond\ui-icons_d8e7f3_256x240.png" />
+    <Content Include="Content\jqwidgets\styles\images\redmond\ui-icons_f9bd01_256x240.png" />
+    <Content Include="Content\jqwidgets\styles\images\red_gradient.png" />
+    <Content Include="Content\jqwidgets\styles\images\roundbg_check_black.png" />
+    <Content Include="Content\jqwidgets\styles\images\roundbg_check_disabled.png" />
+    <Content Include="Content\jqwidgets\styles\images\roundbg_check_indeterminate.png" />
+    <Content Include="Content\jqwidgets\styles\images\roundbg_check_white.png" />
+    <Content Include="Content\jqwidgets\styles\images\roundbg_classic_hover.png" />
+    <Content Include="Content\jqwidgets\styles\images\roundbg_classic_normal.png" />
+    <Content Include="Content\jqwidgets\styles\images\roundbg_disabled.png" />
+    <Content Include="Content\jqwidgets\styles\images\smoothness\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\jqwidgets\styles\images\smoothness\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\jqwidgets\styles\images\smoothness\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\jqwidgets\styles\images\smoothness\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\jqwidgets\styles\images\smoothness\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\jqwidgets\styles\images\smoothness\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\jqwidgets\styles\images\smoothness\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\jqwidgets\styles\images\smoothness\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\jqwidgets\styles\images\smoothness\ui-icons_222222_256x240.png" />
+    <Content Include="Content\jqwidgets\styles\images\smoothness\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\jqwidgets\styles\images\smoothness\ui-icons_454545_256x240.png" />
+    <Content Include="Content\jqwidgets\styles\images\smoothness\ui-icons_888888_256x240.png" />
+    <Content Include="Content\jqwidgets\styles\images\smoothness\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\jqwidgets\styles\images\star.png" />
+    <Content Include="Content\jqwidgets\styles\images\start\ui-bg_flat_55_999999_40x100.png" />
+    <Content Include="Content\jqwidgets\styles\images\start\ui-bg_flat_75_aaaaaa_40x100.png" />
+    <Content Include="Content\jqwidgets\styles\images\start\ui-bg_glass_45_0078ae_1x400.png" />
+    <Content Include="Content\jqwidgets\styles\images\start\ui-bg_glass_55_f8da4e_1x400.png" />
+    <Content Include="Content\jqwidgets\styles\images\start\ui-bg_glass_75_79c9ec_1x400.png" />
+    <Content Include="Content\jqwidgets\styles\images\start\ui-bg_gloss-wave_45_e14f1c_500x100.png" />
+    <Content Include="Content\jqwidgets\styles\images\start\ui-bg_gloss-wave_50_6eac2c_500x100.png" />
+    <Content Include="Content\jqwidgets\styles\images\start\ui-bg_gloss-wave_75_2191c0_500x100.png" />
+    <Content Include="Content\jqwidgets\styles\images\start\ui-bg_inset-hard_100_fcfdfd_1x100.png" />
+    <Content Include="Content\jqwidgets\styles\images\start\ui-icons_0078ae_256x240.png" />
+    <Content Include="Content\jqwidgets\styles\images\start\ui-icons_056b93_256x240.png" />
+    <Content Include="Content\jqwidgets\styles\images\start\ui-icons_d8e7f3_256x240.png" />
+    <Content Include="Content\jqwidgets\styles\images\start\ui-icons_e0fdff_256x240.png" />
+    <Content Include="Content\jqwidgets\styles\images\start\ui-icons_f5e175_256x240.png" />
+    <Content Include="Content\jqwidgets\styles\images\start\ui-icons_f7a50d_256x240.png" />
+    <Content Include="Content\jqwidgets\styles\images\start\ui-icons_fcd113_256x240.png" />
+    <Content Include="Content\jqwidgets\styles\images\star_disabled.png" />
+    <Content Include="Content\jqwidgets\styles\images\star_hover.png" />
+    <Content Include="Content\jqwidgets\styles\images\sunny\ui-bg_diagonals-medium_20_d34d17_40x40.png" />
+    <Content Include="Content\jqwidgets\styles\images\sunny\ui-bg_flat_30_cccccc_40x100.png" />
+    <Content Include="Content\jqwidgets\styles\images\sunny\ui-bg_flat_50_5c5c5c_40x100.png" />
+    <Content Include="Content\jqwidgets\styles\images\sunny\ui-bg_gloss-wave_45_817865_500x100.png" />
+    <Content Include="Content\jqwidgets\styles\images\sunny\ui-bg_gloss-wave_60_fece2f_500x100.png" />
+    <Content Include="Content\jqwidgets\styles\images\sunny\ui-bg_gloss-wave_70_ffdd57_500x100.png" />
+    <Content Include="Content\jqwidgets\styles\images\sunny\ui-bg_gloss-wave_90_fff9e5_500x100.png" />
+    <Content Include="Content\jqwidgets\styles\images\sunny\ui-bg_highlight-soft_100_feeebd_1x100.png" />
+    <Content Include="Content\jqwidgets\styles\images\sunny\ui-bg_inset-soft_30_ffffff_1x100.png" />
+    <Content Include="Content\jqwidgets\styles\images\sunny\ui-icons_3d3d3d_256x240.png" />
+    <Content Include="Content\jqwidgets\styles\images\sunny\ui-icons_bd7b00_256x240.png" />
+    <Content Include="Content\jqwidgets\styles\images\sunny\ui-icons_d19405_256x240.png" />
+    <Content Include="Content\jqwidgets\styles\images\sunny\ui-icons_eb990f_256x240.png" />
+    <Content Include="Content\jqwidgets\styles\images\sunny\ui-icons_ed9f26_256x240.png" />
+    <Content Include="Content\jqwidgets\styles\images\sunny\ui-icons_fadc7a_256x240.png" />
+    <Content Include="Content\jqwidgets\styles\images\sunny\ui-icons_ffe180_256x240.png" />
+    <Content Include="Content\jqwidgets\styles\images\tick.png" />
+    <Content Include="Content\jqwidgets\styles\images\track_classic.png" />
+    <Content Include="Content\jqwidgets\styles\images\track_darkblue.png" />
+    <Content Include="Content\jqwidgets\styles\images\track_shinyblack.png" />
+    <Content Include="Content\jqwidgets\styles\images\track_summer.png" />
+    <Content Include="Content\jqwidgets\styles\jqx.base.css" />
+    <Content Include="Content\jqwidgets\styles\jqx.black.css" />
+    <Content Include="Content\jqwidgets\styles\jqx.classic.css" />
+    <Content Include="Content\jqwidgets\styles\jqx.darkblue.css" />
+    <Content Include="Content\jqwidgets\styles\jqx.energyblue.css" />
+    <Content Include="Content\jqwidgets\styles\jqx.fresh.css" />
+    <Content Include="Content\jqwidgets\styles\jqx.highcontrast.css" />
+    <Content Include="Content\jqwidgets\styles\jqx.metro.css" />
+    <Content Include="Content\jqwidgets\styles\jqx.office.css" />
+    <Content Include="Content\jqwidgets\styles\jqx.shinyblack.css" />
+    <Content Include="Content\jqwidgets\styles\jqx.summer.css" />
+    <Content Include="Content\jqwidgets\styles\jqx.ui-darkness.css" />
+    <Content Include="Content\jqwidgets\styles\jqx.ui-le-frog.css" />
+    <Content Include="Content\jqwidgets\styles\jqx.ui-lightness.css" />
+    <Content Include="Content\jqwidgets\styles\jqx.ui-overcast.css" />
+    <Content Include="Content\jqwidgets\styles\jqx.ui-redmond.css" />
+    <Content Include="Content\jqwidgets\styles\jqx.ui-smoothness.css" />
+    <Content Include="Content\jqwidgets\styles\jqx.ui-start.css" />
+    <Content Include="Content\jqwidgets\styles\jqx.ui-sunny.css" />
+    <Content Include="Content\jqwidgets\resources\drag.png" />
+    <Content Include="Content\jqwidgets\resources\dragcancel.png" />
+    <Content Include="Content\jqwidgets\resources\filter_dark.png" />
+    <Content Include="Content\jqwidgets\resources\filter_large_.png" />
+    <Content Include="Content\jqwidgets\resources\loader.gif" />
+    <Content Include="Content\jqwidgets\resources\loader2.gif" />
+    <Content Include="Content\jqwidgets\resources\loader3.gif" />
+    <Content Include="Content\jqwidgets\resources\loader_2.gif" />
+    <Content Include="Content\jqwidgets\resources\menubutton.png" />
+    <Content Include="Content\jqwidgets\resources\red_arrow_down.png" />
+    <Content Include="Content\jqwidgets\resources\red_arrow_up.png" />
+    <Content Include="Content\jqwidgets\resources\sortasc.png" />
+    <Content Include="Content\jqwidgets\resources\sortascbutton.png" />
+    <Content Include="Content\jqwidgets\resources\sortdesc.png" />
+    <Content Include="Content\jqwidgets\resources\sortdescbutton.png" />
+    <Content Include="Content\jqwidgets\resources\sortremove.png" />
+    <Content Include="Content\MasterPage.css" />
+    <Content Include="Content\Pagina.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Areas\Planificacion\Views\Web.config" />
+    <Content Include="Areas\Planificacion\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Monitoreo\Views\Web.config" />
+    <Content Include="Icon.png" />
+    <Content Include="Images\accent.png" />
+    <Content Include="Images\add.png" />
+    <Content Include="Images\add_page.png" />
+    <Content Include="Images\business_user.png" />
+    <Content Include="Images\business_users.png" />
+    <Content Include="Images\business_users_original.png" />
+    <Content Include="Images\camara.png" />
+    <Content Include="Images\download.gif" />
+    <Content Include="Images\Empresa\logos.jpg" />
+    <Content Include="Images\Empresa\usaid.jpg" />
+    <Content Include="Images\excel.png" />
+    <Content Include="Images\folder_accept.png" />
+    <Content Include="Images\fondo.png" />
+    <Content Include="Images\loading.gif" />
+    <Content Include="Images\arrowdown.gif" />
+    <Content Include="Images\arrowup.gif" />
+    <Content Include="Images\bg-btn-blue.png" />
+    <Content Include="Images\bullet.png" />
+    <Content Include="Images\calendarIcon.png" />
+    <Content Include="Images\catalogicon.png" />
+    <Content Include="Images\close.png" />
+    <Content Include="Images\contactsIcon.png" />
+    <Content Include="Images\delete.png" />
+    <Content Include="Images\edit.png" />
+    <Content Include="Images\Empresa\logo.jpg" />
+    <Content Include="Images\favorites.png" />
+    <Content Include="Images\folder.png" />
+    <Content Include="Images\folderIcon.png" />
+    <Content Include="Images\folderOpen.png" />
+    <Content Include="Images\front-bg.gif" />
+    <Content Include="Images\help.png" />
+    <Content Include="Images\heroAccent.png" />
+    <Content Include="Images\HidePanel.png" />
+    <Content Include="Images\icon-right.png" />
+    <Content Include="Images\LayoutTypes.png" />
+    <Content Include="Images\Logout.png" />
+    <Content Include="Images\logo_f.png" />
+    <Content Include="Images\logo_r.png" />
+    <Content Include="Images\logo_t.png" />
+    <Content Include="Images\mailIcon.png" />
+    <Content Include="Images\MasterPage\FondoBoton.gif" />
+    <Content Include="Images\MasterPage\FondoMenuBotonMP2.gif" />
+    <Content Include="Images\MasterPage\FondoMenuMP.png" />
+    <Content Include="Images\MasterPage\FondoMP.png" />
+    <Content Include="Images\MasterPage\FondoPieMP.png" />
+    <Content Include="Images\movie.png" />
+    <Content Include="Images\next.png" />
+    <Content Include="Images\orderedList0.png" />
+    <Content Include="Images\orderedList1.png" />
+    <Content Include="Images\orderedList2.png" />
+    <Content Include="Images\orderedList3.png" />
+    <Content Include="Images\orderedList4.png" />
+    <Content Include="Images\orderedList5.png" />
+    <Content Include="Images\orderedList6.png" />
+    <Content Include="Images\orderedList7.png" />
+    <Content Include="Images\orderedList8.png" />
+    <Content Include="Images\orderedList9.png" />
+    <Content Include="Images\password.png" />
+    <Content Include="Images\pieicon.png" />
+    <Content Include="Images\play.png" />
+    <Content Include="Images\previous.png" />
+    <Content Include="Images\process.png" />
+    <Content Include="Images\recycle.png" />
+    <Content Include="Images\refresh.png" />
+    <Content Include="Images\refresh_page.png" />
+    <Content Include="Images\report.png" />
+    <Content Include="Images\save.png" />
+    <Content Include="Images\search.png" />
+    <Content Include="Images\settings.png" />
+    <Content Include="Images\ShowPanel.png" />
+    <Content Include="Images\signin-nav-bg-hover-ie.png" />
+    <Content Include="Images\signin-nav-bg-ie.png" />
+    <Content Include="Images\slider-demo-content-background.jpg" />
+    <Content Include="Images\slider-demo-header-background.png" />
+    <Content Include="Images\stop.png" />
+    <Content Include="Images\sun-icon.png" />
+    <Content Include="Images\tasksIcon.png" />
+    <Content Include="Images\tipsy-east.gif" />
+    <Content Include="Images\tipsy-north.gif" />
+    <Content Include="Images\tipsy-south.gif" />
+    <Content Include="Images\tipsy-west.gif" />
+    <Content Include="Images\toggle_down_light.png" />
+    <Content Include="Images\toggle_up_dark.png" />
+    <Content Include="Areas\Planificacion\Views\Proyecto\Index.cshtml" />
+    <Content Include="Areas\Planificacion\Views\Proyecto\Edit.cshtml" />
+    <Content Include="Images\MasterPage\vssver2.scc" />
+    <Content Include="Areas\Planificacion\Views\PlanOperativoTC\Edit.cshtml" />
+    <Content Include="Areas\Planificacion\Views\ResultadoTC\Index.cshtml" />
+    <Content Include="Areas\Planificacion\Views\PlanOperativoTC\Index.cshtml" />
+    <Content Include="Areas\Planificacion\Views\MarcoLogico\Edit.cshtml" />
+    <Content Include="Areas\Planificacion\Views\PlanOperativo\Edit.cshtml" />
+    <Content Include="Areas\Planificacion\Views\PlanOperativo\Index.cshtml" />
+    <Content Include="Areas\Planificacion\Views\Resultado\Index.cshtml" />
+    <Content Include="Areas\Monitoreo\Views\TareaTC\Index.cshtml" />
+    <Content Include="Areas\Monitoreo\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Monitoreo\Views\TareaTC\Edit.cshtml" />
+    <Content Include="Areas\Monitoreo\Views\TareaTC\_InformacionGeneral.cshtml" />
+    <Content Include="Areas\Monitoreo\Views\TareaTC\_Contrapartida.cshtml" />
+    <Content Include="Content\Web.config" />
+    <Content Include="Images\view.png" />
+    <Content Include="Images\volver.png" />
+    <Content Include="Images\Web.config" />
+    <Content Include="Areas\Planificacion\Views\POTareaTC\Index.cshtml" />
+    <Content Include="Areas\Sistema\Views\Web.config" />
+    <Content Include="Areas\Sistema\Views\Maestro\Index.cshtml" />
+    <Content Include="Areas\Sistema\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Sistema\Views\Maestro\Edit.cshtml" />
+    <Content Include="Areas\Sistema\Views\Usuario\Edit.cshtml" />
+    <Content Include="Areas\Sistema\Views\Usuario\Index.cshtml" />
+    <Content Include="Areas\Sistema\Views\Rol\Index.cshtml" />
+    <Content Include="Areas\Monitoreo\Views\Actividad\Index.cshtml" />
+    <Content Include="Areas\Monitoreo\Views\Actividad\Edit.cshtml" />
+    <Content Include="Areas\BibliotecaVirtual\Views\Web.config" />
+    <Content Include="Areas\BibliotecaVirtual\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\BibliotecaVirtual\Views\ProyectoArchivo\Index.cshtml" />
+    <Content Include="Areas\Reporte\Views\Web.config" />
+    <Content Include="Areas\Reporte\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Sistema\Views\Rol\Edit.cshtml" />
+    <Content Include="Areas\Planificacion\Views\Proyecto\Habilitar.cshtml" />
+    <Content Include="Areas\BibliotecaVirtual\Views\PlanOperativoArchivoTC\FichaArchivo.cshtml" />
+    <Content Include="Areas\Sistema\Views\Permiso\Index.cshtml" />
+    <Content Include="Areas\BibliotecaVirtual\Views\MarcoLogicoArchivoTC\Edit.cshtml" />
+    <Content Include="Areas\BibliotecaVirtual\Views\MarcoLogicoArchivoTC\PropositoArchivo.cshtml" />
+    <Content Include="Areas\BibliotecaVirtual\Views\MarcoLogicoArchivoTC\ResultadoArchivo.cshtml" />
+    <Content Include="Areas\BibliotecaVirtual\Views\PlanOperativoArchivoTC\Index.cshtml">
+      <SubType>
+      </SubType>
+    </Content>
+    <Content Include="Areas\BibliotecaVirtual\Views\PlanOperativoArchivoTC\TareaArchivo.cshtml" />
+    <Content Include="Areas\BibliotecaVirtual\Views\PlanOperativoArchivoTC\Edit.cshtml" />
+    <Content Include="Areas\BibliotecaVirtual\Views\MarcoLogicoArchivo\Edit.cshtml" />
+    <Content Include="Areas\BibliotecaVirtual\Views\MarcoLogicoArchivo\PropositoArchivo.cshtml" />
+    <Content Include="Areas\BibliotecaVirtual\Views\MarcoLogicoArchivo\ResultadoArchivo.cshtml" />
+    <Content Include="Areas\BibliotecaVirtual\Views\PlanOperativoArchivo\Index.cshtml">
+      <SubType>
+      </SubType>
+    </Content>
+    <Content Include="Areas\BibliotecaVirtual\Views\PlanOperativoArchivo\MetaArchivo.cshtml" />
+    <Content Include="Areas\BibliotecaVirtual\Views\PlanOperativoArchivo\Edit.cshtml" />
+    <Content Include="Areas\Monitoreo\Views\TareaTC\Search.cshtml" />
+    <Content Include="Areas\BibliotecaVirtual\Views\MarcoLogicoArchivoTC\EncuestaArchivo.cshtml" />
+    <Content Include="Areas\BibliotecaVirtual\Views\PlanOperativoArchivoTC\Search.cshtml" />
+    <Content Include="Areas\BibliotecaVirtual\Views\MarcoLogicoArchivoTC\Search.cshtml" />
+    <Content Include="Areas\BibliotecaVirtual\Views\PlanOperativoArchivo\AvanceActividadArchivo.cshtml" />
+    <Content Include="Areas\BibliotecaVirtual\Views\PlanOperativoArchivo\Avance.cshtml" />
+    <Content Include="Areas\BibliotecaVirtual\Views\PlanOperativoArchivo\AvanceActividad.cshtml" />
+    <Content Include="Areas\BibliotecaVirtual\Views\MarcoLogicoArchivo\Avance.cshtml" />
+    <Content Include="Areas\BibliotecaVirtual\Views\MarcoLogicoArchivo\AvanceResultadoMeta.cshtml" />
+    <Content Include="Areas\BibliotecaVirtual\Views\MarcoLogicoArchivo\AvanceResultadoMetaArchivo.cshtml" />
+    <Content Include="Areas\BibliotecaVirtual\Views\MarcoLogicoArchivo\AvancePropositoMetaArchivo.cshtml" />
+    <Content Include="Areas\BibliotecaVirtual\Views\MarcoLogicoArchivo\AvancePropositoMeta.cshtml" />
+    <Content Include="Areas\Reporte\Views\Listado\RegistroMonitoreoTC.cshtml" />
+    <Content Include="Areas\Reporte\Views\AvanceMonitoreoTC\Index.cshtml" />
+    <Content Include="Areas\Reporte\Views\AvanceEvaluacionTC\Index.cshtml" />
+    <Content Include="Areas\Reporte\Views\MatrizMarcoLogicoTC\Index.cshtml" />
+    <Content Include="Areas\Reporte\Views\MatrizPlanOperativoTC\Index.cshtml" />
+    <Content Include="Importar\Telecentro.aspx" />
+    <Content Include="Instrumentos\EvaluacionTC\encuesta_asociación_productores.docx" />
+    <Content Include="Instrumentos\EvaluacionTC\encuesta_iniciativas_juveniles.doc" />
+    <Content Include="Instrumentos\EvaluacionTC\encuesta_pobladores.docx" />
+    <Content Include="Instrumentos\EvaluacionTC\encuesta_empresas.doc" />
+    <Content Include="Areas\BibliotecaVirtual\Views\InstrumentosEvaluacionTC\Index.cshtml" />
+    <Content Include="Areas\BibliotecaVirtual\Views\InstrumentosMonitoreoTC\Index.cshtml" />
+    <Content Include="Areas\Reporte\Views\AvanceEvaluacion\Index.cshtml" />
+    <Content Include="Areas\Reporte\Views\AvanceMonitoreo\Index.cshtml" />
+    <Content Include="Areas\Reporte\Views\FichasMonitoreoTC\Index.cshtml" />
+    <Content Include="Areas\Reporte\Views\EncuestaEvaluacionTC\Index.cshtml" />
+    <Content Include="Areas\Reporte\Views\Proyecto\Index.cshtml" />
+    <Content Include="Areas\BibliotecaVirtual\Views\Documentos\Index.cshtml" />
+    <Content Include="Areas\Sistema\Views\Log\Index.cshtml" />
+    <Content Include="Areas\Planificacion\Views\PlanOperativoTareaMetaTC\Index.cshtml" />
+    <Content Include="Areas\Asistencia\Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Areas\Asistencia\Views\Configuracion\Index.cshtml" />
+    <Content Include="Areas\Asistencia\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Asistencia\Views\Configuracion\Edit.cshtml" />
+    <Content Include="Areas\Asistencia\Views\Modulo\Index.cshtml" />
+    <Content Include="Areas\Asistencia\Views\Modulo\Edit.cshtml" />
+    <Content Include="Areas\Asistencia\Views\Persona\Index.cshtml" />
+    <Content Include="Areas\Asistencia\Views\Persona\Edit.cshtml" />
+    <Content Include="Areas\Asistencia\Views\Inscripcion\Index.cshtml" />
+    <Content Include="Areas\Asistencia\Views\Inscripcion\Edit.cshtml" />
+    <Content Include="Areas\Asistencia\Views\Participante\Index.cshtml" />
+    <Content Include="Areas\Asistencia\Views\Telecentro\Index.cshtml" />
+    <Content Include="Areas\Asistencia\Views\Telecentro\Edit.cshtml" />
+    <Content Include="Areas\Asistencia\Views\Equipo\Edit.cshtml" />
+    <Content Include="Areas\Asistencia\Views\Equipo\Index.cshtml" />
+    <Content Include="Areas\Asistencia\Views\Equipo\Add.cshtml" />
+    <Content Include="Areas\Asistencia\Views\Inscripcion\Add.cshtml" />
+    <Content Include="Instrumentos\MonitoreoTC\ficha_detalle_01.pdf" />
+    <Content Include="Instrumentos\MonitoreoTC\ficha_detalle_02.pdf" />
+    <Content Include="Instrumentos\MonitoreoTC\ficha_detalle_03.pdf" />
+    <Content Include="Instrumentos\MonitoreoTC\ficha_detalle_04.pdf" />
+    <Content Include="Instrumentos\MonitoreoTC\ficha_detalle_05.pdf" />
+    <Content Include="Instrumentos\MonitoreoTC\ficha_detalle_06.pdf" />
+    <Content Include="Instrumentos\MonitoreoTC\ficha_general_00.pdf" />
+    <Content Include="Areas\Asistencia\Views\ReporteGeneral\Index.cshtml" />
+    <Content Include="Areas\BibliotecaVirtual\Views\ModuloArchivo\Edit.cshtml" />
+    <Content Include="Areas\BibliotecaVirtual\Views\ModuloArchivo\ModuloArchivo.cshtml" />
+    <Content Include="Areas\Monitoreo\Views\TareaTC\_Ficha06.cshtml" />
+    <Content Include="Areas\Asistencia\Views\Foto\Index.cshtml" />
+    <Content Include="Instrumentos\MonitoreoTC\registro_usuarios _acceso_guiado_internet.pdf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\DataTables\css\dataTables.responsive.scss" />
+    <Content Include="Content\DataTables\css\dataTables.jqueryui.scss" />
+    <Content Include="Areas\Monitoreo\Views\TareaTC\Mover.cshtml" />
+    <Content Include="Areas\Asistencia\Views\ReportePersonalizado\Index.cshtml" />
+    <Content Include="Areas\Planificacion\Views\MarcoLogicoTC\Index.cshtml" />
+    <Content Include="Areas\Monitoreo\Views\TareaTC\_InformacionGeneralb.cshtml" />
+    <Content Include="Areas\Monitoreo\Views\TareaTC\_Ficha01.cshtml" />
+    <Content Include="Areas\Monitoreo\Views\TareaTC\_Ficha02.cshtml" />
+    <Content Include="Areas\Monitoreo\Views\TareaTC\_Ficha03.cshtml" />
+    <Content Include="Areas\Monitoreo\Views\TareaTC\_Ficha04.cshtml" />
+    <Content Include="Areas\Asistencia\Views\ReporteIFM\Index.cshtml" />
+    <Content Include="Areas\Asistencia\Views\Participante2\Index.cshtml" />
+    <Content Include="Areas\Asistencia\Views\Index.cshtml" />
+    <Content Include="Areas\Asistencia\Views\ReporteActividades\Index.cshtml" />
+    <Content Include="Areas\Evaluacion\Views\Web.config" />
+    <Content Include="Areas\Evaluacion\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Evaluacion\Views\EvaluacionReporteTC\Index.cshtml" />
+    <None Include="Properties\PublishProfiles\SMEC.pubxml" />
+    <Content Include="Reports\Asistencia.aspx" />
+    <Content Include="Reports\EvaluacionTC.aspx" />
+    <Content Include="Reports\MonitoreoTC.aspx" />
+    <Content Include="Reports\ReportPage.aspx" />
+    <Content Include="Reports\Asistencia\InscritoSinCapacitacion.rdlc" />
+    <None Include="Scripts\jquery-2.1.4.intellisense.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\DataTables\dataTables.autoFill.js" />
+    <Content Include="Scripts\DataTables\dataTables.autoFill.min.js" />
+    <Content Include="Scripts\DataTables\dataTables.bootstrap.js" />
+    <Content Include="Scripts\DataTables\dataTables.colReorder.js" />
+    <Content Include="Scripts\DataTables\dataTables.colReorder.min.js" />
+    <Content Include="Scripts\DataTables\dataTables.colVis.js" />
+    <Content Include="Scripts\DataTables\dataTables.colVis.min.js" />
+    <Content Include="Scripts\DataTables\dataTables.fixedColumns.js" />
+    <Content Include="Scripts\DataTables\dataTables.fixedColumns.min.js" />
+    <Content Include="Scripts\DataTables\dataTables.fixedHeader.js" />
+    <Content Include="Scripts\DataTables\dataTables.fixedHeader.min.js" />
+    <Content Include="Scripts\DataTables\dataTables.foundation.js" />
+    <Content Include="Scripts\DataTables\dataTables.jqueryui.js" />
+    <Content Include="Scripts\DataTables\dataTables.keyTable.js" />
+    <Content Include="Scripts\DataTables\dataTables.keyTable.min.js" />
+    <Content Include="Scripts\DataTables\dataTables.responsive.js" />
+    <Content Include="Scripts\DataTables\dataTables.responsive.min.js" />
+    <Content Include="Scripts\DataTables\dataTables.scroller.js" />
+    <Content Include="Scripts\DataTables\dataTables.scroller.min.js" />
+    <Content Include="Scripts\DataTables\dataTables.tableTools.js" />
+    <Content Include="Scripts\DataTables\dataTables.tableTools.min.js" />
+    <Content Include="Scripts\DataTables\jquery.dataTables.js" />
+    <Content Include="Scripts\DataTables\jquery.dataTables.min.js" />
+    <Content Include="Scripts\jquery-2.1.4.js" />
+    <Content Include="Scripts\jquery-2.1.4.min.js" />
+    <Content Include="Scripts\jquery-ui\i18n\jquery.ui.datepicker-es.js" />
+    <Content Include="Scripts\jquery-ui\i18n\jquery.ui.datepicker-es.min.js" />
+    <Content Include="Scripts\jquery-ui\jquery-ui.js" />
+    <Content Include="Scripts\jquery-ui\jquery-ui.min.js" />
+    <Content Include="Scripts\jquery-ui\jquery.ui.accordion.js" />
+    <Content Include="Scripts\jquery-ui\jquery.ui.accordion.min.js" />
+    <Content Include="Scripts\jquery-ui\jquery.ui.autocomplete.js" />
+    <Content Include="Scripts\jquery-ui\jquery.ui.autocomplete.min.js" />
+    <Content Include="Scripts\jquery-ui\jquery.ui.button.js" />
+    <Content Include="Scripts\jquery-ui\jquery.ui.button.min.js" />
+    <Content Include="Scripts\jquery-ui\jquery.ui.core.js" />
+    <Content Include="Scripts\jquery-ui\jquery.ui.core.min.js" />
+    <Content Include="Scripts\jquery-ui\jquery.ui.datepicker.js" />
+    <Content Include="Scripts\jquery-ui\jquery.ui.datepicker.min.js" />
+    <Content Include="Scripts\jquery-ui\jquery.ui.dialog.js" />
+    <Content Include="Scripts\jquery-ui\jquery.ui.dialog.min.js" />
+    <Content Include="Scripts\jquery-ui\jquery.ui.draggable.js" />
+    <Content Include="Scripts\jquery-ui\jquery.ui.draggable.min.js" />
+    <Content Include="Scripts\jquery-ui\jquery.ui.droppable.js" />
+    <Content Include="Scripts\jquery-ui\jquery.ui.droppable.min.js" />
+    <Content Include="Scripts\jquery-ui\jquery.ui.effect-blind.js" />
+    <Content Include="Scripts\jquery-ui\jquery.ui.effect-blind.min.js" />
+    <Content Include="Scripts\jquery-ui\jquery.ui.effect-bounce.js" />
+    <Content Include="Scripts\jquery-ui\jquery.ui.effect-bounce.min.js" />
+    <Content Include="Scripts\jquery-ui\jquery.ui.effect-clip.js" />
+    <Content Include="Scripts\jquery-ui\jquery.ui.effect-clip.min.js" />
+    <Content Include="Scripts\jquery-ui\jquery.ui.effect-drop.js" />
+    <Content Include="Scripts\jquery-ui\jquery.ui.effect-drop.min.js" />
+    <Content Include="Scripts\jquery-ui\jquery.ui.effect-explode.js" />
+    <Content Include="Scripts\jquery-ui\jquery.ui.effect-explode.min.js" />
+    <Content Include="Scripts\jquery-ui\jquery.ui.effect-fade.js" />
+    <Content Include="Scripts\jquery-ui\jquery.ui.effect-fade.min.js" />
+    <Content Include="Scripts\jquery-ui\jquery.ui.effect-fold.js" />
+    <Content Include="Scripts\jquery-ui\jquery.ui.effect-fold.min.js" />
+    <Content Include="Scripts\jquery-ui\jquery.ui.effect-highlight.js" />
+    <Content Include="Scripts\jquery-ui\jquery.ui.effect-highlight.min.js" />
+    <Content Include="Scripts\jquery-ui\jquery.ui.effect-pulsate.js" />
+    <Content Include="Scripts\jquery-ui\jquery.ui.effect-pulsate.min.js" />
+    <Content Include="Scripts\jquery-ui\jquery.ui.effect-scale.js" />
+    <Content Include="Scripts\jquery-ui\jquery.ui.effect-scale.min.js" />
+    <Content Include="Scripts\jquery-ui\jquery.ui.effect-shake.js" />
+    <Content Include="Scripts\jquery-ui\jquery.ui.effect-shake.min.js" />
+    <Content Include="Scripts\jquery-ui\jquery.ui.effect-slide.js" />
+    <Content Include="Scripts\jquery-ui\jquery.ui.effect-slide.min.js" />
+    <Content Include="Scripts\jquery-ui\jquery.ui.effect-transfer.js" />
+    <Content Include="Scripts\jquery-ui\jquery.ui.effect-transfer.min.js" />
+    <Content Include="Scripts\jquery-ui\jquery.ui.effect.js" />
+    <Content Include="Scripts\jquery-ui\jquery.ui.effect.min.js" />
+    <Content Include="Scripts\jquery-ui\jquery.ui.menu.js" />
+    <Content Include="Scripts\jquery-ui\jquery.ui.menu.min.js" />
+    <Content Include="Scripts\jquery-ui\jquery.ui.mouse.js" />
+    <Content Include="Scripts\jquery-ui\jquery.ui.mouse.min.js" />
+    <Content Include="Scripts\jquery-ui\jquery.ui.position.js" />
+    <Content Include="Scripts\jquery-ui\jquery.ui.position.min.js" />
+    <Content Include="Scripts\jquery-ui\jquery.ui.progressbar.js" />
+    <Content Include="Scripts\jquery-ui\jquery.ui.progressbar.min.js" />
+    <Content Include="Scripts\jquery-ui\jquery.ui.resizable.js" />
+    <Content Include="Scripts\jquery-ui\jquery.ui.resizable.min.js" />
+    <Content Include="Scripts\jquery-ui\jquery.ui.selectable.js" />
+    <Content Include="Scripts\jquery-ui\jquery.ui.selectable.min.js" />
+    <Content Include="Scripts\jquery-ui\jquery.ui.slider.js" />
+    <Content Include="Scripts\jquery-ui\jquery.ui.slider.min.js" />
+    <Content Include="Scripts\jquery-ui\jquery.ui.sortable.js" />
+    <Content Include="Scripts\jquery-ui\jquery.ui.sortable.min.js" />
+    <Content Include="Scripts\jquery-ui\jquery.ui.spinner.js" />
+    <Content Include="Scripts\jquery-ui\jquery.ui.spinner.min.js" />
+    <Content Include="Scripts\jquery-ui\jquery.ui.tabs.js" />
+    <Content Include="Scripts\jquery-ui\jquery.ui.tabs.min.js" />
+    <Content Include="Scripts\jquery-ui\jquery.ui.tooltip.js" />
+    <Content Include="Scripts\jquery-ui\jquery.ui.tooltip.min.js" />
+    <Content Include="Scripts\jquery-ui\jquery.ui.widget.js" />
+    <Content Include="Scripts\jquery-ui\jquery.ui.widget.min.js" />
+    <Content Include="Scripts\jquery.csv.js" />
+    <Content Include="Scripts\jquery.mousewheel.js" />
+    <Content Include="Scripts\jquery.mousewheel.min.js" />
+    <Content Include="Scripts\jquery.numeric.js" />
+    <Content Include="Scripts\jquery.timeentry.js" />
+    <Content Include="Scripts\jquery.timeentry.min.js" />
+    <Content Include="Scripts\jquery-2.1.4.min.map" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\globalization\jquery.glob.es-PE.js" />
+    <Content Include="Scripts\globalization\jquery.global.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\jqwidgets\jqx-all.js" />
+    <Content Include="Scripts\jqwidgets\jqxbuttongroup.js" />
+    <Content Include="Scripts\jqwidgets\jqxbuttons.js" />
+    <Content Include="Scripts\jqwidgets\jqxcalendar.js" />
+    <Content Include="Scripts\jqwidgets\jqxchart.js" />
+    <Content Include="Scripts\jqwidgets\jqxcheckbox.js" />
+    <Content Include="Scripts\jqwidgets\jqxcolorpicker.js" />
+    <Content Include="Scripts\jqwidgets\jqxcombobox.js" />
+    <Content Include="Scripts\jqwidgets\jqxcore.js" />
+    <Content Include="Scripts\jqwidgets\jqxdata.export.js" />
+    <Content Include="Scripts\jqwidgets\jqxdata.js" />
+    <Content Include="Scripts\jqwidgets\jqxdatetimeinput.js" />
+    <Content Include="Scripts\jqwidgets\jqxdocking.js" />
+    <Content Include="Scripts\jqwidgets\jqxdockpanel.js" />
+    <Content Include="Scripts\jqwidgets\jqxdragdrop.js" />
+    <Content Include="Scripts\jqwidgets\jqxdropdownbutton.js" />
+    <Content Include="Scripts\jqwidgets\jqxdropdownlist.js" />
+    <Content Include="Scripts\jqwidgets\jqxexpander.js" />
+    <Content Include="Scripts\jqwidgets\jqxgauge.js" />
+    <Content Include="Scripts\jqwidgets\jqxgrid.aggregates.js" />
+    <Content Include="Scripts\jqwidgets\jqxgrid.columnsreorder.js" />
+    <Content Include="Scripts\jqwidgets\jqxgrid.columnsresize.js" />
+    <Content Include="Scripts\jqwidgets\jqxgrid.edit.js" />
+    <Content Include="Scripts\jqwidgets\jqxgrid.export.js" />
+    <Content Include="Scripts\jqwidgets\jqxgrid.filter.js" />
+    <Content Include="Scripts\jqwidgets\jqxgrid.grouping.js" />
+    <Content Include="Scripts\jqwidgets\jqxgrid.js" />
+    <Content Include="Scripts\jqwidgets\jqxgrid.pager.js" />
+    <Content Include="Scripts\jqwidgets\jqxgrid.selection.js" />
+    <Content Include="Scripts\jqwidgets\jqxgrid.sort.js" />
+    <Content Include="Scripts\jqwidgets\jqxgrid.storage.js" />
+    <Content Include="Scripts\jqwidgets\jqxinput.js" />
+    <Content Include="Scripts\jqwidgets\jqxknockout.js" />
+    <Content Include="Scripts\jqwidgets\jqxlistbox.js" />
+    <Content Include="Scripts\jqwidgets\jqxlistmenu.js" />
+    <Content Include="Scripts\jqwidgets\jqxmaskedinput.js" />
+    <Content Include="Scripts\jqwidgets\jqxmenu.js" />
+    <Content Include="Scripts\jqwidgets\jqxnavigationbar.js" />
+    <Content Include="Scripts\jqwidgets\jqxnumberinput.js" />
+    <Content Include="Scripts\jqwidgets\jqxpanel.js" />
+    <Content Include="Scripts\jqwidgets\jqxprogressbar.js" />
+    <Content Include="Scripts\jqwidgets\jqxradiobutton.js" />
+    <Content Include="Scripts\jqwidgets\jqxrating.js" />
+    <Content Include="Scripts\jqwidgets\jqxscrollbar.js" />
+    <Content Include="Scripts\jqwidgets\jqxscrollview.js" />
+    <Content Include="Scripts\jqwidgets\jqxslider.js" />
+    <Content Include="Scripts\jqwidgets\jqxsplitter.js" />
+    <Content Include="Scripts\jqwidgets\jqxswitchbutton.js" />
+    <Content Include="Scripts\jqwidgets\jqxtabs.js" />
+    <Content Include="Scripts\jqwidgets\jqxtooltip.js" />
+    <Content Include="Scripts\jqwidgets\jqxtouch.js" />
+    <Content Include="Scripts\jqwidgets\jqxtree.js" />
+    <Content Include="Scripts\jqwidgets\jqxvalidator.js" />
+    <Content Include="Scripts\jqwidgets\jqxwindow.js" />
+    <Content Include="Scripts\knockout-3.3.0.debug.js" />
+    <Content Include="Scripts\knockout-3.3.0.js" />
+    <Content Include="Scripts\knockout.bindingHandlers.js" />
+    <Content Include="Scripts\knockout.mapping-2.3.5.debug.js" />
+    <Content Include="Scripts\knockout.mapping-2.3.5.js" />
+    <Content Include="Scripts\entities.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\npm.js" />
+    <Content Include="Scripts\util.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Planificacion\Views\MarcoLogicoTC\Edit.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Scripts\Web.config" />
+    <Content Include="Views\Home\_menu.cshtml" />
+    <Content Include="Views\Home\Password.cshtml" />
+    <Content Include="Views\Home\Password2.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Areas\Asistencia\Views\Shared\" />
+    <Folder Include="Areas\BibliotecaVirtual\Models\" />
+    <Folder Include="Areas\BibliotecaVirtual\Views\Shared\" />
+    <Folder Include="Areas\Monitoreo\Views\Shared\" />
+    <Folder Include="Areas\Planificacion\Views\Shared\" />
+    <Folder Include="Areas\Reporte\Models\" />
+    <Folder Include="Areas\Reporte\Views\Shared\" />
+    <Folder Include="Areas\Sistema\Views\Shared\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DatabaseContext\DatabaseContext.csproj">
+      <Project>{82d7bb47-3939-41f0-92f7-81a427bfe6aa}</Project>
+      <Name>DatabaseContext</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Repositorio\Repositorio.csproj">
+      <Project>{a045649f-25fe-49e9-9a0d-3c203484de73}</Project>
+      <Name>Repositorio</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Reports\MatrizMarcoLogicoTC.rdlc" />
+    <Content Include="Reports\MatrizPlanOperativoTC.rdlc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Reports\EvaluacionTC.rdlc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Reports\MonitoreoTC.rdlc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Reports\Evaluacion.rdlc" />
+    <Content Include="Reports\Monitoreo.rdlc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Reports\MonitoreoTC_AvanceRegistroActividades.rdlc" />
+    <Content Include="Reports\MonitoreoTC_Contrapartida.rdlc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Reports\EvaluacionTC\1\101.rdlc" />
+    <Content Include="Reports\EvaluacionTC\1\102.rdlc" />
+    <Content Include="Reports\EvaluacionTC\1\103.rdlc" />
+    <Content Include="Reports\EvaluacionTC\1\104.rdlc" />
+    <Content Include="Reports\EvaluacionTC\1\105.rdlc">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Reports\EvaluacionTC\1\106.rdlc">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Reports\EvaluacionTC\1\107.rdlc">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Reports\EvaluacionTC\1\108.rdlc" />
+    <Content Include="Reports\EvaluacionTC\1\109.rdlc" />
+    <Content Include="Reports\EvaluacionTC\1\110.rdlc" />
+    <Content Include="Reports\EvaluacionTC\1\111.rdlc" />
+    <Content Include="Reports\EvaluacionTC\1\112.rdlc" />
+    <Content Include="Reports\EvaluacionTC\2\201.rdlc" />
+    <Content Include="Reports\EvaluacionTC\2\203.rdlc" />
+    <Content Include="Reports\EvaluacionTC\2\204.rdlc" />
+    <Content Include="Reports\EvaluacionTC\2\205.rdlc" />
+    <Content Include="Reports\EvaluacionTC\2\206.rdlc" />
+    <Content Include="Reports\EvaluacionTC\2\207.rdlc" />
+    <Content Include="Reports\EvaluacionTC\2\208.rdlc" />
+    <Content Include="Reports\EvaluacionTC\2\209.rdlc" />
+    <Content Include="Reports\EvaluacionTC\2\210.rdlc" />
+    <Content Include="Reports\EvaluacionTC\2\211.rdlc" />
+    <Content Include="Reports\EvaluacionTC\2\212.rdlc" />
+    <Content Include="Reports\EvaluacionTC\2\213.rdlc" />
+    <Content Include="Reports\EvaluacionTC\2\214.rdlc" />
+    <Content Include="Reports\EvaluacionTC\2\215.rdlc" />
+    <Content Include="Reports\EvaluacionTC\2\216.rdlc" />
+    <Content Include="Reports\EvaluacionTC\2\217.rdlc" />
+    <Content Include="Reports\EvaluacionTC\2\218.rdlc" />
+    <Content Include="Reports\EvaluacionTC\2\219.rdlc" />
+    <Content Include="Reports\EvaluacionTC\2\220.rdlc" />
+    <Content Include="Reports\EvaluacionTC\2\221.rdlc" />
+    <Content Include="Reports\EvaluacionTC\2\222.rdlc" />
+    <Content Include="Reports\EvaluacionTC\2\223.rdlc" />
+    <Content Include="Reports\EvaluacionTC\2\224.rdlc" />
+    <Content Include="Reports\EvaluacionTC\2\225.rdlc" />
+    <Content Include="Reports\EvaluacionTC\2\227.rdlc" />
+    <Content Include="Reports\EvaluacionTC\2\228.rdlc" />
+    <Content Include="Reports\EvaluacionTC\2\229.rdlc" />
+    <Content Include="Reports\EvaluacionTC\2\230.rdlc" />
+    <Content Include="Reports\EvaluacionTC\2\231.rdlc" />
+    <Content Include="Reports\EvaluacionTC\2\232.rdlc" />
+    <Content Include="Reports\EvaluacionTC\2\233.rdlc" />
+    <Content Include="Reports\EvaluacionTC\2\234.rdlc" />
+    <Content Include="Reports\EvaluacionTC\2\235.rdlc" />
+    <Content Include="Reports\EvaluacionTC\2\236.rdlc" />
+    <Content Include="Reports\EvaluacionTC\2\237.rdlc" />
+    <Content Include="Reports\EvaluacionTC\4\401.rdlc" />
+    <Content Include="Reports\EvaluacionTC\4\406.rdlc" />
+    <Content Include="Reports\EvaluacionTC\4\407.rdlc" />
+    <Content Include="Reports\EvaluacionTC\4\408.rdlc" />
+    <Content Include="Reports\EvaluacionTC\4\409.rdlc" />
+    <Content Include="Reports\EvaluacionTC\4\410.rdlc" />
+    <Content Include="Reports\EvaluacionTC\4\411.rdlc" />
+    <Content Include="Reports\EvaluacionTC\4\412.rdlc" />
+    <Content Include="Reports\EvaluacionTC\4\413.rdlc" />
+    <Content Include="Reports\EvaluacionTC\4\414.rdlc" />
+    <Content Include="Reports\EvaluacionTC\4\415.rdlc" />
+    <Content Include="Reports\EvaluacionTC\4\416.rdlc" />
+    <Content Include="Reports\EvaluacionTC\4\417.rdlc" />
+    <Content Include="Reports\EvaluacionTC\4\418.rdlc" />
+    <Content Include="Reports\EvaluacionTC\4\419.rdlc" />
+    <Content Include="Reports\EvaluacionTC\4\420.rdlc" />
+    <Content Include="Reports\EvaluacionTC\4\426.rdlc" />
+    <Content Include="Reports\EvaluacionTC\4\428.rdlc" />
+    <Content Include="Reports\EvaluacionTC\4\429.rdlc" />
+    <Content Include="Reports\EvaluacionTC\4\430.rdlc" />
+    <Content Include="Reports\EvaluacionTC\3\306.rdlc" />
+    <Content Include="Reports\EvaluacionTC\3\308.rdlc" />
+    <Content Include="Reports\EvaluacionTC\3\309.rdlc" />
+    <Content Include="Reports\EvaluacionTC\3\310.rdlc" />
+    <Content Include="Reports\EvaluacionTC\5\501.rdlc" />
+    <Content Include="Reports\EvaluacionTC\5\502.rdlc" />
+    <Content Include="Reports\EvaluacionTC\6\601.rdlc" />
+    <Content Include="Reports\EvaluacionTC\6\602.rdlc" />
+    <Content Include="Reports\EvaluacionTC\6\603.rdlc" />
+    <Content Include="Reports\EvaluacionTC\6\604.rdlc" />
+    <Content Include="Reports\EvaluacionTC\1\113.rdlc" />
+    <Content Include="Reports\EvaluacionTC\1\114.rdlc" />
+    <Content Include="Reports\EvaluacionTC\1\115.rdlc" />
+    <Content Include="Reports\EvaluacionTC\1\116.rdlc" />
+    <Content Include="Reports\EvaluacionTC\1\117.rdlc" />
+    <Content Include="Reports\EvaluacionTC\2\202.rdlc" />
+    <Content Include="Reports\EvaluacionTC\2\226.rdlc" />
+    <Content Include="Reports\EvaluacionTC\3\301.rdlc">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Reports\EvaluacionTC\3\302.rdlc" />
+    <Content Include="Reports\EvaluacionTC\3\303.rdlc" />
+    <Content Include="Reports\EvaluacionTC\3\304.rdlc">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Reports\EvaluacionTC\3\305.rdlc" />
+    <Content Include="Reports\EvaluacionTC\3\307.rdlc" />
+    <Content Include="Reports\EvaluacionTC\3\311.rdlc">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Reports\EvaluacionTC\3\312.rdlc">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Reports\EvaluacionTC\4\402.rdlc" />
+    <Content Include="Reports\EvaluacionTC\4\403.rdlc" />
+    <Content Include="Reports\EvaluacionTC\4\404.rdlc" />
+    <Content Include="Reports\EvaluacionTC\4\405.rdlc" />
+    <Content Include="Reports\EvaluacionTC\4\421.rdlc">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Reports\EvaluacionTC\4\422.rdlc" />
+    <Content Include="Reports\EvaluacionTC\4\423.rdlc" />
+    <Content Include="Reports\EvaluacionTC\4\424.rdlc" />
+    <Content Include="Reports\EvaluacionTC\4\425.rdlc" />
+    <Content Include="Reports\EvaluacionTC\4\427.rdlc" />
+    <Content Include="Reports\EvaluacionTC\5\503.rdlc" />
+    <Content Include="Reports\EvaluacionTC\5\504.rdlc" />
+    <Content Include="Reports\EvaluacionTC\5\505.rdlc" />
+    <Content Include="Reports\EvaluacionTC\6\605.rdlc" />
+    <Content Include="Reports\EvaluacionTC\6\606.rdlc" />
+    <Content Include="Reports\EvaluacionTC\7\701.rdlc" />
+    <Content Include="Reports\EvaluacionTC\4\440.rdlc" />
+    <Content Include="Reports\EvaluacionTC\4\431.rdlc">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Reports\EvaluacionTC\4\432.rdlc" />
+    <Content Include="Reports\EvaluacionTC\4\433.rdlc" />
+    <Content Include="Reports\EvaluacionTC\4\434.rdlc">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Reports\EvaluacionTC\4\435.rdlc" />
+    <Content Include="Reports\EvaluacionTC\4\436.rdlc" />
+    <Content Include="Reports\EvaluacionTC\4\437.rdlc" />
+    <Content Include="Reports\EvaluacionTC\4\438.rdlc" />
+    <Content Include="Reports\EvaluacionTC\4\439.rdlc" />
+    <Content Include="Reports\MatrizMarcoLogico.rdlc" />
+    <Content Include="Reports\MatrizPlanOperativo.rdlc" />
+    <Content Include="Reports\MonitoreoTC\Fichas\MonitoreoTC_AvanceRegistroActividades.rdlc" />
+    <Content Include="Reports\MonitoreoTC\Fichas\MonitoreoTC_Contrapartida.rdlc" />
+    <Content Include="Reports\MonitoreoTC_Consolidado.rdlc" />
+    <Content Include="Reports\Asistencia\Capacitacion01.rdlc" />
+    <Content Include="Reports\Asistencia\Telecentro.rdlc" />
+    <Content Include="Reports\Asistencia\CapacitacionResumen1.rdlc" />
+    <Content Include="Reports\Asistencia\Persona.rdlc">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Reports\MonitoreoTC\Fichas\MonitoreoTC_Ficha06.rdlc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Reports\Asistencia\CapacitacionResumen3.rdlc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Reports\Asistencia\CapacitacionResumen2.rdlc" />
+    <Content Include="Reports\Asistencia\TelecentroResumen.rdlc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Reports\Asistencia\CapacitacionResumen_Excel.rdlc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Reports\Asistencia\TelecentroResumen_Excel.rdlc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Reports\MonitoreoTC\Fichas\MonitoreoTC_Ficha0.rdlc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Reports\Asistencia\Capacitacion0216.rdlc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Reports\Asistencia\Capacitacion0218.rdlc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Reports\Asistencia\Capacitacion0217.rdlc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Reports\Asistencia\CapacitacionResumen0.rdlc" />
+    <Content Include="Reports\Asistencia\CapacitacionResumen_EF0.rdlc" />
+    <Content Include="Reports\Asistencia\AsistenteParticipanteListado.rdlc" />
+    <Content Include="Reports\Asistencia\AsistenteParticipanteResumen.rdlc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Reports\Asistencia\Capacitacion0219.rdlc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Reports\Asistencia\Persona01.rdlc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Reports\Asistencia\AsistenteParticipante.rdlc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Reports\Asistencia\AsistenteParticipanteResumen2.rdlc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Reports\Asistencia\AsistenteParticipanteResumenG.rdlc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Reports\Asistencia\AsistenteParticipanteResumenG2.rdlc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Reports\Asistencia\CapacitacionesResumen.rdlc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Reports\Asistencia\Capacitacion0341.rdlc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Reports\Asistencia\Capacitacion04.rdlc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Reports\Asistencia\CapacitacionResumen4.rdlc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Reports\Asistencia\CapacitacionResumen5.rdlc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Reports\Asistencia\CapacitacionResumenIFM.rdlc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Reports\Asistencia\CapacitacionListadoIFM.rdlc" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Reports\Asistencia\CapacitacionResumenPer.rdlc" />
+    <EmbeddedResource Include="Reports\Asistencia\ResumenActividades.rdlc" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <SaveServerSettingsInUserFile>True</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

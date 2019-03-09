@@ -1,0 +1,191 @@
+﻿@section scripts
+{
+    <script type="text/javascript">
+        $(function ()
+        {
+            var data, id = queryString('id');
+
+            if(id)
+                data = getJson('@Url.Content("~/api/Evaluacion/EvaluacionReporteTC/Find")', {id:id});
+
+            var Model = function (data)
+            {
+                var self = this;
+
+                data = data || {
+                    id: 0,
+                    nombre:null,
+                    ListaDetalle: []
+                };
+
+                self.data = ko.mapping.fromJS(data);
+
+
+                self.addListaDetalle  = function () {
+                    self.data.ListaDetalle .push(ko.mapping.fromJS({
+                        id: 0,
+                        codigo: null,
+                        listaid: null,
+                        nombre: null,
+                        headid:null,
+                        relacionid:null,
+                        activo: null
+                    }));
+                };
+
+                self.removeListaDetalle  = function (item) {
+                    self.data.ListaDetalle .remove(item);
+                };
+
+                self.listUnidadMedida = getJson('@Url.Content("~/api/General/UnidadMedida")');
+                self.Save = function (form)
+                {
+                    if ($(form).refreshValidator().valid()) {
+                        var data = JSON.parse(ko.mapping.toJSON(self.data));
+                        data.ListaDetalle = data.ListaDetalle.map(function(o){o.activo = +o.activo; return o;});
+                        postJson('@Url.Content("~/api/Evaluacion/EvaluacionReporteTC/Save")', data,
+                        function () {                           
+                            document.location.reload();
+                        },
+                        function () {
+                            alert('Error');
+                        });
+                    }
+                };
+
+            };
+
+            ko.applyBindings(new Model(data));
+        })
+    </script>
+}
+
+<form data-bind="submit: Save" style="width: 100%; float: left;">
+    <div class="toolbar">        
+        <button type="button" class="save" title="Grabar" onclick="$(this).closest('form').submit()"></button>
+        <button type="button" class="refresh" title="Refrescar" onclick="document.location.reload()"></button>
+    </div>
+    <fieldset>
+        <legend></legend>
+        <table class="grid">
+            <colgroup>
+                <col style="width: 30px" />
+                <col style="width: 500px"/>
+            </colgroup>
+            <thead>
+                <tr>
+                    <th colspan="3"></th>
+                    <th colspan="2">AÑO 1</th>
+                    <th colspan="2">AÑO 2</th>
+                    <th colspan="2">AÑO 3</th>
+                    <th colspan="2">AÑO 4</th>
+                    <th colspan="2">AÑO 5</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <th>
+                        COD
+                    </th>
+                    <th>
+                        INDICADOR
+                    </th>
+                    <th>
+                        UNID
+                    </th>
+                    <th>
+                        META
+                    </th>
+                    <th>
+                        AVANCE
+                    </th>
+                    <th>
+                        META
+                    </th>
+                    <th>
+                        AVANCE
+                    </th>
+                    <th>
+                        META
+                    </th>
+                    <th>
+                        AVANCE
+                    </th>
+                    <th>
+                        META
+                    </th>
+                    <th>
+                        AVANCE
+                    </th>
+                    <th>
+                        META
+                    </th>
+                    <th>
+                        AVANCE
+                    </th>
+                    <th>
+                        META PROGRAMADA
+                    </th>
+                    <th>
+                        AVANCE ACUMULADO
+                    </th>
+                    <th>
+                        % DE AVANCE
+                    </th>
+                </tr>
+            </thead>
+            <tbody data-bind='foreach: data.ListaDetalle '>
+                <tr>
+                    <td data-bind="text: codigo2 ">
+                    </td>
+                    <td data-bind="text: nombre ">
+                    </td>
+                    <td>
+                        <select data-bind="value: unidadid, options: $root.listUnidadMedida, optionsText: 'nombre', optionsValue: 'id'" data-val="true" />
+                    </td>
+                    <td>                       
+                        @Html.koNumeric("meta1", @decimal: true, width: 60, required: false)
+                    </td>
+                    <td>                       
+                        @Html.koNumeric("avance1", @decimal: true, width: 60, required: false)
+                    </td>
+                    <td>                       
+                        @Html.koNumeric("meta2", @decimal: true, width: 60, required: false)
+                    </td>
+                    <td>                        
+                        @Html.koNumeric("avance2", @decimal: true, width: 60, required: false)
+                    </td>
+                    <td>
+                        @Html.koNumeric("meta3", @decimal: true, width: 60, required: false)
+                    </td>
+                    <td>
+                        @Html.koNumeric("avance3", @decimal: true, width: 60, required: false)
+                    </td>
+                    <td>
+                        @Html.koNumeric("meta4", @decimal: true, width: 60, required: false)
+                    </td>
+                    <td>
+                        @Html.koNumeric("avance4", @decimal: true, width: 60, required: false)
+                    </td>
+                    <td>
+                        @Html.koNumeric("meta5", @decimal: true, width: 60, required: false)
+                    </td>
+                    <td>
+                        @Html.koNumeric("avance5", @decimal: true, width: 60, required: false)
+                    </td>
+                    <td>
+                        @Html.koNumeric("metaprogramada", @decimal: true, width: 60, required: false)
+                    </td>
+                    <td >
+                        @Html.koNumeric("avanceacumulado", @decimal: true, width: 60, required: false)
+                    </td>
+                    <td>
+                        @Html.koNumeric("porcentajeavance", @decimal: true, width: 60, required: false)
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </fieldset>
+</form>
+

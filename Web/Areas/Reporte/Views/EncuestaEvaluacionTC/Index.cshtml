@@ -1,0 +1,336 @@
+﻿@section scripts
+{
+    <script type="text/javascript">
+        var m;
+        $(function () {
+
+            var Model = function () {
+                var self = this;
+                self.tab = ko.observable(1);
+
+                var y = new Date().getFullYear();
+                self.fechainicio = ko.observable(new Date(y, 0, 1)),
+                self.fechafin = ko.observable(new Date());
+                self.maxfechafin = ko.computed(function () {
+                    var d = self.fechainicio();
+                    if (d == null) return null;
+                    return new Date(d.getFullYear(), 11, 31);
+                });
+
+                self.r1 = [
+                    { id: 101, nombre: "REPORTE SOBRE ACTIVIDADES DE LOS JÓVENES POR LOCALIDAD" },
+                    { id: 102, nombre: "REPORTE SOBRE ACTIVIDADES Y EXPECTATIVAS DE LOS JÓVENES" },
+                    { id: 103, nombre: "REPORTE SOBRE LOS JOVENES QUE ESTUDIAN ACTUALMENTE" },
+                    { id: 104, nombre: "REPORTE SOBRE EXPECTATIVAS DE LAS ACTIVIDADES DE LOS JÓVENES, SEGÚN GENERO" },
+                    { id: 105, nombre: "REPORTE SOBRE EL TIPO DE NEGOCIO DE LOS JÓVENES" },
+                    { id: 106, nombre: "REPORTE SOBRE LOS NEGOCIOS DE LOS JOVENES QUE HAN RECIBIDO APOYO PARA EMPRENDER SU NEGOCIO" },
+                    { id: 107, nombre: "REPORTE SOBRE INSTITUCIONES QUE HAN APOYADO LAS INICIATIVAS DE NEGOCIO DE LOS JÓVENES" },
+                    { id: 108, nombre: "REPORTE SOBRE LAS CARRERA U OFICIO TÉCNICO QUE ACTUALMENTE ESTUDIA O ESTUDIO EL JOVEN ENCUESTADO" },
+                    { id: 109, nombre: "REPORTE SOBRE LAS CARRERA U OFICIO TÉCNICO QUE ACTUALMENTE ESTUDIA O ESTUDIO EL JOVEN ENCUESTADO" },
+                    { id: 110, nombre: "REPORTE SOBRE LAS CARACTERISTICAS DEL TRABAJO DEPENDIENTE DEL JOVEN" },
+                    { id: 111, nombre: "REPORTE SOBRE INSTITUCIONES QUE HAN APOYADO LAS INICIATIVAS DE NEGOCIO DE LOS JÓVENES" },
+                    { id: 112, nombre: "REPORTE SOBRE LOS TIPOS DE CARRERA  TÉCNICA U OFICIO APOYADOS, SEGÚN POR INSTITUCIONES" },
+                    { id: 113, nombre: "REPORTE SOBRE ACTIVIDAD ACTUAL SEGÚN SEXO POR LOCALIDAD" },
+                    { id: 114, nombre: "REPORTE SOBRE SITUACIÓN DE ESTUDIOS SEGÚN SEXO POR LOCALIDAD" },
+                    { id: 115, nombre: "REPORTE SOBRE PLANES DE ESTUDIOS SEGÚN SEXO POR LOCALIDAD" },
+                    { id: 116, nombre: "REPORTE SOBRE ACTIVIDADES EN LAS QUE QUISIERA DESEMPEÑARSE SEGÚN SEXO POR LOCALIDAD" },
+                    { id: 117, nombre: "REPORTE SOBRE EXPECTATIVA LABORAL EN 5 AÑOS SEGÚN SEXO POR LOCALIDAD" }
+                ];
+                self.r2 = [
+                    { id: 201, nombre: "DATOS GENERALES DE LA POBLACIÓN DEL PROYECTO POR LOCALIDAD" },
+                    { id: 202, nombre: "REPORTE SOBRE GRADO DE INSTRUCCIÓN SEGÚN SEXO POR LOCALIDAD" },
+                    { id: 203, nombre: "REPORTE SOBRE LA COMPOSICIÓN FAMILIAR DE LA POBLACIÓN OBJETIVO" },
+                    { id: 204, nombre: "REPORTE SOBRE LA COMPOSICIÓN FAMILIAR DE LA POBLACIÓN OBJETIVO, SEGÚN SEXO" },
+                    { id: 205, nombre: "REPORTE SOBRE LA COMPOSICIÓN FAMILIAR DE LA POBLACIÓN OBJETIVO, SEGÚN GRUPOS DE EDAD" },
+                    { id: 206, nombre: "REPORTE SOBRE LA RELACIÓN DE LOS ENCUESTADOS CON CEDRO" },
+                    { id: 207, nombre: "REPORTE SOBRE LA PERCEPCIÓN DE LA SITUACIÓN ECONÓMICA DEL ENCUESTADO" },
+                    { id: 208, nombre: "REPORTE SOBRE LA PERCEPCIÓN DE LOS PROBLEMAS DE LA REGIÓN DEL ENCUESTADO" },
+                    { id: 209, nombre: "REPORTE SOBRE EL USO Y PERCEPCIÓN DE LOS MEDIOS DE COMUNICACIÓN" },
+                    { id: 210, nombre: "REPORTE SOBRE LA ORGANIZACIÓN DE LA LOCALIDAD DE LOS ENCUESTADOS" },
+                    { id: 211, nombre: "REPORTE SOBRE PERCEPCIONES DE LOS ENCUESTADOS RESPECTO DIVERSOS TEMAS" },
+                    { id: 212, nombre: "REPORTE SOBRE LOS TEMAS EN LOS QUE LE GUSTARÍA CAPACITARSE AL ENCUESTADO" },
+                    { id: 213, nombre: "REPORTE SOBRE INFORMACIÓN QUE LE GUSTARÍA RECIBIR AL ENCUESTADO" },
+                    { id: 214, nombre: "REPORTE SOBRE LAS INSTITUCIONES CON LAS QUE EL ENCUESTADO HACE/HARÍA TRÁMITES MEDIANTE INTERNET" },
+                    { id: 215, nombre: "REPORTE SOBRE LA INSFRAESTRUCTURA TECNOLÓGICA POR LOCALIDAD" },
+                    { id: 216, nombre: "REPORTE SOBRE LA UBICACIÓN DE LOS ORDENADORES" },
+                    { id: 217, nombre: "REPORTE SOBRE LA UBICACIÓN DE LOS ORDENADORES" },
+                    { id: 218, nombre: "REPORTE SOBRE EL USO DE LAS TIC’S POR LOCALIDAD" },
+                    { id: 219, nombre: "REPORTE SOBRE EL USO DE LA TELEFONÍA FIJA" },
+                    { id: 220, nombre: "REPORTE SOBRE EL USO DE LA TELEFONÍA CELULAR" },
+                    { id: 221, nombre: "REPORTE SOBRE EL USO DE LOS ORDENADORES" },
+                    { id: 222, nombre: "REPORTE SOBRE EL USO DEL SERVICIO DE INTERNET POR LOCALIDAD" },
+                    { id: 223, nombre: "REPORTE SOBRE EL USO DEL CORREO ELECTRONICO" },
+                    { id: 224, nombre: "REPORTE SOBRE EL USO DE LAS REDES SOCIALES" },
+                    { id: 225, nombre: "REPORTE SOBRE DE EXPERIENCIAS ECONOMICAS EXITOSAS" },
+                    { id: 226, nombre: "REPORTE SOBRE EL CONOCIMIENTO DE EXPERIENCIAS ECONOMICAS EXITOSAS LOCALES RELACIONADAS AL USO DE DE COMPUTADORAS Y/O INTERNET" },
+                    { id: 227, nombre: "REPORTE SOBRE PORTALES WEB DE INSTITUCIONES PÚBLICAS VISITADOS" },
+                    { id: 228, nombre: "REPORTE SOBRE DE EXPERIENCIAS ECONOMICAS EXITOSAS" },
+                    { id: 229, nombre: "REPORTE SOBRE BENEFICIOS QUE LE TRAJO CONTACTARSE CON PERSONAS MEDIANTE INTERNET, SEGÚN PERSONA CONTACTADA" },
+                    { id: 230, nombre: "REPORTE SOBRE LAS ÁREAS O MATERIAS QUE ABORDÓ EL CURSO QUE LLEVÓ EL ENCUESTADO" },
+                    { id: 231, nombre: "REPORTE SOBRE LOS SITIOS WEB VISITADOS POR LOS ENCUESTADOS, SEGÚN TEMAS" },
+                    { id: 232, nombre: "REPORTE SOBRE LOS TELECENTROS" },
+                    { id: 233, nombre: "REPORTE SOBRE LAS ACTIVIDADES DE LOS TELECENTROS EN LAS QUE EL ENCUESTADO HA PARTICIPADO" },
+                    { id: 234, nombre: "REPORTE SOBRE CURSOS RECIBIDOS EN LOS TELECENTROS" },
+                    { id: 235, nombre: "REPORTE SOBRE LOS CURSOS RECIBIDOS SEGÚN NIVEL" },
+                    { id: 236, nombre: "REPORTE SOBRE LOS BENEFICIOS DE PARTICIPAR EN LOS PROCESOS DE DESARROLLO LOCAL" },
+                    { id: 237, nombre: "REPORTE SOBRE ACTIVIDADES DE PARTICIPACIÓN CIUDADANA" }
+                ];
+                self.r3 = [
+                    { id: 301, nombre: "REPORTE SOBRE EL DESARROLLO PRODUCTIVO POR LOCALIDAD" },
+                    { id: 302, nombre: "REPORTE SOBRE LA DISTRIBUCIÓN DE LA PRODUCCIÓN" },
+                    { id: 303, nombre: "REPORTE SOBRE EL PRECIO DE VENTA DE LOS PRINCIPALES PRODUCTOS" },
+                    { id: 304, nombre: "REPORTE SOBRE LA INVERSIÓN TOTAL EN EL ÚLTIMO AÑO EN LOS PROCESOS PRODUCTIVOS" },
+                    { id: 305, nombre: "REPORTE SOBRE LA INVERSIÓN EN EL ÚLTIMO AÑO EN LOS PROCESOS PRODUCTIVOS, POR TIPO DE INVERSIÓN" },
+                    { id: 306, nombre: "REPORTE SOBRE LA INVERSIÓN TOTAL EN EL ÚLTIMO AÑO EN LA CANASTA FAMILIAR" },
+                    { id: 307, nombre: "REPORTE SOBRE LA INVERSIÓN EN EL ÚLTIMO AÑO EN LA CANASTA FAMILIAR, SEGÚN TIPO DE INVERSIÓN" },
+                    { id: 308, nombre: "REPORTE SOBRE CAMBIOS EN LA PRODUCCIÓN DE CULTIVOS" },
+                    { id: 309, nombre: "REPORTE SOBRE CAMBIOS EN LA PRODUCCIÓN DE CULTIVOS" },
+                    { id: 310, nombre: "REPORTE SOBRE CAMBIOS EN OS PROCESOS DE COMERCIALIZACIÓN" },
+                    { id: 311, nombre: "REPORTE SOBRE EL INGRESO NETO EN LOS HOGARES DE LOS PRODUCTORES" },
+                    { id: 312, nombre: "REPORTE SOBRE EL INGRESO NETO EN LOS HOGARES POR PRODUCTOR" }
+                ];
+                self.r4 = [
+                    { id: 401, nombre: "REPORTE SOBRE LOS CARGOS DE LOS PRODUCTORES ENCUESTADOS EN LAS ASOCIACIONES" },
+                    { id: 402, nombre: "REPORTE SOBRE LA COMPOSICIÓN DE GÉNERO DE LAS ASOCIACIONES" },
+                    { id: 403, nombre: "REPORTE SOBRE LA COMPOSICIÓN DE LAS ASOCIACIONES SEGÚN LOCALIDAD" },
+                    { id: 404, nombre: "REPORTE SOBRE LA PRODUCCIÓN DE LOS ASOCIADOS" },
+                    { id: 405, nombre: "REPORTE SOBRE LAS ACTIVIDADES QUE REALIZAN LAS ASOCIACIONES" },
+                    { id: 406, nombre: "REPORTE SOBRE LA EXPECTATIVA DE LOS ASOCIADOS EN LOS PROXIMOS 5 AÑOS" },
+                    { id: 407, nombre: "REPORTE SOBRE LAS TIC’S CON LAS QUE CUENTAN LAS ASOCIACIONES" },
+                    { id: 408, nombre: "ACCESO A COMPUTADORAS DE LAS ASOCIACIONES QUE NO LO TIENEN (REPORTE DETALLE)" },
+                    { id: 409, nombre: "ACCESO A INTERNET DE LAS ASOCIACIONES QUE NO LO TIENEN (REPORTE DETALLE)" },
+                    { id: 410, nombre: "REPORTE SOBRE EL USO QUE HACEN LAS ASOCIACIONES A LAS TIC’S" },
+                    { id: 411, nombre: "REPORTE SOBRE EL USO DE LA TELEFONÍA FIJA" },
+                    { id: 412, nombre: "REPORTE SOBRE EL USO DE LA TELEFONÍA CELULAR" },
+                    { id: 413, nombre: "REPORTE SOBRE EL USO DE LOS ORDENADORES" },
+                    { id: 414, nombre: "REPORTE SOBRE EL USO DE INTERNET EN LA ASOCIACIÓN" },
+                    { id: 415, nombre: "REPORTE SOBRE ORGANIZACIONES CON CORREO ELECTRONICO INSTITUCIONAL" },
+                    { id: 416, nombre: "USO DEL CORREO INSTITUCIONAL DE LAS ASOCIACIONES (REPORTE DETALLE)" },
+                    { id: 417, nombre: "REPORTE SOBRE CURSOS RECIBIDOS POR LAS ASOCIACIONES" },
+                    { id: 418, nombre: "REPORTE SOBRE CURSOS RECIBIDOS POR LAS ASOCIACIONES (detalle)" },
+                    { id: 419, nombre: "REPORTE SOBRE LA APLICACIÓN DE LO APRENDIDO LOS CURSOS RECIBIDOS EN EL TRABAJO DIARIO DE LA ASOCIACIÓN" },
+                    { id: 420, nombre: "REPORTE SOBRE LA APLICACIÓN DE LO APRENDIDO LOS CURSOS RECIBIDOS EN EL TRABAJO DIARIO DE LA ASOCIACIÓN (REPORTE DETALLE)" },
+                    { id: 421, nombre: "REPORTE SOBRE EL DESARROLLO PRODUCTIVO POR LOCALIDAD" },
+                    { id: 422, nombre: "REPORTE SOBRE LA DISTRIBUCIÓN DE LA PRODUCCIÓN" },
+                    { id: 423, nombre: "REPORTE SOBRE EL PRECIO DE VENTA DE LOS PRINCIPALES PRODUCTOS" },
+                    { id: 424, nombre: "REPORTE SOBRE LA INVERSIÓN TOTAL EN EL ÚLTIMO AÑO EN LOS PROCESOS PRODUCTIVOS" },
+                    { id: 425, nombre: "REPORTE SOBRE LA INVERSIÓN EN EL ÚLTIMO AÑO EN LOS PROCESOS PRODUCTIVOS, POR TIPO DE INVERSIÓN" },
+                    { id: 426, nombre: "REPORTE SOBRE LA INVERSIÓN TOTAL EN EL ÚLTIMO AÑO EN LA CANASTA FAMILIAR" },
+                    { id: 427, nombre: "REPORTE SOBRE LA INVERSIÓN EN EL ÚLTIMO AÑO EN LA CANASTA FAMILIAR, SEGÚN TIPO DE INVERSIÓN" },
+                    { id: 428, nombre: "REPORTE SOBRE CAMBIOS EN LA PRODUCCIÓN DE CULTIVOS" },
+                    { id: 429, nombre: "REPORTE SOBRE CAMBIOS EN LA PRODUCCIÓN DE CULTIVOS (REPORTE DETALLE)" },
+                    { id: 430, nombre: "REPORTE SOBRE CAMBIOS EN OS PROCESOS DE COMERCIALIZACIÓN" },
+                    { id: 431, nombre: "DATOS GENERALES DE LA POBLACIÓN DEL PROYECTO POR LOCALIDAD" },
+                    { id: 432, nombre: "REPORTE SOBRE GRADO DE INSTRUCCIÓN SEGÚN SEXO POR LOCALIDAD" },
+                    { id: 433, nombre: "REPORTE SOBRE LA COMPOSICIÓN FAMILIAR DE LA POBLACIÓN OBJETIVO" },
+                    { id: 434, nombre: "REPORTE SOBRE LA COMPOSICIÓN FAMILIAR DE LA POBLACIÓN OBJETIVO, SEGÚN SEXO" },
+                    { id: 435, nombre: "REPORTE SOBRE LA COMPOSICIÓN FAMILIAR DE LA POBLACIÓN OBJETIVO, SEGÚN GRUPOS DE EDAD" },
+                    { id: 436, nombre: "REPORTE SOBRE LA RELACIÓN DE LOS ENCUESTADOS CON CEDRO" },
+                    { id: 437, nombre: "REPORTE SOBRE LA PERCEPCIÓN DE LA SITUACIÓN ECONÓMICA DEL ENCUESTADO" },
+                    { id: 438, nombre: "REPORTE SOBRE LA PERCEPCIÓN DE LOS PROBLEMAS DE LA REGIÓN DEL ENCUESTADO" },
+                    { id: 439, nombre: "REPORTE SOBRE EL USO Y PERCEPCIÓN DE LOS MEDIOS DE COMUNICACIÓN" },
+                    { id: 440, nombre: "REPORTE SOBRE LA ORGANIZACIÓN DE LA LOCALIDAD DE LOS ENCUESTADOS" },
+                ];
+                self.r5 = [
+                    { id: 501, nombre: "REPORTE GENERAL SOBRE INSTITUCIONES PÚBLICAS" },
+                    { id: 502, nombre: "REPORTE SOBRE EL PRESUPUESTO DE INVERSIÓN PÚBLICA" },
+                    { id: 503, nombre: "REPORTE SOBRE EL PRESUPUESTO DE INVERSIÓN PÚBLICA DESTINADO A TIC’S" },
+                    { id: 504, nombre: "REPORTE SOBRE LAS PERSONAS QUE BRINDARON INFORMACIÓN SOBRE LAS INSTITUCIONES PÚBLICAS" },
+                    { id: 505, nombre: "REPORTE SOBRE LAS PERSONAS QUE RECOPILARON LA INFORMACIÓN SOBRE LAS INSTITUCIONES PÚBLICAS" }
+                ];
+                self.r6 = [
+                    { id: 601, nombre: "REPORTE GENERAL DE INSTITUCIONES PRIVADAS Y EMPRESAS" },
+                    { id: 602, nombre: "REPORTE SOBRE LA INVERSIÓN DE INSTITUCIONES PRIVADAS Y EMPRESAS EN TIC’S" },
+                    { id: 603, nombre: "REPORTE SOBRE LA INVERSIÓN DE INSTITUCIONES PRIVADAS Y EMPRESAS EN TIC’S" },
+                    { id: 604, nombre: "REPORTE SOBRE LA INVERSIÓN DE INSTITUCIONES PRIVADAS Y EMPRESAS EN TIC’S (REPORTE DETALLE)" },
+                    { id: 605, nombre: "REPORTE SOBRE LAS PERSONAS QUE BRINDARON INFORMACIÓN SOBRE LAS INSTITUCIONES PRIVADAS Y EMPRESAS" },
+                    { id: 606, nombre: "REPORTE SOBRE LAS PERSONAS QUE RECOPILARON LA INFORMACIÓN SOBRE LAS INSTITUCIONES PRIVADAS Y EMPRESAS" }
+                ];
+                self.r7 = [
+                    { id: 701, nombre: "REPORTE SOBRE FICHA DE REGISTRO DE INICIATIVA JUVENIL" }
+                ];
+
+                self.tipo = ko.observable();
+                self.listTipo = [
+                    { id: 1, nombre: 'Jóvenes' },
+                    { id: 2, nombre: 'Población' },
+                    { id: 3, nombre: 'Productores' }
+                ];
+
+                self.idEje = ko.observable();
+                self.listEje = getJson('@Url.Content("~/api/General/EjeIntervencion02")');
+                self.idLocalidad = ko.observable();
+                self.listLocalidad = ko.observableArray([]);
+
+                self.idEje.subscribe(function (id) {
+                    self.idLocalidad(undefined);
+                    self.listLocalidad(undefined);
+                    if (id) self.listLocalidad(getJson('@Url.Content("~/api/General/Localidad")', { eje: id }))
+                });
+
+                self.region = ko.observable();
+                self.provincia = ko.observable();
+                self.distrito = ko.observable();
+                self.listDepartamento = getJson('@Url.Content("~/Api/Ubigeo/Departamento")');
+                self.listProvincia = ko.observableArray([]);
+                self.listDistrito = ko.observableArray([]);
+
+                self.region.subscribe(function (id) {
+                    self.provincia(undefined);
+                    self.listProvincia(undefined);
+                    if (id) self.listProvincia(getJson('@Url.Content("~/Api/Ubigeo/Provincia")', { d: id }))
+                });
+                self.provincia.subscribe(function (id) {
+                    self.distrito(undefined);
+                    self.listDistrito(undefined);
+                    if (id) self.listDistrito(getJson('@Url.Content("~/Api/Ubigeo/Distrito")', { d: self.region(), p: id }))
+                });
+
+                self.report = function (item) {
+                    if ($("#frmBuscar").refreshValidator().valid()) {
+                        var busquedaini = formatDate_DDMMYYYY(self.fechainicio),
+                            busquedafin = formatDate_DDMMYYYY(self.fechafin),
+                            fechaini = formatDate_YYYYMMDD(self.fechainicio),
+                            fechafin = formatDate_YYYYMMDD(self.fechafin),
+                            cadena = "../Reports/EvaluacionTC.aspx?reporte=" + item.id + "&fechaini=" + fechaini + "&fechafin=" + fechafin
+                                + "&busquedaini=" + busquedaini + "&busquedafin=" + busquedafin;
+
+                        var tipo = (Math.floor(item.id / 100));
+                        if (tipo <= 4) {
+                            cadena += "&localid=" + (self.idLocalidad() | '')
+                                + "&localidad=" + encodeURI($("#localidad select:enabled option:selected").map(function () { return this.text }).toArray().join(' - '));
+                            if (tipo == 2) {
+                                cadena += "&tipo=" + (self.tipo() | '')
+                            }
+                        }
+                        else if (tipo <= 6) {
+                            cadena += "&eje=" + (self.idEje() | '')
+                                + "&nivel=" + encodeURI($('#ubigeo select:enabled option:selected').map(function () { return this.text }).toArray().join(' - '));
+                            if (self.region()) cadena += "&region=" + self.region();
+                            if (self.provincia()) cadena += "&provincia=" + self.provincia();
+                            if (self.distrito()) cadena += "&distrito=" + self.distrito();
+                        }
+                        else /*7*/{
+                            cadena += "&eje=" + (self.idEje() | '')
+                                + "&localid=" + (self.idLocalidad() | '');
+                        }
+
+                        ShowPopupArchivo(cadena, 980, 600);
+                    }
+                }
+            };
+
+            var model = new Model();
+            ko.applyBindings(model);
+            $('.tabs').jqxTabs({ theme: 'darkblue', keyboardNavigation: false }).on('selected', function (event) { model.tab(event.args.item + 1); });
+        });
+
+    </script>
+    <script type="text/html" id="reportlist">
+        <table class="grid">
+            <colgroup>
+                <col style="width: 50px" />
+                <col />
+                <col style="width: 28px" />
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>N°</th>
+                    <th>Reporte</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody data-bind="foreach: $data">
+                <tr>
+                    <td data-bind="text: $index() + 1" style="text-align: center;"></td>
+                    <td data-bind="text: nombre"></td>
+                    <td style="text-align: center">
+                        <button type="button" class="btn report" title="Reporte" data-bind="click: $root.report"></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </script>
+}
+
+<div class="toolbar">
+    <button type="button" class="refresh" title="Refrescar" onclick="document.location.reload()"></button>
+</div>
+
+<fieldset>
+    <legend>Reporte de encuesta</legend>
+    <form id="frmBuscar">
+        <table style="width: 100%">
+            <colgroup>
+                <col style="width: 200px" />
+                <col />
+            </colgroup>
+            <tr>
+                <td>Desde</td>
+                <td>
+                    <table style="width: 40%">
+                        <tr>
+                            <td>
+                                @Html.koDate("$root.fechainicio", width: 100, required: true)
+                            </td>
+                            <td></td>
+                            <td>Hasta
+                            </td>
+                            <td>
+                                @Html.koDate("$root.fechafin", width: 100, required: true, min: "$root.fechainicio")
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>Eje/Localidad
+                </td>
+                <td id="localidad">
+                    <select data-bind="value: idEje, options: $root.listEje, optionsText: 'nombre', optionsValue: 'id', optionsCaption: '[Todos]', uniqueName: true"></select>
+                    <select data-bind="value: idLocalidad, options: $root.listLocalidad, optionsText: 'nombre', optionsValue: 'id', optionsCaption: '[SELECCIONAR]', uniqueName: true, enable: idEje() && tab() != 5 && tab() != 6, visible: tab() != 5 && tab() != 6" data-val="true" data-val-required=""></select>
+                </td>
+            </tr>
+            <tr data-bind="visible: 5 <= tab() && tab() <= 6">
+                <td>Nivel de gobierno que reporta
+                </td>
+                <td id="ubigeo">Región
+                    <select data-bind="value: region, options: $root.listDepartamento, optionsText: 'nombre', optionsValue: 'id', optionsCaption: '[Todos]', enable: 5 <= tab() && tab() <= 6, uniqueName: true"></select>
+                    Provincia
+                    <select data-bind="value: provincia, options: $root.listProvincia, optionsText: 'nombre', optionsValue: 'id', optionsCaption: '[Todos]', enable: region, uniqueName: true"></select>
+                    Distrito
+                    <select data-bind="value: distrito, options: $root.listDistrito, optionsText: 'nombre', optionsValue: 'id', optionsCaption: '[Todos]', enable: provincia, uniqueName: true"></select>
+                </td>
+            </tr>
+            <tr data-bind="visible: tab() == 2">
+                <td>
+                    Tipo
+                </td>
+                <td>
+                    <select data-bind="value: tipo, options: $root.listTipo, optionsText: 'nombre', optionsValue: 'id', optionsCaption: '[Todos]', enable: tab() == 2, uniqueName: true"></select>
+                </td>
+            </tr>
+        </table>
+
+        <br />
+
+        <div class="tabs">
+            <ul>
+                <li style="margin-left: 30px;">Jóvenes</li>
+                <li>Población</li>
+                <li>Productores</li>
+                <li>Asociaciones de Productores</li>
+                <li>Instituciones Públicas</li>
+                <li>Instituciones Privadas</li>
+                <li>Iniciativa Juvenil</li>
+            </ul>
+            <div style="padding: 10px" data-bind="template: { name: 'reportlist', data: r1 }"></div>
+            <div style="padding: 10px" data-bind="template: { name: 'reportlist', data: r2 }"></div>
+            <div style="padding: 10px" data-bind="template: { name: 'reportlist', data: r3 }"></div>
+            <div style="padding: 10px" data-bind="template: { name: 'reportlist', data: r4 }"></div>
+            <div style="padding: 10px" data-bind="template: { name: 'reportlist', data: r5 }"></div>
+            <div style="padding: 10px" data-bind="template: { name: 'reportlist', data: r6 }"></div>
+            <div style="padding: 10px" data-bind="template: { name: 'reportlist', data: r7 }"></div>
+        </div>
+    </form>
+</fieldset>
