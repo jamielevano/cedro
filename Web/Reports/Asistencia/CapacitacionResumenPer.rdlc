@@ -8,6 +8,45 @@
             <TablixCornerRow>
               <TablixCornerCell>
                 <CellContents>
+                  <Textbox Name="Textbox2">
+                    <CanGrow>true</CanGrow>
+                    <KeepTogether>true</KeepTogether>
+                    <Paragraphs>
+                      <Paragraph>
+                        <TextRuns>
+                          <TextRun>
+                            <Value>ID</Value>
+                            <Style>
+                              <FontStyle>Normal</FontStyle>
+                              <FontFamily>Calibri</FontFamily>
+                              <FontWeight>Normal</FontWeight>
+                              <TextDecoration>None</TextDecoration>
+                              <Color>#ffffff</Color>
+                            </Style>
+                          </TextRun>
+                        </TextRuns>
+                        <Style>
+                          <TextAlign>Center</TextAlign>
+                        </Style>
+                      </Paragraph>
+                    </Paragraphs>
+                    <rd:DefaultName>Textbox2</rd:DefaultName>
+                    <Style>
+                      <Border>
+                        <Style>Solid</Style>
+                      </Border>
+                      <BackgroundColor>MediumSeaGreen</BackgroundColor>
+                      <VerticalAlign>Middle</VerticalAlign>
+                      <PaddingLeft>2pt</PaddingLeft>
+                      <PaddingRight>2pt</PaddingRight>
+                      <PaddingTop>2pt</PaddingTop>
+                      <PaddingBottom>2pt</PaddingBottom>
+                    </Style>
+                  </Textbox>
+                </CellContents>
+              </TablixCornerCell>
+              <TablixCornerCell>
+                <CellContents>
                   <Textbox Name="Textbox4">
                     <CanGrow>true</CanGrow>
                     <KeepTogether>true</KeepTogether>
@@ -15,7 +54,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>EJE</Value>
+                            <Value>EJE INTERVENCION</Value>
                             <Style>
                               <FontStyle>Normal</FontStyle>
                               <FontFamily>Calibri</FontFamily>
@@ -132,7 +171,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>APELLIDO NOMBRE</Value>
+                            <Value>NOMBRE APELLIDO</Value>
                             <Style>
                               <FontStyle>Normal</FontStyle>
                               <FontFamily>Calibri</FontFamily>
@@ -181,6 +220,15 @@
             </TablixColumn>
             <TablixColumn>
               <Width>3.17733cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>2.5cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>2.5cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>2.5cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>2.5cm</Width>
@@ -355,6 +403,111 @@
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>programanombre</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>Solid</Style>
+                        </Border>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="organizado">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!organizado.Value</Value>
+                              <Style>
+                                <FontFamily>Calibri</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>organizado</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>Solid</Style>
+                        </Border>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="promotor">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!promotor.Value</Value>
+                              <Style>
+                                <FontFamily>Calibri</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>promotor</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>Solid</Style>
+                        </Border>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="condicion">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!condicion.Value</Value>
+                              <Style>
+                                <FontFamily>Calibri</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>condicion</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>Solid</Style>
@@ -658,6 +811,132 @@
               <TablixHeader>
                 <Size>1.02333cm</Size>
                 <CellContents>
+                  <Textbox Name="Textbox3">
+                    <CanGrow>true</CanGrow>
+                    <KeepTogether>true</KeepTogether>
+                    <Paragraphs>
+                      <Paragraph>
+                        <TextRuns>
+                          <TextRun>
+                            <Value>ORGANIZADO</Value>
+                            <Style>
+                              <FontStyle>Normal</FontStyle>
+                              <FontFamily>Calibri</FontFamily>
+                              <FontWeight>Normal</FontWeight>
+                              <TextDecoration>None</TextDecoration>
+                              <Color>#ffffff</Color>
+                            </Style>
+                          </TextRun>
+                        </TextRuns>
+                        <Style>
+                          <TextAlign>Center</TextAlign>
+                        </Style>
+                      </Paragraph>
+                    </Paragraphs>
+                    <rd:DefaultName>Textbox3</rd:DefaultName>
+                    <Style>
+                      <Border>
+                        <Style>Solid</Style>
+                      </Border>
+                      <BackgroundColor>MediumSeaGreen</BackgroundColor>
+                      <VerticalAlign>Middle</VerticalAlign>
+                      <PaddingLeft>2pt</PaddingLeft>
+                      <PaddingRight>2pt</PaddingRight>
+                      <PaddingTop>2pt</PaddingTop>
+                      <PaddingBottom>2pt</PaddingBottom>
+                    </Style>
+                  </Textbox>
+                </CellContents>
+              </TablixHeader>
+            </TablixMember>
+            <TablixMember>
+              <TablixHeader>
+                <Size>1.02333cm</Size>
+                <CellContents>
+                  <Textbox Name="Textbox6">
+                    <CanGrow>true</CanGrow>
+                    <KeepTogether>true</KeepTogether>
+                    <Paragraphs>
+                      <Paragraph>
+                        <TextRuns>
+                          <TextRun>
+                            <Value>PROMOTOR</Value>
+                            <Style>
+                              <FontStyle>Normal</FontStyle>
+                              <FontFamily>Calibri</FontFamily>
+                              <FontWeight>Normal</FontWeight>
+                              <TextDecoration>None</TextDecoration>
+                              <Color>#ffffff</Color>
+                            </Style>
+                          </TextRun>
+                        </TextRuns>
+                        <Style>
+                          <TextAlign>Center</TextAlign>
+                        </Style>
+                      </Paragraph>
+                    </Paragraphs>
+                    <rd:DefaultName>Textbox6</rd:DefaultName>
+                    <Style>
+                      <Border>
+                        <Style>Solid</Style>
+                      </Border>
+                      <BackgroundColor>MediumSeaGreen</BackgroundColor>
+                      <VerticalAlign>Middle</VerticalAlign>
+                      <PaddingLeft>2pt</PaddingLeft>
+                      <PaddingRight>2pt</PaddingRight>
+                      <PaddingTop>2pt</PaddingTop>
+                      <PaddingBottom>2pt</PaddingBottom>
+                    </Style>
+                  </Textbox>
+                </CellContents>
+              </TablixHeader>
+            </TablixMember>
+            <TablixMember>
+              <TablixHeader>
+                <Size>1.02333cm</Size>
+                <CellContents>
+                  <Textbox Name="Textbox8">
+                    <CanGrow>true</CanGrow>
+                    <KeepTogether>true</KeepTogether>
+                    <Paragraphs>
+                      <Paragraph>
+                        <TextRuns>
+                          <TextRun>
+                            <Value>CONDICION</Value>
+                            <Style>
+                              <FontStyle>Normal</FontStyle>
+                              <FontFamily>Calibri</FontFamily>
+                              <FontWeight>Normal</FontWeight>
+                              <TextDecoration>None</TextDecoration>
+                              <Color>#ffffff</Color>
+                            </Style>
+                          </TextRun>
+                        </TextRuns>
+                        <Style>
+                          <TextAlign>Center</TextAlign>
+                        </Style>
+                      </Paragraph>
+                    </Paragraphs>
+                    <rd:DefaultName>Textbox8</rd:DefaultName>
+                    <Style>
+                      <Border>
+                        <Style>Solid</Style>
+                      </Border>
+                      <BackgroundColor>MediumSeaGreen</BackgroundColor>
+                      <VerticalAlign>Middle</VerticalAlign>
+                      <PaddingLeft>2pt</PaddingLeft>
+                      <PaddingRight>2pt</PaddingRight>
+                      <PaddingTop>2pt</PaddingTop>
+                      <PaddingBottom>2pt</PaddingBottom>
+                    </Style>
+                  </Textbox>
+                </CellContents>
+              </TablixHeader>
+            </TablixMember>
+            <TablixMember>
+              <TablixHeader>
+                <Size>1.02333cm</Size>
+                <CellContents>
                   <Textbox Name="Textbox33">
                     <CanGrow>true</CanGrow>
                     <KeepTogether>true</KeepTogether>
@@ -735,7 +1014,6 @@
                       <PaddingBottom>2pt</PaddingBottom>
                     </Style>
                   </Textbox>
-                  <rd:Selected>true</rd:Selected>
                 </CellContents>
               </TablixHeader>
             </TablixMember>
@@ -744,27 +1022,27 @@
         <TablixRowHierarchy>
           <TablixMembers>
             <TablixMember>
-              <Group Name="ejeintervencionnombre">
+              <Group Name="id">
                 <GroupExpressions>
-                  <GroupExpression>=Fields!ejeintervencionnombre.Value</GroupExpression>
+                  <GroupExpression>=Fields!id.Value</GroupExpression>
                 </GroupExpressions>
               </Group>
               <SortExpressions>
                 <SortExpression>
-                  <Value>=Fields!ejeintervencionnombre.Value</Value>
+                  <Value>=Fields!id.Value</Value>
                 </SortExpression>
               </SortExpressions>
               <TablixHeader>
-                <Size>2.85425cm</Size>
+                <Size>1.14533cm</Size>
                 <CellContents>
-                  <Textbox Name="ejeintervencionnombre1">
+                  <Textbox Name="id">
                     <CanGrow>true</CanGrow>
                     <KeepTogether>true</KeepTogether>
                     <Paragraphs>
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>=Fields!ejeintervencionnombre.Value</Value>
+                            <Value>=Fields!id.Value</Value>
                             <Style>
                               <FontFamily>Calibri</FontFamily>
                               <FontWeight>Bold</FontWeight>
@@ -772,11 +1050,11 @@
                           </TextRun>
                         </TextRuns>
                         <Style>
-                          <TextAlign>Left</TextAlign>
+                          <TextAlign>Center</TextAlign>
                         </Style>
                       </Paragraph>
                     </Paragraphs>
-                    <rd:DefaultName>ejeintervencionnombre1</rd:DefaultName>
+                    <rd:DefaultName>id</rd:DefaultName>
                     <Style>
                       <Border>
                         <Style>Solid</Style>
@@ -792,27 +1070,17 @@
               </TablixHeader>
               <TablixMembers>
                 <TablixMember>
-                  <Group Name="telecentronombre">
-                    <GroupExpressions>
-                      <GroupExpression>=Fields!telecentronombre.Value</GroupExpression>
-                    </GroupExpressions>
-                  </Group>
-                  <SortExpressions>
-                    <SortExpression>
-                      <Value>=Fields!telecentronombre.Value</Value>
-                    </SortExpression>
-                  </SortExpressions>
                   <TablixHeader>
-                    <Size>3.1781cm</Size>
+                    <Size>4.27464cm</Size>
                     <CellContents>
-                      <Textbox Name="telecentronombre1">
+                      <Textbox Name="ejeintervencionnombre1">
                         <CanGrow>true</CanGrow>
                         <KeepTogether>true</KeepTogether>
                         <Paragraphs>
                           <Paragraph>
                             <TextRuns>
                               <TextRun>
-                                <Value>=Fields!telecentronombre.Value</Value>
+                                <Value>=Fields!ejeintervencionnombre.Value</Value>
                                 <Style>
                                   <FontFamily>Calibri</FontFamily>
                                   <FontWeight>Bold</FontWeight>
@@ -824,7 +1092,7 @@
                             </Style>
                           </Paragraph>
                         </Paragraphs>
-                        <rd:DefaultName>telecentronombre1</rd:DefaultName>
+                        <rd:DefaultName>ejeintervencionnombre1</rd:DefaultName>
                         <Style>
                           <Border>
                             <Style>Solid</Style>
@@ -840,27 +1108,17 @@
                   </TablixHeader>
                   <TablixMembers>
                     <TablixMember>
-                      <Group Name="grupo">
-                        <GroupExpressions>
-                          <GroupExpression>=Fields!grupo.Value</GroupExpression>
-                        </GroupExpressions>
-                      </Group>
-                      <SortExpressions>
-                        <SortExpression>
-                          <Value>=Fields!grupo.Value</Value>
-                        </SortExpression>
-                      </SortExpressions>
                       <TablixHeader>
-                        <Size>2.5cm</Size>
+                        <Size>3.3582cm</Size>
                         <CellContents>
-                          <Textbox Name="grupo">
+                          <Textbox Name="telecentronombre1">
                             <CanGrow>true</CanGrow>
                             <KeepTogether>true</KeepTogether>
                             <Paragraphs>
                               <Paragraph>
                                 <TextRuns>
                                   <TextRun>
-                                    <Value>=Fields!grupo.Value</Value>
+                                    <Value>=Fields!telecentronombre.Value</Value>
                                     <Style>
                                       <FontFamily>Calibri</FontFamily>
                                       <FontWeight>Bold</FontWeight>
@@ -872,7 +1130,7 @@
                                 </Style>
                               </Paragraph>
                             </Paragraphs>
-                            <rd:DefaultName>grupo</rd:DefaultName>
+                            <rd:DefaultName>telecentronombre1</rd:DefaultName>
                             <Style>
                               <Border>
                                 <Style>Solid</Style>
@@ -888,27 +1146,17 @@
                       </TablixHeader>
                       <TablixMembers>
                         <TablixMember>
-                          <Group Name="personanombre">
-                            <GroupExpressions>
-                              <GroupExpression>=Fields!personanombre.Value</GroupExpression>
-                            </GroupExpressions>
-                          </Group>
-                          <SortExpressions>
-                            <SortExpression>
-                              <Value>=Fields!personanombre.Value</Value>
-                            </SortExpression>
-                          </SortExpressions>
                           <TablixHeader>
-                            <Size>4.05781cm</Size>
+                            <Size>2.8154cm</Size>
                             <CellContents>
-                              <Textbox Name="personanombre">
+                              <Textbox Name="grupo">
                                 <CanGrow>true</CanGrow>
                                 <KeepTogether>true</KeepTogether>
                                 <Paragraphs>
                                   <Paragraph>
                                     <TextRuns>
                                       <TextRun>
-                                        <Value>=Fields!personanombre.Value</Value>
+                                        <Value>=Fields!grupo.Value</Value>
                                         <Style>
                                           <FontFamily>Calibri</FontFamily>
                                           <FontWeight>Bold</FontWeight>
@@ -916,11 +1164,11 @@
                                       </TextRun>
                                     </TextRuns>
                                     <Style>
-                                      <TextAlign>Left</TextAlign>
+                                      <TextAlign>Center</TextAlign>
                                     </Style>
                                   </Paragraph>
                                 </Paragraphs>
-                                <rd:DefaultName>personanombre</rd:DefaultName>
+                                <rd:DefaultName>grupo</rd:DefaultName>
                                 <Style>
                                   <Border>
                                     <Style>Solid</Style>
@@ -935,7 +1183,47 @@
                             </CellContents>
                           </TablixHeader>
                           <TablixMembers>
-                            <TablixMember />
+                            <TablixMember>
+                              <TablixHeader>
+                                <Size>4.05781cm</Size>
+                                <CellContents>
+                                  <Textbox Name="personanombre">
+                                    <CanGrow>true</CanGrow>
+                                    <KeepTogether>true</KeepTogether>
+                                    <Paragraphs>
+                                      <Paragraph>
+                                        <TextRuns>
+                                          <TextRun>
+                                            <Value>=Fields!personanombre.Value</Value>
+                                            <Style>
+                                              <FontFamily>Calibri</FontFamily>
+                                              <FontWeight>Bold</FontWeight>
+                                            </Style>
+                                          </TextRun>
+                                        </TextRuns>
+                                        <Style>
+                                          <TextAlign>Left</TextAlign>
+                                        </Style>
+                                      </Paragraph>
+                                    </Paragraphs>
+                                    <rd:DefaultName>personanombre</rd:DefaultName>
+                                    <Style>
+                                      <Border>
+                                        <Style>Solid</Style>
+                                      </Border>
+                                      <VerticalAlign>Middle</VerticalAlign>
+                                      <PaddingLeft>2pt</PaddingLeft>
+                                      <PaddingRight>2pt</PaddingRight>
+                                      <PaddingTop>2pt</PaddingTop>
+                                      <PaddingBottom>2pt</PaddingBottom>
+                                    </Style>
+                                  </Textbox>
+                                </CellContents>
+                              </TablixHeader>
+                              <TablixMembers>
+                                <TablixMember />
+                              </TablixMembers>
+                            </TablixMember>
                           </TablixMembers>
                         </TablixMember>
                       </TablixMembers>
@@ -950,7 +1238,7 @@
         <DataSetName>DataSet1</DataSetName>
         <Top>0.26597cm</Top>
         <Height>1.62333cm</Height>
-        <Width>30.76749cm</Width>
+        <Width>41.32871cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -961,10 +1249,10 @@
     <Height>2.27518in</Height>
     <Style />
   </Body>
-  <Width>13.38559in</Width>
+  <Width>16.27115in</Width>
   <Page>
     <PageHeader>
-      <Height>3.17501cm</Height>
+      <Height>3.15384cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -1214,7 +1502,7 @@
       </Style>
     </PageHeader>
     <PageFooter>
-      <Height>1.16417cm</Height>
+      <Height>1.143cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -1377,6 +1665,10 @@
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
+        <Field Name="id">
+          <DataField>id</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
         <Field Name="ejeintervencionid">
           <DataField>ejeintervencionid</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
@@ -1431,6 +1723,18 @@
         </Field>
         <Field Name="programanombre">
           <DataField>programanombre</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="organizado">
+          <DataField>organizado</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="promotor">
+          <DataField>promotor</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="condicion">
+          <DataField>condicion</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="fechainicio">

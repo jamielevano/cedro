@@ -4,11 +4,10 @@
     <script type="text/javascript">
         $(function () {
             $('#loading').show();
-            
+
             var permiso = getJson('@Url.Content("~/api/Sistema/Permiso/Find")', { id: 2108 });
 
-            var Model = function (data)
-            {
+            var Model = function (data) {
                 var self = this;
 
                 self.data = {
@@ -17,11 +16,15 @@
                     apellidopaterno: ko.observable('@ViewBag.apellidopaterno'),
                     apellidomaterno: ko.observable('@ViewBag.apellidomaterno'),
                     nombre: ko.observable('@ViewBag.nombre'),
-                    codigo: ko.observable('@ViewBag.codigo')
+                    codigo: ko.observable('@ViewBag.codigo'),
+                    ejeintervencionid: ko.observable('@ViewBag.ejeintervencionid')
+                    
                 };
 
                 self.listTelecentros = getJson('@Url.Content("~/api/General/Telecentros")');
                 self.list = ko.observableArray();
+                self.listEjeIntervencion = getJson('@Url.Content("~/api/General/EjeIntervencion02")');
+                self.listUsuario = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(ViewBag.ListUsuario));
 
                 self.foto = function (item) {
 
@@ -41,16 +44,15 @@
                     postJson('@Url.Content("~/api/Asistencia/Persona/SearchSimple")',
                             consulta,
                             function (data) {
-                            self.list(data);
-                        })
+                                self.list(data);
+                            })
                 }
 
                 self.delete = function (item) {
-                    if (confirm('¿Esta seguro de eliminar el registro?'))
-                    {
+                    if (confirm('¿Esta seguro de eliminar el registro?')) {
                         postJson('@Url.Content("~/api/Asistencia/Persona/Delete")', { id: item.id },
                         function () {
-                            
+
                             document.location.reload();
                         },
                         function () {
@@ -59,20 +61,18 @@
                     }
                 };
 
-                self.new = function (item)
-                {
+                self.new = function (item) {
                     document.location.href = '@Url.Action("Edit")';
                 };
 
-                self.modificar = function (item)
-                {
+                self.modificar = function (item) {
                     document.location.href = '@Url.Action("Edit")?id=' + item.id;
                 };
 
                 self.permiso = permiso;
             };
 
-            
+
             ko.applyBindings(new Model());
 
             $('#loading').hide();
@@ -149,6 +149,23 @@
                                 <button type="submit" style="cursor:pointer;">Buscar</button>
                             </td>
                         </tr>
+                        <tr>
+                            <td>
+                                RESPONSABLE
+                            </td>
+                            <td>
+                                @*@Html.koSelect("data.telecentroid", "$root.listTelecentros", requerido: false)*@
+                                @Html.koSelectV3("data.aud_usuariomod", "$root.listUsuario", enable: "true")
+                            </td>
+                            <td></td>
+                            <td>
+                                EJE DE INTERVENCION
+                            </td>
+                            
+                            <td>@Html.koSelect("data.ejeintervencionid", "$root.listEjeIntervencion")<font color="#000000"></font></td>
+                            </td>
+
+                        </tr>
                     </table>
                 </form>
             </fieldset>
@@ -179,8 +196,9 @@
             <th>NOMBRE</th>
             <th>DNI</th>
             <th>LOCALIDAD</th>
+            <th style="width: 160px">EJE DE INTERVENCION</th>
             <th>MB</th>
-            <th></th>
+            <th style="width: 60px"></th>
             <th></th>
             <th></th>
         </tr>
@@ -196,6 +214,7 @@
             <td data-bind="text: nombre"></td>
             <td style="text-align: center" data-bind="text: dni"></td>
             <td data-bind="text: telecentro"></td>
+            <td data-bind="text: ejeintervencion" style="text-align: center"></td>
             <td data-bind="text: fotomb"></td>
             <td style="text-align: center">
                 <button type="button" class="btn camara" title="Agregar foto" data-bind="click: $root.foto, enable: $root.permiso.modificar" />

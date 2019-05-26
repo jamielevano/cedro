@@ -60,6 +60,45 @@
               <TablixCornerCell />
               <TablixCornerCell>
                 <CellContents>
+                  <Textbox Name="Textbox4">
+                    <CanGrow>true</CanGrow>
+                    <KeepTogether>true</KeepTogether>
+                    <Paragraphs>
+                      <Paragraph>
+                        <TextRuns>
+                          <TextRun>
+                            <Value />
+                            <Style>
+                              <FontStyle>Normal</FontStyle>
+                              <FontFamily>Calibri</FontFamily>
+                              <FontWeight>Bold</FontWeight>
+                              <TextDecoration>None</TextDecoration>
+                              <Color>White</Color>
+                            </Style>
+                          </TextRun>
+                        </TextRuns>
+                        <Style>
+                          <TextAlign>Center</TextAlign>
+                        </Style>
+                      </Paragraph>
+                    </Paragraphs>
+                    <rd:DefaultName>Textbox4</rd:DefaultName>
+                    <Style>
+                      <Border>
+                        <Style>Solid</Style>
+                      </Border>
+                      <BackgroundColor>White</BackgroundColor>
+                      <VerticalAlign>Middle</VerticalAlign>
+                      <PaddingLeft>2pt</PaddingLeft>
+                      <PaddingRight>2pt</PaddingRight>
+                      <PaddingTop>2pt</PaddingTop>
+                      <PaddingBottom>2pt</PaddingBottom>
+                    </Style>
+                  </Textbox>
+                </CellContents>
+              </TablixCornerCell>
+              <TablixCornerCell>
+                <CellContents>
                   <Textbox Name="Textbox362">
                     <CanGrow>true</CanGrow>
                     <KeepTogether>true</KeepTogether>
@@ -448,6 +487,45 @@
                       </Paragraph>
                     </Paragraphs>
                     <rd:DefaultName>Textbox42</rd:DefaultName>
+                    <Style>
+                      <Border>
+                        <Style>Solid</Style>
+                      </Border>
+                      <BackgroundColor>MediumSeaGreen</BackgroundColor>
+                      <VerticalAlign>Middle</VerticalAlign>
+                      <PaddingLeft>2pt</PaddingLeft>
+                      <PaddingRight>2pt</PaddingRight>
+                      <PaddingTop>2pt</PaddingTop>
+                      <PaddingBottom>2pt</PaddingBottom>
+                    </Style>
+                  </Textbox>
+                </CellContents>
+              </TablixCornerCell>
+              <TablixCornerCell>
+                <CellContents>
+                  <Textbox Name="Textbox6">
+                    <CanGrow>true</CanGrow>
+                    <KeepTogether>true</KeepTogether>
+                    <Paragraphs>
+                      <Paragraph>
+                        <TextRuns>
+                          <TextRun>
+                            <Value>CAPACIONES</Value>
+                            <Style>
+                              <FontStyle>Normal</FontStyle>
+                              <FontFamily>Calibri</FontFamily>
+                              <FontWeight>Normal</FontWeight>
+                              <TextDecoration>None</TextDecoration>
+                              <Color>#ffffff</Color>
+                            </Style>
+                          </TextRun>
+                        </TextRuns>
+                        <Style>
+                          <TextAlign>Center</TextAlign>
+                        </Style>
+                      </Paragraph>
+                    </Paragraphs>
+                    <rd:DefaultName>Textbox6</rd:DefaultName>
                     <Style>
                       <Border>
                         <Style>Solid</Style>
@@ -1655,7 +1733,6 @@
                           <PaddingBottom>2pt</PaddingBottom>
                         </Style>
                       </Textbox>
-                      <rd:Selected>true</rd:Selected>
                     </CellContents>
                   </TablixHeader>
                 </TablixMember>
@@ -2013,18 +2090,19 @@
                                   <TablixMembers>
                                     <TablixMember>
                                       <TablixHeader>
-                                        <Size>1.10679cm</Size>
+                                        <Size>2.5cm</Size>
                                         <CellContents>
-                                          <Textbox Name="aprobo">
+                                          <Textbox Name="Textbox11">
                                             <CanGrow>true</CanGrow>
                                             <KeepTogether>true</KeepTogether>
                                             <Paragraphs>
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Fields!aprobo.Value</Value>
+                                                    <Value>=CountDistinct(Fields!configuracionid.Value)</Value>
                                                     <Style>
                                                       <FontFamily>Calibri</FontFamily>
+                                                      <FontWeight>Bold</FontWeight>
                                                     </Style>
                                                   </TextRun>
                                                 </TextRuns>
@@ -2033,7 +2111,7 @@
                                                 </Style>
                                               </Paragraph>
                                             </Paragraphs>
-                                            <rd:DefaultName>aprobo</rd:DefaultName>
+                                            <rd:DefaultName>Textbox11</rd:DefaultName>
                                             <Style>
                                               <Border>
                                                 <Style>Solid</Style>
@@ -2049,19 +2127,18 @@
                                       <TablixMembers>
                                         <TablixMember>
                                           <TablixHeader>
-                                            <Size>1.09411cm</Size>
+                                            <Size>1.10679cm</Size>
                                             <CellContents>
-                                              <Textbox Name="aproboh">
+                                              <Textbox Name="aprobo">
                                                 <CanGrow>true</CanGrow>
                                                 <KeepTogether>true</KeepTogether>
                                                 <Paragraphs>
                                                   <Paragraph>
                                                     <TextRuns>
                                                       <TextRun>
-                                                        <Value>=Fields!aproboh.Value</Value>
+                                                        <Value>=Fields!aprobo.Value</Value>
                                                         <Style>
                                                           <FontFamily>Calibri</FontFamily>
-                                                          <Format>0;(0)</Format>
                                                         </Style>
                                                       </TextRun>
                                                     </TextRuns>
@@ -2070,7 +2147,7 @@
                                                     </Style>
                                                   </Paragraph>
                                                 </Paragraphs>
-                                                <rd:DefaultName>aproboh</rd:DefaultName>
+                                                <rd:DefaultName>aprobo</rd:DefaultName>
                                                 <Style>
                                                   <Border>
                                                     <Style>Solid</Style>
@@ -2086,18 +2163,19 @@
                                           <TablixMembers>
                                             <TablixMember>
                                               <TablixHeader>
-                                                <Size>1.09771cm</Size>
+                                                <Size>1.09411cm</Size>
                                                 <CellContents>
-                                                  <Textbox Name="desaprobom">
+                                                  <Textbox Name="aproboh">
                                                     <CanGrow>true</CanGrow>
                                                     <KeepTogether>true</KeepTogether>
                                                     <Paragraphs>
                                                       <Paragraph>
                                                         <TextRuns>
                                                           <TextRun>
-                                                            <Value>=Fields!aprobom.Value</Value>
+                                                            <Value>=Fields!aproboh.Value</Value>
                                                             <Style>
                                                               <FontFamily>Calibri</FontFamily>
+                                                              <Format>0;(0)</Format>
                                                             </Style>
                                                           </TextRun>
                                                         </TextRuns>
@@ -2106,7 +2184,7 @@
                                                         </Style>
                                                       </Paragraph>
                                                     </Paragraphs>
-                                                    <rd:DefaultName>desaprobom</rd:DefaultName>
+                                                    <rd:DefaultName>aproboh</rd:DefaultName>
                                                     <Style>
                                                       <Border>
                                                         <Style>Solid</Style>
@@ -2122,19 +2200,18 @@
                                               <TablixMembers>
                                                 <TablixMember>
                                                   <TablixHeader>
-                                                    <Size>1.08791cm</Size>
+                                                    <Size>1.09771cm</Size>
                                                     <CellContents>
-                                                      <Textbox Name="desaprobo">
+                                                      <Textbox Name="desaprobom">
                                                         <CanGrow>true</CanGrow>
                                                         <KeepTogether>true</KeepTogether>
                                                         <Paragraphs>
                                                           <Paragraph>
                                                             <TextRuns>
                                                               <TextRun>
-                                                                <Value>=Fields!desaprobo.Value</Value>
+                                                                <Value>=Fields!aprobom.Value</Value>
                                                                 <Style>
                                                                   <FontFamily>Calibri</FontFamily>
-                                                                  <Format>0;(0)</Format>
                                                                 </Style>
                                                               </TextRun>
                                                             </TextRuns>
@@ -2143,7 +2220,7 @@
                                                             </Style>
                                                           </Paragraph>
                                                         </Paragraphs>
-                                                        <rd:DefaultName>desaprobo</rd:DefaultName>
+                                                        <rd:DefaultName>desaprobom</rd:DefaultName>
                                                         <Style>
                                                           <Border>
                                                             <Style>Solid</Style>
@@ -2159,18 +2236,19 @@
                                                   <TablixMembers>
                                                     <TablixMember>
                                                       <TablixHeader>
-                                                        <Size>0.99548cm</Size>
+                                                        <Size>1.08791cm</Size>
                                                         <CellContents>
-                                                          <Textbox Name="desaproboh">
+                                                          <Textbox Name="desaprobo">
                                                             <CanGrow>true</CanGrow>
                                                             <KeepTogether>true</KeepTogether>
                                                             <Paragraphs>
                                                               <Paragraph>
                                                                 <TextRuns>
                                                                   <TextRun>
-                                                                    <Value>=Fields!desaproboh.Value</Value>
+                                                                    <Value>=Fields!desaprobo.Value</Value>
                                                                     <Style>
                                                                       <FontFamily>Calibri</FontFamily>
+                                                                      <Format>0;(0)</Format>
                                                                     </Style>
                                                                   </TextRun>
                                                                 </TextRuns>
@@ -2179,7 +2257,7 @@
                                                                 </Style>
                                                               </Paragraph>
                                                             </Paragraphs>
-                                                            <rd:DefaultName>desaproboh</rd:DefaultName>
+                                                            <rd:DefaultName>desaprobo</rd:DefaultName>
                                                             <Style>
                                                               <Border>
                                                                 <Style>Solid</Style>
@@ -2195,16 +2273,16 @@
                                                       <TablixMembers>
                                                         <TablixMember>
                                                           <TablixHeader>
-                                                            <Size>1.0448cm</Size>
+                                                            <Size>0.99548cm</Size>
                                                             <CellContents>
-                                                              <Textbox Name="desaprobom1">
+                                                              <Textbox Name="desaproboh">
                                                                 <CanGrow>true</CanGrow>
                                                                 <KeepTogether>true</KeepTogether>
                                                                 <Paragraphs>
                                                                   <Paragraph>
                                                                     <TextRuns>
                                                                       <TextRun>
-                                                                        <Value>=Fields!desaprobom.Value</Value>
+                                                                        <Value>=Fields!desaproboh.Value</Value>
                                                                         <Style>
                                                                           <FontFamily>Calibri</FontFamily>
                                                                         </Style>
@@ -2215,7 +2293,7 @@
                                                                     </Style>
                                                                   </Paragraph>
                                                                 </Paragraphs>
-                                                                <rd:DefaultName>desaprobom1</rd:DefaultName>
+                                                                <rd:DefaultName>desaproboh</rd:DefaultName>
                                                                 <Style>
                                                                   <Border>
                                                                     <Style>Solid</Style>
@@ -2231,19 +2309,18 @@
                                                           <TablixMembers>
                                                             <TablixMember>
                                                               <TablixHeader>
-                                                                <Size>1.16056cm</Size>
+                                                                <Size>1.0448cm</Size>
                                                                 <CellContents>
-                                                                  <Textbox Name="desaprobo2">
+                                                                  <Textbox Name="desaprobom1">
                                                                     <CanGrow>true</CanGrow>
                                                                     <KeepTogether>true</KeepTogether>
                                                                     <Paragraphs>
                                                                       <Paragraph>
                                                                         <TextRuns>
                                                                           <TextRun>
-                                                                            <Value>=Fields!retiro.Value</Value>
+                                                                            <Value>=Fields!desaprobom.Value</Value>
                                                                             <Style>
                                                                               <FontFamily>Calibri</FontFamily>
-                                                                              <Format>0;(0)</Format>
                                                                             </Style>
                                                                           </TextRun>
                                                                         </TextRuns>
@@ -2252,7 +2329,7 @@
                                                                         </Style>
                                                                       </Paragraph>
                                                                     </Paragraphs>
-                                                                    <rd:DefaultName>desaprobo</rd:DefaultName>
+                                                                    <rd:DefaultName>desaprobom1</rd:DefaultName>
                                                                     <Style>
                                                                       <Border>
                                                                         <Style>Solid</Style>
@@ -2268,18 +2345,19 @@
                                                               <TablixMembers>
                                                                 <TablixMember>
                                                                   <TablixHeader>
-                                                                    <Size>1.07125cm</Size>
+                                                                    <Size>1.16056cm</Size>
                                                                     <CellContents>
-                                                                      <Textbox Name="desaproboh2">
+                                                                      <Textbox Name="desaprobo2">
                                                                         <CanGrow>true</CanGrow>
                                                                         <KeepTogether>true</KeepTogether>
                                                                         <Paragraphs>
                                                                           <Paragraph>
                                                                             <TextRuns>
                                                                               <TextRun>
-                                                                                <Value>=Fields!retiroh.Value</Value>
+                                                                                <Value>=Fields!retiro.Value</Value>
                                                                                 <Style>
                                                                                   <FontFamily>Calibri</FontFamily>
+                                                                                  <Format>0;(0)</Format>
                                                                                 </Style>
                                                                               </TextRun>
                                                                             </TextRuns>
@@ -2288,7 +2366,7 @@
                                                                             </Style>
                                                                           </Paragraph>
                                                                         </Paragraphs>
-                                                                        <rd:DefaultName>desaproboh</rd:DefaultName>
+                                                                        <rd:DefaultName>desaprobo</rd:DefaultName>
                                                                         <Style>
                                                                           <Border>
                                                                             <Style>Solid</Style>
@@ -2304,16 +2382,16 @@
                                                                   <TablixMembers>
                                                                     <TablixMember>
                                                                       <TablixHeader>
-                                                                        <Size>1.17708cm</Size>
+                                                                        <Size>1.07125cm</Size>
                                                                         <CellContents>
-                                                                          <Textbox Name="desaprobom3">
+                                                                          <Textbox Name="desaproboh2">
                                                                             <CanGrow>true</CanGrow>
                                                                             <KeepTogether>true</KeepTogether>
                                                                             <Paragraphs>
                                                                               <Paragraph>
                                                                                 <TextRuns>
                                                                                   <TextRun>
-                                                                                    <Value>=Fields!retirom.Value</Value>
+                                                                                    <Value>=Fields!retiroh.Value</Value>
                                                                                     <Style>
                                                                                       <FontFamily>Calibri</FontFamily>
                                                                                     </Style>
@@ -2324,7 +2402,7 @@
                                                                                 </Style>
                                                                               </Paragraph>
                                                                             </Paragraphs>
-                                                                            <rd:DefaultName>desaprobom1</rd:DefaultName>
+                                                                            <rd:DefaultName>desaproboh</rd:DefaultName>
                                                                             <Style>
                                                                               <Border>
                                                                                 <Style>Solid</Style>
@@ -2338,7 +2416,45 @@
                                                                         </CellContents>
                                                                       </TablixHeader>
                                                                       <TablixMembers>
-                                                                        <TablixMember />
+                                                                        <TablixMember>
+                                                                          <TablixHeader>
+                                                                            <Size>1.17708cm</Size>
+                                                                            <CellContents>
+                                                                              <Textbox Name="desaprobom3">
+                                                                                <CanGrow>true</CanGrow>
+                                                                                <KeepTogether>true</KeepTogether>
+                                                                                <Paragraphs>
+                                                                                  <Paragraph>
+                                                                                    <TextRuns>
+                                                                                      <TextRun>
+                                                                                        <Value>=Fields!retirom.Value</Value>
+                                                                                        <Style>
+                                                                                          <FontFamily>Calibri</FontFamily>
+                                                                                        </Style>
+                                                                                      </TextRun>
+                                                                                    </TextRuns>
+                                                                                    <Style>
+                                                                                      <TextAlign>Center</TextAlign>
+                                                                                    </Style>
+                                                                                  </Paragraph>
+                                                                                </Paragraphs>
+                                                                                <rd:DefaultName>desaprobom1</rd:DefaultName>
+                                                                                <Style>
+                                                                                  <Border>
+                                                                                    <Style>Solid</Style>
+                                                                                  </Border>
+                                                                                  <PaddingLeft>2pt</PaddingLeft>
+                                                                                  <PaddingRight>2pt</PaddingRight>
+                                                                                  <PaddingTop>2pt</PaddingTop>
+                                                                                  <PaddingBottom>2pt</PaddingBottom>
+                                                                                </Style>
+                                                                              </Textbox>
+                                                                            </CellContents>
+                                                                          </TablixHeader>
+                                                                          <TablixMembers>
+                                                                            <TablixMember />
+                                                                          </TablixMembers>
+                                                                        </TablixMember>
                                                                       </TablixMembers>
                                                                     </TablixMember>
                                                                   </TablixMembers>
@@ -2422,16 +2538,16 @@
                           <TablixMembers>
                             <TablixMember>
                               <TablixHeader>
-                                <Size>1.10679cm</Size>
+                                <Size>2.5cm</Size>
                                 <CellContents>
-                                  <Textbox Name="aprobo5">
+                                  <Textbox Name="Textbox13">
                                     <CanGrow>true</CanGrow>
                                     <KeepTogether>true</KeepTogether>
                                     <Paragraphs>
                                       <Paragraph>
                                         <TextRuns>
                                           <TextRun>
-                                            <Value>=Sum(Fields!aprobo.Value)</Value>
+                                            <Value>=CountDistinct(Fields!configuracionid.Value)</Value>
                                             <Style>
                                               <FontFamily>Calibri</FontFamily>
                                               <FontWeight>Bold</FontWeight>
@@ -2443,7 +2559,7 @@
                                         </Style>
                                       </Paragraph>
                                     </Paragraphs>
-                                    <rd:DefaultName>aprobo</rd:DefaultName>
+                                    <rd:DefaultName>Textbox13</rd:DefaultName>
                                     <Style>
                                       <Border>
                                         <Style>Solid</Style>
@@ -2459,20 +2575,19 @@
                               <TablixMembers>
                                 <TablixMember>
                                   <TablixHeader>
-                                    <Size>1.09411cm</Size>
+                                    <Size>1.10679cm</Size>
                                     <CellContents>
-                                      <Textbox Name="aproboh5">
+                                      <Textbox Name="aprobo5">
                                         <CanGrow>true</CanGrow>
                                         <KeepTogether>true</KeepTogether>
                                         <Paragraphs>
                                           <Paragraph>
                                             <TextRuns>
                                               <TextRun>
-                                                <Value>=Sum(Fields!aproboh.Value)</Value>
+                                                <Value>=Sum(Fields!aprobo.Value)</Value>
                                                 <Style>
                                                   <FontFamily>Calibri</FontFamily>
                                                   <FontWeight>Bold</FontWeight>
-                                                  <Format>0;(0)</Format>
                                                 </Style>
                                               </TextRun>
                                             </TextRuns>
@@ -2481,7 +2596,7 @@
                                             </Style>
                                           </Paragraph>
                                         </Paragraphs>
-                                        <rd:DefaultName>aproboh</rd:DefaultName>
+                                        <rd:DefaultName>aprobo</rd:DefaultName>
                                         <Style>
                                           <Border>
                                             <Style>Solid</Style>
@@ -2497,19 +2612,20 @@
                                   <TablixMembers>
                                     <TablixMember>
                                       <TablixHeader>
-                                        <Size>1.09771cm</Size>
+                                        <Size>1.09411cm</Size>
                                         <CellContents>
-                                          <Textbox Name="desaprobom12">
+                                          <Textbox Name="aproboh5">
                                             <CanGrow>true</CanGrow>
                                             <KeepTogether>true</KeepTogether>
                                             <Paragraphs>
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Sum(Fields!aprobom.Value)</Value>
+                                                    <Value>=Sum(Fields!aproboh.Value)</Value>
                                                     <Style>
                                                       <FontFamily>Calibri</FontFamily>
                                                       <FontWeight>Bold</FontWeight>
+                                                      <Format>0;(0)</Format>
                                                     </Style>
                                                   </TextRun>
                                                 </TextRuns>
@@ -2518,7 +2634,7 @@
                                                 </Style>
                                               </Paragraph>
                                             </Paragraphs>
-                                            <rd:DefaultName>desaprobom</rd:DefaultName>
+                                            <rd:DefaultName>aproboh</rd:DefaultName>
                                             <Style>
                                               <Border>
                                                 <Style>Solid</Style>
@@ -2534,20 +2650,19 @@
                                       <TablixMembers>
                                         <TablixMember>
                                           <TablixHeader>
-                                            <Size>1.08791cm</Size>
+                                            <Size>1.09771cm</Size>
                                             <CellContents>
-                                              <Textbox Name="desaprobo9">
+                                              <Textbox Name="desaprobom12">
                                                 <CanGrow>true</CanGrow>
                                                 <KeepTogether>true</KeepTogether>
                                                 <Paragraphs>
                                                   <Paragraph>
                                                     <TextRuns>
                                                       <TextRun>
-                                                        <Value>=Sum(Fields!desaprobo.Value)</Value>
+                                                        <Value>=Sum(Fields!aprobom.Value)</Value>
                                                         <Style>
                                                           <FontFamily>Calibri</FontFamily>
                                                           <FontWeight>Bold</FontWeight>
-                                                          <Format>0;(0)</Format>
                                                         </Style>
                                                       </TextRun>
                                                     </TextRuns>
@@ -2556,7 +2671,7 @@
                                                     </Style>
                                                   </Paragraph>
                                                 </Paragraphs>
-                                                <rd:DefaultName>desaprobo</rd:DefaultName>
+                                                <rd:DefaultName>desaprobom</rd:DefaultName>
                                                 <Style>
                                                   <Border>
                                                     <Style>Solid</Style>
@@ -2572,19 +2687,20 @@
                                           <TablixMembers>
                                             <TablixMember>
                                               <TablixHeader>
-                                                <Size>0.99548cm</Size>
+                                                <Size>1.08791cm</Size>
                                                 <CellContents>
-                                                  <Textbox Name="desaproboh9">
+                                                  <Textbox Name="desaprobo9">
                                                     <CanGrow>true</CanGrow>
                                                     <KeepTogether>true</KeepTogether>
                                                     <Paragraphs>
                                                       <Paragraph>
                                                         <TextRuns>
                                                           <TextRun>
-                                                            <Value>=Sum(Fields!desaproboh.Value)</Value>
+                                                            <Value>=Sum(Fields!desaprobo.Value)</Value>
                                                             <Style>
                                                               <FontFamily>Calibri</FontFamily>
                                                               <FontWeight>Bold</FontWeight>
+                                                              <Format>0;(0)</Format>
                                                             </Style>
                                                           </TextRun>
                                                         </TextRuns>
@@ -2593,7 +2709,7 @@
                                                         </Style>
                                                       </Paragraph>
                                                     </Paragraphs>
-                                                    <rd:DefaultName>desaproboh</rd:DefaultName>
+                                                    <rd:DefaultName>desaprobo</rd:DefaultName>
                                                     <Style>
                                                       <Border>
                                                         <Style>Solid</Style>
@@ -2609,16 +2725,16 @@
                                               <TablixMembers>
                                                 <TablixMember>
                                                   <TablixHeader>
-                                                    <Size>1.0448cm</Size>
+                                                    <Size>0.99548cm</Size>
                                                     <CellContents>
-                                                      <Textbox Name="desaprobom13">
+                                                      <Textbox Name="desaproboh9">
                                                         <CanGrow>true</CanGrow>
                                                         <KeepTogether>true</KeepTogether>
                                                         <Paragraphs>
                                                           <Paragraph>
                                                             <TextRuns>
                                                               <TextRun>
-                                                                <Value>=Sum(Fields!desaprobom.Value)</Value>
+                                                                <Value>=Sum(Fields!desaproboh.Value)</Value>
                                                                 <Style>
                                                                   <FontFamily>Calibri</FontFamily>
                                                                   <FontWeight>Bold</FontWeight>
@@ -2630,7 +2746,7 @@
                                                             </Style>
                                                           </Paragraph>
                                                         </Paragraphs>
-                                                        <rd:DefaultName>desaprobom1</rd:DefaultName>
+                                                        <rd:DefaultName>desaproboh</rd:DefaultName>
                                                         <Style>
                                                           <Border>
                                                             <Style>Solid</Style>
@@ -2646,20 +2762,19 @@
                                                   <TablixMembers>
                                                     <TablixMember>
                                                       <TablixHeader>
-                                                        <Size>1.16056cm</Size>
+                                                        <Size>1.0448cm</Size>
                                                         <CellContents>
-                                                          <Textbox Name="desaprobo10">
+                                                          <Textbox Name="desaprobom13">
                                                             <CanGrow>true</CanGrow>
                                                             <KeepTogether>true</KeepTogether>
                                                             <Paragraphs>
                                                               <Paragraph>
                                                                 <TextRuns>
                                                                   <TextRun>
-                                                                    <Value>=Sum(Fields!retiro.Value)</Value>
+                                                                    <Value>=Sum(Fields!desaprobom.Value)</Value>
                                                                     <Style>
                                                                       <FontFamily>Calibri</FontFamily>
                                                                       <FontWeight>Bold</FontWeight>
-                                                                      <Format>0;(0)</Format>
                                                                     </Style>
                                                                   </TextRun>
                                                                 </TextRuns>
@@ -2668,7 +2783,7 @@
                                                                 </Style>
                                                               </Paragraph>
                                                             </Paragraphs>
-                                                            <rd:DefaultName>desaprobo</rd:DefaultName>
+                                                            <rd:DefaultName>desaprobom1</rd:DefaultName>
                                                             <Style>
                                                               <Border>
                                                                 <Style>Solid</Style>
@@ -2684,19 +2799,20 @@
                                                       <TablixMembers>
                                                         <TablixMember>
                                                           <TablixHeader>
-                                                            <Size>1.07125cm</Size>
+                                                            <Size>1.16056cm</Size>
                                                             <CellContents>
-                                                              <Textbox Name="desaproboh10">
+                                                              <Textbox Name="desaprobo10">
                                                                 <CanGrow>true</CanGrow>
                                                                 <KeepTogether>true</KeepTogether>
                                                                 <Paragraphs>
                                                                   <Paragraph>
                                                                     <TextRuns>
                                                                       <TextRun>
-                                                                        <Value>=Sum(Fields!retiroh.Value)</Value>
+                                                                        <Value>=Sum(Fields!retiro.Value)</Value>
                                                                         <Style>
                                                                           <FontFamily>Calibri</FontFamily>
                                                                           <FontWeight>Bold</FontWeight>
+                                                                          <Format>0;(0)</Format>
                                                                         </Style>
                                                                       </TextRun>
                                                                     </TextRuns>
@@ -2705,7 +2821,7 @@
                                                                     </Style>
                                                                   </Paragraph>
                                                                 </Paragraphs>
-                                                                <rd:DefaultName>desaproboh</rd:DefaultName>
+                                                                <rd:DefaultName>desaprobo</rd:DefaultName>
                                                                 <Style>
                                                                   <Border>
                                                                     <Style>Solid</Style>
@@ -2721,16 +2837,16 @@
                                                           <TablixMembers>
                                                             <TablixMember>
                                                               <TablixHeader>
-                                                                <Size>1.17708cm</Size>
+                                                                <Size>1.07125cm</Size>
                                                                 <CellContents>
-                                                                  <Textbox Name="desaprobom14">
+                                                                  <Textbox Name="desaproboh10">
                                                                     <CanGrow>true</CanGrow>
                                                                     <KeepTogether>true</KeepTogether>
                                                                     <Paragraphs>
                                                                       <Paragraph>
                                                                         <TextRuns>
                                                                           <TextRun>
-                                                                            <Value>=Sum(Fields!retirom.Value)</Value>
+                                                                            <Value>=Sum(Fields!retiroh.Value)</Value>
                                                                             <Style>
                                                                               <FontFamily>Calibri</FontFamily>
                                                                               <FontWeight>Bold</FontWeight>
@@ -2742,7 +2858,7 @@
                                                                         </Style>
                                                                       </Paragraph>
                                                                     </Paragraphs>
-                                                                    <rd:DefaultName>desaprobom1</rd:DefaultName>
+                                                                    <rd:DefaultName>desaproboh</rd:DefaultName>
                                                                     <Style>
                                                                       <Border>
                                                                         <Style>Solid</Style>
@@ -2755,6 +2871,45 @@
                                                                   </Textbox>
                                                                 </CellContents>
                                                               </TablixHeader>
+                                                              <TablixMembers>
+                                                                <TablixMember>
+                                                                  <TablixHeader>
+                                                                    <Size>1.17708cm</Size>
+                                                                    <CellContents>
+                                                                      <Textbox Name="desaprobom14">
+                                                                        <CanGrow>true</CanGrow>
+                                                                        <KeepTogether>true</KeepTogether>
+                                                                        <Paragraphs>
+                                                                          <Paragraph>
+                                                                            <TextRuns>
+                                                                              <TextRun>
+                                                                                <Value>=Sum(Fields!retirom.Value)</Value>
+                                                                                <Style>
+                                                                                  <FontFamily>Calibri</FontFamily>
+                                                                                  <FontWeight>Bold</FontWeight>
+                                                                                </Style>
+                                                                              </TextRun>
+                                                                            </TextRuns>
+                                                                            <Style>
+                                                                              <TextAlign>Center</TextAlign>
+                                                                            </Style>
+                                                                          </Paragraph>
+                                                                        </Paragraphs>
+                                                                        <rd:DefaultName>desaprobom1</rd:DefaultName>
+                                                                        <Style>
+                                                                          <Border>
+                                                                            <Style>Solid</Style>
+                                                                          </Border>
+                                                                          <PaddingLeft>2pt</PaddingLeft>
+                                                                          <PaddingRight>2pt</PaddingRight>
+                                                                          <PaddingTop>2pt</PaddingTop>
+                                                                          <PaddingBottom>2pt</PaddingBottom>
+                                                                        </Style>
+                                                                      </Textbox>
+                                                                    </CellContents>
+                                                                  </TablixHeader>
+                                                                </TablixMember>
+                                                              </TablixMembers>
                                                             </TablixMember>
                                                           </TablixMembers>
                                                         </TablixMember>
@@ -2836,16 +2991,16 @@
                       <TablixMembers>
                         <TablixMember>
                           <TablixHeader>
-                            <Size>1.10679cm</Size>
+                            <Size>2.5cm</Size>
                             <CellContents>
-                              <Textbox Name="aprobo2">
+                              <Textbox Name="Textbox22">
                                 <CanGrow>true</CanGrow>
                                 <KeepTogether>true</KeepTogether>
                                 <Paragraphs>
                                   <Paragraph>
                                     <TextRuns>
                                       <TextRun>
-                                        <Value>=SUM(Fields!aprobo.Value)</Value>
+                                        <Value>=CountDistinct(Fields!configuracionid.Value)</Value>
                                         <Style>
                                           <FontFamily>Calibri</FontFamily>
                                           <FontWeight>Bold</FontWeight>
@@ -2857,7 +3012,7 @@
                                     </Style>
                                   </Paragraph>
                                 </Paragraphs>
-                                <rd:DefaultName>aprobo</rd:DefaultName>
+                                <rd:DefaultName>Textbox22</rd:DefaultName>
                                 <Style>
                                   <Border>
                                     <Style>Solid</Style>
@@ -2873,20 +3028,19 @@
                           <TablixMembers>
                             <TablixMember>
                               <TablixHeader>
-                                <Size>1.09411cm</Size>
+                                <Size>1.10679cm</Size>
                                 <CellContents>
-                                  <Textbox Name="aproboh2">
+                                  <Textbox Name="aprobo2">
                                     <CanGrow>true</CanGrow>
                                     <KeepTogether>true</KeepTogether>
                                     <Paragraphs>
                                       <Paragraph>
                                         <TextRuns>
                                           <TextRun>
-                                            <Value>=SUM(Fields!aproboh.Value)</Value>
+                                            <Value>=SUM(Fields!aprobo.Value)</Value>
                                             <Style>
                                               <FontFamily>Calibri</FontFamily>
                                               <FontWeight>Bold</FontWeight>
-                                              <Format>0;(0)</Format>
                                             </Style>
                                           </TextRun>
                                         </TextRuns>
@@ -2895,7 +3049,7 @@
                                         </Style>
                                       </Paragraph>
                                     </Paragraphs>
-                                    <rd:DefaultName>aproboh</rd:DefaultName>
+                                    <rd:DefaultName>aprobo</rd:DefaultName>
                                     <Style>
                                       <Border>
                                         <Style>Solid</Style>
@@ -2911,19 +3065,20 @@
                               <TablixMembers>
                                 <TablixMember>
                                   <TablixHeader>
-                                    <Size>1.09771cm</Size>
+                                    <Size>1.09411cm</Size>
                                     <CellContents>
-                                      <Textbox Name="desaprobom2">
+                                      <Textbox Name="aproboh2">
                                         <CanGrow>true</CanGrow>
                                         <KeepTogether>true</KeepTogether>
                                         <Paragraphs>
                                           <Paragraph>
                                             <TextRuns>
                                               <TextRun>
-                                                <Value>=SUM(Fields!aprobom.Value)</Value>
+                                                <Value>=SUM(Fields!aproboh.Value)</Value>
                                                 <Style>
                                                   <FontFamily>Calibri</FontFamily>
                                                   <FontWeight>Bold</FontWeight>
+                                                  <Format>0;(0)</Format>
                                                 </Style>
                                               </TextRun>
                                             </TextRuns>
@@ -2932,7 +3087,7 @@
                                             </Style>
                                           </Paragraph>
                                         </Paragraphs>
-                                        <rd:DefaultName>desaprobom</rd:DefaultName>
+                                        <rd:DefaultName>aproboh</rd:DefaultName>
                                         <Style>
                                           <Border>
                                             <Style>Solid</Style>
@@ -2948,20 +3103,19 @@
                                   <TablixMembers>
                                     <TablixMember>
                                       <TablixHeader>
-                                        <Size>1.08791cm</Size>
+                                        <Size>1.09771cm</Size>
                                         <CellContents>
-                                          <Textbox Name="desaprobo3">
+                                          <Textbox Name="desaprobom2">
                                             <CanGrow>true</CanGrow>
                                             <KeepTogether>true</KeepTogether>
                                             <Paragraphs>
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=SUM(Fields!desaprobo.Value)</Value>
+                                                    <Value>=SUM(Fields!aprobom.Value)</Value>
                                                     <Style>
                                                       <FontFamily>Calibri</FontFamily>
                                                       <FontWeight>Bold</FontWeight>
-                                                      <Format>0;(0)</Format>
                                                     </Style>
                                                   </TextRun>
                                                 </TextRuns>
@@ -2970,7 +3124,7 @@
                                                 </Style>
                                               </Paragraph>
                                             </Paragraphs>
-                                            <rd:DefaultName>desaprobo</rd:DefaultName>
+                                            <rd:DefaultName>desaprobom</rd:DefaultName>
                                             <Style>
                                               <Border>
                                                 <Style>Solid</Style>
@@ -2986,19 +3140,20 @@
                                       <TablixMembers>
                                         <TablixMember>
                                           <TablixHeader>
-                                            <Size>0.99548cm</Size>
+                                            <Size>1.08791cm</Size>
                                             <CellContents>
-                                              <Textbox Name="desaproboh3">
+                                              <Textbox Name="desaprobo3">
                                                 <CanGrow>true</CanGrow>
                                                 <KeepTogether>true</KeepTogether>
                                                 <Paragraphs>
                                                   <Paragraph>
                                                     <TextRuns>
                                                       <TextRun>
-                                                        <Value>=SUM(Fields!desaproboh.Value)</Value>
+                                                        <Value>=SUM(Fields!desaprobo.Value)</Value>
                                                         <Style>
                                                           <FontFamily>Calibri</FontFamily>
                                                           <FontWeight>Bold</FontWeight>
+                                                          <Format>0;(0)</Format>
                                                         </Style>
                                                       </TextRun>
                                                     </TextRuns>
@@ -3007,7 +3162,7 @@
                                                     </Style>
                                                   </Paragraph>
                                                 </Paragraphs>
-                                                <rd:DefaultName>desaproboh</rd:DefaultName>
+                                                <rd:DefaultName>desaprobo</rd:DefaultName>
                                                 <Style>
                                                   <Border>
                                                     <Style>Solid</Style>
@@ -3023,16 +3178,16 @@
                                           <TablixMembers>
                                             <TablixMember>
                                               <TablixHeader>
-                                                <Size>1.0448cm</Size>
+                                                <Size>0.99548cm</Size>
                                                 <CellContents>
-                                                  <Textbox Name="desaprobom5">
+                                                  <Textbox Name="desaproboh3">
                                                     <CanGrow>true</CanGrow>
                                                     <KeepTogether>true</KeepTogether>
                                                     <Paragraphs>
                                                       <Paragraph>
                                                         <TextRuns>
                                                           <TextRun>
-                                                            <Value>=SUM(Fields!desaprobom.Value)</Value>
+                                                            <Value>=SUM(Fields!desaproboh.Value)</Value>
                                                             <Style>
                                                               <FontFamily>Calibri</FontFamily>
                                                               <FontWeight>Bold</FontWeight>
@@ -3044,7 +3199,7 @@
                                                         </Style>
                                                       </Paragraph>
                                                     </Paragraphs>
-                                                    <rd:DefaultName>desaprobom1</rd:DefaultName>
+                                                    <rd:DefaultName>desaproboh</rd:DefaultName>
                                                     <Style>
                                                       <Border>
                                                         <Style>Solid</Style>
@@ -3060,20 +3215,19 @@
                                               <TablixMembers>
                                                 <TablixMember>
                                                   <TablixHeader>
-                                                    <Size>1.16056cm</Size>
+                                                    <Size>1.0448cm</Size>
                                                     <CellContents>
-                                                      <Textbox Name="desaprobo6">
+                                                      <Textbox Name="desaprobom5">
                                                         <CanGrow>true</CanGrow>
                                                         <KeepTogether>true</KeepTogether>
                                                         <Paragraphs>
                                                           <Paragraph>
                                                             <TextRuns>
                                                               <TextRun>
-                                                                <Value>=SUM(Fields!retiro.Value)</Value>
+                                                                <Value>=SUM(Fields!desaprobom.Value)</Value>
                                                                 <Style>
                                                                   <FontFamily>Calibri</FontFamily>
                                                                   <FontWeight>Bold</FontWeight>
-                                                                  <Format>0;(0)</Format>
                                                                 </Style>
                                                               </TextRun>
                                                             </TextRuns>
@@ -3082,7 +3236,7 @@
                                                             </Style>
                                                           </Paragraph>
                                                         </Paragraphs>
-                                                        <rd:DefaultName>desaprobo</rd:DefaultName>
+                                                        <rd:DefaultName>desaprobom1</rd:DefaultName>
                                                         <Style>
                                                           <Border>
                                                             <Style>Solid</Style>
@@ -3098,19 +3252,20 @@
                                                   <TablixMembers>
                                                     <TablixMember>
                                                       <TablixHeader>
-                                                        <Size>1.07125cm</Size>
+                                                        <Size>1.16056cm</Size>
                                                         <CellContents>
-                                                          <Textbox Name="desaproboh6">
+                                                          <Textbox Name="desaprobo6">
                                                             <CanGrow>true</CanGrow>
                                                             <KeepTogether>true</KeepTogether>
                                                             <Paragraphs>
                                                               <Paragraph>
                                                                 <TextRuns>
                                                                   <TextRun>
-                                                                    <Value>=SUM(Fields!retiroh.Value)</Value>
+                                                                    <Value>=SUM(Fields!retiro.Value)</Value>
                                                                     <Style>
                                                                       <FontFamily>Calibri</FontFamily>
                                                                       <FontWeight>Bold</FontWeight>
+                                                                      <Format>0;(0)</Format>
                                                                     </Style>
                                                                   </TextRun>
                                                                 </TextRuns>
@@ -3119,7 +3274,7 @@
                                                                 </Style>
                                                               </Paragraph>
                                                             </Paragraphs>
-                                                            <rd:DefaultName>desaproboh</rd:DefaultName>
+                                                            <rd:DefaultName>desaprobo</rd:DefaultName>
                                                             <Style>
                                                               <Border>
                                                                 <Style>Solid</Style>
@@ -3135,16 +3290,16 @@
                                                       <TablixMembers>
                                                         <TablixMember>
                                                           <TablixHeader>
-                                                            <Size>1.17708cm</Size>
+                                                            <Size>1.07125cm</Size>
                                                             <CellContents>
-                                                              <Textbox Name="desaprobom7">
+                                                              <Textbox Name="desaproboh6">
                                                                 <CanGrow>true</CanGrow>
                                                                 <KeepTogether>true</KeepTogether>
                                                                 <Paragraphs>
                                                                   <Paragraph>
                                                                     <TextRuns>
                                                                       <TextRun>
-                                                                        <Value>=SUM(Fields!retirom.Value)</Value>
+                                                                        <Value>=SUM(Fields!retiroh.Value)</Value>
                                                                         <Style>
                                                                           <FontFamily>Calibri</FontFamily>
                                                                           <FontWeight>Bold</FontWeight>
@@ -3156,7 +3311,7 @@
                                                                     </Style>
                                                                   </Paragraph>
                                                                 </Paragraphs>
-                                                                <rd:DefaultName>desaprobom1</rd:DefaultName>
+                                                                <rd:DefaultName>desaproboh</rd:DefaultName>
                                                                 <Style>
                                                                   <Border>
                                                                     <Style>Solid</Style>
@@ -3170,7 +3325,46 @@
                                                             </CellContents>
                                                           </TablixHeader>
                                                           <TablixMembers>
-                                                            <TablixMember />
+                                                            <TablixMember>
+                                                              <TablixHeader>
+                                                                <Size>1.17708cm</Size>
+                                                                <CellContents>
+                                                                  <Textbox Name="desaprobom7">
+                                                                    <CanGrow>true</CanGrow>
+                                                                    <KeepTogether>true</KeepTogether>
+                                                                    <Paragraphs>
+                                                                      <Paragraph>
+                                                                        <TextRuns>
+                                                                          <TextRun>
+                                                                            <Value>=SUM(Fields!retirom.Value)</Value>
+                                                                            <Style>
+                                                                              <FontFamily>Calibri</FontFamily>
+                                                                              <FontWeight>Bold</FontWeight>
+                                                                            </Style>
+                                                                          </TextRun>
+                                                                        </TextRuns>
+                                                                        <Style>
+                                                                          <TextAlign>Center</TextAlign>
+                                                                        </Style>
+                                                                      </Paragraph>
+                                                                    </Paragraphs>
+                                                                    <rd:DefaultName>desaprobom1</rd:DefaultName>
+                                                                    <Style>
+                                                                      <Border>
+                                                                        <Style>Solid</Style>
+                                                                      </Border>
+                                                                      <PaddingLeft>2pt</PaddingLeft>
+                                                                      <PaddingRight>2pt</PaddingRight>
+                                                                      <PaddingTop>2pt</PaddingTop>
+                                                                      <PaddingBottom>2pt</PaddingBottom>
+                                                                    </Style>
+                                                                  </Textbox>
+                                                                </CellContents>
+                                                              </TablixHeader>
+                                                              <TablixMembers>
+                                                                <TablixMember />
+                                                              </TablixMembers>
+                                                            </TablixMember>
                                                           </TablixMembers>
                                                         </TablixMember>
                                                       </TablixMembers>
@@ -3253,16 +3447,16 @@
                   <TablixMembers>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>1.10679cm</Size>
+                        <Size>2.5cm</Size>
                         <CellContents>
-                          <Textbox Name="aprobo3">
+                          <Textbox Name="Textbox26">
                             <CanGrow>true</CanGrow>
                             <KeepTogether>true</KeepTogether>
                             <Paragraphs>
                               <Paragraph>
                                 <TextRuns>
                                   <TextRun>
-                                    <Value>=Sum(Fields!aprobo.Value)</Value>
+                                    <Value>=CountDistinct(Fields!configuracionid.Value)</Value>
                                     <Style>
                                       <FontFamily>Calibri</FontFamily>
                                       <FontWeight>Bold</FontWeight>
@@ -3274,7 +3468,7 @@
                                 </Style>
                               </Paragraph>
                             </Paragraphs>
-                            <rd:DefaultName>aprobo</rd:DefaultName>
+                            <rd:DefaultName>Textbox26</rd:DefaultName>
                             <Style>
                               <Border>
                                 <Style>Solid</Style>
@@ -3290,20 +3484,19 @@
                       <TablixMembers>
                         <TablixMember>
                           <TablixHeader>
-                            <Size>1.09411cm</Size>
+                            <Size>1.10679cm</Size>
                             <CellContents>
-                              <Textbox Name="aproboh3">
+                              <Textbox Name="aprobo3">
                                 <CanGrow>true</CanGrow>
                                 <KeepTogether>true</KeepTogether>
                                 <Paragraphs>
                                   <Paragraph>
                                     <TextRuns>
                                       <TextRun>
-                                        <Value>=Sum(Fields!aproboh.Value)</Value>
+                                        <Value>=Sum(Fields!aprobo.Value)</Value>
                                         <Style>
                                           <FontFamily>Calibri</FontFamily>
                                           <FontWeight>Bold</FontWeight>
-                                          <Format>0;(0)</Format>
                                         </Style>
                                       </TextRun>
                                     </TextRuns>
@@ -3312,7 +3505,7 @@
                                     </Style>
                                   </Paragraph>
                                 </Paragraphs>
-                                <rd:DefaultName>aproboh</rd:DefaultName>
+                                <rd:DefaultName>aprobo</rd:DefaultName>
                                 <Style>
                                   <Border>
                                     <Style>Solid</Style>
@@ -3328,19 +3521,20 @@
                           <TablixMembers>
                             <TablixMember>
                               <TablixHeader>
-                                <Size>1.09771cm</Size>
+                                <Size>1.09411cm</Size>
                                 <CellContents>
-                                  <Textbox Name="desaprobom4">
+                                  <Textbox Name="aproboh3">
                                     <CanGrow>true</CanGrow>
                                     <KeepTogether>true</KeepTogether>
                                     <Paragraphs>
                                       <Paragraph>
                                         <TextRuns>
                                           <TextRun>
-                                            <Value>=Sum(Fields!aprobom.Value)</Value>
+                                            <Value>=Sum(Fields!aproboh.Value)</Value>
                                             <Style>
                                               <FontFamily>Calibri</FontFamily>
                                               <FontWeight>Bold</FontWeight>
+                                              <Format>0;(0)</Format>
                                             </Style>
                                           </TextRun>
                                         </TextRuns>
@@ -3349,7 +3543,7 @@
                                         </Style>
                                       </Paragraph>
                                     </Paragraphs>
-                                    <rd:DefaultName>desaprobom</rd:DefaultName>
+                                    <rd:DefaultName>aproboh</rd:DefaultName>
                                     <Style>
                                       <Border>
                                         <Style>Solid</Style>
@@ -3365,20 +3559,19 @@
                               <TablixMembers>
                                 <TablixMember>
                                   <TablixHeader>
-                                    <Size>1.08791cm</Size>
+                                    <Size>1.09771cm</Size>
                                     <CellContents>
-                                      <Textbox Name="desaprobo4">
+                                      <Textbox Name="desaprobom4">
                                         <CanGrow>true</CanGrow>
                                         <KeepTogether>true</KeepTogether>
                                         <Paragraphs>
                                           <Paragraph>
                                             <TextRuns>
                                               <TextRun>
-                                                <Value>=Sum(Fields!desaprobo.Value)</Value>
+                                                <Value>=Sum(Fields!aprobom.Value)</Value>
                                                 <Style>
                                                   <FontFamily>Calibri</FontFamily>
                                                   <FontWeight>Bold</FontWeight>
-                                                  <Format>0;(0)</Format>
                                                 </Style>
                                               </TextRun>
                                             </TextRuns>
@@ -3387,7 +3580,7 @@
                                             </Style>
                                           </Paragraph>
                                         </Paragraphs>
-                                        <rd:DefaultName>desaprobo</rd:DefaultName>
+                                        <rd:DefaultName>desaprobom</rd:DefaultName>
                                         <Style>
                                           <Border>
                                             <Style>Solid</Style>
@@ -3403,19 +3596,20 @@
                                   <TablixMembers>
                                     <TablixMember>
                                       <TablixHeader>
-                                        <Size>0.99548cm</Size>
+                                        <Size>1.08791cm</Size>
                                         <CellContents>
-                                          <Textbox Name="desaproboh4">
+                                          <Textbox Name="desaprobo4">
                                             <CanGrow>true</CanGrow>
                                             <KeepTogether>true</KeepTogether>
                                             <Paragraphs>
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Sum(Fields!desaproboh.Value)</Value>
+                                                    <Value>=Sum(Fields!desaprobo.Value)</Value>
                                                     <Style>
                                                       <FontFamily>Calibri</FontFamily>
                                                       <FontWeight>Bold</FontWeight>
+                                                      <Format>0;(0)</Format>
                                                     </Style>
                                                   </TextRun>
                                                 </TextRuns>
@@ -3424,7 +3618,7 @@
                                                 </Style>
                                               </Paragraph>
                                             </Paragraphs>
-                                            <rd:DefaultName>desaproboh</rd:DefaultName>
+                                            <rd:DefaultName>desaprobo</rd:DefaultName>
                                             <Style>
                                               <Border>
                                                 <Style>Solid</Style>
@@ -3440,16 +3634,16 @@
                                       <TablixMembers>
                                         <TablixMember>
                                           <TablixHeader>
-                                            <Size>1.0448cm</Size>
+                                            <Size>0.99548cm</Size>
                                             <CellContents>
-                                              <Textbox Name="desaprobom6">
+                                              <Textbox Name="desaproboh4">
                                                 <CanGrow>true</CanGrow>
                                                 <KeepTogether>true</KeepTogether>
                                                 <Paragraphs>
                                                   <Paragraph>
                                                     <TextRuns>
                                                       <TextRun>
-                                                        <Value>=Sum(Fields!desaprobom.Value)</Value>
+                                                        <Value>=Sum(Fields!desaproboh.Value)</Value>
                                                         <Style>
                                                           <FontFamily>Calibri</FontFamily>
                                                           <FontWeight>Bold</FontWeight>
@@ -3461,7 +3655,7 @@
                                                     </Style>
                                                   </Paragraph>
                                                 </Paragraphs>
-                                                <rd:DefaultName>desaprobom1</rd:DefaultName>
+                                                <rd:DefaultName>desaproboh</rd:DefaultName>
                                                 <Style>
                                                   <Border>
                                                     <Style>Solid</Style>
@@ -3477,20 +3671,19 @@
                                           <TablixMembers>
                                             <TablixMember>
                                               <TablixHeader>
-                                                <Size>1.16056cm</Size>
+                                                <Size>1.0448cm</Size>
                                                 <CellContents>
-                                                  <Textbox Name="desaprobo7">
+                                                  <Textbox Name="desaprobom6">
                                                     <CanGrow>true</CanGrow>
                                                     <KeepTogether>true</KeepTogether>
                                                     <Paragraphs>
                                                       <Paragraph>
                                                         <TextRuns>
                                                           <TextRun>
-                                                            <Value>=Sum(Fields!retiro.Value)</Value>
+                                                            <Value>=Sum(Fields!desaprobom.Value)</Value>
                                                             <Style>
                                                               <FontFamily>Calibri</FontFamily>
                                                               <FontWeight>Bold</FontWeight>
-                                                              <Format>0;(0)</Format>
                                                             </Style>
                                                           </TextRun>
                                                         </TextRuns>
@@ -3499,7 +3692,7 @@
                                                         </Style>
                                                       </Paragraph>
                                                     </Paragraphs>
-                                                    <rd:DefaultName>desaprobo</rd:DefaultName>
+                                                    <rd:DefaultName>desaprobom1</rd:DefaultName>
                                                     <Style>
                                                       <Border>
                                                         <Style>Solid</Style>
@@ -3515,19 +3708,20 @@
                                               <TablixMembers>
                                                 <TablixMember>
                                                   <TablixHeader>
-                                                    <Size>1.07125cm</Size>
+                                                    <Size>1.16056cm</Size>
                                                     <CellContents>
-                                                      <Textbox Name="desaproboh7">
+                                                      <Textbox Name="desaprobo7">
                                                         <CanGrow>true</CanGrow>
                                                         <KeepTogether>true</KeepTogether>
                                                         <Paragraphs>
                                                           <Paragraph>
                                                             <TextRuns>
                                                               <TextRun>
-                                                                <Value>=Sum(Fields!retiroh.Value)</Value>
+                                                                <Value>=Sum(Fields!retiro.Value)</Value>
                                                                 <Style>
                                                                   <FontFamily>Calibri</FontFamily>
                                                                   <FontWeight>Bold</FontWeight>
+                                                                  <Format>0;(0)</Format>
                                                                 </Style>
                                                               </TextRun>
                                                             </TextRuns>
@@ -3536,7 +3730,7 @@
                                                             </Style>
                                                           </Paragraph>
                                                         </Paragraphs>
-                                                        <rd:DefaultName>desaproboh</rd:DefaultName>
+                                                        <rd:DefaultName>desaprobo</rd:DefaultName>
                                                         <Style>
                                                           <Border>
                                                             <Style>Solid</Style>
@@ -3552,16 +3746,16 @@
                                                   <TablixMembers>
                                                     <TablixMember>
                                                       <TablixHeader>
-                                                        <Size>1.17708cm</Size>
+                                                        <Size>1.07125cm</Size>
                                                         <CellContents>
-                                                          <Textbox Name="desaprobom8">
+                                                          <Textbox Name="desaproboh7">
                                                             <CanGrow>true</CanGrow>
                                                             <KeepTogether>true</KeepTogether>
                                                             <Paragraphs>
                                                               <Paragraph>
                                                                 <TextRuns>
                                                                   <TextRun>
-                                                                    <Value>=Sum(Fields!retirom.Value)</Value>
+                                                                    <Value>=Sum(Fields!retiroh.Value)</Value>
                                                                     <Style>
                                                                       <FontFamily>Calibri</FontFamily>
                                                                       <FontWeight>Bold</FontWeight>
@@ -3573,7 +3767,7 @@
                                                                 </Style>
                                                               </Paragraph>
                                                             </Paragraphs>
-                                                            <rd:DefaultName>desaprobom1</rd:DefaultName>
+                                                            <rd:DefaultName>desaproboh</rd:DefaultName>
                                                             <Style>
                                                               <Border>
                                                                 <Style>Solid</Style>
@@ -3587,7 +3781,46 @@
                                                         </CellContents>
                                                       </TablixHeader>
                                                       <TablixMembers>
-                                                        <TablixMember />
+                                                        <TablixMember>
+                                                          <TablixHeader>
+                                                            <Size>1.17708cm</Size>
+                                                            <CellContents>
+                                                              <Textbox Name="desaprobom8">
+                                                                <CanGrow>true</CanGrow>
+                                                                <KeepTogether>true</KeepTogether>
+                                                                <Paragraphs>
+                                                                  <Paragraph>
+                                                                    <TextRuns>
+                                                                      <TextRun>
+                                                                        <Value>=Sum(Fields!retirom.Value)</Value>
+                                                                        <Style>
+                                                                          <FontFamily>Calibri</FontFamily>
+                                                                          <FontWeight>Bold</FontWeight>
+                                                                        </Style>
+                                                                      </TextRun>
+                                                                    </TextRuns>
+                                                                    <Style>
+                                                                      <TextAlign>Center</TextAlign>
+                                                                    </Style>
+                                                                  </Paragraph>
+                                                                </Paragraphs>
+                                                                <rd:DefaultName>desaprobom1</rd:DefaultName>
+                                                                <Style>
+                                                                  <Border>
+                                                                    <Style>Solid</Style>
+                                                                  </Border>
+                                                                  <PaddingLeft>2pt</PaddingLeft>
+                                                                  <PaddingRight>2pt</PaddingRight>
+                                                                  <PaddingTop>2pt</PaddingTop>
+                                                                  <PaddingBottom>2pt</PaddingBottom>
+                                                                </Style>
+                                                              </Textbox>
+                                                            </CellContents>
+                                                          </TablixHeader>
+                                                          <TablixMembers>
+                                                            <TablixMember />
+                                                          </TablixMembers>
+                                                        </TablixMember>
                                                       </TablixMembers>
                                                     </TablixMember>
                                                   </TablixMembers>
@@ -3666,16 +3899,16 @@
               <TablixMembers>
                 <TablixMember>
                   <TablixHeader>
-                    <Size>1.10679cm</Size>
+                    <Size>2.5cm</Size>
                     <CellContents>
-                      <Textbox Name="Textbox7">
+                      <Textbox Name="Textbox33">
                         <CanGrow>true</CanGrow>
                         <KeepTogether>true</KeepTogether>
                         <Paragraphs>
                           <Paragraph>
                             <TextRuns>
                               <TextRun>
-                                <Value>=Sum(iif( Fields!anio.Value="TOTAL",0, Fields!aprobo.Value))</Value>
+                                <Value>=CountDistinct(Fields!configuracionid.Value) - 1</Value>
                                 <Style>
                                   <FontFamily>Calibri</FontFamily>
                                   <FontWeight>Bold</FontWeight>
@@ -3687,7 +3920,7 @@
                             </Style>
                           </Paragraph>
                         </Paragraphs>
-                        <rd:DefaultName>Textbox7</rd:DefaultName>
+                        <rd:DefaultName>Textbox33</rd:DefaultName>
                         <Style>
                           <Border>
                             <Style>Solid</Style>
@@ -3714,21 +3947,22 @@
                           <PaddingBottom>2pt</PaddingBottom>
                         </Style>
                       </Textbox>
+                      <rd:Selected>true</rd:Selected>
                     </CellContents>
                   </TablixHeader>
                   <TablixMembers>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>1.09411cm</Size>
+                        <Size>1.10679cm</Size>
                         <CellContents>
-                          <Textbox Name="Textbox8">
+                          <Textbox Name="Textbox7">
                             <CanGrow>true</CanGrow>
                             <KeepTogether>true</KeepTogether>
                             <Paragraphs>
                               <Paragraph>
                                 <TextRuns>
                                   <TextRun>
-                                    <Value>=Sum(Fields!aproboh.Value)</Value>
+                                    <Value>=Sum(iif( Fields!anio.Value="TOTAL",0, Fields!aprobo.Value))</Value>
                                     <Style>
                                       <FontFamily>Calibri</FontFamily>
                                       <FontWeight>Bold</FontWeight>
@@ -3740,7 +3974,7 @@
                                 </Style>
                               </Paragraph>
                             </Paragraphs>
-                            <rd:DefaultName>Textbox8</rd:DefaultName>
+                            <rd:DefaultName>Textbox7</rd:DefaultName>
                             <Style>
                               <Border>
                                 <Style>Solid</Style>
@@ -3772,16 +4006,16 @@
                       <TablixMembers>
                         <TablixMember>
                           <TablixHeader>
-                            <Size>1.09771cm</Size>
+                            <Size>1.09411cm</Size>
                             <CellContents>
-                              <Textbox Name="Textbox12">
+                              <Textbox Name="Textbox8">
                                 <CanGrow>true</CanGrow>
                                 <KeepTogether>true</KeepTogether>
                                 <Paragraphs>
                                   <Paragraph>
                                     <TextRuns>
                                       <TextRun>
-                                        <Value>=Sum( Fields!aprobom.Value)</Value>
+                                        <Value>=Sum(Fields!aproboh.Value)</Value>
                                         <Style>
                                           <FontFamily>Calibri</FontFamily>
                                           <FontWeight>Bold</FontWeight>
@@ -3793,7 +4027,7 @@
                                     </Style>
                                   </Paragraph>
                                 </Paragraphs>
-                                <rd:DefaultName>Textbox12</rd:DefaultName>
+                                <rd:DefaultName>Textbox8</rd:DefaultName>
                                 <Style>
                                   <Border>
                                     <Style>Solid</Style>
@@ -3825,16 +4059,16 @@
                           <TablixMembers>
                             <TablixMember>
                               <TablixHeader>
-                                <Size>1.08791cm</Size>
+                                <Size>1.09771cm</Size>
                                 <CellContents>
-                                  <Textbox Name="Textbox14">
+                                  <Textbox Name="Textbox12">
                                     <CanGrow>true</CanGrow>
                                     <KeepTogether>true</KeepTogether>
                                     <Paragraphs>
                                       <Paragraph>
                                         <TextRuns>
                                           <TextRun>
-                                            <Value>=Sum(iif( Fields!anio.Value="TOTAL",0, Fields!desaprobo.Value))</Value>
+                                            <Value>=Sum( Fields!aprobom.Value)</Value>
                                             <Style>
                                               <FontFamily>Calibri</FontFamily>
                                               <FontWeight>Bold</FontWeight>
@@ -3846,7 +4080,7 @@
                                         </Style>
                                       </Paragraph>
                                     </Paragraphs>
-                                    <rd:DefaultName>Textbox14</rd:DefaultName>
+                                    <rd:DefaultName>Textbox12</rd:DefaultName>
                                     <Style>
                                       <Border>
                                         <Style>Solid</Style>
@@ -3878,16 +4112,16 @@
                               <TablixMembers>
                                 <TablixMember>
                                   <TablixHeader>
-                                    <Size>0.99548cm</Size>
+                                    <Size>1.08791cm</Size>
                                     <CellContents>
-                                      <Textbox Name="Textbox30">
+                                      <Textbox Name="Textbox14">
                                         <CanGrow>true</CanGrow>
                                         <KeepTogether>true</KeepTogether>
                                         <Paragraphs>
                                           <Paragraph>
                                             <TextRuns>
                                               <TextRun>
-                                                <Value>=Sum(iif( Fields!anio.Value="TOTAL",0, Fields!desaproboh.Value))</Value>
+                                                <Value>=Sum(iif( Fields!anio.Value="TOTAL",0, Fields!desaprobo.Value))</Value>
                                                 <Style>
                                                   <FontFamily>Calibri</FontFamily>
                                                   <FontWeight>Bold</FontWeight>
@@ -3899,7 +4133,7 @@
                                             </Style>
                                           </Paragraph>
                                         </Paragraphs>
-                                        <rd:DefaultName>Textbox30</rd:DefaultName>
+                                        <rd:DefaultName>Textbox14</rd:DefaultName>
                                         <Style>
                                           <Border>
                                             <Style>Solid</Style>
@@ -3931,16 +4165,16 @@
                                   <TablixMembers>
                                     <TablixMember>
                                       <TablixHeader>
-                                        <Size>1.0448cm</Size>
+                                        <Size>0.99548cm</Size>
                                         <CellContents>
-                                          <Textbox Name="Textbox34">
+                                          <Textbox Name="Textbox30">
                                             <CanGrow>true</CanGrow>
                                             <KeepTogether>true</KeepTogether>
                                             <Paragraphs>
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Sum(iif( Fields!anio.Value="TOTAL",0, Fields!desaprobom.Value))</Value>
+                                                    <Value>=Sum(iif( Fields!anio.Value="TOTAL",0, Fields!desaproboh.Value))</Value>
                                                     <Style>
                                                       <FontFamily>Calibri</FontFamily>
                                                       <FontWeight>Bold</FontWeight>
@@ -3952,7 +4186,7 @@
                                                 </Style>
                                               </Paragraph>
                                             </Paragraphs>
-                                            <rd:DefaultName>Textbox34</rd:DefaultName>
+                                            <rd:DefaultName>Textbox30</rd:DefaultName>
                                             <Style>
                                               <Border>
                                                 <Style>Solid</Style>
@@ -3984,16 +4218,16 @@
                                       <TablixMembers>
                                         <TablixMember>
                                           <TablixHeader>
-                                            <Size>1.16056cm</Size>
+                                            <Size>1.0448cm</Size>
                                             <CellContents>
-                                              <Textbox Name="Textbox36">
+                                              <Textbox Name="Textbox34">
                                                 <CanGrow>true</CanGrow>
                                                 <KeepTogether>true</KeepTogether>
                                                 <Paragraphs>
                                                   <Paragraph>
                                                     <TextRuns>
                                                       <TextRun>
-                                                        <Value>=Sum(iif( Fields!anio.Value="TOTAL",0, Fields!retiro.Value))</Value>
+                                                        <Value>=Sum(iif( Fields!anio.Value="TOTAL",0, Fields!desaprobom.Value))</Value>
                                                         <Style>
                                                           <FontFamily>Calibri</FontFamily>
                                                           <FontWeight>Bold</FontWeight>
@@ -4005,7 +4239,7 @@
                                                     </Style>
                                                   </Paragraph>
                                                 </Paragraphs>
-                                                <rd:DefaultName>Textbox36</rd:DefaultName>
+                                                <rd:DefaultName>Textbox34</rd:DefaultName>
                                                 <Style>
                                                   <Border>
                                                     <Style>Solid</Style>
@@ -4037,16 +4271,16 @@
                                           <TablixMembers>
                                             <TablixMember>
                                               <TablixHeader>
-                                                <Size>1.07125cm</Size>
+                                                <Size>1.16056cm</Size>
                                                 <CellContents>
-                                                  <Textbox Name="Textbox37">
+                                                  <Textbox Name="Textbox36">
                                                     <CanGrow>true</CanGrow>
                                                     <KeepTogether>true</KeepTogether>
                                                     <Paragraphs>
                                                       <Paragraph>
                                                         <TextRuns>
                                                           <TextRun>
-                                                            <Value>=Sum(iif( Fields!anio.Value="TOTAL",0, Fields!retiroh.Value))</Value>
+                                                            <Value>=Sum(iif( Fields!anio.Value="TOTAL",0, Fields!retiro.Value))</Value>
                                                             <Style>
                                                               <FontFamily>Calibri</FontFamily>
                                                               <FontWeight>Bold</FontWeight>
@@ -4058,7 +4292,7 @@
                                                         </Style>
                                                       </Paragraph>
                                                     </Paragraphs>
-                                                    <rd:DefaultName>Textbox37</rd:DefaultName>
+                                                    <rd:DefaultName>Textbox36</rd:DefaultName>
                                                     <Style>
                                                       <Border>
                                                         <Style>Solid</Style>
@@ -4090,16 +4324,16 @@
                                               <TablixMembers>
                                                 <TablixMember>
                                                   <TablixHeader>
-                                                    <Size>1.17708cm</Size>
+                                                    <Size>1.07125cm</Size>
                                                     <CellContents>
-                                                      <Textbox Name="Textbox43">
+                                                      <Textbox Name="Textbox37">
                                                         <CanGrow>true</CanGrow>
                                                         <KeepTogether>true</KeepTogether>
                                                         <Paragraphs>
                                                           <Paragraph>
                                                             <TextRuns>
                                                               <TextRun>
-                                                                <Value>=Sum(iif( Fields!anio.Value="TOTAL",0, Fields!retirom.Value))</Value>
+                                                                <Value>=Sum(iif( Fields!anio.Value="TOTAL",0, Fields!retiroh.Value))</Value>
                                                                 <Style>
                                                                   <FontFamily>Calibri</FontFamily>
                                                                   <FontWeight>Bold</FontWeight>
@@ -4111,7 +4345,7 @@
                                                             </Style>
                                                           </Paragraph>
                                                         </Paragraphs>
-                                                        <rd:DefaultName>Textbox43</rd:DefaultName>
+                                                        <rd:DefaultName>Textbox37</rd:DefaultName>
                                                         <Style>
                                                           <Border>
                                                             <Style>Solid</Style>
@@ -4141,7 +4375,62 @@
                                                     </CellContents>
                                                   </TablixHeader>
                                                   <TablixMembers>
-                                                    <TablixMember />
+                                                    <TablixMember>
+                                                      <TablixHeader>
+                                                        <Size>1.17708cm</Size>
+                                                        <CellContents>
+                                                          <Textbox Name="Textbox43">
+                                                            <CanGrow>true</CanGrow>
+                                                            <KeepTogether>true</KeepTogether>
+                                                            <Paragraphs>
+                                                              <Paragraph>
+                                                                <TextRuns>
+                                                                  <TextRun>
+                                                                    <Value>=Sum(iif( Fields!anio.Value="TOTAL",0, Fields!retirom.Value))</Value>
+                                                                    <Style>
+                                                                      <FontFamily>Calibri</FontFamily>
+                                                                      <FontWeight>Bold</FontWeight>
+                                                                    </Style>
+                                                                  </TextRun>
+                                                                </TextRuns>
+                                                                <Style>
+                                                                  <TextAlign>Center</TextAlign>
+                                                                </Style>
+                                                              </Paragraph>
+                                                            </Paragraphs>
+                                                            <rd:DefaultName>Textbox43</rd:DefaultName>
+                                                            <Style>
+                                                              <Border>
+                                                                <Style>Solid</Style>
+                                                              </Border>
+                                                              <TopBorder>
+                                                                <Color>Black</Color>
+                                                                <Style>Solid</Style>
+                                                              </TopBorder>
+                                                              <BottomBorder>
+                                                                <Color>Black</Color>
+                                                                <Style>Solid</Style>
+                                                              </BottomBorder>
+                                                              <LeftBorder>
+                                                                <Color>Black</Color>
+                                                                <Style>Solid</Style>
+                                                              </LeftBorder>
+                                                              <RightBorder>
+                                                                <Color>Black</Color>
+                                                                <Style>Solid</Style>
+                                                              </RightBorder>
+                                                              <PaddingLeft>2pt</PaddingLeft>
+                                                              <PaddingRight>2pt</PaddingRight>
+                                                              <PaddingTop>2pt</PaddingTop>
+                                                              <PaddingBottom>2pt</PaddingBottom>
+                                                            </Style>
+                                                          </Textbox>
+                                                        </CellContents>
+                                                      </TablixHeader>
+                                                      <TablixMembers>
+                                                        <TablixMember />
+                                                      </TablixMembers>
+                                                    </TablixMember>
                                                   </TablixMembers>
                                                 </TablixMember>
                                               </TablixMembers>
@@ -4168,7 +4457,7 @@
         <DataSetName>DataSet1</DataSetName>
         <Top>0.3175cm</Top>
         <Height>4.2cm</Height>
-        <Width>33.71733cm</Width>
+        <Width>36.21733cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -4623,7 +4912,7 @@
     <Height>7.1927in</Height>
     <Style />
   </Body>
-  <Width>13.55171in</Width>
+  <Width>14.25879in</Width>
   <Page>
     <PageHeader>
       <Height>3.81001cm</Height>

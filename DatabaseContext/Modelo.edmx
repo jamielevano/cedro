@@ -75,33 +75,35 @@
           <EntitySet Name="SubModulo" EntityType="SMECEntities.Store.SubModulo" store:Type="Tables" Schema="sistemas" />
           <EntitySet Name="Usuario" EntityType="SMECEntities.Store.Usuario" store:Type="Tables" Schema="sistemas" />
           <EntitySet Name="vPersona" EntityType="SMECEntities.Store.vPersona" store:Type="Views" store:Schema="asistencia" store:Name="vPersona">
-            <DefiningQuery>SELECT 
-      [vPersona].[id] AS [id], 
-      [vPersona].[codigo] AS [codigo], 
-      [vPersona].[fecharegistro] AS [fecharegistro], 
-      [vPersona].[apellidopaterno] AS [apellidopaterno], 
-      [vPersona].[apellidomaterno] AS [apellidomaterno], 
-      [vPersona].[nombre] AS [nombre], 
-      [vPersona].[sexoid] AS [sexoid], 
-      [vPersona].[sexo] AS [sexo], 
-      [vPersona].[telecentroid] AS [telecentroid], 
-      [vPersona].[telecentro] AS [telecentro], 
-      [vPersona].[ejeintervencionid] AS [ejeintervencionid], 
-      [vPersona].[ejeintervencion] AS [ejeintervencion], 
-      [vPersona].[localidad] AS [localidad], 
-      [vPersona].[dni] AS [dni], 
-      [vPersona].[fechanacimiento] AS [fechanacimiento], 
-      [vPersona].[edad] AS [edad], 
-      [vPersona].[lugarnacimiento] AS [lugarnacimiento], 
-      [vPersona].[ocupacionid] AS [ocupacionid], 
-      [vPersona].[ocupacion] AS [ocupacion], 
-      [vPersona].[telefono] AS [telefono], 
-      [vPersona].[celular] AS [celular], 
-      [vPersona].[foto] AS [foto], 
-      [vPersona].[fotohash] AS [fotohash], 
-      [vPersona].[fotomb] AS [fotomb], 
-      [vPersona].[eliminable] AS [eliminable]
-      FROM [asistencia].[vPersona] AS [vPersona]</DefiningQuery>
+            <DefiningQuery>
+              SELECT
+              [vPersona].[id] AS [id],
+              [vPersona].[codigo] AS [codigo],
+              [vPersona].[fecharegistro] AS [fecharegistro],
+              [vPersona].[apellidopaterno] AS [apellidopaterno],
+              [vPersona].[apellidomaterno] AS [apellidomaterno],
+              [vPersona].[nombre] AS [nombre],
+              [vPersona].[sexoid] AS [sexoid],
+              [vPersona].[sexo] AS [sexo],
+              [vPersona].[telecentroid] AS [telecentroid],
+              [vPersona].[telecentro] AS [telecentro],
+              [vPersona].[ejeintervencionid] AS [ejeintervencionid],
+              [vPersona].[ejeintervencion] AS [ejeintervencion],
+              [vPersona].[localidad] AS [localidad],
+              [vPersona].[dni] AS [dni],
+              [vPersona].[fechanacimiento] AS [fechanacimiento],
+              [vPersona].[edad] AS [edad],
+              [vPersona].[lugarnacimiento] AS [lugarnacimiento],
+              [vPersona].[ocupacionid] AS [ocupacionid],
+              [vPersona].[ocupacion] AS [ocupacion],
+              [vPersona].[telefono] AS [telefono],
+              [vPersona].[celular] AS [celular],
+              [vPersona].[foto] AS [foto],
+              [vPersona].[fotohash] AS [fotohash],
+              [vPersona].[fotomb] AS [fotomb],
+              [vPersona].[eliminable] AS [eliminable],
+              [vPersona].[aud_usuariomod] AS [aud_usuariomod]
+              FROM [asistencia].[vPersona] AS [vPersona]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="AvancePOTC_Ficha04Integrantes_AvanceID" Association="SMECEntities.Store.AvancePOTC_Ficha04Integrantes_AvanceID">
             <End Role="AvancePOTC_Ficha04" EntitySet="AvancePOTC_Ficha04" />
@@ -1458,6 +1460,7 @@
           <Property Name="fotohash" Type="int" Nullable="false" />
           <Property Name="fotomb" Type="varchar" MaxLength="5" />
           <Property Name="eliminable" Type="int" Nullable="false" />
+          <Property Name="aud_usuariomod" Type="varchar" MaxLength="500" />          
         </EntityType>
         <Association Name="AvancePOTC_Ficha04Integrantes_AvanceID">
           <End Role="AvancePOTC_Ficha04" Type="SMECEntities.Store.AvancePOTC_Ficha04" Multiplicity="1" />
@@ -4171,6 +4174,7 @@
           <Property Type="Int32" Name="fotohash" Nullable="false" />
           <Property Type="String" Name="fotomb" MaxLength="5" FixedLength="false" Unicode="false" />
           <Property Type="Int32" Name="eliminable" Nullable="false" />
+          <Property Name="aud_usuariomod" Type="String" Nullable="false" />
         </EntityType>
         <EntityType Name="AvancePOTC">
           <Key>
@@ -5440,6 +5444,7 @@
           <EntitySetMapping Name="vPersona">
             <EntityTypeMapping TypeName="SMECEntities.vPersona">
               <MappingFragment StoreEntitySet="vPersona">
+                <ScalarProperty Name="aud_usuariomod" ColumnName="aud_usuariomod" />
                 <ScalarProperty Name="eliminable" ColumnName="eliminable" />
                 <ScalarProperty Name="fotomb" ColumnName="fotomb" />
                 <ScalarProperty Name="fotohash" ColumnName="fotohash" />
@@ -5465,6 +5470,7 @@
                 <ScalarProperty Name="fecharegistro" ColumnName="fecharegistro" />
                 <ScalarProperty Name="codigo" ColumnName="codigo" />
                 <ScalarProperty Name="id" ColumnName="id" />
+                          
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

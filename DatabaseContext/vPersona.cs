@@ -39,5 +39,6 @@ namespace DatabaseContext
         public int fotohash { get; set; }
         public string fotomb { get; set; }
         public int eliminable { get; set; }
+        public string aud_usuariomod { get; set; }
     }
 }

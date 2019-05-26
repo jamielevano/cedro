@@ -25,14 +25,14 @@
                 self.listModulo = ko.observableArray([]);
                 self.listNivel = ko.observableArray([]);
                 self.listEjeIntervencion = getJson('@Url.Content("~/api/General/EjeIntervencion02")');
-                self.listTelecentros = getJson('@Url.Content("~/api/General/TelecentrosFilter")');
+                self.listTelecentros = getJson('@Url.Content("~/api/General/Telecentros")');
                 self.listlocalidad = getJson('@Url.Content("~/api/General/Localidad")');
                 self.list = ko.observableArray();
                 self.listAnio = getJson('@Url.Content("~/api/General/Anios")');
                 self.listMes = getJson('@Url.Content("~/api/General/Meses")');
                 self.listPrograma = getJson('@Url.Content("~/api/General/Programa")');
                 self.listOrganizacion = getJson('@Url.Content("~/api/General/Organizacion")');
-
+                self.listUsuario = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(ViewBag.ListUsuario));
 
 
                 self.Search = function (form)
@@ -160,7 +160,6 @@
                             @*<td>
                                 @Html.koSelectV2("data.telecentroid", "$root.listTelecentros",requerido:@Web.Auth.GetTicketData().NotAdmin.ToString().ToLower() )
                             </td>*@
-                            <td></td>
                             <td>
                                 COMPONENTE
                             </td>
@@ -184,18 +183,29 @@
                             </td>*@
                         </tr>
                         <tr>
+
+                            <td>LOCALIDAD</td>
+                            
                             <td>
-                                AÑO
+                                @Html.koSelect("data.telecentroid", "$root.listTelecentros", requerido: false)
+
                             </td>
                             <td>
+                                DESDE
+                            </td>
+                            <td>
+                                @Html.koDate("data.fechaIni", required: false, enable: "true")
+                            </td>
+                            @*<td>
                                 @Html.koSelect("data.anioid", "$root.listAnio",requerido:false)
-                            </td>
+                            </td>*@
                              <td></td>
                             <td>
-                                MES
+                                HASTA
                             </td>
                             <td>
-                                @Html.koSelect("data.mesid", "$root.listMes",requerido:false)
+                               @Html.koDate("data.fechaFin", required: false, enable: "true")
+                               @*@Html.koSelect("data.mesid", "$root.listMes",requerido:false)*@
                             </td>
                             <td></td>
                             <td>
@@ -207,6 +217,13 @@
                             <td></td>
                             <td style="text-align:right" colspan="3">
                                 <button type="submit" style="cursor:pointer;">Buscar</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>RESPONSABLE</td>
+                            <td>
+                                @Html.koSelect("data.capacitadorid", "$root.listUsuario", requerido: false)
+                                @*@Html.koSelectV3("data.aud_usuariomod", "$root.listUsuario", )*@
                             </td>
                         </tr>
                     </table>
@@ -251,7 +268,7 @@
                     <th>COMPONENTE</th>
                     <th>CURSO</th>
                     @*<th>Módulo</th>*@
-                    <th>FINALIZADO</th>
+                    <th>FECHA DE CIERRE</th>
                     <th></th>
                     <th></th>
                     <th></th>

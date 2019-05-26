@@ -183,6 +183,10 @@
 
 
                 self.Save = function (form) {
+
+                    if(codigocapacitacion )
+
+
                     if ($(form).refreshValidator().valid()) {
                         postJson('@Url.Content("~/api/Monitoreo/TareaTC/SaveAvance")', JSON.parse(ko.mapping.toJSON(self.avance)),
                         function (data) {

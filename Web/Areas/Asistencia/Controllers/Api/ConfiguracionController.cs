@@ -30,7 +30,9 @@ namespace Web.Areas.Asistencia.Controllers.Api
             System.Web.HttpContext.Current.Session["Configuracion_anioid"] = data.anioid;
             System.Web.HttpContext.Current.Session["Configuracion_mesid"] = data.mesid;
             System.Web.HttpContext.Current.Session["Configuracion_organizacion"] = data.organizacion;
-
+            System.Web.HttpContext.Current.Session["Configuracion_organizacion"] = data.capacitadorid;
+            System.Web.HttpContext.Current.Session["Configuracion_fechaIni"] = data.fechaIni;
+            System.Web.HttpContext.Current.Session["Configuracion_fechaFin"] = data.fechaFin;
             //int telecentroid=0;
 
             //using (var db = new SMECEntities())
@@ -45,14 +47,17 @@ namespace Web.Areas.Asistencia.Controllers.Api
                     .Where(x
                         => (!data.id.HasValue || x.id == data.id.Value)
                         && (!data.ejeintervencionid.HasValue || x.ejeintervencionid == data.ejeintervencionid.Value)
-                       // && (!data.telecentroid.HasValue || x.telecentroid == data.telecentroid.Value)
+                        && (!data.telecentroid.HasValue || x.telecentroid == data.telecentroid.Value)
                         && (!data.programaid.HasValue || x.programaid == data.programaid.Value)
                         && (!data.nivelid.HasValue || x.nivelid == data.nivelid.Value)
                         && (!data.moduloid.HasValue || x.Modulos.Any(m=>m.moduloid == data.moduloid.Value))
-                        && (!data.anioid.HasValue || x.fechafin.Value.Year == data.anioid.Value)
-                        && (!data.mesid.HasValue || x.fechafin.Value.Month == data.mesid.Value)
+                        //&& (!data.anioid.HasValue || x.fechafin.Value.Year == data.anioid.Value)
+                        //&& (!data.mesid.HasValue || x.fechafin.Value.Month == data.mesid.Value)
+                        && (!data.fechaIni.HasValue || x.fechainicio.Value >= data.fechaIni.Value)
+                        && (!data.fechaFin.HasValue || x.fechafin.Value <= data.fechaFin.Value)
                         && (!data.organizacion.HasValue || x.organizacion == data.organizacion.Value)
                         && (x.tipoid == data.tipoid)
+                        && (!data.capacitadorid.HasValue || x.capacitadorid == data.capacitadorid.Value)
                         //&& (Admin || x.telecentroid == telecentroid)
                         )
                     .Select(x => new

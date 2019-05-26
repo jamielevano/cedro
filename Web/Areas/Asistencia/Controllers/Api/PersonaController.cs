@@ -94,9 +94,15 @@ namespace Web.Areas.Asistencia.Controllers.Api
             System.Web.HttpContext.Current.Session["Persona_apellidomaterno"] = data.apellidomaterno;
             System.Web.HttpContext.Current.Session["Persona_nombre"] = data.nombre;
             System.Web.HttpContext.Current.Session["Persona_codigo"] = data.codigo;
+            System.Web.HttpContext.Current.Session["Persona_ejeintervencionid"] = data.ejeintervencionid;
+            System.Web.HttpContext.Current.Session["Persona_aud_usuariomod"] = data.aud_usuariomod;
+                       
 
             using (var db = new SMECEntities())
             {
+
+                
+
                 return db.vPersona
                     .AsNoTracking()
                     .Where(x
@@ -106,6 +112,8 @@ namespace Web.Areas.Asistencia.Controllers.Api
                         && (string.IsNullOrEmpty(data.apellidomaterno) || x.apellidomaterno == data.apellidomaterno)
                         && (string.IsNullOrEmpty(data.nombre) || x.nombre == data.nombre)
                         && (string.IsNullOrEmpty(data.codigo) || x.codigo == data.codigo)
+                        && (x.ejeintervencionid == (data.ejeintervencionid == 0 ? x.ejeintervencionid : data.ejeintervencionid))
+                        && (string.IsNullOrEmpty(data.aud_usuariomod) || x.aud_usuariomod == data.aud_usuariomod)
                         )
                     .Select(x => new
                     {
@@ -116,6 +124,7 @@ namespace Web.Areas.Asistencia.Controllers.Api
                         nombre=x.nombre.ToUpper(),
                         telecentro=x.telecentro.ToUpper(),
                         dni = x.dni,
+                        ejeintervencion = db.EjeIntervencion.FirstOrDefault(a => a.id == x.ejeintervencionid).nombre.ToUpper(),
                         estado = false,
                         x.fotohash,
                         x.fotomb,

@@ -51,12 +51,22 @@ namespace Web.Areas.Asistencia.Controllers
             ViewBag.codigo = Session.GetDataFromSession("Persona_codigo");
             ViewBag.telecentroid = Session.GetDataFromSession("Persona_telecentroid");
 
+            var db = new SMECEntities();
+            ViewBag.ListUsuario = db.Usuario
+                                        .Where(x => x.nombre != null)
+                                        .Select(x => new
+                                        {
+                                            x.login,
+                                            x.nombre
+                                        }).OrderBy(x => x.nombre).ToList();
+
+
             if (ViewBag.telecentroid == null)
             {
-                using (var db = new SMECEntities())
-                {
+                //using (var db = new SMECEntities())
+                //{
                     ViewBag.telecentroid = db.Usuario.Where(x => x.login == User.Identity.Name).FirstOrDefault().telecentro;
-                }
+                //}
             }
 
             return View();

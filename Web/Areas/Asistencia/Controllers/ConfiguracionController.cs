@@ -45,6 +45,17 @@ namespace Web.Areas.Asistencia.Controllers
             ViewBag.telecentroid = Session.GetDataFromSession("Configuracion_telecentroid");
             ViewBag.ejeid = Session.GetDataFromSession("Configuracion_ejeintervencionid");
             ViewBag.organizacion = Session.GetDataFromSession("Configuracion_organizacion");
+
+            
+            var db = new SMECEntities();
+            ViewBag.ListUsuario = db.Usuario
+                                        .Where(x => x.nombre != null)
+                                        .Select(x => new
+                                        {
+                                            x.id,
+                                            x.nombre
+                                        }).OrderBy(x => x.nombre).ToList();
+
             //solo filtra los telecentros asignado al usuario
             //if (ViewBag.telecentroid == null)
             //{

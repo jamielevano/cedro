@@ -698,6 +698,45 @@
                   </Textbox>
                 </CellContents>
               </TablixCornerCell>
+              <TablixCornerCell>
+                <CellContents>
+                  <Textbox Name="Textbox53">
+                    <CanGrow>true</CanGrow>
+                    <KeepTogether>true</KeepTogether>
+                    <Paragraphs>
+                      <Paragraph>
+                        <TextRuns>
+                          <TextRun>
+                            <Value>USO DE DATOS</Value>
+                            <Style>
+                              <FontStyle>Normal</FontStyle>
+                              <FontFamily>Calibri</FontFamily>
+                              <FontWeight>Normal</FontWeight>
+                              <TextDecoration>None</TextDecoration>
+                              <Color>#ffffff</Color>
+                            </Style>
+                          </TextRun>
+                        </TextRuns>
+                        <Style>
+                          <TextAlign>Center</TextAlign>
+                        </Style>
+                      </Paragraph>
+                    </Paragraphs>
+                    <rd:DefaultName>Textbox53</rd:DefaultName>
+                    <Style>
+                      <Border>
+                        <Style>Solid</Style>
+                      </Border>
+                      <BackgroundColor>MediumSeaGreen</BackgroundColor>
+                      <VerticalAlign>Middle</VerticalAlign>
+                      <PaddingLeft>2pt</PaddingLeft>
+                      <PaddingRight>2pt</PaddingRight>
+                      <PaddingTop>2pt</PaddingTop>
+                      <PaddingBottom>2pt</PaddingBottom>
+                    </Style>
+                  </Textbox>
+                </CellContents>
+              </TablixCornerCell>
             </TablixCornerRow>
           </TablixCornerRows>
         </TablixCorner>
@@ -2231,7 +2270,62 @@
                                                                                 </CellContents>
                                                                               </TablixHeader>
                                                                               <TablixMembers>
-                                                                                <TablixMember />
+                                                                                <TablixMember>
+                                                                                  <TablixHeader>
+                                                                                    <Size>2.5cm</Size>
+                                                                                    <CellContents>
+                                                                                      <Textbox Name="usodatos">
+                                                                                        <CanGrow>true</CanGrow>
+                                                                                        <KeepTogether>true</KeepTogether>
+                                                                                        <Paragraphs>
+                                                                                          <Paragraph>
+                                                                                            <TextRuns>
+                                                                                              <TextRun>
+                                                                                                <Value>=Fields!usodatos.Value</Value>
+                                                                                                <Style>
+                                                                                                  <FontFamily>Calibri</FontFamily>
+                                                                                                  <FontWeight>Bold</FontWeight>
+                                                                                                </Style>
+                                                                                              </TextRun>
+                                                                                            </TextRuns>
+                                                                                            <Style>
+                                                                                              <TextAlign>Center</TextAlign>
+                                                                                            </Style>
+                                                                                          </Paragraph>
+                                                                                        </Paragraphs>
+                                                                                        <rd:DefaultName>usodatos</rd:DefaultName>
+                                                                                        <Style>
+                                                                                          <Border>
+                                                                                            <Style>Solid</Style>
+                                                                                          </Border>
+                                                                                          <TopBorder>
+                                                                                            <Color>Black</Color>
+                                                                                            <Style>Solid</Style>
+                                                                                          </TopBorder>
+                                                                                          <BottomBorder>
+                                                                                            <Color>Black</Color>
+                                                                                            <Style>Solid</Style>
+                                                                                          </BottomBorder>
+                                                                                          <LeftBorder>
+                                                                                            <Color>Black</Color>
+                                                                                            <Style>Solid</Style>
+                                                                                          </LeftBorder>
+                                                                                          <RightBorder>
+                                                                                            <Color>Black</Color>
+                                                                                            <Style>Solid</Style>
+                                                                                          </RightBorder>
+                                                                                          <PaddingLeft>2pt</PaddingLeft>
+                                                                                          <PaddingRight>2pt</PaddingRight>
+                                                                                          <PaddingTop>2pt</PaddingTop>
+                                                                                          <PaddingBottom>2pt</PaddingBottom>
+                                                                                        </Style>
+                                                                                      </Textbox>
+                                                                                    </CellContents>
+                                                                                  </TablixHeader>
+                                                                                  <TablixMembers>
+                                                                                    <TablixMember />
+                                                                                  </TablixMembers>
+                                                                                </TablixMember>
                                                                               </TablixMembers>
                                                                             </TablixMember>
                                                                           </TablixMembers>
@@ -3081,6 +3175,61 @@
                                                                               </Textbox>
                                                                             </CellContents>
                                                                           </TablixHeader>
+                                                                          <TablixMembers>
+                                                                            <TablixMember>
+                                                                              <TablixHeader>
+                                                                                <Size>2.5cm</Size>
+                                                                                <CellContents>
+                                                                                  <Textbox Name="Textbox55">
+                                                                                    <CanGrow>true</CanGrow>
+                                                                                    <KeepTogether>true</KeepTogether>
+                                                                                    <Paragraphs>
+                                                                                      <Paragraph>
+                                                                                        <TextRuns>
+                                                                                          <TextRun>
+                                                                                            <Value />
+                                                                                            <Style>
+                                                                                              <FontFamily>Calibri</FontFamily>
+                                                                                              <FontWeight>Bold</FontWeight>
+                                                                                            </Style>
+                                                                                          </TextRun>
+                                                                                        </TextRuns>
+                                                                                        <Style>
+                                                                                          <TextAlign>Center</TextAlign>
+                                                                                        </Style>
+                                                                                      </Paragraph>
+                                                                                    </Paragraphs>
+                                                                                    <rd:DefaultName>Textbox55</rd:DefaultName>
+                                                                                    <Style>
+                                                                                      <Border>
+                                                                                        <Style>Solid</Style>
+                                                                                      </Border>
+                                                                                      <TopBorder>
+                                                                                        <Color>Black</Color>
+                                                                                        <Style>Solid</Style>
+                                                                                      </TopBorder>
+                                                                                      <BottomBorder>
+                                                                                        <Color>Black</Color>
+                                                                                        <Style>Solid</Style>
+                                                                                      </BottomBorder>
+                                                                                      <LeftBorder>
+                                                                                        <Color>Black</Color>
+                                                                                        <Style>Solid</Style>
+                                                                                      </LeftBorder>
+                                                                                      <RightBorder>
+                                                                                        <Color>Black</Color>
+                                                                                        <Style>Solid</Style>
+                                                                                      </RightBorder>
+                                                                                      <PaddingLeft>2pt</PaddingLeft>
+                                                                                      <PaddingRight>2pt</PaddingRight>
+                                                                                      <PaddingTop>2pt</PaddingTop>
+                                                                                      <PaddingBottom>2pt</PaddingBottom>
+                                                                                    </Style>
+                                                                                  </Textbox>
+                                                                                </CellContents>
+                                                                              </TablixHeader>
+                                                                            </TablixMember>
+                                                                          </TablixMembers>
                                                                         </TablixMember>
                                                                       </TablixMembers>
                                                                     </TablixMember>
@@ -3119,7 +3268,7 @@
         <DataSetName>DataSet1</DataSetName>
         <Top>0.30998cm</Top>
         <Height>2.22334cm</Height>
-        <Width>72.72691cm</Width>
+        <Width>75.22691cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -3130,7 +3279,7 @@
     <Height>1.00811in</Height>
     <Style />
   </Body>
-  <Width>28.63264in</Width>
+  <Width>29.61689in</Width>
   <Page>
     <PageHeader>
       <Height>2.72522cm</Height>
@@ -3606,6 +3755,10 @@
         <Field Name="edadactual">
           <DataField>edadactual</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="usodatos">
+          <DataField>usodatos</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="AD">
           <DataField>AD</DataField>

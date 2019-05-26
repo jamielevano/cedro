@@ -17,5 +17,10 @@ namespace Web.Areas.Asistencia.Models
         public int? nivelid { get; set; }
         public int? moduloid { get; set; }
         public int? organizacion { get; set; }
+        public int? capacitadorid { get; set; }
+
+        public DateTime? fechaIni { get; set; }
+        public DateTime? fechaFin { get; set; }
+
     }
 }

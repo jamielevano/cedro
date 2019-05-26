@@ -13,6 +13,10 @@ namespace Web.Areas.Asistencia.Models
         public string apellidomaterno { get; set; }
         public string nombre { get; set; }
         public string codigo { get; set; }
+        public int ejeintervencionid { get; set; }
+        public string aud_usuariomod { get; set; }
+        
+
     }
 
     public class PersonaSaveFotoModel
