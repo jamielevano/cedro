@@ -184,7 +184,12 @@
 
                 self.Save = function (form) {
 
-                    if(codigocapacitacion )
+                    //Alert JLevano
+                    var capaId=document.getElementsByName("ko_unique_2")[0].value;
+                   
+                    if(capaId == null || capaId == "" ){
+                        alert("La actividad POA se guardara sin condigo de capacitación")
+                    }
 
 
                     if ($(form).refreshValidator().valid()) {

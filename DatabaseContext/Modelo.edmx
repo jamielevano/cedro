@@ -373,8 +373,9 @@
           <Property Name="aud_fechamod" Type="bigint" Nullable="false" />
           <Property Name="aud_usuariomod" Type="varchar" Nullable="false" MaxLength="20" />
           <Property Name="aud_ipmod" Type="varchar" Nullable="false" MaxLength="15" />
-	  <Property Name="organizacion" Type="int"/>
-	  <Property Name="organizacionotro" Type="varchar" MaxLength="100"/>
+	        <Property Name="organizacion" Type="int"/>
+	        <Property Name="organizacionotro" Type="varchar" MaxLength="100"/>
+          <Property Name="participaid" Type="int" />
         </EntityType>
         <EntityType Name="Inscripcion">
           <Key>
@@ -438,6 +439,28 @@
           <Property Name="claseid" Type="int" Nullable="false" />
           <Property Name="notaentrada" Type="int" />
           <Property Name="notasalida" Type="int" />
+
+
+          <Property Name="p4a" Type="int" />
+          <Property Name="p4b" Type="int" />
+          <Property Name="p4c" Type="int" />
+          <Property Name="p4d" Type="int" />
+          <Property Name="p5" Type="int" />
+          <Property Name="p6" Type="int" />
+          <Property Name="p7" Type="int" />
+          <Property Name="p8" Type="int" />
+          <Property Name="p9" Type="int" />
+          <Property Name="p10a" Type="int" />
+          <Property Name="p10b" Type="int" />
+          <Property Name="p10c" Type="int" />
+          <Property Name="p11a" Type="int" />
+          <Property Name="p11b" Type="int" />
+          <Property Name="p11c" Type="int" />
+          <Property Name="p12a" Type="int" />
+          <Property Name="p12b" Type="int" />
+          <Property Name="p12c" Type="int" />
+          <Property Name="p13" Type="int" />
+
         </EntityType>
         <EntityType Name="Persona">
           <Key>
@@ -486,6 +509,12 @@
           <Property Name="nombre_original" Type="varchar" MaxLength="200" />
           <Property Name="notaentrada" Type="int" />
           <Property Name="notasalida" Type="int" />
+          
+          
+          
+          
+          
+          
 	  <Property Name="usodatos" Type="bit" />
         </EntityType>
         <EntityType Name="Sesion">
@@ -3970,6 +3999,27 @@
           <Property Type="Int32" Name="claseid" Nullable="false" />
           <Property Type="Int32" Name="notaentrada" />
           <Property Type="Int32" Name="notasalida" />
+
+          <Property Name="p4a" Type="Int32" />
+          <Property Name="p4b" Type="Int32" />
+          <Property Name="p4c" Type="Int32" />
+          <Property Name="p4d" Type="Int32" />
+          <Property Name="p5" Type="Int32" />
+          <Property Name="p6" Type="Int32" />
+          <Property Name="p7" Type="Int32" />
+          <Property Name="p8" Type="Int32" />
+          <Property Name="p9" Type="Int32" />
+          <Property Name="p10a" Type="Int32" />
+          <Property Name="p10b" Type="Int32" />
+          <Property Name="p10c" Type="Int32" />
+          <Property Name="p11a" Type="Int32" />
+          <Property Name="p11b" Type="Int32" />
+          <Property Name="p11c" Type="Int32" />
+          <Property Name="p12a" Type="Int32" />
+          <Property Name="p12b" Type="Int32" />
+          <Property Name="p12c" Type="Int32" />
+          <Property Name="p13" Type="Int32" />
+                    
           <NavigationProperty Name="Clase" Relationship="SMECEntities.FK_Participantes_Clase" FromRole="Participantes" ToRole="Clase" />
           <NavigationProperty Name="Persona" Relationship="SMECEntities.FK_Participantes_Persona2" FromRole="Participantes" ToRole="Persona" />
         </EntityType>
@@ -4027,8 +4077,9 @@
           <Property Type="Int64" Name="aud_fechamod" Nullable="false" />
           <Property Type="String" Name="aud_usuariomod" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="aud_ipmod" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
-	  <Property Type="Int32" Name="organizacion" />
-	  <Property Type="String" Name="organizacionotro" MaxLength="100" FixedLength="false" Unicode="false" />
+	        <Property Type="Int32" Name="organizacion" />
+	        <Property Type="String" Name="organizacionotro" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="participaid" />
           <NavigationProperty Name="Inscripcion" Relationship="SMECEntities.FK_Inscripcion_Configuracion" FromRole="Configuracion" ToRole="Inscripcion" />
           <NavigationProperty Name="Modulos" Relationship="SMECEntities.FK_Modulo_Configuracion" FromRole="Configuracion" ToRole="Modulos" />
         </EntityType>
@@ -5344,6 +5395,27 @@
                 <ScalarProperty Name="claseid" ColumnName="claseid" />
                 <ScalarProperty Name="personaid" ColumnName="personaid" />
                 <ScalarProperty Name="id" ColumnName="id" />
+
+                <ScalarProperty Name="p4a" ColumnName="p4a" />
+                <ScalarProperty Name="p4b" ColumnName="p4b" />
+                <ScalarProperty Name="p4c" ColumnName="p4c" />
+                <ScalarProperty Name="p4d" ColumnName="p4d" />
+                <ScalarProperty Name="p5" ColumnName="p5" />
+                <ScalarProperty Name="p6" ColumnName="p6" />
+                <ScalarProperty Name="p7" ColumnName="p7" />
+                <ScalarProperty Name="p8" ColumnName="p8" />
+                <ScalarProperty Name="p9" ColumnName="p9" />
+                <ScalarProperty Name="p10a" ColumnName="p10a" />
+                <ScalarProperty Name="p10b" ColumnName="p10b" />
+                <ScalarProperty Name="p10c" ColumnName="p10c" />
+                <ScalarProperty Name="p11a" ColumnName="p11a" />
+                <ScalarProperty Name="p11b" ColumnName="p11b" />
+                <ScalarProperty Name="p11c" ColumnName="p11c" />
+                <ScalarProperty Name="p12a" ColumnName="p12a" />
+                <ScalarProperty Name="p12b" ColumnName="p12b" />
+                <ScalarProperty Name="p12c" ColumnName="p12c" />
+                <ScalarProperty Name="p13" ColumnName="p13" />
+
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -5386,8 +5458,9 @@
                 <ScalarProperty Name="fechafin" ColumnName="fechafin" />
                 <ScalarProperty Name="fechainicio" ColumnName="fechainicio" />
                 <ScalarProperty Name="id" ColumnName="id" />
-		<ScalarProperty Name="organizacion" ColumnName="organizacion" />
-		<ScalarProperty Name="organizacionotro" ColumnName="organizacionotro" />
+		            <ScalarProperty Name="organizacion" ColumnName="organizacion" />
+		            <ScalarProperty Name="organizacionotro" ColumnName="organizacionotro" />
+                <ScalarProperty Name="participaid" ColumnName="participaid" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -11,6 +11,7 @@
 
                 self.fechainicio= ko.observable(DateIni()),
                 self.fechafin= ko.observable(DateNow())
+                self.aud_usuariomod= ko.observable('@ViewBag.usuarioid')
 
                 self.listTipo1 = [
                     { id: 1, nombre: "CONDICION FINAL" },
@@ -25,7 +26,7 @@
                     { id: 5, nombre: "EDAD" },
                 ];
 
-                
+
 
                 self.listPeriodo = [
                     { id: 1, nombre: "Mensual" },
@@ -41,13 +42,15 @@
                 self.listNivel2= ko.observableArray([]);
                 self.listNivel2 = getJson('@Url.Content("~/Api/General/NivelPrograma")', { programa: 2 })
 
-                
+
                 self.listEjeIntervencion = getJson('@Url.Content("~/api/General/EjeIntervencion02")');
                 self.listTelecentros = ko.observableArray([]);
-                
+
                 self.idEjeIntervencion= ko.observable('@ViewBag.ejeid'),
                 self.idTelecentro = ko.observable('@ViewBag.telecentroid'),
-               
+
+                self.listUsuario = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(ViewBag.ListUsuario));
+
 
                 self.idTipo1 = ko.observable();
                 self.idTipo2 = ko.observable();
@@ -57,8 +60,9 @@
                 self.idPrograma = ko.observable();
                 self.idPeriodo = ko.observable();
                 self.idFormato = ko.observable();
-                
-               
+                self.aud_usuariomod = ko.observable();
+
+
                 /////////////////////////////////////////////////////////////////
 
                 var updateTelecentros = function (id) {
@@ -93,21 +97,21 @@
             })
         }
 
-        function report(id, fechainicio, fechafin, periodoid, programaid, nivelid, ejeid, telecentroid, tipoid, formatoid) {
+        function report(id, fechainicio, fechafin, periodoid, programaid, nivelid, ejeid, telecentroid, tipoid, formatoid, usuarioid) {
             if ($("#frmBuscar").refreshValidator().valid()) {
 
-               
+
                 var fechainicio = formatDate_YYYYMMDD(fechainicio);
                 var fechafin = formatDate_YYYYMMDD(fechafin);
 
-               
+
                 if (typeof ejeid === 'undefined' || ejeid == '0')
                 {
                     ejeid = '0';
                     telecentroid = '0';
                 }
 
-                
+
                 if (typeof telecentroid === 'undefined')
                     telecentroid = '0';
 
@@ -155,18 +159,18 @@
         function excel(id, fechainicio, fechafin, periodoid, programaid, nivelid, ejeid, telecentroid, tipoid, formatoid) {
             if ($("#frmBuscar").refreshValidator().valid()) {
 
-               
+
                 var fechainicio = formatDate_YYYYMMDD(fechainicio);
                 var fechafin = formatDate_YYYYMMDD(fechafin);
 
-               
+
                 if (typeof ejeid === 'undefined' || ejeid == '0')
                 {
                     ejeid = '0';
                     telecentroid = '0';
                 }
 
-                
+
                 if (typeof telecentroid === 'undefined')
                     telecentroid = '0';
 
@@ -187,7 +191,7 @@
                 else
                     nivelid = '0';
 
-                
+
 
 
                 if (programaid == '1' || programaid == '2' || programaid == '4') {
@@ -212,7 +216,7 @@
             }
         }
 
-    
+
     </script>
 }
 
@@ -241,6 +245,11 @@
             <td></td>
             <td>Periodo</td>
             <td>@Html.koSelect("idPeriodo", "$root.listPeriodo",true)</td>
+            <td></td>
+            <td>Promotores</td>
+            <td>
+                @Html.koSelectV3("aud_usuariomod", "$root.listUsuario", enable: "true")
+            </td>
         </tr>
         <tr>
             <td>Eje de Intervencion</td>
@@ -260,6 +269,9 @@
                     </tr>
                 </table>*@
             </td>
+            <td></td>
+            <td></td>
+            <td></td>
         </tr>
     </table>
 
@@ -291,7 +303,7 @@
                     @Html.koSelect("idTipo1", "$root.listTipo1", false)
                 </td>
                 <td style="text-align: center">
-                    <button type="button" class="btn report" title="Reporte" data-bind="click: function () { report(3, $root.fechainicio, $root.fechafin, idPeriodo(), 1, idNivel1(), idEjeIntervencion(), idTelecentro(), idTipo1(), idFormato()) }"></button>
+                    <button type="button" class="btn report" title="Reporte" data-bind="click: function () { report(3, $root.fechainicio, $root.fechafin, idPeriodo(), 1, idNivel1(), idEjeIntervencion(), idTelecentro(), idTipo1(), idFormato(), aud_usuariomod()) }"></button>
                 </td>
                 <td></td>
             </tr>  
@@ -303,7 +315,7 @@
                     @Html.koSelect("idTipo3", "$root.listTipo3",false)
                 </td>
                 <td style="text-align: center">
-                    <button type="button" class="btn report" title="Reporte" data-bind="click: function () { report(3, $root.fechainicio, $root.fechafin, idPeriodo(), 2, idNivel2(), idEjeIntervencion(), idTelecentro(), idTipo3(), idFormato()) }"></button>
+                    <button type="button" class="btn report" title="Reporte" data-bind="click: function () { report(3, $root.fechainicio, $root.fechafin, idPeriodo(), 2, idNivel2(), idEjeIntervencion(), idTelecentro(), idTipo3(), idFormato(), aud_usuariomod()) }"></button>
                 </td>
                 <td>
                 </td>
@@ -314,7 +326,7 @@
                 <td></td>
                 <td></td>
                 <td style="text-align: center">
-                    <button type="button" class="btn report" title="Reporte" data-bind="click: function () { report(12, $root.fechainicio, $root.fechafin, idPeriodo(), 3, idNivel2(), idEjeIntervencion(), idTelecentro(), idTipo3(), idFormato()) }"></button>
+                    <button type="button" class="btn report" title="Reporte" data-bind="click: function () { report(12, $root.fechainicio, $root.fechafin, idPeriodo(), 3, idNivel2(), idEjeIntervencion(), idTelecentro(), idTipo3(), idFormato(), aud_usuariomod()) }"></button>
                 </td>
                 <td></td>
             </tr>   

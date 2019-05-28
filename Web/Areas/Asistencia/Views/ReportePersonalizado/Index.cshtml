@@ -18,8 +18,9 @@
 
                 self.idEjeIntervencion= ko.observable('@ViewBag.ejeid')
                 self.idTelecentro= ko.observable('@ViewBag.telecentroid')
+                self.aud_usuariomod= ko.observable('@ViewBag.usuarioid')
 
-
+                self.listUsuario = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(ViewBag.ListUsuario));
                 /////////////////////////////////////////////////////////////////
 
                 var updateTelecentros = function (id) {
@@ -102,6 +103,11 @@
                 <td>
                     @Html.koDate("$root.fechafin", width: 100, required: true, min: "$root.fechainicio")
                 </td>
+                <td></td>
+                <td>Promotores</td>
+                <td>
+                    @Html.koSelectV3("aud_usuariomod", "$root.listUsuario", enable: "true")
+                </td>
             </tr>
             <tr>
                 <td>Eje de Intervencion</td>
@@ -109,6 +115,7 @@
                 <td></td>
                 <td>Localidad</td>
                 <td>@Html.koSelect("idTelecentro", "$root.listTelecentros", "$root.listTelecentros()", false)</td>
+                <td></td>
                 <td></td>
             </tr>
         </table>

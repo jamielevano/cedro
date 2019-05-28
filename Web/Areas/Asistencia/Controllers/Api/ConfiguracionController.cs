@@ -177,7 +177,7 @@ namespace Web.Areas.Asistencia.Controllers.Api
                     _item.aud_fechamod = item.aud_fechamod;
                     _item.organizacion = item.organizacion;
                     _item.organizacionotro = item.organizacionotro;
-
+                    _item.participaid = item.participaid;
 
                     if (_item.cerrado == true)
                     {

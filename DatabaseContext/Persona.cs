@@ -63,8 +63,28 @@ namespace DatabaseContext
         public string nombre_original { get; set; }
         public Nullable<int> notaentrada { get; set; }
         public Nullable<int> notasalida { get; set; }
-	public Nullable<bool> usodatos { get; set; }
-    
+	    public Nullable<bool> usodatos { get; set; }
+
+        public Nullable<int> p4a { get; set; }
+        public Nullable<int> p4b { get; set; }
+        public Nullable<int> p4c { get; set; }
+        public Nullable<int> p4d { get; set; }
+        public Nullable<int> p5 { get; set; }
+        public Nullable<int> p6 { get; set; }
+        public Nullable<int> p7 { get; set; }
+        public Nullable<int> p8 { get; set; }
+        public Nullable<int> p9 { get; set; }
+        public Nullable<int> p10a { get; set; }
+        public Nullable<int> p10b { get; set; }
+        public Nullable<int> p10c { get; set; }
+        public Nullable<int> p11a { get; set; }
+        public Nullable<int> p11b { get; set; }
+        public Nullable<int> p11c { get; set; }
+        public Nullable<int> p12a { get; set; }
+        public Nullable<int> p12b { get; set; }
+        public Nullable<int> p12c { get; set; }
+        public Nullable<int> p13 { get; set; }
+
         public virtual ICollection<Inscripcion> Inscripcion { get; set; }
         public virtual ICollection<Participantes> Participantes { get; set; }
     }

@@ -87,9 +87,9 @@
             <table class="grid">
             <colgroup>
                 <col style="width: 40px" />
-                <col style="width: 180px" />
-                <col style="width: 180px" />
-                <col style="width: 180px" />
+                <col style="width: 100px" />
+                <col style="width: 100px" />
+                <col style="width: 100px" />
                 <col style="width: 80px" />
                 <col />
                 <col />
@@ -98,6 +98,24 @@
                 <col style="width: 48px" />
             </colgroup>
             <thead>
+                <tr>
+                    <th colspan="7">GENERAL</th>
+                    <th colspan="2">ANTI</th>
+                    <th colspan="4" title="¿Cómo calificarías la sesión brindada por el promotor ?"> 4</th>
+                    <th rowspan="2" title="¿Recomendarías el curso de educaiónn financiera a otras personas?">5</th>
+                    <th rowspan="2" title="¿Por qué es importante ahorrar en una institución financiera?">6</th>
+                    <th rowspan="2" title="¿ Por qué es importante hacer un presupuesto?">7</th>
+                    <th rowspan="2" title="¿Cuáles son las consecuencias del incumplimiento de un crédito?">8</th>
+                    <th rowspan="2" title="¿cuáles son las responsabilidades al adquirir un crédito?">9</th>
+                    
+                    <th colspan="3" title="¿Qué productos financieros usas actualmente?">10</th>
+                    <th colspan="3" title="¿Qué criterios tendrías en cuenta al solicitar un crédito?">11</th>
+                    <th colspan="3" title="¿ Qué criterios tendrías encuenta al abrir una cuenta de ahorros?">12</th>
+
+                    <th rowspan="2" title="¿ Cuál de los productos financieros te sirven más para tu vida diaria?">13</th>
+
+                    <th>Sel.</th>
+                </tr>
                 <tr>
                     <th>COD</th>
                     <th>APELLIDO PATERNO</th>
@@ -108,6 +126,24 @@
                     <th>LOCALIDAD</th>
                     <th>PE</th>
                     <th>PS</th>
+
+                    <th>4.a</th>
+                    <th>4.b</th>
+                    <th>4.c</th>
+                    <th>4.d</th>
+
+                    <th>a</th>
+                    <th>b</th>
+                    <th>c</th>
+
+                    <th>a</th>
+                    <th>b</th>
+                    <th>c</th>
+                   
+                    <th>a</th>
+                    <th>b</th>
+                    <th>c</th>
+
                     <th>
                         <input type="checkbox" data-bind="checked: SelectAll" />
                     </th>
@@ -131,6 +167,79 @@
                     <td>
                         @Html.koNumeric("notasalida", maxlength:5, required:false)
                     </td>
+
+
+
+
+                    <td>
+                        @Html.koNumeric("p4a", @decimal: false, maxlength: 2, required: false)
+                    </td>
+                    <td>
+                        @Html.koNumeric("p4b", @decimal: false, maxlength: 2, required: false)
+                    </td>
+                    <td>
+                        @Html.koNumeric("p4c", @decimal: false, maxlength: 2, required: false)
+                    </td>
+                    <td>
+                        @Html.koNumeric("p4d", @decimal: false, maxlength: 2, required: false)
+                    </td>
+
+
+                    <td>
+                        @Html.koNumeric("p5", @decimal: false, maxlength: 2, required: false)
+                    </td>
+                    <td>
+                        @Html.koNumeric("p6", @decimal: false, maxlength: 2, required: false)
+                    </td>
+                    <td>
+                        @Html.koNumeric("p7", @decimal: false, maxlength: 2, required: false)
+                    </td>
+                    <td>
+                        @Html.koNumeric("p8", @decimal: false, maxlength: 2, required: false)
+                    </td>
+                    <td>
+                        @Html.koNumeric("p9", @decimal: false, maxlength: 2, required: false)
+                    </td>
+
+
+                    <td>
+                        @Html.koNumeric("p10a", @decimal: false, maxlength: 2, required: false)
+                    </td>
+                    <td>
+                        @Html.koNumeric("p10b", @decimal: false, maxlength: 2, required: false)
+                    </td>
+                    <td>
+                        @Html.koNumeric("p10c", @decimal: false, maxlength: 2, required: false)
+                    </td>
+
+
+                    <td>
+                        @Html.koNumeric("p11a", @decimal: false, maxlength: 2, required: false)
+                    </td>
+                    <td>
+                        @Html.koNumeric("p11b", @decimal: false, maxlength: 2, required: false)
+                    </td>
+                    <td>
+                        @Html.koNumeric("p11c", @decimal: false, maxlength: 2, required: false)
+                    </td>
+
+
+                    <td>
+                        @Html.koNumeric("p12a", @decimal: false, maxlength: 2, required: false)
+                    </td>
+                    <td>
+                        @Html.koNumeric("p12b", @decimal: false, maxlength: 2, required: false)
+                    </td>
+                    <td>
+                        @Html.koNumeric("p12c", @decimal: false, maxlength: 2, required: false)
+                    </td>
+
+                    <td>
+                        @Html.koNumeric("p13", @decimal: false, maxlength: 2, required: false)
+                    </td>
+
+
+
                     <td style="text-align: center">
                         <input type="checkbox" data-bind="checked: estado, attr: { name: 'checkBoxPersona' + id }" />
                     </td>

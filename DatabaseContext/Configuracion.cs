@@ -58,7 +58,9 @@ namespace DatabaseContext
         public string aud_ipmod { get; set; }
 	public Nullable<int> organizacion { get; set; }
 	public string organizacionotro { get; set; }
-    
+        public Nullable<int> participaid { get; set; }
+
+
         public virtual ICollection<Inscripcion> Inscripcion { get; set; }
         public virtual ICollection<Modulos> Modulos { get; set; }
     }
