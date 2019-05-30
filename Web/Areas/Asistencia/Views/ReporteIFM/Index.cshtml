@@ -11,7 +11,7 @@
 
                 self.fechainicio= ko.observable(DateIni()),
                 self.fechafin= ko.observable(DateNow())
-                self.aud_usuariomod= ko.observable('@ViewBag.usuarioid')
+                //self.aud_usuariomod= ko.observable('@ViewBag.usuarioid')
 
                 self.listTipo1 = [
                     { id: 1, nombre: "CONDICION FINAL" },
@@ -97,10 +97,10 @@
             })
         }
 
-        function report(id, fechainicio, fechafin, periodoid, programaid, nivelid, ejeid, telecentroid, tipoid, formatoid, usuarioid) {
+        function report(id, fechainicio, fechafin, periodoid, programaid, nivelid, ejeid, telecentroid, tipoid, formatoid, aud_usuariomod) {
             if ($("#frmBuscar").refreshValidator().valid()) {
 
-
+                
                 var fechainicio = formatDate_YYYYMMDD(fechainicio);
                 var fechafin = formatDate_YYYYMMDD(fechafin);
 
@@ -117,6 +117,9 @@
 
                 if (typeof periodoid === 'undefined')
                     periodoid = '0';
+
+                if (typeof aud_usuariomod === 'undefined')
+                    aud_usuariomod = '0';
 
                 if (typeof programaid === 'undefined') {
                         alert('Seleccione un programa');
@@ -147,7 +150,7 @@
 
                 var cadena = "../Reports/Asistencia.aspx?reporte=" + id + "&fechainicio=" + fechainicio + "&fechafin=" + fechafin +
                                 "&periodoid=" + periodoid + "&programaid=" + programaid + "&nivelid=" + nivelid +
-                                "&ejeid=" + ejeid + "&telecentroid=" + telecentroid + "&tipoid=" + tipoid + "&formatoid=" + ((formatoid)?"1":"0");
+                                "&ejeid=" + ejeid + "&telecentroid=" + telecentroid + "&tipoid=" + tipoid + "&formatoid=" + ((formatoid)?"1":"0") + "&usuarioid=" + aud_usuariomod;
 
 
                 ShowPopupArchivo(cadena, 1140, 600);
@@ -248,7 +251,7 @@
             <td></td>
             <td>Promotores</td>
             <td>
-                @Html.koSelectV3("aud_usuariomod", "$root.listUsuario", enable: "true")
+                @Html.koSelect("aud_usuariomod", "$root.listUsuario", true)
             </td>
         </tr>
         <tr>

@@ -13,7 +13,7 @@ namespace Web.Reports
 {
     public partial class Asistencia : System.Web.UI.Page
     {
-
+        
         string Reporte = string.Empty;
         string Archivo = string.Empty;
 
@@ -62,7 +62,8 @@ namespace Web.Reports
                 string excel = string.Empty;
                 string formato = string.Empty;
                 string procedurename = string.Empty;
-                
+                string usuarioid = string.Empty;
+
                 switch (Reporte)
                 {
 
@@ -107,6 +108,7 @@ namespace Web.Reports
                         tipo = Request.QueryString["tipoid"].ToString();
                         formato = Request.QueryString["formatoid"].ToString();
                         Archivo = sPath + "CapacitacionResumen" + tipo + ".rdlc";
+                        usuarioid = Request.QueryString["usuarioid"].ToString();
 
                         procedurename = (tipo == "0") ? "prpt_asistencia_listado" : "prpt_asistencia_resumen";
 
@@ -117,7 +119,8 @@ namespace Web.Reports
                                         new SqlParameter("@programaid", programaid),
                                         new SqlParameter("@nivelid", nivelid),
                                         new SqlParameter("@ejeid", ejeid),
-                                        new SqlParameter("@telecentroid", telecentroid)});
+                                        new SqlParameter("@telecentroid", telecentroid),
+                                        new SqlParameter("@usuarioid", usuarioid)});
                         break;
 
                     case "502":
@@ -213,12 +216,15 @@ namespace Web.Reports
                         telecentroid = Request.QueryString["telecentroid"].ToString();
                         fechainicio = Request.QueryString["fechainicio"].ToString();
                         fechafin = Request.QueryString["fechafin"].ToString();
+                        usuarioid = Request.QueryString["usuarioid"].ToString();
                         Archivo = sPath + "AsistenteParticipante.rdlc";
+
                         dt = new Repositorio.General().ExecuteStoredProcedure(new SMECEntities(), "prpt_all_capacitados",
                                 new[] { new SqlParameter("@fechaini", fechainicio) ,
                                         new SqlParameter("@fechafin", fechafin) ,
                                         new SqlParameter("@ejeid", ejeid),
-                                        new SqlParameter("@telecentroid", telecentroid)});
+                                        new SqlParameter("@telecentroid", telecentroid),
+                                        new SqlParameter("@usuarioid", usuarioid)});
                         break;
 
 
@@ -330,13 +336,16 @@ namespace Web.Reports
                         telecentroid = Request.QueryString["telecentroid"].ToString();
                         fechainicio = Request.QueryString["fechainicio"].ToString();
                         fechafin = Request.QueryString["fechafin"].ToString();
+                        usuarioid = Request.QueryString["usuarioid"].ToString();
+
                         Archivo = sPath + "ResumenActividades.rdlc";
                         dt = new Repositorio.General().ExecuteStoredProcedure(new SMECEntities(), "prpt_resumen_actividad",
                                 new[] { new SqlParameter("@fechaini", fechainicio) ,
                                         new SqlParameter("@fechafin", fechafin) ,
                                         new SqlParameter("@actividadid", actividadid),
                                         new SqlParameter("@ejeid", ejeid),
-                                        new SqlParameter("@telecentroid", telecentroid)});
+                                        new SqlParameter("@telecentroid", telecentroid),
+                                        new SqlParameter("@usuarioid", telecentroid)});
                         break;
 
                     case "300":

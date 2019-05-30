@@ -161,6 +161,26 @@ namespace Web.Areas.Asistencia.Controllers.Api
                 }
                 else
                 {
+
+                    if(item.cerrado == true)
+                    {
+                        var a = db.Modulos.FirstOrDefault(x => x.configuracionid == item.id);
+                        var b = db.Sesion.FirstOrDefault(x => x.moduloid == a.id);
+                        var c = db.Participantes.FirstOrDefault(x => x.claseid == b.id &&
+                                                                (x.p4a == null || x.p4b == null || x.p4c == null || x.p4d == null ||
+                                                                x.p5 == null || x.p6 == null || x.p7 == null || x.p8 == null || x.p9 == null ||
+                                                                x.p10a == null || x.p10b == null || x.p10c == null ||
+                                                                x.p11a == null || x.p11b == null || x.p11c == null ||
+                                                                x.p12a == null || x.p12b == null || x.p12c == null ||
+                                                                x.p13 == null)
+                        );
+
+                        if (c != null)
+                            return;
+                    }
+
+
+
                     var _item = db.Configuracion.SingleOrDefault(x => x.id == item.id);
                     _item.nombre = item.nombre;
                     _item.fechainicio = item.fechainicio;

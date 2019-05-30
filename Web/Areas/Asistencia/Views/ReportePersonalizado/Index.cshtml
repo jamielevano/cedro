@@ -18,10 +18,11 @@
 
                 self.idEjeIntervencion= ko.observable('@ViewBag.ejeid')
                 self.idTelecentro= ko.observable('@ViewBag.telecentroid')
-                self.aud_usuariomod= ko.observable('@ViewBag.usuarioid')
+                //self.aud_usuariomod= ko.observable('@ViewBag.usuarioid')
 
                 self.listUsuario = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(ViewBag.ListUsuario));
                 /////////////////////////////////////////////////////////////////
+                self.aud_usuariomod = ko.observable();
 
                 var updateTelecentros = function (id) {
                     //self.idTelecentro(undefined);
@@ -51,7 +52,7 @@
 
 
 
-        function report(id, fechainicio, fechafin, ejeid, telecentroid ) {
+        function report(id, fechainicio, fechafin, ejeid, telecentroid, aud_usuariomod ) {
 
             if ($("#frmBuscar").refreshValidator().valid()) {
 
@@ -68,8 +69,11 @@
                 if (typeof telecentroid === 'undefined')
                     telecentroid = '0';
 
+                if (typeof aud_usuariomod === 'undefined')
+                    aud_usuariomod = '0';
+
                 var cadena = "../Reports/Asistencia.aspx?reporte=" + id + "&fechainicio=" + fechainicio + "&fechafin=" + fechafin +
-                                "&ejeid=" + ejeid + "&telecentroid=" + telecentroid;
+                                "&ejeid=" + ejeid + "&telecentroid=" + telecentroid + "&usuarioid=" + aud_usuariomod;
 
                 ShowPopupArchivo(cadena, 1140, 600);
             }
@@ -106,7 +110,7 @@
                 <td></td>
                 <td>Promotores</td>
                 <td>
-                    @Html.koSelectV3("aud_usuariomod", "$root.listUsuario", enable: "true")
+                    @Html.koSelect("aud_usuariomod", "$root.listUsuario", true)
                 </td>
             </tr>
             <tr>
@@ -138,14 +142,14 @@
                     <td style="padding-left:5px">1</td>
                     <td>Base de Datos Unica</td>
                     <td style="text-align: center">
-                        <button type="button" class="btn report" title="Reporte" data-bind="click: function () { report(6, $root.fechainicio, $root.fechafin, idEjeIntervencion(), idTelecentro() ) }"></button>
+                        <button type="button" class="btn report" title="Reporte" data-bind="click: function () { report(6, $root.fechainicio, $root.fechafin, idEjeIntervencion(), idTelecentro(), aud_usuariomod() ) }"></button>
                     </td>
                 </tr>
                 <tr>
                     <td style="padding-left:5px">2</td>
                     <td>Listado de participantes sin Capacitacion</td>
                     <td style="text-align: center">
-                        <button type="button" class="btn report" title="Reporte" data-bind="click: function () { report(7, $root.fechainicio, $root.fechafin, idEjeIntervencion(), idTelecentro() ) }"></button>
+                        <button type="button" class="btn report" title="Reporte" data-bind="click: function () { report(7, $root.fechainicio, $root.fechafin, idEjeIntervencion(), idTelecentro(), aud_usuariomod() ) }"></button>
                     </td>
                 </tr>
             </tbody>
