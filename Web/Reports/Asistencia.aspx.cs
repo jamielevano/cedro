@@ -316,6 +316,7 @@ namespace Web.Reports
                         fechafin = Request.QueryString["fechafin"].ToString();
                         tipo = Request.QueryString["tipoid"].ToString();
                         formato = Request.QueryString["formatoid"].ToString();
+                        usuarioid = Request.QueryString["usuarioid"].ToString();
                         Archivo = sPath + "CapacitacionResumenPer.rdlc";
 
                         procedurename = (tipo == "0") ? "prpt_asistencia_resumen_capacitados" : "prpt_asistencia_resumen_capacitados";
@@ -327,7 +328,8 @@ namespace Web.Reports
                                         new SqlParameter("@programaid", programaid),
                                         new SqlParameter("@nivelid", nivelid),
                                         new SqlParameter("@ejeid", ejeid),
-                                        new SqlParameter("@telecentroid", telecentroid)});
+                                        new SqlParameter("@telecentroid", telecentroid),
+                                        new SqlParameter("@usuarioid", usuarioid)});
                         break;
 
                     case "13":

@@ -71,7 +71,7 @@
             }
         })
 
-        
+         
     </script>
 }
 
@@ -100,7 +100,7 @@
             <thead>
                 <tr>
                     <th colspan="7">GENERAL</th>
-                    <th colspan="2">ANTI</th>
+                    @*<th colspan="2">ANTI</th>*@
                     <th colspan="4" title="¿Cómo calificarías la sesión brindada por el promotor ?"> 4</th>
                     <th rowspan="2" title="¿Recomendarías el curso de educaiónn financiera a otras personas?">5</th>
                     <th rowspan="2" title="¿Por qué es importante ahorrar en una institución financiera?">6</th>
@@ -124,8 +124,8 @@
                     <th>DNI</th>
                     <th>EJE INTERVENCION</th>
                     <th>LOCALIDAD</th>
-                    <th>PE</th>
-                    <th>PS</th>
+                    @*<th>PE</th>
+                    <th>PS</th>*@
 
                     <th>4.a</th>
                     <th>4.b</th>
@@ -161,12 +161,14 @@
                     <td style="text-align: center" data-bind="text: dni"></td>
                     <td data-bind="text: ejeintervencion"></td>
                     <td data-bind="text: localidad"></td>
-                    <td>
+
+
+                    @*<td>
                         @Html.koNumeric("notaentrada", maxlength:5, required:false)
                     </td>
                     <td>
                         @Html.koNumeric("notasalida", maxlength:5, required:false)
-                    </td>
+                    </td>*@
 
 
 

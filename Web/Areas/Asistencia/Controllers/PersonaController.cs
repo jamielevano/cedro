@@ -17,7 +17,7 @@ namespace Web.Areas.Asistencia.Controllers
         public ActionResult Edit()
         {   
             using (var db = new SMECEntities())
-            {
+            { 
                 //var telecentro = db.Usuario.Where(x => x.login == User.Identity.Name).FirstOrDefault().telecentro;
                 //var eje = db.ListaDetalle.Where(x => x.listaid == 54 && x.codigo == telecentro).FirstOrDefault().relacionid;
 

@@ -150,7 +150,7 @@ namespace Web.Areas.Asistencia.Controllers.Api
                     _item.orden = item.orden;
                 }
 
-                db.SaveChanges();
+                db.SaveChanges(); 
             }
         }
 

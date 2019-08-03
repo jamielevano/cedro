@@ -100,7 +100,7 @@ namespace Web.Areas.Asistencia.Controllers.Api
             {
                 db.Inscripcion.Remove(db.Inscripcion.Find(item.id));
                 db.SaveChanges();
-            }
+            } 
         }
         
     }

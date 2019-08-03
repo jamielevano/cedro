@@ -66,7 +66,7 @@
                     self.listTelecentros(undefined);
                     if (id) {
                         self.listTelecentros(getJson('@Url.Content("~/Api/General/Eje_Telecentros")', { eje: id }))
-                    }
+                    } 
                 };
 
                 self.data.ejeintervencionid.subscribe(updateTelecentros);
@@ -74,7 +74,7 @@
                     var telecentroid = self.data.telecentroid();
                     updateTelecentros(self.data.ejeintervencionid());
                     self.data.telecentroid(telecentroid);
-                }
+                } 
 
                 /////////////////////////////////////////////////////////////////
 

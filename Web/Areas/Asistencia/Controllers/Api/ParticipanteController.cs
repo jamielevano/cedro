@@ -70,7 +70,7 @@ namespace Web.Areas.Asistencia.Controllers.Api
                     .OrderBy(x => new { x.apellidopaterno, x.apellidomaterno, x.nombre })
                     .ToList();
             }   
-        }
+        } 
 
 
         public void Save(ParticipanteModel item)

@@ -45,8 +45,9 @@ namespace Web.Areas.Asistencia.Controllers
             ViewBag.telecentroid = Session.GetDataFromSession("Configuracion_telecentroid");
             ViewBag.ejeid = Session.GetDataFromSession("Configuracion_ejeintervencionid");
             ViewBag.organizacion = Session.GetDataFromSession("Configuracion_organizacion");
+            ViewBag.fecini = Session.GetDataFromSession("Configuracion_fecini");
+            ViewBag.fecfin = Session.GetDataFromSession("Configuracion_fecfin");
 
-            
             var db = new SMECEntities();
             ViewBag.ListUsuario = db.Usuario
                                         .Where(x => x.nombre != null)

@@ -65,7 +65,8 @@ namespace Web.Areas.Monitoreo.Controllers.Api
                         periodofin = x.PlanOperativoTareaTC.PlanOperativoTC.periodofin,
                         tarea = x.PlanOperativoTareaTC.codigo + "-" + x.PlanOperativoTareaTC.tarea,
                         actividad = x.PlanOperativoTareaTC.PlanOperativoTC.codigo + "-" + x.PlanOperativoTareaTC.PlanOperativoTC.actividad,
-                        resultado = x.PlanOperativoTareaTC.PlanOperativoTC.ResultadoTC.codigo + "-" + x.PlanOperativoTareaTC.PlanOperativoTC.ResultadoTC.nombre
+                        resultado = x.PlanOperativoTareaTC.PlanOperativoTC.ResultadoTC.codigo + "-" + x.PlanOperativoTareaTC.PlanOperativoTC.ResultadoTC.nombre,
+                        horas = x.horas
                     })
                     .FirstOrDefault();
 
@@ -437,7 +438,8 @@ namespace Web.Areas.Monitoreo.Controllers.Api
                         }
                         #endregion
 
-
+                        Configuracion oConfiguracion = db.Configuracion.FirstOrDefault(x => x.id == item.codigocapacitacion);
+                        if(oConfiguracion != null) oConfiguracion.horas = _item.horas;
 
                     }
 

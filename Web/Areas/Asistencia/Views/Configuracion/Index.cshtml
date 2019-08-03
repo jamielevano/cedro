@@ -19,7 +19,9 @@
                     moduloid: ko.observable('@ViewBag.moduloid'),
                     anioid: ko.observable('@ViewBag.anioid'),
                     mesid: ko.observable('@ViewBag.mesid'),
-                    id: ko.observable('@ViewBag.id')
+                    id: ko.observable('@ViewBag.id'),
+                    fechaini: ko.observable('@ViewBag.fecini'),
+                    fechafin: ko.observable('@ViewBag.fecfin')
                 };
 
                 self.listModulo = ko.observableArray([]);
@@ -194,7 +196,7 @@
                                 DESDE
                             </td>
                             <td>
-                                @Html.koDate("data.fechaIni", required: false, enable: "true")
+                                @Html.koDate("data.fechaini", required: false)
                             </td>
                             @*<td>
                                 @Html.koSelect("data.anioid", "$root.listAnio",requerido:false)
@@ -204,10 +206,10 @@
                                 HASTA
                             </td>
                             <td>
-                               @Html.koDate("data.fechaFin", required: false, enable: "true")
+                               @Html.koDate("data.fechafin" , required: false)
                                @*@Html.koSelect("data.mesid", "$root.listMes",requerido:false)*@
                             </td>
-                            <td></td>
+                           
                             <td>
                                 CODIGO DE CAPACITACION
                             </td>
@@ -225,6 +227,11 @@
                                 @Html.koSelect("data.capacitadorid", "$root.listUsuario", requerido: false)
                                 @*@Html.koSelectV3("data.aud_usuariomod", "$root.listUsuario", )*@
                             </td>
+
+                            <td>PARTICIPACION DE</td>
+                            <td>@Html.koSelect("data.participaid", "$root.listOrganizacion", requerido: false)</td>
+
+
                         </tr>
                     </table>
                 </form>

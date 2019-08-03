@@ -19,8 +19,8 @@ namespace Web.Areas.Asistencia.Models
         public int? organizacion { get; set; }
         public int? capacitadorid { get; set; }
 
-        public DateTime? fechaIni { get; set; }
-        public DateTime? fechaFin { get; set; }
-
+        public DateTime? fechaini { get; set; }
+        public DateTime? fechafin { get; set; }
+        public int? participaid { get; set; }        
     }
 }

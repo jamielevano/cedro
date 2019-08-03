@@ -31,8 +31,9 @@ namespace Web.Areas.Asistencia.Controllers.Api
             System.Web.HttpContext.Current.Session["Configuracion_mesid"] = data.mesid;
             System.Web.HttpContext.Current.Session["Configuracion_organizacion"] = data.organizacion;
             System.Web.HttpContext.Current.Session["Configuracion_organizacion"] = data.capacitadorid;
-            System.Web.HttpContext.Current.Session["Configuracion_fechaIni"] = data.fechaIni;
-            System.Web.HttpContext.Current.Session["Configuracion_fechaFin"] = data.fechaFin;
+            System.Web.HttpContext.Current.Session["Configuracion_fechaini"] = data.fechaini;
+            System.Web.HttpContext.Current.Session["Configuracion_fechafin"] = data.fechafin;
+            System.Web.HttpContext.Current.Session["Configuracion_participaid"] = data.participaid;
             //int telecentroid=0;
 
             //using (var db = new SMECEntities())
@@ -53,11 +54,12 @@ namespace Web.Areas.Asistencia.Controllers.Api
                         && (!data.moduloid.HasValue || x.Modulos.Any(m=>m.moduloid == data.moduloid.Value))
                         //&& (!data.anioid.HasValue || x.fechafin.Value.Year == data.anioid.Value)
                         //&& (!data.mesid.HasValue || x.fechafin.Value.Month == data.mesid.Value)
-                        && (!data.fechaIni.HasValue || x.fechainicio.Value >= data.fechaIni.Value)
-                        && (!data.fechaFin.HasValue || x.fechafin.Value <= data.fechaFin.Value)
+                        && (!data.fechafin.HasValue || x.fechafin.Value >= data.fechaini.Value)
+                        && (!data.fechafin.HasValue || x.fechafin.Value <= data.fechafin.Value)
                         && (!data.organizacion.HasValue || x.organizacion == data.organizacion.Value)
                         && (x.tipoid == data.tipoid)
                         && (!data.capacitadorid.HasValue || x.capacitadorid == data.capacitadorid.Value)
+                        && (!data.participaid.HasValue || x.participaid == data.participaid.Value)
                         //&& (Admin || x.telecentroid == telecentroid)
                         )
                     .Select(x => new
@@ -85,7 +87,8 @@ namespace Web.Areas.Asistencia.Controllers.Api
                         moduloid= (db.Modulos.FirstOrDefault(m=>m.configuracionid==x.id)==null)?0:db.Modulos.FirstOrDefault(m=>m.configuracionid==x.id).moduloid,
                         modulo = (x.programaid == 1 || x.programaid == 4) ? "" : db.ListaDetalle.FirstOrDefault(z => z.listaid == 39 &&
                                                                                      z.codigo == (db.Modulos.FirstOrDefault(m => m.configuracionid == x.id).moduloid)).nombre,
-                        error = (x.cerrado == true) ? (db.Inscripcion.Where(z => z.configuracionid == x.id).Count() != db.Inscripcion.Where(z => z.configuracionid == x.id && z.condicionid!=null).Count() ) : false
+                        error = (x.cerrado == true) ? (db.Inscripcion.Where(z => z.configuracionid == x.id).Count() != db.Inscripcion.Where(z => z.configuracionid == x.id && z.condicionid!=null).Count() ) : false,
+                        participacion = db.ListaDetalle.FirstOrDefault(z => z.listaid == 57 && z.codigo == x.organizacion).nombre.ToUpper()
                     })
                     .OrderByDescending(d=>d.fechainicio)
                     .ToList();
@@ -166,17 +169,18 @@ namespace Web.Areas.Asistencia.Controllers.Api
                     {
                         var a = db.Modulos.FirstOrDefault(x => x.configuracionid == item.id);
                         var b = db.Sesion.FirstOrDefault(x => x.moduloid == a.id);
-                        var c = db.Participantes.FirstOrDefault(x => x.claseid == b.id &&
+                        var d = db.Clase.FirstOrDefault(x => x.Sesion.id == b.id);
+                        var c = db.Participantes.FirstOrDefault(x => x.claseid == d.id &&
                                                                 (x.p4a == null || x.p4b == null || x.p4c == null || x.p4d == null ||
                                                                 x.p5 == null || x.p6 == null || x.p7 == null || x.p8 == null || x.p9 == null ||
-                                                                x.p10a == null || x.p10b == null || x.p10c == null ||
-                                                                x.p11a == null || x.p11b == null || x.p11c == null ||
-                                                                x.p12a == null || x.p12b == null || x.p12c == null ||
+                                                                !(x.p10a != null || x.p10b != null || x.p10c != null) ||
+                                                                !(x.p11a != null || x.p11b != null || x.p11c != null) ||
+                                                                !(x.p12a != null || x.p12b != null || x.p12c != null) ||
                                                                 x.p13 == null)
                         );
 
                         if (c != null)
-                            return;
+                            return; 
                     }
 
 

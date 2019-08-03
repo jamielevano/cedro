@@ -510,7 +510,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>CAPACIONES</Value>
+                            <Value>CAPACITACIONES</Value>
                             <Style>
                               <FontStyle>Normal</FontStyle>
                               <FontFamily>Calibri</FontFamily>
@@ -2090,7 +2090,7 @@
                                   <TablixMembers>
                                     <TablixMember>
                                       <TablixHeader>
-                                        <Size>2.5cm</Size>
+                                        <Size>2.87087cm</Size>
                                         <CellContents>
                                           <Textbox Name="Textbox11">
                                             <CanGrow>true</CanGrow>
@@ -2538,7 +2538,7 @@
                           <TablixMembers>
                             <TablixMember>
                               <TablixHeader>
-                                <Size>2.5cm</Size>
+                                <Size>2.87087cm</Size>
                                 <CellContents>
                                   <Textbox Name="Textbox13">
                                     <CanGrow>true</CanGrow>
@@ -2991,7 +2991,7 @@
                       <TablixMembers>
                         <TablixMember>
                           <TablixHeader>
-                            <Size>2.5cm</Size>
+                            <Size>2.87087cm</Size>
                             <CellContents>
                               <Textbox Name="Textbox22">
                                 <CanGrow>true</CanGrow>
@@ -3447,7 +3447,7 @@
                   <TablixMembers>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>2.5cm</Size>
+                        <Size>2.87087cm</Size>
                         <CellContents>
                           <Textbox Name="Textbox26">
                             <CanGrow>true</CanGrow>
@@ -3899,7 +3899,7 @@
               <TablixMembers>
                 <TablixMember>
                   <TablixHeader>
-                    <Size>2.5cm</Size>
+                    <Size>2.87087cm</Size>
                     <CellContents>
                       <Textbox Name="Textbox33">
                         <CanGrow>true</CanGrow>
@@ -3947,7 +3947,6 @@
                           <PaddingBottom>2pt</PaddingBottom>
                         </Style>
                       </Textbox>
-                      <rd:Selected>true</rd:Selected>
                     </CellContents>
                   </TablixHeader>
                   <TablixMembers>
@@ -4457,7 +4456,7 @@
         <DataSetName>DataSet1</DataSetName>
         <Top>0.3175cm</Top>
         <Height>4.2cm</Height>
-        <Width>36.21733cm</Width>
+        <Width>36.5882cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -4912,7 +4911,7 @@
     <Height>7.1927in</Height>
     <Style />
   </Body>
-  <Width>14.25879in</Width>
+  <Width>14.4048in</Width>
   <Page>
     <PageHeader>
       <Height>3.81001cm</Height>

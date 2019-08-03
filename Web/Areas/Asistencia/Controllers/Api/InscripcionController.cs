@@ -199,7 +199,7 @@ namespace Web.Areas.Asistencia.Controllers.Api
                         }
                     }
                     catch(Exception ex)
-                    {
+                    { 
                         Console.WriteLine(ex.Message);
                     }
                 }   

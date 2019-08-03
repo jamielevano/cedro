@@ -68,7 +68,8 @@ namespace Web.Areas.Planificacion.Controllers.Api
                     //id = x.codigo,--cesar
                     nombre = x.codigo
                 })
-                .ToList();
+                .ToList()
+                .OrderBy(x => x.nombre);
 
                 return res2;
             }
