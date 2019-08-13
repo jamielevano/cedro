@@ -1,0 +1,76 @@
+﻿@section scripts
+{
+    <script type="text/javascript">
+        $(function () {
+
+            var Model = function () {
+                var self = this;
+                self.data = {
+                    fechainicio: ko.observable(null),
+                    fechafin: ko.observable(null)
+                };
+
+                self.list = ko.observableArray();
+
+                self.Search = function (form) {
+                    self.list(undefined);
+                    postJson('@Url.Content("~/Api/Sistema/Log/Search")', JSON.parse(ko.mapping.toJSON(self.data)), function(data){
+                        self.list(data);
+                    })
+                }
+            }
+
+            ko.applyBindings(new Model());
+        })
+    </script>
+}
+
+<div class="toolbar">
+    <a class="back" href="@Url.Action("Index")"></a>
+    <button type="button" class="refresh" title="Refrescar" onclick="document.location.reload()"></button>
+</div>
+
+<fieldset>
+    <legend>BUSCAR REGISTROS LOG</legend>
+    <form data-bind="submit: Search">
+        <table style="width:100%;">
+            <tr>
+                <td>DESDE
+                </td>
+                <td>
+                    @Html.koDate("data.fechainicio",width:100)
+                </td>
+                <td></td>
+                <td>HASTA
+                </td>
+                <td>
+                    @Html.koDate("data.fechafin", min:"data.fechainicio",width:100)
+                </td>
+                <td></td>
+                <td>
+                    <button type="submit">Buscar</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</fieldset>
+
+<table class="grid" style="width: 95%">
+    <thead>
+        <tr>
+            <th style="width: 50px">Código</th>            
+            <th style="width: 100px">Fecha</th>
+            <th style="width: 120px">Usuario</th>
+            <th style="width: auto">Descripción</th>
+        </tr>
+    </thead>
+    <tbody data-bind="foreach: list">
+        <tr>
+            <td data-bind="text: id" style="text-align: right;width:40px"></td>            
+            <td data-bind="text: formatDate(fecha)" style="text-align: center"></td>
+            <td data-bind="text: login"></td>
+            <td data-bind="text: mensaje"></td>
+        </tr>
+    </tbody>
+</table>
+
