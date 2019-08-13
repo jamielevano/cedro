@@ -165,6 +165,7 @@ namespace Web.Areas.Asistencia.Controllers.Api
                 else
                 {
 
+                    /* Validacion de notas completas jlevano
                     if(item.cerrado == true)
                     {
                         var a = db.Modulos.FirstOrDefault(x => x.configuracionid == item.id);
@@ -182,7 +183,7 @@ namespace Web.Areas.Asistencia.Controllers.Api
                         if (c != null)
                             return; 
                     }
-
+                    */
 
 
                     var _item = db.Configuracion.SingleOrDefault(x => x.id == item.id);
